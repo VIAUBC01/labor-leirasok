@@ -79,7 +79,7 @@ Ahhoz, hogy riportokat készíthessük, az adatforráshoz adathalmazokat (datase
 
    A többi fülön most nincs dolgunk, kattintsunk az OK-ra.
 
-## Táblázatos riport készítése
+## A) feladatrész - Táblázatos riport készítése
 
 Most, hogy megvan a kapcsolatunk az adatbázis felé, és a lekérdezést is megírtuk, elkezdhetünk riportokat gyártani. A riport nem más, mint a lekérdezés eredménye megjelenítve táblázatokban, diagramokban.
 
@@ -129,7 +129,7 @@ Most, hogy megvan a kapcsolatunk az adatbázis felé, és a lekérdezést is meg
 
    ![Riport előnézete](images/rs-table-preview-2.png)
 
-## Csoportosítás és összegzés
+## B) feladatrész - Csoportosítás és összegzés
 
 A riport jelenleg ömlesztve tartalmazza az adatokat. Ezek eladási adatok, adott termékekből adott napon eladott mennyiség. Rendezzük csoportokba az adatokat.
 

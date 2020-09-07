@@ -1,6 +1,6 @@
 # Feladat 2: Számla ellenőrzése tárolt eljárással
 
-## Tárolt eljárás
+## A) feladatrész - Tárolt eljárás
 
 Írj tárolt eljárást `SzamlaEllenoriz` néven, aminek bemeneti paramétere egy `int` típusú és `@szamlaid` nevű számlaazonosító.
 
@@ -11,7 +11,7 @@
 
 A kiíráshoz használd a `print` parancsot: `PRINT 'Szoveg' + @valtozo + 'Szoveg'` Ügyelj rá, hogy a változónak char típusúnak kell lennie, egyéb típus, pl. szám konvertálása: `convert(varchar(5), @valtozo)`, pl. `PRINT 'Szoveg' + convert(varchar(5), @valtozo)`
 
-## Minden számla ellenőrzése
+## B) feladatrész - Minden számla ellenőrzése
 
 Írj T-SQL kódblokkot, ami az előző feladatban megírt eljárást hívja meg egyenként az összes számlára. Érdemes ehhez egy kurzort használnod, ami a számlákon fut végig.
 

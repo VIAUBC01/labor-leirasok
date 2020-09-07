@@ -44,6 +44,10 @@ A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető á
 - A megírt sql scriptek (szöveges fájlként),
 - Minden feladatról egy képernyőkép ami mutatja a feladatban megvalósított funkció eredményét. Pl. egy tárolt eljárás esetén a lefuttatása során kiírt üzenetek, egy trigger esetén a trigger tesztelésének eredménye mutatva a szükség szerint változott sorokat, stb.
 
+## Értékelés
+
+A laborban négy feladatrész van (az A és B feladatrészek kettőnek számítanak). Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
+
 ## Feladatok
 
 Összesen 3 feladat van. [Itt kezdd](Feladat-1.md) az első feladattal.

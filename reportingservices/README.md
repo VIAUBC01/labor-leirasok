@@ -52,6 +52,10 @@ A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető á
 - A Visual Studio projekt könyvtára,
 - Minden feladat végeredményéről egy képernyőkép a riport _preview_ ablakáról a releváns részekről.
 
+## Értékelés
+
+A laborban négy feladatrész van (az A és B feladatrészek kettőnek számítanak). Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
+
 ## Feladatok
 
 Összesen 3 feladat van. [Itt kezdd](Feladat-1.md) az első feladattal.
