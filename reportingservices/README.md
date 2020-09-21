@@ -1,6 +1,6 @@
 # Microsoft SQL Server Reporting Services használata
 
-A labor során egy új eszközzel, a Microsoft SQL Server Reporting Services-zel ismerkedünk meg, így a labor részben vezetett. Az első feladat laborvezetővel együtt megoldott, a továbbiak önálló feladatok.
+A labor során egy új eszközzel, a Microsoft SQL Server Reporting Services-zel ismerkedünk meg.
 
 ## Előfeltételek, felkészülés
 
