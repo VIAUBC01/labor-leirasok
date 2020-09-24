@@ -102,3 +102,7 @@ A fenti példa és a dokumentáció (https://www.imdb.com/interfaces/) alapján 
 Természetesen szükséges új migrációt hozzáadni a projekthez és frissíteni az adatbázis sémáját. A fenti betöltés csak üres Titles tábla esetén fut le, tehát törölni kell belőle az adatokat.
 
 Beadandó: az elkészült kód képernyőképe, ill. demonstrálandó, hogy betöltődtek az adatok (minden tulajdonság megfelelően ki van töltve).
+
+## Következő feladat
+
+Folytasd a [következő feladattal](Feladat-3.md).

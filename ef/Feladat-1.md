@@ -205,3 +205,7 @@ await DbContext.Database.MigrateAsync();
 Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
 - SQL alapú megoldással (pl. SQL Server Object Explorerben futtatott lekérdezéssel), ÉS 
 - a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (Logger példányra) történő kiírással!
+
+## Következő feladat
+
+Folytasd a [következő feladattal](Feladat-2.md).

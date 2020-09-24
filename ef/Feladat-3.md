@@ -22,3 +22,7 @@ Genre = genres.TryGetValue(genre, out var g) ? g : genres[genre] = new Genre { N
 Beadandó: az új adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a kapcsolótábla és az új tábla tartalmai) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a táblák, azok oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).
 
 **Bónusz (nehéz!)**: egy jegy javítás kapható, ha a teljes adathalmaz betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága).
+
+## Következő feladat
+
+Folytasd a [következő feladattal](Feladat-4.md).

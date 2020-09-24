@@ -79,3 +79,7 @@ Beadandó:
 - a terminal alkalmazásban futtatott lekérdezések eredménye a konzolra (Logger) írva.
 
 **Bónusz**: egy jegy javítás kapható, ha mindegyik lekérdezés [expression bodied method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods) formában van megírva.
+
+## Végeztél
+
+Végeztél a feladatokkal.
