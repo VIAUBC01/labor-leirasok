@@ -29,7 +29,7 @@ Lássunk neki!
 1. Adjunk a solutionhöz egy új .NET Core C# konzol projektet is MovieCatalog.Terminal néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
-1. Adjunk referenciát a `Microsoft.Extensions.Hosting` NuGet csomagra a MovieCatalog.Data projektből!
+1. Adjunk referenciát a `Microsoft.Extensions.Hosting` NuGet csomagra a MovieCatalog.Terminal projektből!
 1. Adjunk referenciát a `Microsoft.EntityFrameworkCore.SqlServer` és `Microsoft.EntityFrameworkCore.Design` NuGet csomagokra a MovieCatalog.Data projektből!
 1. Állítsuk be a konzolos projektet Startup projektként, így F5 (Start with Debugging) hatására ez fog elindulni. Ezzel a projekt neve félkövér lesz.
 
