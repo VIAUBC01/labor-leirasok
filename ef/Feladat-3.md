@@ -8,7 +8,7 @@ Tippek:
 - A Title-ön kívül két entitást kell definiálni:
   - az egyik maga a műfaj (Genre), amiben az Id és Name tulajdonságok szerepelnek, 
   a másik a kapcsolótábla, TitleGenre névre hallgató entitás lehet, amiben egy egyedi azonosító van, és két külső kulcs: egy TitleId és egy GenreId,
-  - a Genre-ban definiáljunk egy Title és egy Genre típusú navigation property-t, a hivatkozottakban pedig egy `ICollection<TitleGenre>` típusút (inicializálni ezeket nem kell, lekérdezéskor lesznek feltöltve adattal).
+  - a TitleGenre-ban definiáljunk egy Title és egy Genre típusú navigation property-t, a hivatkozottakban pedig egy `ICollection<TitleGenre>` típusút (inicializálni ezeket nem kell, lekérdezéskor lesznek feltöltve adattal).
 - Fontos, hogy egy mű egy műfajban csak egyszer szerepelhet, ezért Unique Indexet kell létrehozni a TitleGenre entitásban a két külső kulcsra (együttesen)
   - `titleGenre.HasIndex(tg => new { tg.GenreId, tg.TitleId }).IsUnique();`
 - Betöltéskor gyűjtsük a Genre típusú entitásokat egy lokális `string-Genre` szótárba; ha még nincs, adjuk hozzá; ha már van, vegyük ki!
