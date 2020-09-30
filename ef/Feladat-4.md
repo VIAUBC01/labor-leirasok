@@ -21,7 +21,7 @@ namespace MovieCatalog.Data
 
         Task<IEnumerable<Title>> GetMoviesByTitleAsync(string titlePart); // Azon művek lekérdezése, amiknek az elsődleges címében VAGY az eredeti címében szerepel a megadott szövegrész (kis-nagybetűtől független). Maximum 100 eredmény érkezhet a lekérdezésre, az eredmény objektumokban a műfajoknak is szerepelniük kell.
 
-        Task InsertOrUpdateTitle(int? id, string primaryTitle, string originalTitle, TitleType titleType, int? startYear, int? endYear, int? runtimeMinutes, IEnumerable<string> genres); // Mű beszúrása vagy szerkesztése attól függően, hogy az id értéke null vagy sem. Tipp: .Attach()
+        Task InsertOrUpdateTitleAsync(int? id, string primaryTitle, string originalTitle, TitleType titleType, int? startYear, int? endYear, int? runtimeMinutes, IEnumerable<string> genres); // Mű beszúrása vagy szerkesztése attól függően, hogy az id értéke null vagy sem. Tipp: .Attach()
     }
 }
 
