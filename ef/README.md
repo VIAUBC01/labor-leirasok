@@ -11,6 +11,9 @@ A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/READ
   - minimálisan szükséges workload-ok: 
     - <span>ASP.NET</span> and web development
     - .NET Core cross-platform development
+- (Javasolt) HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.:
+  - [Fiddler](https://www.telerik.com/download/fiddler)
+  - [Postman](https://www.postman.com/downloads/)
 
 <hr />
 
