@@ -17,7 +17,7 @@ Egészítsd ki/módosítsd a GenresControllert az alábbiaknak megfelelően:
   - `DELETE /api/genres/<ID>`
     - a megadott ID-jú genre objektum törlése,
     - sikeres visszatérés 204-gyel és **akkor is**, ha nem található az ID azonosítójú elem.
-  - A két `GET`-es kérés sikeres eredményeképpen előálló objektumokban legyen benne az is egy `NumberOfTitles` nevű tulajdonságban, hogy hány mű tartozik a műfajba!
+  - Az első feladatban elkészült két `GET`-es kérés sikeres eredményeképpen előálló objektumokban legyen benne az is egy `NumberOfTitles` nevű tulajdonságban, hogy hány mű tartozik a műfajba!
 
 Beadandó:
 - Az érintett kódok a szokásos formában.
