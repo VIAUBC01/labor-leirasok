@@ -66,7 +66,7 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 - hiába kéri, hogy hozzunk létre erőforráscsoportot, nem tudunk, mert nincs hozzá jogunk. Helyette **minden további parancsban, ahol meg kell adni erőforráscsoportot**, a `myResourceGroup` helyett adjuk meg a sandbox előfizetésben alapból létrehozott erőforráscsoport nevét. Ennek a névnek a lekérdezését lásd fentebb az előfizetés beüzemelésénél.
 
-- *Az Azure App Service alkalmazás kezelése[Feladat-1.md#az-azure-app-service-alkalmazás-kezelése]* részben az előfizetés nem a BME domain-ben jön létre (ahová a fiók alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a learn.docs.microsoft.com-ra a jobb felső sarokban lévő ikonra kattintva.
+- *[Az Azure App Service alkalmazás kezelése](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése)* részben az előfizetés nem a BME domain-ben jön létre (ahová a fiók alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a learn.docs.microsoft.com-ra a jobb felső sarokban lévő ikonra kattintva.
 
 :bulb: Tippek és hasznos tudnivalók:
 
