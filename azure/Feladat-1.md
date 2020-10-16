@@ -60,7 +60,7 @@ Ez az oktatóanyag az SQL-adatbázisokhoz az [Azure SQL Database-t](/azure/sql-d
 
 ### Erőforráscsoport létrehozása
 
-Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli az Azure-erőforrásokat, mintpéldául a webalkalmazásokat, adatbázisokat és a Storage-fiókokat. Dönthet úgy is például, hogy később egyetlen egyszerű lépésben törli a teljes erőforráscsoportot.
+Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli az Azure-erőforrásokat, mint például a webalkalmazásokat, adatbázisokat és a Storage-fiókokat. Dönthet úgy is például, hogy később egyetlen egyszerű lépésben törli a teljes erőforráscsoportot.
 
 Parancssor használatával hozzon létre egy erőforráscsoportot az `az group create` paranccsal. A következő példában létrehozunk egy *myResourceGroup* nevű erőforráscsoportot a *Nyugat-Európa* régióban. Az **Ingyenes** szintű App Service-t támogató összes régió megtekintéséhez futtassa az `az appservice list-locations --sku FREE`parancsot.
 
@@ -139,7 +139,7 @@ az sql db show-connection-string --client ado.net --server <server-name> --name 
 
 Az így előállt végleges connection string lesz a a .NET Core-alkalmazás connection string-je.
 
-### Az alkalmazás konfigurálása éles adatbázishoz való kapcsolódáshoz
+### Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz
 
 A letöltött repository-ban nyissa meg a Startup.cs fájlt, és keresse meg a következő kódot:
 
@@ -165,13 +165,13 @@ A repository gyökerében törölje a `Migrations` mappát, majd futtassa a köv
 # Migrációk újragenerálása
 dotnet ef migrations add InitialCreate
 
-# Connecrion string beállítása
+# Connection string beállítása
 # PowerShell esetén
 $env:ConnectionStrings:MyDbConnection="<connection-string>"
 # CMD esetén (macsaköröm nem kell)
 set ConnectionStrings:MyDbConnection=<connection-string>
-# Bash esetén (macsaköröm nem kell)
-export ConnectionStrings__MyDbConnection=<connection-string>
+# Bash esetén
+export ConnectionStrings__MyDbConnection="<connection-string>"
 
 # Run migrations
 dotnet ef database update
@@ -280,7 +280,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 
 Ezzel létrehozott egy Linux alapú webalkalmazás-futtatókörnyezetet, 
 
-:hint: A Git remote URL-címe a `deploymentLocalGitUrl` tulajdonságban látható, a következő formátumban: `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Jegyezze fel ezt az URL-t, mert később még szüksége lesz rá.
+:bulb: A Git remote URL-címe a `deploymentLocalGitUrl` tulajdonságban látható, a következő formátumban: `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Jegyezze fel ezt az URL-t, mert később még szüksége lesz rá.
 
 
 ### Connection string beállítása
@@ -293,11 +293,9 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 A ASP.NET Core-ben ezt a connection string-et ( `MyDbConnection` ) a szokásos módon használhatja, hasonlóan mintha az *appsettings.json*-ben adta volna meg. Jelen esetben ugyan a `MyDbConnection` *appsettings.json*-ban is meg van adva. Ha az alkalmazás az App Service-ben fut, akkor a különböző helyen, de azonos névvel megadott beállítások közül az App Service beállításként megadott érték jut érvényre.
 
-Ha szeretné megtudni, hogyan hivatkoznak a connection stringre a kódban, tekintse meg az [Az alkalmazás konfigurálása éles adatbázishoz való kapcsolódáshoz](#configure-app-to-connect-to-production-database) című részt.
+Ha szeretné megtudni, hogyan hivatkoznak a connection stringre a kódban, tekintse meg az [Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz](#configure-app-to-connect-to-production-database) című részt.
 
 ### Git push Azure-ba
-
-::: zone pivot="platform-linux"
 
 Adjon hozzá egy git remote-ot a repository-hoz. A lenti parancsban cserélje le a *\<deploymentLocalGitUrl-from-create-step>* elemet annak a korábban megszerzett git remote URL címére.
 
@@ -368,14 +366,14 @@ public bool Done { get; set; }
 
 ### Adatbázis migráció újrafuttatása
 
-Futtassa az alábbi néhány parancsot az új adatbázis migrációs lépés generálásához, illetve .
+Futtassa az alábbi néhány parancsot az új adatbázis migrációs lépés generálásához, illetve a változások adatbázisban történő érvényesítésére.
 
 ```bash
 dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
-:warning: új parancssor ablak megnyitásakor újra be kell állítania az éles adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az éles adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
+:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az felhőbeli adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
 
 ### Az új tulajdonság használata
 
@@ -431,7 +429,7 @@ Futtassa lokálisan az alkalmazást.
 dotnet run
 ```
 
-:warning: új parancssor ablak megnyitásakor újra be kell állítania az éles adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az éles adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
+:warning: új parancssor ablak megnyitásakor újra be kell állítania az felhőbeli adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az felhőbeli adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
 
 A böngészőjében navigáljon a `http://localhost:5000/` címre. Most már nem csak új teendőket vehet fel, hanem a felvétel során bejelölheti a **Kész** jelölőnégyzetet is. Bejelölve a teendőnek a főoldalon befejezettként kell megjelennie. Ne feledje, hogy az `Edit` nézetben nem jelenik meg a `Done` mező, mivel az `Edit` nézetet nem módosította.
 
@@ -466,7 +464,7 @@ Az ASP.NET Core naplózási szintjének az `Information` alapértelmezett szintr
 az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
 ```
 
-:hint: A mintaprojekt naplózási szintje már eleve be van állítva `Information` értékre.
+:bulb: A mintaprojekt naplózási szintje már eleve be van állítva `Information` értékre.
 
 A *log streaming* funkció elindításához használja az `az webapp log tail` parancsot. Az *\<app-name>* helyőrzőt cserélje le az App Service nevére.
 
@@ -502,19 +500,9 @@ Alapértelmezés szerint a portál az alkalmazás **Áttekintés** lapját jelen
 Az alábbiak elvégzését ismerte meg:
 
 > [!div class="checklist"]
-> * SQL Database-adatbázis létrehozása az Azure-ban
-> * .NET Core-alkalmazás csatlakoztatása az SQL Database-hez
+> * SQL adatbázis létrehozása az Azure-ban
+> * .NET Core-alkalmazás csatlakoztatása felhőbeli
 > * Az alkalmazás üzembe helyezése az Azure-ban
 > * Az adatmodell frissítése és az alkalmazás ismételt üzembe helyezése
 > * Naplók streamelése az Azure-ból a saját terminálba
 > * Az alkalmazás kezelése az Azure Portalon
-
-Folytassa a következő oktatóanyaggal, amelyből megtudhatja, hogyan képezhető le egyéni DNS-név az alkalmazáshoz.
-
-> [!div class="nextstepaction"]
-> [Oktatóanyag: egyéni DNS-név leképezése az alkalmazáshoz](app-service-web-tutorial-custom-domain.md)
-
-Vagy tekintse meg a többi erőforrást:
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core alkalmazás konfigurálása](configure-language-dotnetcore.md)
