@@ -62,7 +62,12 @@ az group list
 
 ### Általános szabályok
 
-:warning: A következő Azure erőforrások nevének *kötelezően* tartalmaznia kell a mérést végző neptun kódját: Azure SQL Server (`az sql server create` parancs hozza létre), Azure App Service (`az webapp create` parancs hozza létre). Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
+:warning: A következő Azure erőforrások nevének *kötelezően* tartalmaznia kell a mérést végző neptun kódját: 
+
+  - Azure SQL Server (`az sql server create` parancs hozza létre) 
+  - Azure App Service (`az webapp create` parancs hozza létre). 
+ 
+Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
 
 
 ### [Feladat 1](Feladat-1.md)
