@@ -107,27 +107,28 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 Ez már nem fordítás, minden infó a [feladat oldalán](Feladat-2.md).
 
-:bulb: Ha már kevés idő van hátra az előfizetésből, akkor inkább várd meg amíg lejár.
+:bulb: Ha már kevés idő van hátra az előfizetésből, akkor inkább várd meg amíg lejár és kezdj tiszta lappal.
 
 ## Beadandó
 
 ### Általános elvek
 
-Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak jpg vagy png formátumban. 
+Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* vagy *png* formátumban. 
 
 Terminálparancsok kimenetéről készült képernyőképeknél: 
 
-    - a terminál ablaka teljes méretű (maximalizált) legyen
-    - ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor scrollozzatok föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
-    - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
+- a terminál ablaka teljes méretű (maximalizált) legyen
+- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor scrollozzatok föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani) [Példa](media/sql_create.png)
+- bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
 
 Böngészőről készült képernyőképeknél:
 
-   - a böngészőablak teljes méretű (maximalizált legyen) 
-   - a címsor látszódjon és a weboldal mejelenő része
-
+- a böngészőablak teljes méretű (maximalizált legyen) 
+- a címsor látszódjon és a weboldal mejelenő része
 
 Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát mutassák. Például az első feladat Azure CLI belépésről  és App Service létrehozásról beadott kép ne különböző sandbox előfizetések használata során jöjjenek létre. Feladatok (az első és második) között lehet eltérés.
+
+A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.
 
 ### Beadandó - Feladat 1
 
