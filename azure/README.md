@@ -54,14 +54,22 @@ Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.h
 ```bash
 az group list
 ```
-:bulb: Tippek:
 
-:bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
 
 ## Feladatok
 
-https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app?pivots=platform-windows
+### [Feladat 1](Feladat1.md)
+
+Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. Tehát ne az eredetit nézzétek, hanem [ezt](Feladat1.md). Mielőtt nekiállnál olvasd el az eltérések részt és a tippeket!
+
+Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
+
+
+:bulb: Tippek:
+
+:bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
+
 
 :warning: a connection string beállítása csak a parancssori ablak bezárásig él
 
