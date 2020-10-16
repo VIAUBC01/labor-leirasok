@@ -31,9 +31,11 @@ dotnet --version
 ```
 
 ### Azure előfizetés beüzemelése
-A mérés ún. sandbox előfizetéssel teljesítendő. Ezt az alábbi weboldalon lehet aktiválni:
-https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data
+A mérés ún. sandbox előfizetéssel teljesítendő. Ezt az alábbi weboldalon lehet aktiválni: [link](
+https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data)
 A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fiókot kell használni. Ha még nem volt korábban ilyen előfizetés aktiválva a fiókhoz, akkor a kért engedélyt is meg kell adni a Microsoft Learn oldalnak.
+
+![Azure Sandbox activated](media/sandbox_activated.png)
 
 Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de *ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)*, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon.
 
