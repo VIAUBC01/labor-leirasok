@@ -74,7 +74,7 @@ Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és
 
 ### [Feladat 1](Feladat-1.md)
 
-Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadndók leírását!
+Ez egy hivatalos [Microsoft oktatóanyag](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadndók leírását!
 
 Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
 
@@ -139,14 +139,14 @@ Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát m
     - **Azure Web App létrehozása;** `f1_app`
     - **git push Azure-ba - az eredeti, első push**; `f1_push1`
     - git push Azure-ba - a módosított (`Done` property hozzáadása után); `f1_push2`
-    - **diagnosztikai napló lekérdezése egy új teendő létrehozása** után (ha a módosítás nem készült el, akkor lehet az eredeti változatról is) `az webapp log tail`; `f1_log`
+    - **diagnosztikai napló lekérdezése (`az webapp log tail`) egy új teendő létrehozása után** (ha a módosítás nem készült el, akkor lehet az eredeti változatról is) ; `f1_log`
 
 - képernyőképek a böngészőben futó Azure Web App főoldaláról:
-    - **az eredeti változat futása** ([példa](media\tutorial-dotnetcore-sqldb-app\azure-app-in-browser.png)); `f1_v1`
-    - a módosított változat futása ([példa](media\tutorial-dotnetcore-sqldb-app\this-one-is-done.png)); `f1_v2`
+    - **az eredeti változat futása** ([példa](media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)); `f1_v1`
+    - a módosított változat futása ([példa](media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)); `f1_v2`
 
 - képernyőképek az Azure portálról:
-    - **az Azure Web App áttekintő oldala** ([példa](media\tutorial-dotnetcore-sqldb-app\web-app-blade.png)); `f1_portal`
+    - **az Azure Web App áttekintő oldala** ([példa](media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)); `f1_portal`
 
 ### Beadandó - Feladat 2
 
@@ -165,6 +165,7 @@ Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát m
 
 ## Értékelési irányelvek
 
+- ha nincs meg minden **kiemelt** kép az első feladatból -> 1
 - ha csak a **kiemelt** képek készülnek el az első feladatból -> 2
 - ha minden elkészül az első feladatból -> 3
 - ha minden elkészül az első és a második feladatból is -> 5

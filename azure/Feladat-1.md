@@ -1,3 +1,5 @@
+# Adatbázist használó ASP.NET Core alkalmazás futtatása Azure App Service-ben
+
 Az Azure app Service egy jól méretezhető, önjavító webes üzemeltetési szolgáltatást nyújt. Ez az oktatóanyag bemutatja, hogyan hozhat létre .NET Core-alkalmazást, és hogyan csatlakoztatható Azure SQL adatbázishoz. Az oktatóanyag eredménye egy, a Linux App Service-ben futó .NET Core MVC-alkalmazás lesz.
 
 
