@@ -12,6 +12,8 @@ https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app
 
 :warning: log streaminghez érdemes külön konzolablakot nyitni
 
+https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/
+
 ## Beadandó
 
 - egy szöveges fájl (txt), ami tartalmazza a következő parancsok kimenetét (általában JSON formátumú):
