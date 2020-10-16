@@ -476,15 +476,13 @@ A log streaming elindítása után navigáljon vagy frissítsen (Ctrl+F5) az alk
 
 A `Ctrl`+`C` billentyűparanccsal bármikor leállíthatja a naplóstreamelést.
 
-A ASP.NET Core naplók testreszabásával kapcsolatos további információkért tekintse meg a [ASP.net Core naplózása](/aspnet/core/fundamentals/logging)című témakört.
+## Az Azure-alkalmazás kezelése
 
-## <a name="manage-your-azure-app"></a>Az Azure-alkalmazás kezelése
-
-A létrehozott alkalmazás megtekintéséhez a [Azure Portal](https://portal.azure.com)keresse meg és válassza a **app Services**lehetőséget.
+A létrehozott alkalmazás megtekintéséhez lépjen be az [Azure Portal](https://portal.azure.com)-ra az előfizetéshez tartozó fiókjával, majd keresse meg és válassza a **App Services** lehetőséget.
 
 ![Azure Portal App Services kiválasztása](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 
-A **app Services** lapon válassza ki az Azure-alkalmazás nevét.
+A **App Services** lapon válassza ki az App Service nevét.
 
 ![Navigálás a portálon egy Azure-alkalmazáshoz](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
