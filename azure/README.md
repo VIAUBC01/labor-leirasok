@@ -86,6 +86,8 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
+:bulb: a munkakönyvtár (ahol a parancssorunk áll) legyen egyszerű, pl. c:\work (Windows) vagy ~/src (Linux)
+
 :bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
 
 :bulb: ha az Azure-ban futó változattal gond van, érdemes előrevenni a [diagnosztikai naplók lekrdezéséről szóló részt](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval)
