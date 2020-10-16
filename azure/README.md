@@ -1,6 +1,6 @@
 # Azure webhoszting
 
-A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban, cross-platform eszközökkel végezzük.
+A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban, cross-platform eszközökkel végezzük. A felhőben linux alapú szerver fogja az alkalmazást futtatni, bár ebből sokat nem érzékelünk.
 
 ## Előkészületek
 
@@ -37,7 +37,9 @@ A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fióko
 
 ![Azure Sandbox activated](media/sandbox_activated.png)
 
-Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon.
+Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó paramcs különbözik, az külön jelölve van. A Windows Parancssor alapból cmd-t indít,a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
+
+Jelentkezzünk be Azure CLI-vel az előfizetésbe:
 
 ```bash
 az login
@@ -57,6 +59,11 @@ az group list
 ```
 
 ## Feladatok
+
+### Általános szabályok
+
+:warning: A következő Azure erőforrások nevének *kötelezően* tartalmaznia kell a mérést végző neptun kódját: Azure SQL Server (`az sql server create` parancs hozza létre), Azure App Service (`az webapp create` parancs hozza létre). Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
+
 
 ### [Feladat 1](Feladat-1.md)
 
@@ -84,9 +91,9 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :warning: a környezeti változóban megadott connection string csak a lokális alkalmazásban működik
 
-## Beadandó
+## Beadandó - Feladat 1
 
-- egy szöveges fájl (txt), ami tartalmazza a következő parancsok kimenetét (általában JSON formátumú):
+- képernyőképek a terminálparancsokról. A parancs a képernyő tetején legyen.
     - Azure SQL szerver létrehozása
     - Azure SQL adatbázis létrehozása
     - App Service Plan létrehozása
