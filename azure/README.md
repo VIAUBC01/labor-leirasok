@@ -74,7 +74,7 @@ Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és
 
 ### [Feladat 1](Feladat-1.md)
 
-Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt és a tippeket!
+Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadndók leírását!
 
 Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
 
@@ -100,13 +100,69 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :warning: a környezeti változóban megadott connection string csak a lokális alkalmazásban működik
 
-## Beadandó - Feladat 1
+### [Feladat 2](Feladat-2.md)
 
-- képernyőképek a terminálparancsokról. A parancs a képernyő tetején legyen.
-    - Azure SQL szerver létrehozása
-    - Azure SQL adatbázis létrehozása
-    - App Service Plan létrehozása
-    - App Service létrehozása
+Ez már nem fordítás, minden infó a [feladat oldalán](Feladat-2.md).
 
-## Értékelés
+:bulb: Ha már kevés idő van hátra az előfizetésből, akkor inkább várd meg amíg lejár.
+
+## Beadandó
+
+### Általános elvek
+
+Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak jpg vagy png formátumban. 
+
+Terminálparancsok kimenetéről készült képernyőképeknél: 
+
+    - a terminál ablaka teljes méretű (maximalizált) legyen
+    - ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor scrollozzatok föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
+    - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
+
+Böngészőről készült képernyőképeknél:
+
+   - a böngészőablak teljes méretű (maximalizált legyen) 
+   - a címsor látszódjon és a weboldal mejelenő része
+
+
+Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát mutassák. Például az első feladat Azure CLI belépésről  és App Service létrehozásról beadott kép ne különböző sandbox előfizetések használata során jöjjenek létre. Feladatok (az első és második) között lehet eltérés.
+
+### Beadandó - Feladat 1
+
+- képernyőképek az alábbi parancsok kimenetéről:
+    - **Azure CLI belépés** (`az login`); képernyőkép fájlneve kiterjesztés nélkül: `f1_azlogin`
+    - **Azure SQL szerver létrehozása;** `f1_sqlsrv`
+    - **Azure SQL adatbázis létrehozása;** `f1_sqldb`
+    - **Azure App Service Plan létrehozása;** `f1_appplan`
+    - **Azure Web App létrehozása;** `f1_app`
+    - **git push Azure-ba - az eredeti, első push**; `f1_push1`
+    - git push Azure-ba - a módosított (`Done` property hozzáadása után); `f1_push2`
+    - **diagnosztikai napló lekérdezése egy új teendő létrehozása** után (ha a módosítás nem készült el, akkor lehet az eredeti változatról is) `az webapp log tail`; `f1_log`
+
+- képernyőképek a böngészőben futó Azure Web App főoldaláról:
+    - **az eredeti változat futása** ([példa](media\tutorial-dotnetcore-sqldb-app\azure-app-in-browser.png)); `f1_v1`
+    - a módosított változat futása ([példa](media\tutorial-dotnetcore-sqldb-app\this-one-is-done.png)); `f1_v2`
+
+- képernyőképek az Azure portálról:
+    - **az Azure Web App áttekintő oldala** ([példa](media\tutorial-dotnetcore-sqldb-app\web-app-blade.png)); `f1_portal`
+
+### Beadandó - Feladat 2
+
+- képernyőképek az alábbi parancsok kimenetéről:
+    - Azure SQL adatbázis létrehozása; `f2_sqldb`
+    - Azure Web App létrehozása; `f2_app`
+    - git push Azure-ba - az eredeti, első push; `f2_push`
+    - diagnosztikai napló lekérdezése egy film módosítása után `az webapp log tail`; `f2_log`
+
+- képernyőképek a böngészőben futó Azure Web App-ról:
+    - főoldalról; `f2_index`
+    - valamely film szerkesztő oldaláról; `f2_detail`
+
+- képernyőképek az Azure portálról:
+    - az Azure Web App áttekintő oldala; `f2_portal`
+
+## Értékelési irányelvek
+
+Ha csak a **kiemelt** részek készülnek el az első feladatból -> 2
+Ha minden elkészül az első feladatból -> 3
+Ha minden elkészül az első és a második feladatból is -> 5
 

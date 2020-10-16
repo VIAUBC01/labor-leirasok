@@ -112,7 +112,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 :bulb: Még szigorúbb tűzfalszabályt is megadhat, ha csak azokat a kimenő IP-címeket engedélyezi, amelyeket alkalmazása használ.
 
-Futtassa ismét a parancsot lecserélva a *\<your-ip-address>* helyőrzőt a [helyi IPv4 IP-címére](https://www.whatsmyip.org/) .
+Futtassa ismét a parancsot lecserélva a *\<your-ip-address>* helyőrzőt a [saját gépének IPv4 IP-címére](https://www.whatsmyip.org/) .
 
 ```azurecli-interactive
 az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -199,7 +199,7 @@ Most már készen áll a magának az alkalmazásnak a felhőbe költöztetésér
 
 Ebben a lépésben egy Azure SQL-t használó .NET Core alkalmazást telepítünk az App Service szolgáltatásba.
 
-### A Git helyi üzemelő példányának konfigurálása
+### Git repository-ból történő telepítés konfigurálása
 
 FTP vagy git segítségével is felmásolhatjuk az alkalmazásunkat a felhőbe. Ezt a műveletet egy kifejezetten erre a célra kitalált ún. _telepítési felhasználó_ nevében végezzük. Így bár a fiókhoz kapcsolódó webalkalmazások telepítésénél használható, nem kell megadnia az _előfizetéshez tartozó fiók_ adatait.
 
@@ -223,7 +223,7 @@ Hozzon létre egy App Service Plan szolgáltatást az erőforráscsoporton belü
 A következő példában létrehozunk egy `myAppServicePlan` nevű, Linux alapú ( `--is-linux` ) App Service Plant  az **ingyenes** díjszabási szinten ( `--sku F1` ).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux --location "West Europe"
 ```
 
 Az App Service-csomag létrehozása után az Azure CLI az alábbi példához hasonló információkat jelenít meg:
