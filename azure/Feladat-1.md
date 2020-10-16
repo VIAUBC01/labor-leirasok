@@ -84,7 +84,7 @@ Cserélje le a *\<server-name>* helyőrzőt egy *egyedi* Azure SQL Database név
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-Az SQL szerver létrehozása után a parancsssoron az alábbi példához hasonló információk jelennek meg:
+Az SQL szerver létrehozása után a parancssoron az alábbi példához hasonló információk jelennek meg:
 
 <pre>
 {
@@ -114,7 +114,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 :bulb: Még szigorúbb tűzfalszabályt is megadhat, ha csak azokat a kimenő IP-címeket engedélyezi, amelyeket alkalmazása használ.
 
-Futtassa ismét a parancsot lecserélva a *\<your-ip-address>* helyőrzőt a [saját gépének IPv4 IP-címére](https://www.whatsmyip.org/) .
+Futtassa ismét a parancsot lecserélve a *\<your-ip-address>* helyőrzőt a [saját gépének IPv4 IP-címére](https://www.whatsmyip.org/) .
 
 ```azurecli-interactive
 az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -158,7 +158,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 ### Adatbázis előkészítése
 
-Eddig az alkalmazás egy helyi SQLite-adatbázishoz csatlakozott. Most viszont az új Azure SQL adatbázisban kellene létrehozni az alkalmazás futtatásához szükséges objektumokat. A projekt eddigi migrációs fájljai sajnos nem használhatóak, mivel azok SQLite-specifikusak.
+Eddig az alkalmazás egy helyi SQLite-adatbázishoz csatlakozott. Most viszont az új Azure SQL adatbázisban kellene létrehozni az alkalmazás futtatásához szükséges objektumokat. A projekt eddigi migrációs fájljai sajnos nem használhatók, mivel azok SQLite-specifikusak.
 
 A repository gyökerében törölje a `Migrations` mappát, majd futtassa a következő parancsokat. Cserélje le *\<connection-string>* helyőrzőt a korábban összerakott connection string-re.
 
@@ -294,7 +294,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 A ASP.NET Core-ben ezt a connection string-et ( `MyDbConnection` ) a szokásos módon használhatja, hasonlóan mintha az *appsettings.json*-ben adta volna meg. Jelen esetben ugyan a `MyDbConnection` *appsettings.json*-ban is meg van adva. Ha az alkalmazás az App Service-ben fut, akkor a különböző helyen, de azonos névvel megadott beállítások közül az App Service beállításként megadott érték jut érvényre.
 
-Ha szeretné megtudni, hogyan hivatkoznak a connection stringre a kódban, tekintse meg az [Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz](#configure-app-to-connect-to-production-database) című részt.
+Ha szeretné megtudni, hogyan hivatkoznak a connection string-re a kódban, tekintse meg az [Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz](#configure-app-to-connect-to-production-database) című részt.
 
 ### Git push Azure-ba
 
@@ -473,7 +473,7 @@ A *log streaming* funkció elindításához használja az `az webapp log tail` p
 az webapp log tail --name <app-name> --resource-group myResourceGroup
 ```
 
-A log streaming elindítása után navigáljon vagy frissítsen (Ctrl+F5) az alkalmazás oldalán, hogy forgalom generálódjon. Ekkor láthatja, hogy a rendszer leküldi a naplóbejygzéseket a lokális parancsorba. Ha nem jelennek meg azonnal a konzolnaplófájlok, próbálkozzon ismét 30 másodperc múlva.
+A log streaming elindítása után navigáljon vagy frissítsen (Ctrl+F5) az alkalmazás oldalán, hogy forgalom generálódjon. Ekkor láthatja, hogy a rendszer leküldi a naplóbejegyzéseket a lokális parancsorba. Ha nem jelennek meg azonnal a konzolnaplófájlok, próbálkozzon ismét 30 másodperc múlva.
 
 A `Ctrl`+`C` billentyűparanccsal bármikor leállíthatja a naplóstreamelést.
 

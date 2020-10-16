@@ -1,6 +1,6 @@
 # Azure webhoszting
 
-A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban, cross-platform eszközökkel végezzük. A felhőben linux alapú szerver fogja az alkalmazást futtatni, bár ebből sokat nem érzékelünk.
+A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban, cross-platform eszközökkel végezzük. A felhőben Linux alapú szerver fogja az alkalmazást futtatni, bár ebből sokat nem érzékelünk.
 
 ## Előkészületek
 
@@ -37,7 +37,7 @@ A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fióko
 
 ![Azure Sandbox activated](media/sandbox_activated.png)
 
-Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó paramcs különbözik, az külön jelölve van. A Windows Parancssor alapból cmd-t indít,a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
+Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van. A Windows Parancssor alapból cmd-t indít,a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
 
 Jelentkezzünk be Azure CLI-vel az előfizetésbe:
 
@@ -69,12 +69,12 @@ A keresett név a válasz JSON `name` tulajdonságából olvasható ki.
   - Azure SQL Server (`az sql server create` parancs hozza létre) 
   - Azure App Service (`az webapp create` parancs hozza létre). 
  
-Ha névütközés miatt nem lehet simán a neptunkód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
+Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
 
 
 ### [Feladat 1](Feladat-1.md)
 
-Ez egy hivatalos [Microsoft oktatóanyag](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadndók leírását!
+Ez egy hivatalos [Microsoft oktatóanyag](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását!
 
 Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
 
@@ -118,13 +118,13 @@ Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* 
 Terminálparancsok kimenetéről készült képernyőképeknél: 
 
 - a terminál ablaka teljes méretű (maximalizált) legyen
-- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor scrollozzatok föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani) [Példa](media/sql_create.png)
+- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani) [Példa](media/sql_create.png)
 - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
 
 Böngészőről készült képernyőképeknél:
 
 - a böngészőablak teljes méretű (maximalizált legyen) 
-- a címsor látszódjon és a weboldal mejelenő része
+- látszódjon a címsor és a weboldal megjelenő része
 
 Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát mutassák. Például az első feladat Azure CLI belépésről  és App Service létrehozásról beadott kép ne különböző sandbox előfizetések használata során jöjjenek létre. Feladatok (az első és második) között lehet eltérés.
 
