@@ -491,18 +491,3 @@ A **app Services** lapon válassza ki az Azure-alkalmazás nevét.
 Alapértelmezés szerint a portál az alkalmazás **Áttekintés** lapját jeleníti meg. Ezen az oldalon megtekintheti az alkalmazás állapotát. Itt elvégezhet olyan alapszintű felügyeleti feladatokat is, mint a böngészés, leállítás, elindítás, újraindítás és törlés. Az oldal bal oldalán lévő lapok a különböző megnyitható konfigurációs oldalakat jelenítik meg.
 
 ![Az App Service lap az Azure Portalon](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
-<a name="next"></a>
-## <a name="next-steps"></a>Következő lépések
-
-Az alábbiak elvégzését ismerte meg:
-
-> [!div class="checklist"]
-> * SQL adatbázis létrehozása az Azure-ban
-> * .NET Core-alkalmazás csatlakoztatása felhőbeli
-> * Az alkalmazás üzembe helyezése az Azure-ban
-> * Az adatmodell frissítése és az alkalmazás ismételt üzembe helyezése
-> * Naplók streamelése az Azure-ból a saját terminálba
-> * Az alkalmazás kezelése az Azure Portalon
