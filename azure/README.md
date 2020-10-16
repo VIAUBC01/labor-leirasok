@@ -52,11 +52,13 @@ Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.h
 - 4 óra időtartamig él
 - egy fiókkal naponta max. 10 db. hozható létre
 - nem minden régióban enged erőforrásokat létrehozni. Ha a `West Europe` régióban nem engedi, akkor használjuk a `Central US`-t,
-- az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni
+- az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni:
 
 ```bash
 az group list
 ```
+
+A keresett név a válasz JSON `name` tulajdonságából olvasható ki.
 
 ## Feladatok
 
