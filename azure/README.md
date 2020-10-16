@@ -58,9 +58,9 @@ az group list
 
 ## Feladatok
 
-### [Feladat 1](Feladat1.md)
+### [Feladat 1](Feladat-1.md)
 
-Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. Tehát ne az eredetit nézzétek, hanem [ezt](Feladat1.md). Mielőtt nekiállnál olvasd el az eltérések részt és a tippeket!
+Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. Tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál olvasd el az eltérések részt és a tippeket!
 
 Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
 
