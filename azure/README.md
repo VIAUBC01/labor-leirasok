@@ -13,6 +13,7 @@ https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app
 :warning: log streaminghez érdemes külön konzolablakot nyitni
 
 https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/
+https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data
 
 ## Beadandó
 
