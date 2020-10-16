@@ -5,12 +5,12 @@ Az Azure app Service egy jól méretezhető, önjavító webes üzemeltetési sz
 
 Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
-- [x] SQL Database-adatbázis létrehozása az Azure-ban
-- [x] .NET Core-alkalmazás csatlakoztatása az SQL Database-hez
+- [x] SQL adatbázis létrehozása Azure-ban
+- [x] .NET Core-alkalmazás csatlakoztatása Azure-beli adatbázishoz
 - [x] Az alkalmazás üzembe helyezése az Azure-ban
 - [x] Az adatmodell frissítése és az alkalmazás ismételt üzembe helyezése
-- [x] Diagnosztikai naplók streamelése az Azure-ból
-- [x] Az alkalmazás kezelése az Azure Portalon
+- [x] Diagnosztikai naplók streamelése Azure-ból
+- [x] Az alkalmazás kezelése az Azure portálon
 
 ## Előfeltételek
 
@@ -52,7 +52,7 @@ Egy böngészőben nyissa meg a `http://localhost:5000` oldalt. Kattintson a **C
 
 Ha bármikor le szeretné állítani a futtatást, nyomja meg a `Ctrl+C` billentyűkombinációt a terminálon.
 
-## Éles SQL adatbázis létrehozása
+## Felhőbeli SQL adatbázis létrehozása
 
 Ebben a lépésben egy Azure SQL adatbázist hozhat létre. Miután az alkalmazás üzembe lett helyezve az Azure-ban, ezt a felhőadatbázist használja.
 
