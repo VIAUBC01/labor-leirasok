@@ -48,7 +48,7 @@ dotnet run
 
 Egy böngészőben nyissa meg a `http://localhost:5000` oldalt. Kattintson a **Create** hivatkozásra, és hozzon létre néhány _teendőt_.
 
-![sikeres csatlakozás az SQL Database-hez](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
+![sikeres csatlakozás az Azure SQL-hez](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
 Ha bármikor le szeretné állítani a futtatást, nyomja meg a `Ctrl+C` billentyűkombinációt a terminálon.
 
@@ -56,7 +56,7 @@ Ha bármikor le szeretné állítani a futtatást, nyomja meg a `Ctrl+C` billent
 
 Ebben a lépésben egy Azure SQL adatbázist hozhat létre. Miután az alkalmazás üzembe lett helyezve az Azure-ban, ezt a felhőadatbázist használja.
 
-Ez az oktatóanyag az SQL-adatbázisokhoz az [Azure SQL Database-t](/azure/sql-database/) használja.
+Ez az oktatóanyag az SQL-adatbázisokhoz az [Azure SQL Database szolgáltatást](https://azure.microsoft.com/hu-hu/services/sql-database/) használja.
 
 ### Erőforráscsoport létrehozása
 
@@ -76,8 +76,7 @@ A parancs befejeződésekor a JSON-kimenet megjeleníti az erőforráscsoport tu
 
 Parancssor segítségével hozzon létre egy Azure SQL szervert az `az sql server create` paranccsal.
 
-Cserélje le a *\<server-name>* helyőrzőt egy *egyedi* SQL Database névre. Ez a név része lesz a szerver hálózati nevének a következő formában: `<server-name>.database.windows.net` . Érvényes karakterek:, `a` - `z` `0` - `9` `-` . Továbbá cserélje le a *\<db-username>* és a *\<db-password>* nevet az Ön által választott felhasználónévre és jelszóra. 
-
+Cserélje le a *\<server-name>* helyőrzőt egy *egyedi* Azure SQL Database névre. Ez a név része lesz a szerver hálózati nevének a következő formában: `<server-name>.database.windows.net` . Érvényes karakterek:, `a` - `z` `0` - `9` `-` . Továbbá cserélje le a *\<db-username>* és a *\<db-password>* nevet az Ön által választott felhasználónévre és jelszóra. 
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
