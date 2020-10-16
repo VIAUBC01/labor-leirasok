@@ -294,7 +294,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 A ASP.NET Core-ben ezt a connection string-et ( `MyDbConnection` ) a szokásos módon használhatja, hasonlóan mintha az *appsettings.json*-ben adta volna meg. Jelen esetben ugyan a `MyDbConnection` *appsettings.json*-ban is meg van adva. Ha az alkalmazás az App Service-ben fut, akkor a különböző helyen, de azonos névvel megadott beállítások közül az App Service beállításként megadott érték jut érvényre.
 
-Ha szeretné megtudni, hogyan hivatkoznak a connection string-re a kódban, tekintse meg az [Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz](#configure-app-to-connect-to-production-database) című részt.
+Ha szeretné megtudni, hogyan hivatkoznak a connection string-re a kódban, tekintse meg az [*Az alkalmazás konfigurálása felhőbeli adatbázishoz való kapcsolódáshoz*](#az-alkalmazás-konfigurálása-felhőbeli-adatbázishoz-való-kapcsolódáshoz) című részt.
 
 ### Git push Azure-ba
 
@@ -374,7 +374,7 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
-:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a [korábban](#Connection_string_megszerzése) látott módon.
+:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a [korábban](#connection-string-megszerzése) látott módon.
 
 ### Az új tulajdonság használata
 
@@ -481,11 +481,11 @@ A `Ctrl`+`C` billentyűparanccsal bármikor leállíthatja a naplóstreamelést.
 
 A létrehozott alkalmazás megtekintéséhez lépjen be az [Azure Portal](https://portal.azure.com)-ra az előfizetéshez tartozó fiókjával, majd keresse meg és válassza a **App Services** lehetőséget.
 
-![Azure Portal App Services kiválasztása](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
+![Azure Portal - App Services kiválasztása](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 
 A **App Services** lapon válassza ki az App Service nevét.
 
-![Navigálás a portálon egy Azure-alkalmazáshoz](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+![Navigálás a portálon egy Azure App Service-hez](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
 Alapértelmezés szerint a portál az alkalmazás **Áttekintés** lapját jeleníti meg. Ezen az oldalon megtekintheti az alkalmazás állapotát. Itt elvégezhet olyan alapszintű felügyeleti feladatokat is, mint a böngészés, leállítás, elindítás, újraindítás és törlés. Az oldal bal oldalán lévő lapok a különböző megnyitható konfigurációs oldalakat jelenítik meg.
 
