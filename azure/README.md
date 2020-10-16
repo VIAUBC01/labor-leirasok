@@ -90,9 +90,12 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
 
-:bulb: ha az Azure-ban futó változattal gond van, érdemes előrevenni a [diagnosztikai naplók lekrdezéséről szóló részt](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval)
+:bulb: ha az Azure-ban futó változattal gond van, érdemes előrevenni a [diagnosztikai naplók lekérdezéséről szóló részt](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval)
+
+:bulb: a [diagnosztikai naplók lekérdezéséről szóló rész](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval) és az [Azure portálos rész](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése) már az App Service létrehozása is után megoldható, nem kell a végéig elérni a megoldással.
 
 :bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből
+
 
 :warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
@@ -162,7 +165,7 @@ Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát m
 
 ## Értékelési irányelvek
 
-Ha csak a **kiemelt** részek készülnek el az első feladatból -> 2
-Ha minden elkészül az első feladatból -> 3
-Ha minden elkészül az első és a második feladatból is -> 5
+- ha csak a **kiemelt** képek készülnek el az első feladatból -> 2
+- ha minden elkészül az első feladatból -> 3
+- ha minden elkészül az első és a második feladatból is -> 5
 
