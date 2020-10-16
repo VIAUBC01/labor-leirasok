@@ -476,7 +476,7 @@ A log streaming elindítása után navigáljon vagy frissítsen (Ctrl+F5) az alk
 
 A `Ctrl`+`C` billentyűparanccsal bármikor leállíthatja a naplóstreamelést.
 
-## Az Azure-alkalmazás kezelése
+## Az Azure App Service alkalmazás kezelése
 
 A létrehozott alkalmazás megtekintéséhez lépjen be az [Azure Portal](https://portal.azure.com)-ra az előfizetéshez tartozó fiókjával, majd keresse meg és válassza a **App Services** lehetőséget.
 
