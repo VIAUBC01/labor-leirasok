@@ -49,7 +49,8 @@ Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.h
 
 - 4 óra időtartamig él
 - egy fiókkal naponta max. 10 db. hozható létre
-- az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni.
+- nem minden régióban enged erőforrásokat létrehozni. Ha a `West Europe` régióban nem engedi, akkor használjuk a `Central US`-t,
+- az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni
 
 ```bash
 az group list
@@ -65,13 +66,17 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 - hiába kéri, hogy hozzunk létre erőforráscsoportot, nem tudunk, mert nincs hozzá jogunk. Helyette **minden további parancsban, ahol meg kell adni erőforráscsoportot**, a `myResourceGroup` helyett adjuk meg a sandbox előfizetésben alapból létrehozott erőforráscsoport nevét. Ennek a névnek a lekérdezését lásd fentebb az előfizetés beüzemelésénél.
 
-- az előfizetés nem a BME domain-ben jön létre, ezért valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a learn.docs.microsoft.com-ra.
+- *Az Azure App Service alkalmazás kezelése[Feladat-1.md#az-azure-app-service-alkalmazás-kezelése]* részben az előfizetés nem a BME domain-ben jön létre (ahová a fiók alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a learn.docs.microsoft.com-ra a jobb felső sarokban lévő ikonra kattintva.
 
 :bulb: Tippek és hasznos tudnivalók:
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
+:bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
+
 :bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből.
+
+:warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
 :warning: a connection string beállítása csak a parancssori ablak bezárásig él
 
