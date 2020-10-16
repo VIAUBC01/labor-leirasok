@@ -287,7 +287,7 @@ Ezzel létrehozott egy Linux alapú webalkalmazás-futtatókörnyezetet,
 
 A felhős környezetben elérhető connection string beállítás megadásához használja az `az webapp config appsettings set` parancsot. A következő parancsban cserélje le az *\<app-name>* és a  *\<connection-string>* paraméterek értékeit a korábban megadott alkalmazásnévre, illetve a korábban megszerzett connection string-re.
 
-```azurecli-interactive
+```bash
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
@@ -373,7 +373,7 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
-:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az felhőbeli adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
+:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a [korábban](#Connection_string_megszerzése) látott módon.
 
 ### Az új tulajdonság használata
 
@@ -429,7 +429,7 @@ Futtassa lokálisan az alkalmazást.
 dotnet run
 ```
 
-:warning: új parancssor ablak megnyitásakor újra be kell állítania az felhőbeli adatbázis connection string-jét a korábban[adatbázis-áttelepítés futtatása az felhőbeli adatbázisba](#run-database-migrations-to-the-production-database) látott módon.
+:warning: ha időközben új parancssori ablakot nyitott, akkor újra be kell állítania az felhőbeli adatbázis connection string-jét a [korábban](#Connection_string_megszerzése) látott módon.
 
 A böngészőjében navigáljon a `http://localhost:5000/` címre. Most már nem csak új teendőket vehet fel, hanem a felvétel során bejelölheti a **Kész** jelölőnégyzetet is. Bejelölve a teendőnek a főoldalon befejezettként kell megjelennie. Ne feledje, hogy az `Edit` nézetben nem jelenik meg a `Done` mező, mivel az `Edit` nézetet nem módosította.
 
@@ -455,7 +455,7 @@ Még ha az ASP.NET Core alkalmazás az Azure App Service-ben fut is, a konzolra 
 
 A mintaprojektben már be van kapcsolva az ASP.NET Core naplózó alrendszere két kis módosítással:
 
-- Hivatkozza `Microsoft.Extensions.Logging.AzureAppServices` NuGet csomagot a *DotNetCoreSqlDb. csproj*-ben.
+- Hivatkozza `Microsoft.Extensions.Logging.AzureAppServices` NuGet csomagot a *DotNetCoreSqlDb.csproj*-ban.
 - Meghívja a `loggerFactory.AddAzureWebAppDiagnostics()` függvényt a *Program.cs*-ben.
 
 Az ASP.NET Core naplózási szintjének az `Information` alapértelmezett szintről az `Error` szintűre történő átállításához az `az webapp log config` parancs használható. Például:
@@ -468,7 +468,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 A *log streaming* funkció elindításához használja az `az webapp log tail` parancsot. Az *\<app-name>* helyőrzőt cserélje le az App Service nevére.
 
-```azurecli-interactive
+```bash
 az webapp log tail --name <app-name> --resource-group myResourceGroup
 ```
 
