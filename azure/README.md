@@ -74,7 +74,9 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
 
-:bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből.
+:bulb: ha az Azure-ban futó változattal gond van, érdemes előrevenni a [diagnosztikai naplók lekrdezéséről szóló részt](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval)
+
+:bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből
 
 :warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
