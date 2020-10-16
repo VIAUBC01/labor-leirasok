@@ -37,25 +37,23 @@ A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fióko
 
 ![Azure Sandbox activated](media/sandbox_activated.png)
 
-Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de *ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)*, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon.
+Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon.
 
 ```bash
 az login
 ```
 
-Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.hu-s fiókkal. Ezt követően pár másodperc múlva a paramcs lefut, kilistázva az aktv előfizetéseket.
+Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.hu-s fiókkal. Ezt követően pár másodperc múlva a paramcs lefut, kilistázva az aktív előfizetéseket.
 
 :warning::warning::warning: Fontos tudnivalók a sandbox előfizetésről:
 
 - 4 óra időtartamig él
-- egy fiók naponta max. 10-et hozhat létre
+- egy fiókkal naponta max. 10 db. hozható létre
 - az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni.
 
 ```bash
 az group list
 ```
-
-
 
 ## Feladatok
 
@@ -65,20 +63,19 @@ Ez egy hivatalos [Microsoft tutorial](https://docs.microsoft.com/en-us/azure/app
 
 Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
 
+- hiába kéri, hogy hozzunk létre erőforráscsoportot, nem tudunk, mert nincs hozzá jogunk. Helyette **minden további parancsban, ahol meg kell adni erőforráscsoportot**, a `myResourceGroup` helyett adjuk meg a sandbox előfizetésben alapból létrehozott erőforráscsoport nevét. Ennek a névnek a lekérdezését lásd fentebb az előfizetés beüzemelésénél.
 
-:bulb: Tippek:
+- az előfizetés nem a BME domain-ben jön létre, ezért valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a learn.docs.microsoft.com-ra.
+
+:bulb: Tippek és hasznos tudnivalók:
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
+:bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből.
 
 :warning: a connection string beállítása csak a parancssori ablak bezárásig él
 
 :warning: a környezeti változóban megadott connection string csak a lokális alkalmazásban működik
-
-:warning: log streaminghez érdemes külön konzolablakot nyitni
-
-https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/
-https://docs.microsoft.com/en-us/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data
 
 ## Beadandó
 
