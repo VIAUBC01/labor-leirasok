@@ -64,7 +64,7 @@ Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi
 
 Parancssor használatával hozzon létre egy erőforráscsoportot az `az group create` paranccsal. A következő példában létrehozunk egy *myResourceGroup* nevű erőforráscsoportot a *Nyugat-Európa* régióban. Az **Ingyenes** szintű App Service-t támogató összes régió megtekintéséhez futtassa az `az appservice list-locations --sku FREE`parancsot.
 
-```azurecli-interactive
+```bash
 az group create --name myResourceGroup --location "West Europe"
 ```
 
@@ -122,7 +122,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 Hozzon létre egy S0 teljesítményszintű adatbázist a kiszolgálón az `az sql db create` parancs használatával.
 
-```azurecli-interactive
+```bash
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
@@ -130,7 +130,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 Az alábbi parancs használatával szerezze be a connection string-et.
 
-```azurecli-interactive
+```bash
 az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
@@ -250,10 +250,10 @@ Az App Service-csomag létrehozása után az Azure CLI az alábbi példához has
 
 Hozzon létre egy webalkalmazást a `myAppServicePlan` App Service Plan-hez. 
 
-Használja az `az webapp create` parancsot. A lenti példában cserélje ki az `<app-name>` nevet egy globálisan egyedi névre (érvényes karakterek: `a-z`, `0-9` és `-`). A futtatókörnyezet a példában `DOTNETCORE|3.1` lesz. Az összes támogatott futtatókörnyezet megtekintéséhez futtassa a parancsot [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest) . 
+Használja az `az webapp create` parancsot. A lenti példában cserélje ki az `<app-name>` nevet egy globálisan egyedi névre (érvényes karakterek: `a-z`, `0-9` és `-`). A futtatókörnyezet a példában `DOTNETCORE|3.1` lesz. Az összes támogatott futtatókörnyezet megtekintéséhez futtassa a parancsot `az webapp list-runtimes --linux`. 
 
-```azurecli-interactive
-# Bash
+```bash
+# Bash, cmd
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
 # PowerShell
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
