@@ -152,6 +152,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 ### Beadandó - Feladat 2
 
 - képernyőképek az alábbi parancsok kimenetéről:
+    - Azure CLI belépés (`az login`); `f2_azlogin` (csak ha nem ugyanaz a sandbox előfizetés, mint az első feladatnál)
     - Azure SQL adatbázis létrehozása; `f2_sqldb`
     - Azure Web App létrehozása; `f2_app`
     - git push Azure-ba - az eredeti, első push; `f2_push`

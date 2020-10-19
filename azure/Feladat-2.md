@@ -8,6 +8,7 @@ A projektet nem kell lokálisan tesztelni, kipróbálni, illetve módosítani. A
 
 Ehhez a feladathoz már nincs részletes leírás, csak a lépéseket adjuk meg:
 
+- Belépés az Azure sandbox előfizetésbe
 - SQL Server létrehozása. A neve tartalmazza a neptun kódot!
 - Tűzfalszabályok beállítása 
 - **SQL adatbázis létrehozása**
