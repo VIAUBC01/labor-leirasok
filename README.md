@@ -7,3 +7,4 @@ Labor feladatok:
 - [.NET: Entity Framework](ef/README.md)
 - [.NET: Web API](webapi/README.md)
 - [.NET: Razor](razor/README.md)
+- [Azure](azure/README.md)
