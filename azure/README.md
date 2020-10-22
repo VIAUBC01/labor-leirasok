@@ -37,15 +37,51 @@ A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fióko
 
 ![Azure Sandbox activated](media/sandbox_activated.png)
 
-Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, de **ne a weboldal jobb oldalán lévő terminálon (Azure Cloud Shell)**, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van. A Windows Parancssor alapból cmd-t indít,a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
+Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, a weboldal jobb oldalán megjelenik az *Azure Cloud Shell*. Itt adjuk ki a következő parancsot:
 
-Jelentkezzünk be Azure CLI-vel az előfizetésbe:
+```
+az account list
+```
+
+A válasz valami hasonló lesz, a sandbox előfizetésünk adatai jelennek meg:
+
+```javascript
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "******",
+    "id": "03821083-c843-496d-b555-65106b80c178",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Concierge Subscription",
+    "state": "Enabled",
+    "tenantId": "*****",
+    "user": {
+      "cloudShellID": true,
+      "name": "simon.gabor@vik.bme.hu",
+      "type": "user"
+    }
+  }
+]
+```
+
+Másoljuk ki az `id` értékét (jelen példában `03821083-c843-496d-b555-65106b80c178`)
+
+Ezek után már **ne a weboldal jobb oldalán lévő terminálon** (nem kell bezárni sem, mert ott lehet követni, hogy meddig él még az előfizetésünk) dolgozzunk, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez utóbbi az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van. A Windows parancssor alapból *cmd*-t indít, a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
+
+Jelentkezzünk be Azure CLI-vel:
 
 ```bash
 az login
 ```
 
 Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.hu-s fiókkal. Ezt követően pár másodperc múlva a paramcs lefut, kilistázva az aktív előfizetéseket.
+
+Egy fiókhoz viszont több aktív előfizetés is kapcsolódhat, az Azure CLI parancsok mindig egy adott előfizetésen dolgoznak, hogy melyiken, azt az ún. alapértelmezett előfizetés adja meg. A biztonság kedvéért állítsuk be az Azuer CLI parancsokban használandó előfizetésnek a weboldalon kilistázott előfizetést, lecserélve az `id` helyőrző értékét a korábban megszerzett `id` értékre:
+
+```bash
+az account set -s <id>
+```
 
 :warning::warning::warning: Fontos tudnivalók a sandbox előfizetésről:
 
