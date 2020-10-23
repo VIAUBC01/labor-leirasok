@@ -176,7 +176,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
     - **Azure Web App létrehozása;** `f1_app`
     - **git push Azure-ba - az eredeti, első push**; `f1_push1`
     - git push Azure-ba - a módosított (`Done` property hozzáadása után); `f1_push2`
-    - **diagnosztikai napló lekérdezése (`az webapp log tail`) egy új teendő létrehozása után** (ha a módosítás nem készült el, akkor lehet az eredeti változatról is) ; `f1_log`
+    - **diagnosztikai napló lekérdezése (`az webapp log tail`) egy új teendő létrehozása után** (ha a módosítás nem készült el, akkor lehet az eredeti változatról is). A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania; `f1_log`
 
 - képernyőképek a böngészőben futó Azure Web App főoldaláról:
     - **az eredeti változat futása** ([példa](media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)); `f1_v1`
@@ -192,7 +192,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
     - Azure SQL adatbázis létrehozása; `f2_sqldb`
     - Azure Web App létrehozása; `f2_app`
     - git push Azure-ba - az eredeti, első push; `f2_push`
-    - diagnosztikai napló lekérdezése egy film módosítása után `az webapp log tail`; `f2_log`
+    - diagnosztikai napló lekérdezése egy film módosítása után (`az webapp log tail`) . A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a módosítás kérésnek látszania; `f2_log`
 
 - képernyőképek a böngészőben futó Azure Web App-ról:
     - főoldalról; `f2_index`
@@ -203,8 +203,8 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 ## Értékelési irányelvek
 
-- ha nincs meg minden **kiemelt** kép az első feladatból -> 1
-- ha csak a **kiemelt** képek készülnek el az első feladatból -> 2
-- ha minden elkészül az első feladatból -> 3
-- ha minden elkészül az első és a második feladatból is -> 5
+- ha nincs meg minden **kiemelt** kép az első feladatból :arrow_right: 1
+- ha csak a **kiemelt** képek készülnek el az első feladatból :arrow_right: 2
+- ha minden elkészül az első feladatból :arrow_right: 3
+- ha minden elkészül az első és a második feladatból is :arrow_right: 5
 
