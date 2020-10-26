@@ -462,7 +462,7 @@ A mintaprojektben már be van kapcsolva az ASP.NET Core naplózó alrendszere k�
 Az ASP.NET Core naplózási szintjének az `Information` alapértelmezett szintről az `Error` szintűre történő átállításához az `az webapp log config` parancs használható. Például:
 
 ```bash
-az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
 ```
 
 :bulb: A mintaprojekt naplózási szintje már eleve be van állítva `Information` értékre.
