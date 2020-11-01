@@ -1,4 +1,4 @@
-# 4. Feladat
+# 4. Feladat: OpenFeign
 
 Most, hogy a légitársaság microservice architektúrája készen áll, valósítsuk meg az utazási iroda booking alkalamzásában szereplő repjegy vásárló végpontot. Ezt a BookingController.buyTicket metódusban kell megvalósítani, az alábbi szabályok szerint (minden végpontot az API gateway-en keresztül kell meghívni):
 

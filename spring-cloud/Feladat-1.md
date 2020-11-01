@@ -1,4 +1,4 @@
-# 1. Feladat: config server
+# 1. Feladat: Config server
 
 Indítsd el a currency alkalmazást, majd a bonus alkalmazást (Pl. jobb klikk > Run as... > Spring Boot App). Azt tapasztalod, hogy az egyik nem fog elindulni, mert mindkettő a default 8080-as porton szeretne elindulni, és a korábban elinduló már elfoglalja ezt a portot. 
 

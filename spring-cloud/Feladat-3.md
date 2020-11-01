@@ -1,4 +1,4 @@
-# 3. Feladat
+# 3. Feladat: API gateway
 
 A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy a config servert) a belső hálózaton kívülről érkezők számára elérhetővé tenni, csak bizonyos jól definiált végpontokat. Ezért bevezetünk egy API gateway-t, amely kívülről elérhető lesz, és a kívülről érkező kéréseket a megfelelő microservice-hez továbbítja. Ehhez természetesen tudnia kell, hogy hol futnak ezek a szolgáltatások. Egy API gateway másik tipikus feladata az autorizáció kezelése, itt szoktak valamilyen kliens oldalról küldött token alapján user infokat (pl. JWT token formájában) beletenni a header-ök közé, vagy megfelelő kliens oldali token hiányában elutasítani a kérést. Így a gateway mögötti microservice-eknek már csak a user info kiolvasása a feladata. Jelenlegi példánkban az autorizációval nem foglalkozunk, kizárólag a kérések route-olására fókszálunk.
 

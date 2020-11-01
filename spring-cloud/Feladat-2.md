@@ -1,4 +1,4 @@
-# 2. Feladat
+# 2. Feladat: Discovery server
 
 Egy microservice architektúrában célszerű egy discovery szerveren nyilvántartani, hogy melyik szolgáltatás milyen címen, vagy ha több példányban futtatjuk őket, akkor milyen cím**ek**en elérhető. Így pl. a kliensekbe nem kell beégetni a szolgáltatások címeit, és ha valamelyik szolgáltatást áthelyezik másik szerverre, a kliensek automatikusan megtalálják az új címet. Vagy ha címen elérhető egy szolgáltatás, akár terheléselosztó logikát is tehetünk a discovery mechanizmusba. Most ezt fogjuk megvalósítani, szintén Spring Cloud támogatással.
 
