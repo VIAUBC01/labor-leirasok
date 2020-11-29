@@ -5,12 +5,12 @@ A labor során Android platformra kell elkészíteni egy Aknakereső játékot K
 
 [http://en.wikipedia.org/wiki/Minesweeper_(video_game)](http://en.wikipedia.org/wiki/Minesweeper_(video_game))
 
-![MineSweeper](/assets/minesweeper.jpg)
+![MineSweeper](/assets/minesweeper.png)
 
-A labor során az idő rovidsége miatt elegendő, ha az alkalmazás az alábbi megkötésekkel üzemel:
+A labor során az idő rövidsége miatt elegendő, ha az alkalmazás az alábbi megkötésekkel üzemel:
 * 5x5 játéktér elég
 * 3 akna elég
-* nem kell teljes feltöltő logikát írni, elég ha be van égetve egy fix
+* nem kell teljes feltöltő logikát írni, elég ha be van égetve egy fix elrendezés
 * a felületen elhelyezhető egy ToggleButton vagy checkbox az akció kiválasztásához:
     * zászló lehelyezése
     * mező kipróbálása
@@ -41,7 +41,7 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
 * Az alkalmazás indulása után egy főmenü jelenjen meg két gombbal: "Új játék" és "Eredmények"
 * Az "Új játék" gomb megnyomására egy új Activity-n jelenjen meg a játéktér, amin érintés esemény hatására változnak az egyes mezők. Mivel itt több elem együttes működésére van szükség, a lépéseket és mintakódokat biztosítunk:
-        * A játék állapotának nyilvántartásához szükségünk lesz egy mező osztályra és egy singleton model osztályra:
+    * A játék állapotának nyilvántartásához szükségünk lesz egy mező osztályra és egy singleton model osztályra:
 ```kotlin
 data class Field(
     var type: Int,
@@ -73,10 +73,11 @@ object MineSweeperModel {
     }
 ```
 
-    * A képernyőn való megjelenítéshez szükségünk lesz egy saját View-ra, minek felül kell írni az alábbi függvényeit:
-        * onDraw: itt történik a view kirajzolása. Ezt jelenleg két részre bontottuk: a játéktér és a játékállapot kirajzolása.
-        * onMeasure: ahhoz szükséges, hogy megállapítsuk a megfelelő dimenziókat egy maximális négyzet rajzolásához.
-        * onTouchEvent: az érintés események lekezelése. Itt kell az felhasználói akció és a meglévő modell alapján változtatni a modellt. A végén az *invalidate()* hatására rajzolódik újra a view.
+* A képernyőn való megjelenítéshez szükségünk lesz egy saját View-ra, minek felül kell írni az alábbi függvényeit:
+    * onDraw: itt történik a view kirajzolása. Ezt jelenleg két részre bontottuk: a játéktér és a játékállapot kirajzolása.
+    * onMeasure: ahhoz szükséges, hogy megállapítsuk a megfelelő dimenziókat egy maximális négyzet rajzolásához.
+    * onTouchEvent: az érintés események lekezelése. Itt kell az felhasználói akció és a meglévő modell alapján változtatni a modellt. A végén az *invalidate()* hatására rajzolódik újra a view.
+        
 ```kotlin
 class MineSweeperView : View {
 
@@ -180,7 +181,9 @@ class MineSweeperView : View {
         }
     }
 ```
-    * A saját view ezek után teljes package hivatkozással már használható is a felületen: 
+
+* A saját view ezek után teljes package hivatkozással már használható is a felületen: 
+
 ```xml
 <hu.bme.aut.android.minesweeper.view.MineSweeperView
     android:id="@+id/mineSweeperView"
@@ -192,10 +195,10 @@ class MineSweeperView : View {
 ## 2. Bombák, zászlók, számok megjelenítése
 
 * Ha már a játéktér megjelenik a felületen és össze van kötve a modellel, készítse el és tegye használhatóvá a játék különbözö elemeit (grafikusan mindegyik máshogy jelenjen meg):
-    * A megérintett megző színe változzon meg, hogy egyértelmű legyen, hogy az már fel van fedve.
+    * A megérintett mező színe változzon meg, hogy egyértelmű legyen, hogy az már fel van fedve.
     * Ha a megérintett mező alatt bomba van, az legyen egyértelműen jelezve.
     * Ha a megérintett mező alatt szám van, az jelenjen meg.
-    * Legyen lehetőség zászlók letételére és felvételére még nem megnézett mezőn. (Ez bármilyen módszerrel történhet, egy lehetséges mód egy ToggleButton elhelyezése a felületen, amivel a következő akció állítható)
+    * Legyen lehetőség zászlók letételére és felvételére még nem megnézett mezőn. (Ez bármilyen módszerrel történhet, egy lehetséges mód ToggleButton elhelyezése a felületen, amivel a következő akció állítható)
 
 ## 3. Játék vége és időmérés
 
