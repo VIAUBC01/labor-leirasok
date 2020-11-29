@@ -5,7 +5,7 @@ A labor során Android platformra kell elkészíteni egy Aknakereső játékot K
 
 [http://en.wikipedia.org/wiki/Minesweeper_(video_game)](http://en.wikipedia.org/wiki/Minesweeper_(video_game))
 
-![MineSweeper](/assets/minesweeper.png)
+![MineSweeper](assets/minesweeper.png)
 
 A labor során az idő rövidsége miatt elegendő, ha az alkalmazás az alábbi megkötésekkel üzemel:
 * 5x5 játéktér elég
