@@ -15,18 +15,12 @@ A labor elvégzéséhez szükséges eszközök:
 A laborok elvégzéséhez használható segédanyagok és felkészülési anyagok:
 - A Háttéralkalmazások tárgy kapcsolódó előadásai:
   - https://www.aut.bme.hu/Upload/Course/VIAUBB04/hallgatoi_jegyzetek/06-JPA.pdf
-    - https://www.loom.com/share/f08dfb97a5fc4aaaa9564c20447ef72c
-    - https://www.loom.com/share/e0b5742dbbef4611b0c46caa26ce1e5b
-    - https://www.loom.com/share/3ceeec0dc71e4ab38e1a7de8c9786905
-    - https://www.loom.com/share/e34e5e5b5be746499996f58705d9eefc
-    - https://www.loom.com/share/dd70e1aee45d495fa2c77d1584433166
+    - https://web.microsoftstream.com/video/69badb22-08d5-4b2c-9a7f-25c70d137612
   - https://www.aut.bme.hu/Upload/Course/VIAUBB04/hallgatoi_jegyzetek/07A-Spring.pdf
-    - https://web.microsoftstream.com/video/e320f3f1-29f9-454b-8121-0cb9d1182d84
-    - https://web.microsoftstream.com/video/fa67fe60-3d78-45cd-a89a-0696198ca845
+    - https://web.microsoftstream.com/video/0c3e6a60-3b89-4e6e-b605-2eeacb9f2e5e
 - A Háttéralkalmazások tárgy kapcsolódó gyakorlatai:
   - https://github.com/BMEVIAUBB04/gyakorlat-jpa
-    - https://web.microsoftstream.com/video/c861adb9-6889-4207-92a9-2814f8cbe75a
-    - https://web.microsoftstream.com/video/06b661da-6525-4297-96e5-8941844d31e6
+    - https://web.microsoftstream.com/video/dc68cfd1-837f-41b2-b0c8-e437ccb50410
   - https://bmeviaubb04.github.io/gyakorlat-rest-spring-mvc/
     - https://www.youtube.com/watch?v=ahNrOHgAvqo&feature=youtu.be
     - https://github.com/BMEVIAUBB04/gyakorlat-rest-spring-mvc
