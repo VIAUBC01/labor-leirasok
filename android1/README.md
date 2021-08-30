@@ -38,11 +38,42 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 ## 1. Alapok
 
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
+    * https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 * Valósítson meg navigációt egy tetszőleges megközelítéssel (NavigationDrawer, ViewPager, BottomNavigationView, Főmenü activity három gombbal stb.), amivel összesen három felület (Activity vagy Fragment) között lehet váltani az alkalmazásban. 
 * Az első felületen készítsen RecyclerView alapú görgethető listát, amihez egy beviteli mező (pl. rögzített EditText és gomb a felület telején vagy AlertDialog FloatingActionButton-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét, hárombetűs országkódját (alpha3Code) és zászlóját. 
-* A zászló képét a Glide osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
+* A zászló képét a GlideToVectorYou osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
 * Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
 * Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/info"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="Info" />
+</menu>
+```
+
+```kotlin
+override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    menuInflater.inflate(R.menu.menu, menu)
+    return true
+}
+
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    return when(item.itemId){
+        R.id.info -> {
+            Snackbar.make(binding.root, "Hello", Snackbar.LENGTH_LONG).show()
+            true
+        }
+        else -> false
+    }
+}
+```
+
  
 ## 2. Részletes nézet és Wikipedia
 
