@@ -41,38 +41,145 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
     * https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 * Valósítson meg navigációt egy tetszőleges megközelítéssel (NavigationDrawer, ViewPager, BottomNavigationView, Főmenü activity három gombbal stb.), amivel összesen három felület (Activity vagy Fragment) között lehet váltani az alkalmazásban. 
 * Az első felületen készítsen RecyclerView alapú görgethető listát, amihez egy beviteli mező (pl. rögzített EditText és gomb a felület telején vagy AlertDialog FloatingActionButton-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét, hárombetűs országkódját (alpha3Code) és zászlóját. 
-* A zászló képét a GlideToVectorYou osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
-* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
-* Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/info"
-        app:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_info_details"
-        android:title="Info" />
-</menu>
-```
 
 ```kotlin
-override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-    menuInflater.inflate(R.menu.menu, menu)
-    return true
-}
+class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    return when(item.itemId){
-        R.id.info -> {
-            Snackbar.make(binding.root, "Hello", Snackbar.LENGTH_LONG).show()
-            true
-        }
-        else -> false
+    private var countries: MutableList<CountryData> = ArrayList()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CountryViewHolder(
+        ItemCountryBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+    )
+
+    override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
+        val country = countries[position]
+
+        holder.binding.tvCountryName.text = country.name
+        holder.binding.tvCountryAlpha3.text = country.alpha3Code
+        GlideToVectorYou.init().with(holder.binding.root.context).load(Uri.parse(country.flag), holder.binding.ivFlag)
+    }
+
+    override fun getItemCount(): Int = countries.size
+
+    fun addCountry(newCountry: CountryData) {
+        countries.add(newCountry)
+        notifyItemInserted(countries.size)
+    }
+
+    inner class CountryViewHolder(val binding:  ItemCountryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
     }
 }
 ```
+
+
+```kotlin
+class AddCountryDialogFragment : AppCompatDialogFragment() {
+
+    private var _binding: DialogNewCountryBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var listener: AddCountryDialogListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try{
+            listener = if (targetFragment != null){
+                targetFragment as AddCountryDialogListener
+            } else {
+                activity as AddCountryDialogListener
+            }
+        } catch ( e: ClassCastException){
+            throw RuntimeException(e)
+        }
+    }
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        _binding = DialogNewCountryBinding.inflate(LayoutInflater.from(context))
+        return AlertDialog.Builder(requireContext())
+            .setTitle("New country")
+            .setView(binding.root)
+            .setPositiveButton("Add") { _, _ ->
+                listener.onCountryAdded(binding.etNewCountry!!.text.toString())
+            }
+            .setNegativeButton("Cancel", null)
+            .create()
+    }
+
+    interface AddCountryDialogListener {
+        fun onCountryAdded(name: String)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+```
+
+```kotlin
+class ListActivity : AppCompatActivity(),
+    AddCountryDialogFragment.AddCountryDialogListener {
+
+    private lateinit var binding: ActivityListBinding
+    private lateinit var adapter: CountryAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.fab.setOnClickListener{
+            AddCountryDialogFragment()
+                .show(supportFragmentManager, AddCountryDialogFragment::class.java.simpleName)
+        }
+        
+        binding.countryList.layoutManager = LinearLayoutManager(this)
+        adapter = CountryAdapter()
+        onCountryAdded("Hungary")
+        binding.countryList.adapter = adapter
+    }
+
+    override fun onCountryAdded(name: String) {
+        NetworkManager.getCountryByName(name).enqueue(object : Callback<List<CountryData?>?> {
+
+            override fun onResponse(
+                call: Call<List<CountryData?>?>,
+                response: Response<List<CountryData?>?>
+            ) {
+                if (response.isSuccessful) {
+                    adapter.addCountry(response.body()!![0])
+                } else {
+                    Toast.makeText(
+                        this@ListActivity,
+                        "Error: " + response.message(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(
+                call: Call<List<CountryData?>?>,
+                throwable: Throwable
+            ) {
+                throwable.printStackTrace()
+                Toast.makeText(
+                    this@ListActivity,
+                    "Network request error occurred, check LOG",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+}
+```
+
+* A zászló képét a GlideToVectorYou osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
+* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
+* Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
 
  
 ## 2. Részletes nézet és Wikipedia
