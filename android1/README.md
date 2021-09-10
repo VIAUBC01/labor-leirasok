@@ -41,7 +41,58 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
     * https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 * Valósítson meg navigációt egy tetszőleges megközelítéssel (NavigationDrawer, ViewPager, BottomNavigationView, Főmenü activity három gombbal stb.), amivel összesen három felület (Activity vagy Fragment) között lehet váltani az alkalmazásban. 
 * Az első felületen készítsen RecyclerView alapú görgethető listát, amihez egy beviteli mező (pl. rögzített EditText és gomb a felület telején vagy AlertDialog FloatingActionButton-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét, hárombetűs országkódját (alpha3Code) és zászlóját. 
+* A zászló képét a GlideToVectorYou osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
+* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
 
+```gradle
+def retrofit_version = "2.9.0"
+implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+```
+
+item_country.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:id="@+id/ivFlag"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCountryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            tools:text="Country" />
+
+        <TextView
+            android:id="@+id/tvCountryAlpha3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            tools:text="Code" />
+    </LinearLayout>
+
+</LinearLayout>
+```
 
 ```kotlin
 class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
@@ -64,8 +115,8 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
 
     override fun getItemCount(): Int = countries.size
 
-    fun addCountry(newCountry: CountryData) {
-        countries.add(newCountry)
+    fun addCountry(newCountry: CountryData?) {
+        countries.add(newCountry!!)
         notifyItemInserted(countries.size)
     }
 
@@ -117,6 +168,67 @@ class AddCountryDialogFragment : AppCompatDialogFragment() {
         _binding = null
     }
 }
+```
+
+
+```kotlin
+interface CountryApi {
+
+    @GET("rest/v2/name/{name}")
+    fun getCountryByName(@Path("name") name: String): Call<List<CountryData?>?>
+
+}
+```
+
+```kotlin
+object NetworkManager {
+    private val retrofit: Retrofit
+    private val countryApi: CountryApi;
+
+    private const val SERVICE_URL = "https://restcountries.eu/"
+
+    init {
+        retrofit = Retrofit.Builder()
+            .baseUrl(SERVICE_URL)
+            .client(OkHttpClient.Builder().build())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        countryApi = retrofit.create(CountryApi::class.java)
+    }
+
+    fun getCountryByName(name: String): Call<List<CountryData?>?> {
+        return countryApi.getCountryByName(name)
+    }
+}
+```
+
+activity_list.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coordinatorContent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/country_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 ```kotlin
@@ -177,8 +289,6 @@ class ListActivity : AppCompatActivity(),
 }
 ```
 
-* A zászló képét a GlideToVectorYou osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag) felhasználásával. 
-* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
 * Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
 
  
@@ -194,7 +304,7 @@ class ListActivity : AppCompatActivity(),
 
 ## 4. Térkép
 
-Ebben a feladatban már ne használjunk Retrofit hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra.
+Ebben a feladatban már ne használjunk Retrofit hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve az előző feladat kihagyása esetén). 
 
 * A harmadik felületen egy térkép (Google, OpenStreetMap stb.) jelenjen meg. 
 * A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi koordinátákkal jelölt helyükön (latlng). 
