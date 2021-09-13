@@ -25,7 +25,7 @@ A labor elvégzéséhez használható segédanyagok és felkészülési anyagok:
 1. Kapcsolódj Microsoft SQL Serverhez SQL Server Management Studio Segítségével. Indítsd el az alkalmazást, és az alábbi adatokkal kapcsolódj.
 
    - Server name: `(localdb)\mssqllocaldb` vagy `.\sqlexpress` (ezzel egyenértékű: `localhost\sqlexpress`)
-   - Authentication: `Windows authentication`
+   - Authentication: localdb esetén `Windows authentication`, sqlexpress esetén `SQL Server authentication`
 
 1. Hozz létre egy új adatbázist (ha még nem létezik). Az adatbázis neve legyen a Neptun kódod: _Object Explorer_-ben Databases-en jobb kattintás, és _Create Database_.
 
