@@ -3,7 +3,7 @@
 Egészítsd ki/módosítsd a GenresControllert az alábbiaknak megfelelően:
   - `PUT /api/genres/<ID>`
     - az ID azonosítójú műfaj módosítása,
-    - csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (`TitleGenres` elemek) nem,
+    - csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (`TitleGenres` elemek) nem; ez volna az ún. "overposting" támadás,
     - a név nem URL-ből, hanem a kérés törzséből jön,
     - sikeres visszatérés 204-es válasszal,
     - ha az ID azonosítójú elem nem található, visszatérés 404-gyel,

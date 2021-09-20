@@ -10,7 +10,7 @@ A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/READ
 - Microsoft Visual Studio 2019, min. 16.7.4 (Community verzió is megfelelő)
   - minimálisan szükséges workload-ok: 
     - <span>ASP.NET</span> and web development
-    - .NET Core cross-platform development
+    - .NET (Core) cross-platform development
 - (Javasolt) HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.:
   - [Fiddler](https://www.telerik.com/download/fiddler)
   - [Postman](https://www.postman.com/downloads/)

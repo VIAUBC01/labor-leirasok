@@ -25,15 +25,15 @@ Lássunk neki!
     - `dotnet tool install --global dotnet-ef`
       - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
-1. Hozzunk létre egy új .NET Core C# osztálykönyvtárat MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
-1. Adjunk a solutionhöz egy új .NET Core C# konzol projektet is MovieCatalog.Terminal néven!
+1. Hozzunk létre egy új .NET (a legújabb verziójú, a későbbiekben is) C# osztálykönyvtárat MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
+1. Adjunk a solutionhöz egy új .NET C# konzol projektet is MovieCatalog.Terminal néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
 1. Adjunk referenciát a `Microsoft.Extensions.Hosting` NuGet csomagra a MovieCatalog.Terminal projektből!
 1. Adjunk referenciát a `Microsoft.EntityFrameworkCore.SqlServer` és `Microsoft.EntityFrameworkCore.Design` NuGet csomagokra a MovieCatalog.Data projektből!
 1. Állítsuk be a konzolos projektet Startup projektként, így F5 (Start with Debugging) hatására ez fog elindulni. Ezzel a projekt neve félkövér lesz.
 
-Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben:
+Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben (a verziószámok lehetnek nagyobbak):
 
 <div style="text-align: center">
   <img src="images/elokeszuletek-vege.png" alt="Előkészületek végi állapot" style="max-width: 100%" >
@@ -96,9 +96,9 @@ Vegyük észre, hogy a Title entitásunkon konfiguráltuk az Id és PrimaryTitle
   - Az EF alapértelmezetten NVARCHAR(max) típusú string mezőket hoz nekünk létre.
   - Az indexelés SQL szerveren nem alkalmazható (különféle hackelések nélkül) NVARCHAR(max), azaz korlátlan hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
 - Az EF alapértelmezett konvencióként a string típusú mezőket nullozható, végtelen hosszt felvehető értékként képzi le SQL Server provider alatt. A cím viszont kötelező, ezért felvesszük a kötelezőségi kényszert is.
-  - A C# _nullable_ funkció bekapcsolásával használhatnánk a string? "nullozható referenciatípus" jelölést, de az egyszerűség kedvéért ezt most mellőzzük. Ekkor az EF a string? mezőket nullozhatóként, a string mezőket nem nullozhatóként tárolja.
+  - A C# _nullable_ funkció bekapcsolásával (EF Core 6-tól ez az alapértelmezett) használhatnánk a string? "nullozható referenciatípus" jelölést, de az egyszerűség kedvéért ezt most mellőzzük. Ekkor az EF a string? mezőket nullozhatóként, a string mezőket nem nullozhatóként tárolja.
 
-3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy DbContextet tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert internal láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás.
+3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy DbContextet tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert internal láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
@@ -110,12 +110,12 @@ namespace MovieCatalog.Data.Design
     internal class MovieCatalogDesignTimeDbContextFactory : IDesignTimeDbContextFactory<MovieCatalogDbContext>
     {
         public MovieCatalogDbContext CreateDbContext(string[] args) =>
-            new MovieCatalogDbContext(new Logger<MovieCatalogDbContext>(new LoggerFactory()), new DbContextOptionsBuilder<MovieCatalogDbContext>().UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MovieCatalog").Options);
+            new(new Logger<MovieCatalogDbContext>(new LoggerFactory()), new DbContextOptionsBuilder<MovieCatalogDbContext>().UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MovieCatalog").Options);
     }
 }
 ```
 
-4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! Terminálban/PowerShell ablakban adjuk ki az alábbi parancsokat (Visual Studio-ban a Ctrl+ö billentyűkombináció nyit egy Developer PowerShell ablakot) a **Data projekt mappájából**:
+4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! Terminálban/PowerShell ablakban adjuk ki az alábbi parancsokat (Visual Studio-ban és Code-ban is a Ctrl+ö billentyűkombináció nyit egy Developer PowerShell ablakot) a **Data projekt mappájából**:
 - `dotnet ef migrations add TitlesTable`
 - `dotnet ef database update`
 - ![Migrációk elkészítése és futtatása](images/migraciok-vege.png)
@@ -150,7 +150,7 @@ namespace MovieCatalog.Terminal
             
             // TODO: Ide jön az alkalmazás kódja.
 
-            await Host.StopAsync();
+            await Host.StopAsync(cancellationToken);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
@@ -163,13 +163,15 @@ namespace MovieCatalog.Terminal
 ```
 
 - Láthatjuk, hogy a TestConsole osztály számít rá, hogy kapni fog "valahonnan" egy MovieCatalogDbContext példányt, tehát felkészültünk arra, hogy a rendszer dependency injectiont használ.
+- Érdekesség a "cancellationToken" névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti StopAsync-nak. Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla.
 
-6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. A legelegánsabb megoldás az ASP.NET-tel analóg módon egy GenericHostBuilder osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. Cseréljük le a Program.cs fájl tartalmát az alábbira:
+6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. A legelegánsabb megoldás az ASP.NET-tel analóg módon egy GenericHostBuilder osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. Cseréljük le a Program.cs fájl teljes tartalmát az alábbira:
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using MovieCatalog.Data;
 using System.Threading.Tasks;
 
@@ -191,8 +193,9 @@ namespace MovieCatalog.Terminal
 ```
 
 - A fenti indítási módszer teljesen analóg a Háttéralkalmazásokból tanult indítási móddal az <span>ASP.NET Core</span> kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
+- .NET 6-tól az indításhoz ismertetett módszer a Minimal API-knak köszönhetően jelentősen egyszerűsödni fog.
 
-+1 tipp: ha szeretnénk "automatikusan" futtatni a migrációkat (akár kitörölt adatbázist követően létrehozni), akkor a dotnet database update parancs helyett kódból is megtehetjük, pl. alkalmazás induláskor:
++1 tipp: ha szeretnénk "automatikusan" futtatni a migrációkat (akár kitörölt adatbázist követően létrehozni), akkor a dotnet database update parancs futtatgatása helyett kódból is megtehetjük, pl. alkalmazás induláskor:
 
 ``` C#
 await DbContext.Database.MigrateAsync();

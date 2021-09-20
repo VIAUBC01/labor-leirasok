@@ -30,8 +30,16 @@ namespace MovieCatalog.Data
 2. Implementáld az interfészt egy MovieCatalogDataService osztályban, ami értelemszerűen a megfelelő lekérdezéseket/műveleketek végzi el! A metódustörzseket legenerálhatod, ha az alábbi fájlt létrehozva használod a megfelelő code fix-et (`Ctrl+.`):
 
 ``` C#
+using Microsoft.EntityFrameworkCore;
+using MovieCatalog.Data.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
 namespace MovieCatalog.Data
 {
+    /* TODO: konstruktor, DI */
+
     internal class MovieCatalogDataService : IMovieCatalogDataService // Fontos, hogy az osztály internal, mert kívülről csak az interfészt szeretnénk elérhetővé tenni!
     {
         public async Task<IEnumerable<Genre>> GetGenresAsync() => 

@@ -2,27 +2,26 @@
 
 Szokás szerint 0-ról indulunk, az előző két laboron elkezdett filmkatalógushoz készítünk most egy szerveroldali renderelést (Razor Pages) használó weboldalt.
 
-ASP.NET Core segítségével a [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.1) komponensalapú keretrendszerben is van lehetőség szerveroldali renderelést végezni (többféle módon is). Ha érdekel az ASP.NET Core alapú webfejlesztés, ezt a labort Razor Pages használata helyett elvégezheted [Blazor Server](https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1#blazor-server) segítségével is. Értelemszerűen ezt a technológiát részletesen nem tanultuk, így csak saját felelősségre vállalkozz így a feladatra! Ha nem akarsz kockáztatni, akkor értelemszerűen maradj a Razor Pages alapú megközelítésnél! A jelenlegi félévben (2020/21/ősz) használhatod a .NET 5 RC1 verzióját is (novemberben érkezik a végleges), ehhez a Visual Studio és .NET előzetes verzióit is telepítened kell. Mindkét esetben egy-egy plusz jegyet kapsz az elégségest követően, de ezekkel kapcsolatos esetleges fennakadásaidra önállóan kell megoldást találnod.
+ASP.NET Core segítségével a [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú keretrendszerben is van lehetőség szerveroldali renderelést végezni (többféle módon is). Ha érdekel az ASP.NET Core alapú webfejlesztés, ezt a labort Razor Pages használata helyett elvégezheted [Blazor Server](https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models) segítségével is. Mivel ezt a technológiát részletesen nem tanultuk, így csak saját felelősségre vállalkozz így a feladatra! Ha nem akarsz kockáztatni, akkor nyugodtan maradj a már tanult Razor Pages alapú megközelítésnél! Ebben az esetben egy plusz jegyet kapsz az elégségest követően, de ezzel kapcsolatos esetleges fennakadásaidra önállóan kell megoldást találnod.
 
-1. Hozz létre ismét egy új ASP.NET Core Web Application típusú alkalmazást `MovieCatalog.Web` néven, most az alábbi beállításokkal:
+1. Hozz létre ismét egy új ASP.NET Core Web Application típusú alkalmazást `MovieCatalog.Web` néven, most az alábbi beállításokkal (ill. alapbeállításokkal, az elérhető legfrissebb .NET verziót használva):
   ![Új projekt](images/uj-projekt-1.png)
   ![Új projekt](images/uj-projekt-2.png)
-1. Állítsd be, hogy az kultúra-invariáns formázási beállítások lépjenek érvényre az alkalmazásban! Ez elsősorban a float-ok megfelelő formázásához szükséges (tizedesvessző helyett tizedespont használata). Ehhez a Startup.Configure metódus elején állítsd ezt be az alábbi módon:
-``` C#
-using System.Globalization;
+1. Állítsd be, hogy a kultúra-invariáns formázási beállítások lépjenek érvényre az alkalmazásban! Ez elsősorban a float-ok megfelelő formázásához szükséges (tizedesvessző helyett tizedespont használata). Ehhez a Startup.Configure metódus elején állítsd ezt be az alábbi módon:
+    ``` C#
+    using System.Globalization;
 
-//...
+    //...
 
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-{
-    CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
-    // ...
-```
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+        // ...
+    ```
+    
+    Az előkészítés további lépései teljesen megegyeznek az előző labor elején elvégzett lépésekkel, ezek röviden:
 
-
-Az előkészítés további lépései teljesen megegyeznek az előző labor elején elvégzett lépésekkel, ezek röviden:
-
-2. Add hozzá a `MovieCatalog.Data` NuGet csomag legfrissebb verzióját a projekthez!
+1. Add hozzá a `MovieCatalog.Data` NuGet csomag legfrissebb verzióját a projekthez!
 1. Használd az `IHost.MigrateAndSeedDataAsync()` metódust a séma elkészítéséhez és adatok betöltéséhez a `Main` függvényben! A `Main` visszatérése `void` helyett `async Task` legyen!
 1. Add hozzá a `MovieCatalog` kulcsú kapcsolódási karakterláncot az `appsettings.Development.json` fájl ConnectionStrings tulajdonságához:
     ``` 
@@ -62,9 +61,9 @@ Figyelem! Érdemes nem túl sok tizedes értéket meghagyni, erre használható 
 
 Tudnivalók a laborra:
 - Most nem szükséges további fájlokat törölnünk, az alkalmazás kiindulása jelen állapotban megfelel.
-- Az oldalba hivatkozva megtalálhatod a Bootstrap és jQuery adott verzióját (3.1.8-as .NET Core sablon esetén ez 4.3.1-es Bootstrapet és 3.5.1-es jQuery-t jelent). Értelemszerűen a stílusozást érdemes így a Bootstrappel végezni, a jQuery is szabadon használható. Ha verzióproblémát tapasztalsz valamelyik Bootstrap funkció/komponens használatakor, [letöltheted a Bootstrap oldaláról](https://getbootstrap.com/) az előre fordított verziót és felülírhatod a jelenleg használtat a wwwroot/lib/bootstrap mappában. [Ugyanezt megteheted a jQuery-vel is](https://jquery.com/download/), bár ott verziókompatibilitási problémák ritkábbak, ugyanis nem fejlesztik aktívan.
+- Az oldalba hivatkozva megtalálhatod a Bootstrap és jQuery adott verzióját. Értelemszerűen a stílusozást érdemes így a Bootstrappel végezni, a jQuery is szabadon használható. Ha verzióproblémát tapasztalsz valamelyik Bootstrap funkció/komponens használatakor, [letöltheted a Bootstrap oldaláról](https://getbootstrap.com/) az előre fordított verziót és felülírhatod a jelenleg használtat a wwwroot/lib/bootstrap mappában. [Ugyanezt megteheted a jQuery-vel is](https://jquery.com/download/), bár ott verziókompatibilitási problémák ritkábbak, ugyanis nem fejlesztik annyira aktívan.
 - Nem szükséges szépnek/ergonomikusnak lennie az oldalnak, de mindenképpen láthatónak kell lennie, hogy mely elemek tartoznak össze.
-- Navigációhoz nem érdemes használni a `href` attribútumot, helyette az [asp-page Tag Helpert és társait](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-3.1) (pl: `asp-page-handler`, `asp-route-parameterNev`, `asp-all-route-data`) érdemes használni.
+- Navigációhoz nem érdemes használni a `href` attribútumot, helyette az [asp-page Tag Helpert és társait](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper) (pl: `asp-page-handler`, `asp-route-parameterNev`, `asp-all-route-data`) érdemes használni.
 - Modell tulajdonság adatkötéséhez használható a `BindProperty` és kapcsolódó attribútumok. GET-es kérések esetén az adatkötést explicit engedélyezni kell, pl.: `[BindProperty(SupportsGet = true)]`. Használható a teljes page fölött a `[BindProperties]` attribútum is, ekkor a nem kötendő tulajdonságokat `[BindNever]` attribútummal kell ellátni.
 - A Razor kódból a PageModel objektumot a `@Model` tulajdonságon keresztül érjük el.
 - Tetszőleges további objektumokat, szolgáltatásokat készíthetsz a feladatok megoldásához.
@@ -72,14 +71,11 @@ Tudnivalók a laborra:
     ``` HTML
     @inject MovieCatalog.Data.IMovieCatalogDataService DataService
     ```
-- Ha szeretnéd változtatni futás közben a Razor oldal tartalmát (nem a C#, hanem a Razor kód változtatható), akkor telepítheted a `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` csomagot, az `.AddRazorPages()` hívást pedig kibővítheted a futási idejű újrafordítás lehetőséggel. Ezután futás közben módosíthatod a Razor fájlokat, újratöltés után pedig a friss állapot lesz látható.
-    ``` C#
-    services.AddRazorPages().AddRazorRuntimeCompilation();
-    ```
+- Ha szeretnéd változtatni futás közben a Razor oldal tartalmát (nem a C#, hanem a Razor kód változtatható), akkor telepítheted a `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` csomagot (ugyanezt a hatást éri el, ha a projekt létrehozásakor beteszed a pipát a megfelelő jelölőnégyzetbe). Ezután futás közben módosíthatod a Razor fájlokat, újratöltés után pedig a friss állapot lesz látható, nem kell újraindítani a szervert. Új Visual Studio és .NET (6+) eszközökkel a Hot Reload funkcióval is próbálkozhatsz, ekkor bizonyos kód módosítások azonnal érvényre juthatnak. Ehhez meg kell nyomni a zöld háromszög mellett erre szolgáló ikont (Hot Reload), ill. ugyanitt beállítható, hogy ez a funkció legyen automatikus fájl mentésekor.
 
 ## Következő feladatok
 
-Ezt követően 3 további feladatot végezhetsz el tetszőleges sorrendben plusz egy érdemjegyért:
+Ezt követően 3 további feladatot végezhetsz el tetszőleges sorrendben plusz egy-egy érdemjegyért:
 
 - [Mű szerkesztő oldala](Feladat-2.md)
 
