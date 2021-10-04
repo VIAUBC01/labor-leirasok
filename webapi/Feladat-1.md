@@ -5,6 +5,8 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 1. Hozz létre egy új ASP.NET Core Web Application típusú alkalmazást `MovieCatalog.Api` néven az alábbi ábráknak megfelelő módon!
     - VS verziótól függően kissé eltérhetnek a képek a valóságtól, ahol nincs releváns opció, ott használd az alapbeállítást!
     - .NET verziónak a jelenlegi (félév elején) legfrissebb stabil verziót használd, tehát vonj ki az aktuális évből 2016-ot!
+    - Az egyetemi laborgépeken a HTTPS lehetőséget érdemes kikapcsolni, mert ott nincs admin jogunk, ami szükséges a fejlesztői HTTPS tanúsítvány telepítéséhez! 
+      - Ha véletlenül mégis sikerült HTTPS-sel létrehozni, úgy 1) töröljük a Properties/launchSettings.json fájlból az "profiles/IIS Express" és "iisSettings" elemeket, és töröljük a Startup/ConfigureServices-ből az "app.UseHttps()" és/vagy "app.UseHttpsRedirection()" hívásokat!
 ![Új Web API projekt létrehozása](images/uj-api-projekt.png)
 ![Új Web API projekt létrehozása 2](images/uj-api-projekt-2.png)
 1. Nem lesz szükség a létrejött projektben az alábbi fájlokra, ezek törölhetők:
@@ -12,7 +14,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
     - `WeatherForecast.cs`
 1. Adj hivatkozást a MovieCatalog.Data NuGet csomagra (a legfrissebb elérhető verzióra)!
 ![MovieCatalog.Data NuGet csomag](images/moviecatalog-data-nuget.png)
-1. A NuGet csomagban található a teljes adatmodell és adatelérési réteg. A MigrateAndSeedDateAsync() bővítő metódus a kiszolgálón, mielőtt elindítanánk a HTTP kérések fogadását, elvégzi az adatbázis sémájának létrehozását, valamint feltölti azt a kiinduló adatokkal. A Main függvény legyen lecserélve az alábbira:
+1. A NuGet csomagban található a teljes adatmodell és adatelérési réteg. A MigrateAndSeedDataAsync() bővítő metódus a kiszolgálón, mielőtt elindítanánk a HTTP kérések fogadását, elvégzi az adatbázis sémájának létrehozását, valamint feltölti azt a kiinduló adatokkal. A Main függvény legyen lecserélve az alábbira:
     ``` C#
     public static async Task Main(string[] args) =>
         await (await CreateHostBuilder(args).Build().MigrateAndSeedDataAsync()).RunAsync();
@@ -58,6 +60,7 @@ Beadandó:
   - Az üres lekérdezéshez mindenképp szükséges az adatbázis kézi manipulációja!
 
 Tudnivalók, megjegyzések, tippek (a teljes laborra vonatkozva):
+- Az előző labor végén előálló adatbázis nem lesz jó a mostani kódnak, az ugyanis másik nevű migrációt fog futtatni, így indításkor panaszkodni fog a már létező táblákra (megpróbálja az automatikus DB migráció ezeket létrehozni, de már léteznek). Érdemes az előző labor alkalmával létrejött DB-t (nem a táblákat!) törölni (pl. SQL Server Object Explorerből), vagy akár a connection string is átírható az appSettings.json fájlban úgy, hogy ne "MovieCatalog" legyen a DB neve, hanem bármi más (pl. MovieCatalog-Api).
 - Régebbi .NET-en, vagy Open API nélkül az F5 hatására a szerver elindul, automatikusan a https://localhost:443xy/weatherforecast URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a `WeatherForecastController`t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (`launchUrl` mező átírása vagy törlése).
   - Open API-val kapunk egy általános API böngésző felületet a /swagger URL-en. A kérés-válaszok vizualizációjához ez is használható, és a beadandóban is elfogadott.
 - Mindenképp javasolt ismerni a szükséges attribútumokat (pl. `[HttpGet]`) és visszatérési értékek típusait, különös tekintettel az `ActionResult<T>` típusra.
@@ -87,6 +90,7 @@ Tudnivalók, megjegyzések, tippek (a teljes laborra vonatkozva):
 - Általánosságban érdemes nem üres 404-es üzenettel, hanem konkrét hibaüzenetet tartalmazó 404-es üzenettel visszatérni, különben esetenként nehezen kideríthető, hogy az API végpontot nem találtuk meg, vagy azt megtaláltuk, de a "helyes" válasz 404 volt.
 - Ha szeretnéd elkerülni a kód duplikálását, érdemes saját szolgáltatást létrehoznod, amibe a közös funkciók (pl. entitás<->DTO átalakítások) kerülhetnek. A szolgáltatást be kell regisztrálni a `Startup.ConfigureServices` metódusban, ezután használható lesz függőséginjektálással pl. controllerekben. Jellemzően a HTTP kérés idejéig élő (Scoped) függőségként érdemes beregisztrálni ezt:
   - `services.AddScoped<MyGenreService>();`
+- Sokszor körülményesebb az IIS Express-en történő debugolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a MovieCatalog.Api lehetőséget válaszd ki! Ezután indításkor az IIS Express system tray icon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 
 ## Következő feladat
 
