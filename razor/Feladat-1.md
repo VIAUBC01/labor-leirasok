@@ -28,6 +28,7 @@ ASP.NET Core segítségével a [Blazor](https://docs.microsoft.com/en-us/aspnet/
     ``` 
     "MovieCatalog": "Server=(localdb)\\mssqllocaldb;Database=MovieCatalog;Trusted_Connection=True;MultipleActiveResultSets=true"
     ```
+    - **Ha már korábbról van MovieCatalog adatbázisunk, azt érdemes törölni, vagy más néven elnevezni a connection stringben az adatbázist, hogy ne akadjanak össze.**
 1. Az adatszolgáltatást és adatbázis kontextust add hozzá a DI konténerhez:
     ``` C#
     services.AddMovieDataService()
