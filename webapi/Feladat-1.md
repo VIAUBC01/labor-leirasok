@@ -5,10 +5,10 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 1. Hozz létre egy új ASP.NET Core Web Application típusú alkalmazást `MovieCatalog.Api` néven az alábbi ábráknak megfelelő módon!
     - VS verziótól függően kissé eltérhetnek a képek a valóságtól, ahol nincs releváns opció, ott használd az alapbeállítást!
     - .NET verziónak a jelenlegi (félév elején) legfrissebb stabil verziót használd, tehát vonj ki az aktuális évből 2016-ot!
-    - Az egyetemi laborgépeken a HTTPS lehetőséget érdemes kikapcsolni, mert ott nincs admin jogunk, ami szükséges a fejlesztői HTTPS tanúsítvány telepítéséhez! 
-      - Ha véletlenül mégis sikerült HTTPS-sel létrehozni, úgy 1) töröljük a Properties/launchSettings.json fájlból az "profiles/IIS Express" és "iisSettings" elemeket, és töröljük a Startup/ConfigureServices-ből az "app.UseHttps()" és/vagy "app.UseHttpsRedirection()" hívásokat!
-![Új Web API projekt létrehozása](images/uj-api-projekt.png)
-![Új Web API projekt létrehozása 2](images/uj-api-projekt-2.png)
+    ![Új Web API projekt létrehozása](images/uj-api-projekt.png)
+    ![Új Web API projekt létrehozása 2](images/uj-api-projekt-2.png)
+    - **Érdemes a laborgépeken kikapcsolni a "Configure for HTTPS" lehetőséget, mert a gépekre nem tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt.** Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
+    - Ha véletlenül mégis sikerült HTTPS-sel létrehozni, úgy 1) töröljük a Properties/launchSettings.json fájlból az "profiles/IIS Express" és "iisSettings" elemeket, és töröljük a Startup/ConfigureServices-ből az "app.UseHttps()" és/vagy "app.UseHttpsRedirection()" hívásokat!
 1. Nem lesz szükség a létrejött projektben az alábbi fájlokra, ezek törölhetők:
     - `Controllers/WeatherForecastController.cs`
     - `WeatherForecast.cs`
@@ -28,6 +28,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
         "Logging": { ... }
     }
     ```
+    - **Ha már korábbról van MovieCatalog adatbázisunk, azt érdemes törölni, vagy más néven elnevezni a connection stringben az adatbázist, hogy ne akadjanak össze.**
 1. A Startup osztályban add hozzá a saját adatszolgáltatást (`IMovieCatalogDataService`) és a saját DbContextet a szolgáltatáskonténerhez, ennek paraméterül add át a megfelelő ConnectionStringet a konfigurációból:
     ``` C#
     using Microsoft.EntityFrameworkCore;
