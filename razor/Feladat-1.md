@@ -7,6 +7,7 @@ ASP.NET Core segítségével a [Blazor](https://docs.microsoft.com/en-us/aspnet/
 1. Hozz létre ismét egy új ASP.NET Core Web Application típusú alkalmazást `MovieCatalog.Web` néven, most az alábbi beállításokkal (ill. alapbeállításokkal, az elérhető legfrissebb .NET verziót használva):
   ![Új projekt](images/uj-projekt-1.png)
   ![Új projekt](images/uj-projekt-2.png)
+  **Érdemes a laborgépeken kikapcsolni a "Configure for HTTPS" lehetőséget, mert a gépekre nem tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt.** Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
 1. Állítsd be, hogy a kultúra-invariáns formázási beállítások lépjenek érvényre az alkalmazásban! Ez elsősorban a float-ok megfelelő formázásához szükséges (tizedesvessző helyett tizedespont használata). Ehhez a Startup.Configure metódus elején állítsd ezt be az alábbi módon:
     ``` C#
     using System.Globalization;
