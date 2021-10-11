@@ -73,7 +73,7 @@ Tudnivalók a laborra:
     ``` HTML
     @inject MovieCatalog.Data.IMovieCatalogDataService DataService
     ```
-- Ha szeretnéd változtatni futás közben a Razor oldal tartalmát (nem a C#, hanem a Razor kód változtatható), akkor telepítheted a `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` csomagot (ugyanezt a hatást éri el, ha a projekt létrehozásakor beteszed a pipát a megfelelő jelölőnégyzetbe). Ezután futás közben módosíthatod a Razor fájlokat, újratöltés után pedig a friss állapot lesz látható, nem kell újraindítani a szervert. Új Visual Studio és .NET (6+) eszközökkel a Hot Reload funkcióval is próbálkozhatsz, ekkor bizonyos kód módosítások azonnal érvényre juthatnak. Ehhez meg kell nyomni a zöld háromszög mellett erre szolgáló ikont (Hot Reload), ill. ugyanitt beállítható, hogy ez a funkció legyen automatikus fájl mentésekor.
+- Ha szeretnéd változtatni futás közben a Razor oldal tartalmát (nem a C#, hanem a Razor kód változtatható), akkor telepítheted a `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` csomagot és a Startupban regisztráld be: `services.AddRazorRuntimeCompilation()` (gyakorlatilag ugyanezt a hatást éri el, ha a projekt létrehozásakor beteszed a pipát a megfelelő jelölőnégyzetbe). Ezután futás közben módosíthatod a Razor fájlokat, újratöltés után pedig a friss állapot lesz látható, nem kell újraindítani a szervert. Új Visual Studio és .NET (6+) eszközökkel a Hot Reload funkcióval is próbálkozhatsz, ekkor bizonyos kód módosítások azonnal érvényre juthatnak. Ehhez meg kell nyomni a zöld háromszög mellett erre szolgáló ikont (Hot Reload), ill. ugyanitt beállítható, hogy ez a funkció legyen automatikus fájl mentésekor.
 
 ## Következő feladatok
 
