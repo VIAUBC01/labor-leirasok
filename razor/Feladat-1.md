@@ -16,7 +16,7 @@ ASP.NET Core segítségével a [Blazor](https://docs.microsoft.com/en-us/aspnet/
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+        app.UseRequestLocalization(o => o.SetDefaultCulture(""));
         // ...
     ```
     
