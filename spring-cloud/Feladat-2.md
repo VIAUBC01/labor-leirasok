@@ -4,18 +4,13 @@ Egy microservice architektúrában célszerű egy discovery szerveren nyilvánta
 
 1. Hozzuk létre a discovery szerver projektjét, Ismét célszerű a File > New > Spring Starter Project varázslót használni. A projekt neve legyen *discovery*. A következő oldalon a lehetséges függőségek közül válasszuk a Spring Cloud Discovery csoportból az Eureka Server-t és a Spring Cloud Config csoportból a Config Client-et. (Maga a discovery szerver is a config szerverről fogja venni a saját konfigját.)
 
-2. A konfig szerver beállításához hozzuk létre az src\main\resources alá a bootstrap.yml fájlt, a szokásos tartalommal:
+2. A konfig szerver beállításához hozzuk létre az src\main\resources alá a application.properties fájlt, a szokásos tartalommal:
 
    ```
-   spring:
-     application:
-       name: discovery
-     cloud:
-       config:
-         name: discovery
-         uri: http://localhost:8081
+   spring.application.name=discovery
+   spring.config.import=optional:configserver:http://localhost:8081
    ```
-
+   
 3. A main osztályra (DiscoveryApplication) tegyük rá az *@EnableEurekaServer* annotációt.
 
 4. A config projektben lévő src\main\resources\config könyvtár alá hozzuk létre a neki megfelelő konfig fájlt discovery.yml néven, az alábbi tartalommal:
