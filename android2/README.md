@@ -5,7 +5,7 @@ A labor során Android platformra kell elkészíteni egy Aknakereső játékot K
 
 [http://en.wikipedia.org/wiki/Minesweeper_(video_game)](http://en.wikipedia.org/wiki/Minesweeper_(video_game))
 
-![MineSweeper](assets/minesweeper.png)
+<img src="./assets/contacts.png" width="400" align="middle">
 
 A labor során az idő rövidsége miatt elegendő, ha az alkalmazás az alábbi megkötésekkel üzemel:
 * 5x5 játéktér elég
@@ -26,7 +26,7 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 
 ## Feltöltés
 * A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni a https://www.aut.bme.hu/Members/MyResults.aspx oldalon.
-* A ZIP-ből az \app\build\intermediates mappa kerüljön törlésre, ugyanakkor az \app\build\outputs\apk\debug\ mappában lévő APK fájl mindenképpen legyen benne. 
+* A ZIP-ből az \app\build\intermediates mappa kerüljön törlésre, ugyanakkor az \app\build\outputs\apk\debug\ mappában lévő APK fájl mindenképpen legyen benne. (A legegyszerűbb, ha a Fájl -> Export -> Export to Zip opciót választja.) 
 * A feltöltött ZIP file-ba kerüljön egy egyszerű, név-neptun-kóddal ellátott PDF dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép, valamint némi szöveges leírás az elkészült funkcióról.
 
 ## Tippek
@@ -99,7 +99,7 @@ class MineSweeperView : View {
     override fun onDraw(canvas: Canvas) {
         canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), paintBg)
 
-        drawPlayer(canvas)
+        drawGameArea(canvas)
         drawGameState(canvas)
 
     }
