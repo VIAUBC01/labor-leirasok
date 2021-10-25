@@ -8,7 +8,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
 
 1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 11-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
 
-2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a Hoxton.SR8, ami property-be van kiszervezve):
+2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a 2020.0.4, ami property-be van kiszervezve):
 
    ```
    <dependencyManagement>
@@ -23,7 +23,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
    	</dependencies>
    </dependencyManagement>
    ```
-   A dependencyManagement tag nem összekeverendő a dependencies taggel! Ha egy konkrét Spring cloud-os függőséget ténylegesen használni akarunk, akkor azt a dependencies tagbe kell tenni, persze a verziót elhaghyatjuk, mert azt megkajuk a dependencyManagement tagből:
+   A dependencyManagement tag nem összekeverendő a dependencies taggel! Ha egy konkrét Spring cloud-os függőséget ténylegesen használni akarunk, akkor azt a dependencies tagbe kell tenni, persze a verziót elhagyhatjuk, mert azt megkajuk a dependencyManagement tagből:
 
    ```
    <dependencies>
@@ -74,7 +74,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
      - A <properties> tagbe helyezzük el ezt a sort:
 
      ```
-             <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+             <spring-cloud.version>2020.0.4</spring-cloud.version>
      ```
 
      - A </properties> tag alá helyezzük el ezeket a sorokat:
@@ -102,17 +102,27 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
                </dependency>
        ```
 
-   - Hozzuk létre a bootstrap.yml fájlt az src\main\resources alatt, ezzel a tartalommal (a *name* utáni érték értelemszerűen az adott projektnek megfelelő legyen):
+   - Hozzuk létre a application.properties fájlt az src\main\resources alatt, ezzel a tartalommal (a *name* utáni érték értelemszerűen az adott projektnek megfelelő legyen):
 
      ```
-     spring:
-       application:
-         name: bonus
-       cloud:
-         config:
-           name: bonus
-           uri: http://localhost:8081
+     spring.application.name=bonus
+     spring.config.import=optional:configserver:http://localhost:8081
      ```
+     
+     - Megjegyzések: 
+       - A fenti két propertyt application.yml-ben is megadhatnánk. A currency projektben pl. már eleve application.yml fájlunk van, amiben az átváltási jutalékot definiáljuk. Kiegészíthettő lenne tehát ilyen módon:
+     ```        
+     currency:
+        exchangePremium: 0.01
+     spring:
+        application:
+          name: currency
+          config:
+            import: optional:configserver:http://localhost:8081
+     ```
+       - Az optional: prefix azt szolgálja, hogy az alkalmazásunk akkor is el tudjon indulni, ha a konfig szerver nem elérhető. Ha azonban ez előfordulna, visszajutnánk a kezdeti problémához: a default 8080-as porton akarna elindulni minden alkalmazás. Tehát a helyes működéshez a config szervert kell majd először elindítani.
+       - Ha nem tudjuk vagy akarjuk biztosítani, hogy a config szerver induljon el először, az alkalmazásokat beállíthatjuk úgy is, hogy induláskor többször próbálkozzanak a config szerver elérésével, erről itt olvashatók részletek: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#config-client-retry
+       - A Spring Boot 2.4 vezette be a spring.config.import property-t, amivel a fenti módon, egyszerűen lehet máshonnan (jelen esetben egy config szerverről) konfigurációt importálni. Korábbi verziókban egy bootstrap.yml fájlra volt szükség, ott kellett megadni az alkalmazás nevét és a config szerver elérhetőségét (a spring.cloud.config.uri property-ben). Ha a régi módon, a bootstrap.yml-t akarnánk használni, a spring.cloud.bootstrap.enabled=true property-vel, vagy a spring-cloud-starter-bootstrap függőség behúzásával tudnánk megtenni.
 
 7. Indítsd el a config alkalmazást, majd sorban a bonus, currency és flights alkalmazásokat! Jól használható erre a célra a bal alsó sarokban lévő Boot Dashboard nézet, ahol gyorsan kiválasztható bármelyik alkalmazás, ami után egyszerű vagy debug módú futtatás kezdeményezhető a megfelelő ikonnal. (Ha már fut az alkalmazás, akkor először le is állítja azt, így nem kell portütközéstől tartani. A *-api projekteket értelemszerűen nem lehet elindítani, mert nincs bennük main osztály.)
 
