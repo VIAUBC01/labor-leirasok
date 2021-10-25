@@ -8,7 +8,7 @@ A fő cél, hogy a Spring Cloud által adott lehetőségeket egy példán keresz
 
 A labor elvégzéséhez szükséges eszközök:
 
-- JDK 11, pl. innen: https://adoptopenjdk.net/
+- JDK 11, pl. innen: https://adoptium.net/?variant=openjdk11
 - Tetszőleges Java alapú IDE, pl. Spring Tools 4 for Eclipse: https://spring.io/tools
 - HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.: [Postman](https://www.postman.com/downloads/)
 
@@ -22,10 +22,10 @@ A laborok elvégzéséhez használható segédanyagok és felkészülési anyago
 
 Hivatalos dokumentációk:
 
-- Spring Cloud Config: https://docs.spring.io/spring-cloud-config/docs/2.2.5.RELEASE/reference/html/
-- Spring Cloud Gateway: https://docs.spring.io/spring-cloud-gateway/docs/2.2.5.RELEASE/reference/html/
-- Spring Cloud Netflix (Eureka): https://docs.spring.io/spring-cloud-netflix/docs/2.2.5.RELEASE/reference/html/
-- Spring Cloud OpenFeign: https://docs.spring.io/spring-cloud-openfeign/docs/2.2.5.RELEASE/reference/html/
+- Spring Cloud Config: https://docs.spring.io/spring-cloud-config/docs/3.0.5/reference/html/
+- Spring Cloud Gateway: https://docs.spring.io/spring-cloud-gateway/docs/3.0.4/reference/html/
+- Spring Cloud Netflix (Eureka): https://docs.spring.io/spring-cloud-netflix/docs/3.0.4/reference/html/
+- Spring Cloud OpenFeign: https://docs.spring.io/spring-cloud-openfeign/docs/3.0.4/reference/html/
 
 ## Beadandó
 
@@ -80,8 +80,10 @@ Klónozd ezt a repository-t, és a spring-cloud mappában lévő 7 projektet imp
     
 
 - flights-api:
+  
   - A FlightsApi interfész Spring MVC annotációkkal definiál egy végpontot, amelyen járatokat lehet keresni a felszálló és leszálló város megadásával. A válaszban Airline listát ad a végpont, egy Airline-nak id-je, kiinduló- és célvárosa, ára és pénzneme van. Az Airline osztály értelmeszerűen szintén az api projektben van definiálva. 
 - flights:
+  
   - A FlightsController valósítja meg a FlightsApi-t, az AirlineService segítségével. Ez az egyszerűség kedvéért lineáris keresést végez egy memóriába beégetett Airline listában.
 
 A hetedik projekt neve *booking*. Ez nem a légitársaság, hanem egy utazási iroda rendszere, amely a légitársaság fenti szolgáltatásait felhasználva biztosít repjegy vásárló funkcionalitást. A BookingController-ben látható, hogy egy TicketData-t fogad el POST törzsként, majd erre egy PurchaseData választ ad. A pontos elvárt működést majd a 4. feladat specifikálja, de a megvalósítás során mindhárom légitársasági rendszert meg kell majd hívni.
