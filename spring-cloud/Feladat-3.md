@@ -8,18 +8,13 @@ A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy 
    - A Spring Cloud Config csoportból a Config Client-et. (Így az API gateway is a config szerverről fogja venni a saját konfigját.)
    - A Spring Cloud Discovery csoportból az Eureka Discovery Client-et. (Így az API gateway is be fog jelentkezni az eureka servernél, valamint az eureka servertől fogja megtudni a többi szolgáltatás aktuális címét.)
 
-2. A konfig szerver használatához hozzuk létre az src\main\resources alá a bootstrap.yml fájlt, a szokásos tartalommal:
+2. A konfig szerver használatához hozzuk létre az src\main\resources alá a application.properties fájlt, a szokásos tartalommal:
 
    ```
-   spring:
-     application:
-       name: gateway
-     cloud:
-       config:
-         name: gateway
-         uri: http://localhost:8081
+   spring.application.name=gateway
+   spring.config.import=optional:configserver:http://localhost:8081
    ```
-
+   
 3. A main osztályra (GatewayApplication) tegyük rá az *@EnableDiscoveryClient* annotációt. Így fog tudni a gateway szolgáltatás címeket keresni a discovery szervernél. 
 
 4. A config projektben az src\main\resources\config alá hozzuk létre a gateway.yml konfig fájlt, ilyen sorokkal:
