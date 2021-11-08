@@ -71,13 +71,13 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
 
    - A pom.xml-ben:
 
-     - A <properties> tagbe helyezzük el ezt a sort:
+     - A &lt;properties&gt; tagbe helyezzük el ezt a sort:
 
      ```
              <spring-cloud.version>2020.0.4</spring-cloud.version>
      ```
 
-     - A </properties> tag alá helyezzük el ezeket a sorokat:
+     - A &lt;properties&gt; tag alá helyezzük el ezeket a sorokat:
 
      ```
          <dependencyManagement>
