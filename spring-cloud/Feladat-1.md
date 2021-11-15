@@ -117,8 +117,8 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
      spring:
         application:
           name: currency
-          config:
-            import: optional:configserver:http://localhost:8081
+        config:
+          import: optional:configserver:http://localhost:8081
      ```
        - Az optional: prefix azt szolgálja, hogy az alkalmazásunk akkor is el tudjon indulni, ha a konfig szerver nem elérhető. Ha azonban ez előfordulna, visszajutnánk a kezdeti problémához: a default 8080-as porton akarna elindulni minden alkalmazás. Tehát a helyes működéshez a config szervert kell majd először elindítani.
        - Ha nem tudjuk vagy akarjuk biztosítani, hogy a config szerver induljon el először, az alkalmazásokat beállíthatjuk úgy is, hogy induláskor többször próbálkozzanak a config szerver elérésével, erről itt olvashatók részletek: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#config-client-retry
