@@ -141,7 +141,7 @@ import { Tweet, TweetWithId } from "./models";
 let i = 0;
 function generateTweetId() : string {
     i++; 
-    return t.toString();
+    return i.toString();
 }
 
 export class Database {
@@ -213,7 +213,6 @@ import { Database } from "./database";
 let db = new Database();
 db.addTweet({
     text: 'Hello World!',
-    creationDate: new Date(),
     tags: ["init"],
     userName: "mark"
 });
@@ -290,7 +289,7 @@ export class TwitterApi {
 }
 ```
 
-**A jegyzőkönyvben válaszuljon a következő kérdésekre:** 
+**A jegyzőkönyvben válaszoljon a következő kérdésekre:** 
 * Milyen  végpontokat definiál a fenti kód. Egy táblázatban szerepeljen a végpont URL-je, a HTTP metódus, azt hogy várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a leírásban. 
 * Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint? 
 
