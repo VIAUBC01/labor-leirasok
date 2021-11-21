@@ -33,7 +33,7 @@ Hozzunk létre egy minimális html fájlt, amelyben a majd lefordított `main.js
     <script src="build/main.js"></script>
 </head>
 <body>
-    <h1>Twitter client!<h1>
+    <h1>Twitter client!</h1>
 </body>
 </html>
 ```
