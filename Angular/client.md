@@ -176,7 +176,7 @@ export class TweetsApiService {
     return this.http.get<TweetWithId[]>('/api/tweets').toPromise();
   }
 
-  public createTweetAsync(text: string, userName: string, tags: string | undefined): Promise<any> {
+  public createTweetAsync(text: string, userName: string, tags: string[] | undefined): Promise<any> {
     return this.http.post('/api/tweets', { text, userName, tags }).toPromise();
   }
 }
@@ -330,7 +330,7 @@ export class NewTweetComponent implements OnInit {
       console.log(this.text);
       return;
     }
-    this.apiSvc.createTweetAsync(this.text!, this.userName!, this.tagsStr).then(() => {
+    this.apiSvc.createTweetAsync(this.text!, this.userName!, this.tagsStr?.split(",")).then(() => {
       this.router.navigateByUrl("/tweets");
     });
 
