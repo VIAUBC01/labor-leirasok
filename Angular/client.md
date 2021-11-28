@@ -4,7 +4,7 @@ Hozzunk létre egy üres könyvtárat a munkához.
 
 Az Angular keretrendszer egy `ng` nevű programcsomagot is tartalmaz, amely nagyban megkönnyíti az Angular projektek menedzselését. Segít létrehozni új projeketeket, fájlokat, illetve segít az Angular alkalmazások elindításában is. 
 
-Ha nincs még telepítve a gépünkre, telepítsük az `ng` programcsomagot: 
+Ha saját gépen dolgozunk, és nincs még telepítve a gépünkre, telepítsük az `ng` programcsomagot (a laborgépeken erre nincs szükség): 
 
 ```cmd
 $ npm install -g @angular/cli
@@ -25,6 +25,7 @@ ng new --help
 Ha megértettük az egyes kapcsolók jelentését, adjuk ki a fenti parancsot a `-d` kapcsoló nélkül, így létrejön a kezdő Angular projektünk. 
 
 **A jegyzőkönyvben válaszoljuk meg a kövektező kérdéseket:**
+
 * Mit jelent a `--prefix=twit` beállítás?
 * Mit jelent a `--style=scss` kapcsoló?
 
