@@ -252,13 +252,13 @@ Az App Service-csomag létrehozása után az Azure CLI az alábbi példához has
 
 Hozzon létre egy webalkalmazást a `myAppServicePlan` App Service Plan-hez. 
 
-Használja az `az webapp create` parancsot. A lenti példában cserélje ki az `<app-name>` nevet egy globálisan egyedi névre (érvényes karakterek: `a-z`, `0-9` és `-`). A futtatókörnyezet a példában `DOTNETCORE|5.0` lesz. Az összes támogatott futtatókörnyezet megtekintéséhez futtassa a parancsot `az webapp list-runtimes --linux`. 
+Használja az `az webapp create` parancsot. A lenti példában cserélje ki az `<app-name>` nevet egy globálisan egyedi névre (érvényes karakterek: `a-z`, `0-9` és `-`). A futtatókörnyezet a példában `DOTNET|5.0` lesz. Az összes támogatott futtatókörnyezet megtekintéséhez futtassa a parancsot `az webapp list-runtimes --linux`. 
 
 ```bash
 # Bash, cmd
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|5.0" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNET|5.0" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|5.0" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNET|5.0" --deployment-local-git
 ```
 
 A webalkalmazás létrehozása után az alábbi példához hasonló eredményt kapunk:
