@@ -9,8 +9,8 @@ A mérés Windows és Linux rendszeren is teljesíthető. Telepítés előtt aj�
 Telepítendő parancssoros eszközök:    
  - Azure CLI - [Windows](https://aka.ms/installazurecliwindows) [Linux](https://docs.microsoft.com/hu-hu/cli/azure/install-azure-cli) 
  - [git](https://git-scm.com/downloads) (Visual Studio telepítő is feltelepíti)
- - [.NET Core 3.1 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
- 
+ - [.NET Core 5.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
+
 Egyéb kellékek:
  - [Windows Terminal](https://www.microsoft.com/hu-hu/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) (opcionális, csak Windows-on telepíthető)
  - valamilyen szövegszerkesztő, pl. jegyzettömb, [Visual Studio Code](https://code.visualstudio.com/)
@@ -25,7 +25,7 @@ git ellenőrzése, ajánlott verzió legalább v2.28 (Windows), v2.17 (Linux)
 ```bash
 git --version
 ```
-.NET Core SDK ellenőrzése, legalább v3.1 legyen
+.NET Core SDK ellenőrzése, legalább v5.0 legyen
 ```bash
 dotnet --version
 ```
@@ -104,7 +104,7 @@ A keresett név a válasz JSON `name` tulajdonságából olvasható ki.
 
   - Azure SQL Server (`az sql server create` parancs hozza létre) 
   - Azure App Service (`az webapp create` parancs hozza létre). 
- 
+
 Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
 
 
