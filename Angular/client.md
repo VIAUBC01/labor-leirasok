@@ -13,7 +13,7 @@ $ npm install -g @angular/cli
 Ezután adjuk ki a következő parancsot: 
 
 ```cmd
-$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix twit --routing=true --skip-git=true --skip-install --strict=true --style=scss -d
+$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss -d
 ```
 
 Az utolsó `-d` kapcsoló a *dry run* rövidítése, ilyenkor csak teszteljük a parancsot: az `ng` kiírja, hogy milyen fájlokat hozna létre, de valójában nem jön létre semmi. Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő parancsot: 
