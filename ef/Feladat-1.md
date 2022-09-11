@@ -195,7 +195,7 @@ await host.RunAsync();
 
 A fenti indítási módszer analóg a Háttéralkalmazásokból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
 
-# Feladat 1.
+# Feladat 1
 
 Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
 - SQL alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS 
