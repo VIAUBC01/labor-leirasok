@@ -25,7 +25,7 @@ Lássunk neki!
     - `dotnet tool install --global dotnet-ef`
       - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
-1. Hozzunk létre egy új .NET (a legújabb verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
+1. Hozzunk létre egy új .NET (.NET 6 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
 1. Adjunk a solutionhöz egy új .NET C# konzol projektet is MovieCatalog.Terminal néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
@@ -170,7 +170,7 @@ namespace MovieCatalog.Terminal
 ```
 
 - Láthatjuk, hogy a `TestConsole` osztály számít rá, hogy kapni fog *valahonnan* egy `MovieCatalogDbContext` példányt, tehát felkészültünk arra, hogy a rendszer dependency injectiont használ.
-- Érdekesség a "cancellationToken" névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti StopAsync-nak. Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla.
+- Érdekesség a `cancellationToken` névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti `StopAsync`-nak. Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla. Ha egy függvényt írunk, ami `CancellationToken`-t kap, akkor a tokent illik továbbpasszolni azt minden általunk hívott függvénynek (ha van olyan változata, ami fogad ilyen paramétert).
 
 6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. A legelegánsabb megoldás az ASP.NET-tel analóg módon egy GenericHostBuilder osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. Cseréljük le a Program.cs fájl teljes tartalmát az alábbira:
 
@@ -180,39 +180,26 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MovieCatalog.Data;
-using System.Threading.Tasks;
+using MovieCatalog.Terminal;
 
-namespace MovieCatalog.Terminal
-{
-    public class Program
-    {
-        public static async Task Main(string[] args) =>
-            await CreateHostBuilder(args).RunConsoleAsync();
+using IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((_, services) =>
+        services.AddDbContext<MovieCatalogDbContext>(o => 
+                    o.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MovieCatalog"))
+                .AddHostedService<TestConsole>())
+    .ConfigureLogging(l => l.AddFilter("Microsoft.EntityFrameworkCore", LogLevel.Warning))
+    .Build();
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                    services.AddDbContext<MovieCatalogDbContext>(o => o.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MovieCatalog"))
-                            .AddHostedService<TestConsole>())
-                .ConfigureLogging(l => l.AddFilter("Microsoft.EntityFrameworkCore", LogLevel.Warning));
-    }
-}
+await host.RunAsync();
 ```
 
-- A fenti indítási módszer teljesen analóg a Háttéralkalmazásokból tanult indítási móddal az <span>ASP.NET Core</span> kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
-- .NET 6-tól az indításhoz ismertetett módszer a Minimal API-knak köszönhetően jelentősen egyszerűsödni fog.
-
-+1 tipp: ha szeretnénk "automatikusan" futtatni a migrációkat (akár kitörölt adatbázist követően létrehozni), akkor a dotnet database update parancs futtatgatása helyett kódból is megtehetjük, pl. alkalmazás induláskor:
-
-``` C#
-await DbContext.Database.MigrateAsync();
-```
+A fenti indítási módszer analóg a Háttéralkalmazásokból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
 
 # Feladat 1.
 
 Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
-- SQL alapú megoldással (pl. SQL Server Object Explorerben futtatott lekérdezéssel), ÉS 
-- a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (Logger példányra) történő kiírással!
+- SQL alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS 
+- a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (`Logger` példányra `LogInformation` hívással) történő kiírással!
 
 ## Következő feladat
 
