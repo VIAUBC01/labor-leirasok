@@ -12,12 +12,12 @@ Emlékeztetőként:
 - Amikor az adatmodellt (C# entitásosztályokat) módosítjuk, új migrációt kell létrehozni, erre használhatjuk a `dotnet ef migrations add migrációnév` parancsot (a *migrációnév* nevű migrációnak egyedinek kell lennie, érdemes értelmes nevet adni neki, pl. 'AddTotalCostColumnToProductOrder').
 - Az adatbázist a legújabb migrációra a `dotnet ef update database` paranccsal frissíthetjük.
 - Ha egy migrációt elrontottunk vagy szeretnénk visszavonni, használjuk a `dotnet ef migrations remove` parancsot. Ez a legutolsó migrációt törli. Ezután adjuk hozzá az új migrációt.
-  - Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a `dotnet ef database update migrációnév` parancsot, ahol a *migrációnév* az <u>utolsóelőtti</u> migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.
-
+  - Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a `dotnet ef database update migrációnév` parancsot, ahol a *migrációnév* az **utolsóelőtti** migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.
+  - Ha maguk a migrációk rendben vannak, de az adatbázis adattartalmát törölni akarjuk (*kezdjük elölről*), hasznos a `dotnet ef database update 0` parancs, ami eldobja az összes migrációban érintett objektumot (pl. táblát), majd egy `dotnet ef database update` paranccsal lefuttatjuk az összes migrációt. Így egy már használható, de alaphelyzetben lévő adatbázist kapunk.
+- Mivel a parancsokat a Visual Studio-tól függetlenül futtatjuk, így minden parancsfuttatás előtt érdemes minden nem mentett fájlt elmenteni, vagy fordítani a solutiont.
+- Alternatívaként használhatjuk a [powershell alapú parancsokat](https://docs.microsoft.com/en-us/ef/core/cli/powershell) is a Visual Studio Package Manager Console-jából (PMC). Ilyenkor általában kevesebb paramétert kell megadnunk, mert a Visual Studio / PMC állapota alapján töltődnek.
 
 Lássunk neki!
-
-<hr />
 
 # Előkészületek
 
@@ -25,7 +25,7 @@ Lássunk neki!
     - `dotnet tool install --global dotnet-ef`
       - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
-1. Hozzunk létre egy új .NET (a legújabb verziójú, a későbbiekben is) C# osztálykönyvtárat MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
+1. Hozzunk létre egy új .NET (a legújabb verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
 1. Adjunk a solutionhöz egy új .NET C# konzol projektet is MovieCatalog.Terminal néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
@@ -41,7 +41,7 @@ Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben 
 
 # Alap infrastruktúra kialakítása, tesztelése
 
-1. Hozzunk létre egy új mappát az adatrétegben Entities néven, és adjuk hozzá a Title entitást:
+1. Hozzunk létre egy új mappát az adatrétegben Entities néven, és adjuk hozzá a `Title` entitást:
 ``` C#
 namespace MovieCatalog.Data.Entities
 {
@@ -50,12 +50,17 @@ namespace MovieCatalog.Data.Entities
         public int Id { get; set; }
         public string TConst => $"tt{Id.ToString().PadLeft(7, '0')}";
         public string PrimaryTitle { get; set; }
+        
+        public Title(string primaryTitle)
+        {
+            PrimaryTitle = primaryTitle;
+        }
     }
 }
 ```
-  - Láthatjuk, hogy a TConst mező számított érték, az IMDb elnevezési konvenciója alapján `tt1234567` formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.
+  - Láthatjuk, hogy a `TConst` mező számított érték, az IMDb elnevezési konvenciója alapján `tt1234567` formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.
 
-2. Hozzunk létre egy új DbContext típust az adatrétegben MovieCatalogDbContext néven, az alábbi tartalommal:
+2. Hozzunk létre egy új DbContext típust az adatrétegben `MovieCatalogDbContext` néven, az alábbi tartalommal:
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
@@ -66,14 +71,15 @@ namespace MovieCatalog.Data
 {
     public class MovieCatalogDbContext : DbContext
     {
-        public MovieCatalogDbContext(ILogger<MovieCatalogDbContext> logger, DbContextOptions<MovieCatalogDbContext> options) : base(options)
+        public MovieCatalogDbContext(ILogger<MovieCatalogDbContext> logger
+                                      ,DbContextOptions<MovieCatalogDbContext> options) : base(options)
         {
             Logger = logger;
         }
 
         private ILogger<MovieCatalogDbContext> Logger { get; }
 
-        public DbSet<Title> Titles { get; set; }
+        public DbSet<Title> Titles => Set<Title>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -81,8 +87,7 @@ namespace MovieCatalog.Data
             {
                 title.Property(t => t.Id).ValueGeneratedNever();
                 title.Property(t => t.PrimaryTitle)
-                    .HasMaxLength(500)
-                    .IsRequired();
+                    .HasMaxLength(500);
                 title.HasIndex(t => t.PrimaryTitle);
             });
         }
@@ -90,15 +95,14 @@ namespace MovieCatalog.Data
 }
 ```
 
-Vegyük észre, hogy a Title entitásunkon konfiguráltuk az Id és PrimaryTitle tulajdonságokat (adatbázistábla mezőket):
-- Az Id nevű mező konvenció szerint adatbázis által generált, mi most viszont kézzel szeretnénk megadni (az IMDb-ből fog érkezni).
+A `Title` entitásunkon konfiguráltuk az `Id` és `PrimaryTitle` tulajdonságokat (adatbázistábla mezőket):
+- Az `Id` nevű mező konvenció szerint [adatbázis által generált](https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#primary-keys), mi most viszont kézzel szeretnénk megadni (az IMDb-ből fog érkezni).
 - A címben gyakran szeretnénk keresni, ezért indexeljük.
-  - Az EF alapértelmezetten NVARCHAR(max) típusú string mezőket hoz nekünk létre.
-  - Az indexelés SQL szerveren nem alkalmazható (különféle hackelések nélkül) NVARCHAR(max), azaz korlátlan hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
-- Az EF alapértelmezett konvencióként a string típusú mezőket nullozható, végtelen hosszt felvehető értékként képzi le SQL Server provider alatt. A cím viszont kötelező, ezért felvesszük a kötelezőségi kényszert is.
-  - A C# _nullable_ funkció bekapcsolásával (EF Core 6-tól ez az alapértelmezett) használhatnánk a string? "nullozható referenciatípus" jelölést, de az egyszerűség kedvéért ezt most mellőzzük. Ekkor az EF a string? mezőket nullozhatóként, a string mezőket nem nullozhatóként tárolja.
+  - Az EF alapértelmezetten **NVARCHAR(max)** típusú string mezőket [hoz nekünk létre](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types).
+  - Az indexelés SQL szerveren csak bajosan alkalmazható **NVARCHAR(max)**, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
+- Az EF alapértelmezett konvencióként a mezők nullozhatóságát a leképzendő property típusának nullozhatósága adja. A `string` típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséghet külön nem kell beállítanunk.
 
-3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy DbContextet tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert internal láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.
+3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy `DbContext`et tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert `internal` láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
@@ -110,7 +114,10 @@ namespace MovieCatalog.Data.Design
     internal class MovieCatalogDesignTimeDbContextFactory : IDesignTimeDbContextFactory<MovieCatalogDbContext>
     {
         public MovieCatalogDbContext CreateDbContext(string[] args) =>
-            new(new Logger<MovieCatalogDbContext>(new LoggerFactory()), new DbContextOptionsBuilder<MovieCatalogDbContext>().UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MovieCatalog").Options);
+            new(new Logger<MovieCatalogDbContext>(new LoggerFactory()), 
+                                                  new DbContextOptionsBuilder<MovieCatalogDbContext>()
+                                                  .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MovieCatalog")
+                                                  .Options);
     }
 }
 ```
@@ -162,7 +169,7 @@ namespace MovieCatalog.Terminal
 }
 ```
 
-- Láthatjuk, hogy a TestConsole osztály számít rá, hogy kapni fog "valahonnan" egy MovieCatalogDbContext példányt, tehát felkészültünk arra, hogy a rendszer dependency injectiont használ.
+- Láthatjuk, hogy a `TestConsole` osztály számít rá, hogy kapni fog *valahonnan* egy `MovieCatalogDbContext` példányt, tehát felkészültünk arra, hogy a rendszer dependency injectiont használ.
 - Érdekesség a "cancellationToken" névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti StopAsync-nak. Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla.
 
 6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. A legelegánsabb megoldás az ASP.NET-tel analóg módon egy GenericHostBuilder osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. Cseréljük le a Program.cs fájl teljes tartalmát az alábbira:
@@ -200,8 +207,6 @@ namespace MovieCatalog.Terminal
 ``` C#
 await DbContext.Database.MigrateAsync();
 ```
-
-<hr/>
 
 # Feladat 1.
 
