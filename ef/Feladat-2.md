@@ -46,7 +46,7 @@ namespace MovieCatalog.Data
 
 A függvényt meghívva feldolgozás kezdődik meg a `filePath` elérési útvonalon található TSV fájlon. Az első sor a fejléc, ez tartalmazza, hogy hány érték található minden ezt követő sorban. A `\N` jelölésű sorok `null` értéket jelölnek. Ezt követően soronként ennyi értéket találunk a TSV fájlban. A fájlból soronként olvasva visszaadunk 1-1 értéket egy szótár formájában, amiből a dokumentáció alapján definiált kulccsal kiindexelhetjük a TSV fájlban található string értékeket.
 
-2. Vegyük fel az alábbi függvényt a MovieCatalogDbContext osztályba:
+2. Vegyük fel az alábbi függvényt a `MovieCatalogDbContext` osztályba:
 ``` C#
 using System.Linq;
 using System.Threading.Tasks;
@@ -105,11 +105,11 @@ public async Task StartAsync(CancellationToken cancellationToken)
 }
 ```
 
-Ezzel be is kerülnek az adatok az adatbázisba (ha a Titles tábla üres):
+Futtatás előtt ürítsük ki a Titles táblát!
+
+Ezzel be is kerülnek az adatok az adatbázisba:
 
 ![Adatbetöltés vége](images/adatbetoltes-vege.png)
-
-<hr />
 
 # Feladat 2.
 
