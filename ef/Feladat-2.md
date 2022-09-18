@@ -20,23 +20,24 @@ tt0000009	short	Miss Jerry	Miss Jerry	0	1894	\N	40	Romance,Short
 1. A Data projektbe vegyük fel az alábbi osztályt, ami a TSV fájlok dekódolásában fog nekünk segíteni. A fájl tartalmát nem kell megértenünk, de az alapműködést igen, amit alább részletezve láthatunk.
 
 ``` C#
-using System.Collections.Generic;
-using System.IO;
 using System.IO.Compression;
-using System.Linq;
 
 namespace MovieCatalog.Data
 {
     public class TsvParser
     {
-        public static IEnumerable<IReadOnlyDictionary<string, string>> ParseTsv(string filePath)
+        public static IEnumerable<IReadOnlyDictionary<string, string?>> ParseTsv(string filePath)
         {
             using var reader = new StreamReader(new GZipStream(File.OpenRead(filePath), CompressionMode.Decompress));
 
-            var headers = reader.ReadLine().Split('\t');
+            var headers = reader.ReadLine()?.Split('\t');
+            if (headers == null)
+                yield break;
             while (reader.ReadLine() is var line && !string.IsNullOrWhiteSpace(line))
             {
-                yield return new Dictionary<string, string>(line.Split('\t').Select((item, index) => new KeyValuePair<string, string>(headers[index], item != "\\N" ? item : null)));
+                yield return new Dictionary<string, string?>(
+                    line.Split('\t').Select((item, index) 
+                                => new KeyValuePair<string, string?>(headers[index], item != @"\N" ? item : null)));
             }
         }
     }
@@ -54,25 +55,34 @@ using System.Threading.Tasks;
 
 public async Task ImportFromFileAsync(string filePath, int? maxValues = 100_000)
 {
-    var toInsert = TsvParser.ParseTsv(filePath).Select(item => new Title
-    {
-        Id = int.Parse(item["tconst"][2..]), // A 'tconst' értéke a fájlban pl. 'tt6723592', a [..] range operátorral a 'tt'-t az elejéről levágjuk, a maradékot pedig int-té alakítjuk
-        PrimaryTitle = item["primaryTitle"] // 'Tenet'
-    });
-    if (maxValues != null)
-      toInsert = toInsert.Take(maxValues.Value); // Alapértelmezetten csak 100 000 elemet veszünk a fájlból összesen.
+    var tsvQuery = TsvParser.ParseTsv(filePath)
+        .Select(item
+            => new Title(item["primaryTitle"] ?? throw new ArgumentNullException("Null title"))
+            {
+                Id = int.Parse(item["tconst"]?[2..] ?? throw new InvalidOperationException("Null id")),
+                // A 'tconst' értéke a fájlban pl. 'tt6723592', a [..] range operátorral a 'tt'-t az elejéről levágjuk,
+                // a maradékot pedig egész számmá alakítjuk
+            });
 
-    while (toInsert.Any()) // Ha van még feldolgozatlan sor,
+    int idx = 0;
+    foreach (var item in tsvQuery)
     {
-        Titles.AddRange(toInsert.Take(100_000)); // 100 000-et felcsatolunk a Titles DbSet-be,
-        toInsert = toInsert.Skip(100_000); // léptetünk egy 'oldalt',
-        var saved = await SaveChangesAsync(); // elmentjük a DB-be, ami visszaadja a mentett sorok számát,
-        Logger.LogInformation($"Saved {saved} rows."); // végül kiírjuk a mentett sorok számát.
+        Titles.Add(item);
+        idx++;
+        if (idx == maxValues)
+        {
+            var saved = await SaveChangesAsync();
+            Logger.LogInformation($"Saved {saved} rows.");
+            idx = 0;
+        }
     }
+    var savedFinal = await SaveChangesAsync();
+    Logger.LogInformation($"Saved {savedFinal} rows. Total:{Titles.Count()} rows");
 }
+
 ```
-- Mivel a fájl és tartalma óriási, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket. Alapértelmezetten csak az első 100 000 elemet olvassuk csak ki a fájlból.
-  - Ezért kellett, hogy ne a teljes fájlt egyszerre beolvassuk, hanem gyakorlatilag soronként streameljük a fájlból a szótárakat, azokat pedig transzformáljuk Title típusú elemekre. Ha a géped nem bírja, a maxValues értéket leveheted 10 000-re.
+- Mivel a fájl és tartalma óriási, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.
+- Ezért kellett, hogy ne a teljes fájlt egyszerre beolvassuk, hanem gyakorlatilag soronként streameljük a fájlból a szótárakat, azokat pedig transzformáljuk Title típusú elemekre. Ha a géped nem bírja, a maxValues értéket leveheted 10 000-re.
 
 3. Töltsük le a gépünkre az aktuális `title.basics.tsv.gz` fájlt ([IMDb data files available for download (https://datasets.imdbws.com/, Figyelem! ~124 MB!)](https://datasets.imdbws.com/)), majd töltsük be a fájl tartalmát az adatbázisba.
   - Ha korlátos erőforrással dolgozunk, akkor a fájlból egy [jelentősen kisebb, csak az első 100 000 sort tartalmazó lenyomat található itt (~2 MB)](res/title.basics.stub.tsv.gz). Ez a fájl szintén használható, de a későbbi bónusz feladat ezzel értelemszerűen nem végezhető el. A fájl utólag is lecserélhető.
@@ -86,7 +96,7 @@ public async Task StartAsync(CancellationToken cancellationToken)
 {
     Logger.LogInformation("Starting...");
 
-    await DbContext.Database.MigrateAsync(cancellationToken);
+    //...korábbi kódok kikommentezve...
 
     if (!await DbContext.Titles.AnyAsync(cancellationToken))
         await DbContext.ImportFromFileAsync(@"C:\------\title.basics.tsv.gz"); // Az útvonal értelemszerűen kitöltendő.
