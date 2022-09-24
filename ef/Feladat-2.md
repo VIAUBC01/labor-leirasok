@@ -117,7 +117,7 @@ Ezzel be is kerülnek az adatok az adatbázisba:
 A fenti példa és a dokumentáció (https://www.imdb.com/interfaces/) alapján bővítsd a Title osztály modelljét és a betöltés során a Title objektumok előállítását az alábbi tulajdonságokkal! A tulajdonság neve C#-ban PascalCase-ben legyen, bár a szótárban camelCase-ben van.
 
 - `TitleType`: legyen egy saját szintén `TitleType` névre hallgató enum típus a Data projektben, aminek az értékei: `Unknown`, `Short`, `Movie`, `TvMovie`, `TvSeries`, `TvEpisode`, `TvShort`, `TvMiniSeries`, `TvSpecial`, `TvPilot` , `Video`, `VideoGame`. Az enum értéke a TSV-ben string-ként van tárolva (pl. tvShort), használd a feldolgozáshoz az `Enum.Parse` függvény megfelelő overloadját! **Gyakran keresünk ez alapján, ezért indexelni kell.**
-- `OriginalTitle`: szöveges érték, az eredeti nyelvű címe a műnek. Nem kell indexelni.
+- `OriginalTitle`: szöveges érték, az eredeti nyelvű címe a műnek. Kötelező mező, de nem kell indexelni.
 - `StartYear`: a kiadás évszáma. Lehet `null` értékű is. Számként kell tárolni. **Gyakran keresünk ez alapján, ezért indexelni kell.**
 - `EndYear`: csak sorozatok esetén a sorozat záró részének kiadási évszáma. Lehet `null` értékű is. Számként kell tárolni.
 - `RuntimeMinutes`: A futási idő percben. Lehet `null` is.
