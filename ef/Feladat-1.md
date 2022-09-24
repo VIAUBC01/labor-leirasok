@@ -100,7 +100,7 @@ A `Title` entitásunkon konfiguráltuk az `Id` és `PrimaryTitle` tulajdonságok
 - A címben gyakran szeretnénk keresni, ezért indexeljük.
   - Az EF alapértelmezetten **NVARCHAR(max)** típusú string mezőket [hoz nekünk létre](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types).
   - Az indexelés SQL szerveren csak bajosan alkalmazható **NVARCHAR(max)**, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
-- Az EF alapértelmezett konvencióként a mezők nullozhatóságát [a leképzendő property típusának nullozhatósága adja](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions). A `string` típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséghet külön nem kell beállítanunk.
+- Az EF alapértelmezett konvencióként a mezők nullozhatóságát [a leképzendő property típusának nullozhatósága adja](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions). A `string` típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséget külön nem kell beállítanunk.
 
 3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy `DbContext`et tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert `internal` láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.
 
@@ -122,7 +122,7 @@ namespace MovieCatalog.Data.Design
 }
 ```
 
-4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! Terminálban/PowerShell ablakban adjuk ki az alábbi parancsokat (Visual Studio-ban és Code-ban is a Ctrl+ö billentyűkombináció nyit egy Developer PowerShell ablakot) a **Data projekt mappájából**:
+4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! Terminálban/PowerShell ablakban adjuk ki az alábbi parancsokat (Visual Studio-ban és Code-ban is a `Ctrl+ö` billentyűkombináció nyit egy Developer PowerShell ablakot) a **Data projekt mappájából**:
 - `dotnet ef migrations add TitlesTable`
 - `dotnet ef database update`
 - ![Migrációk elkészítése és futtatása](images/migraciok-vege.png)
