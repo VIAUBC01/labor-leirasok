@@ -124,7 +124,7 @@ A fenti példa és a dokumentáció (https://www.imdb.com/interfaces/) alapján 
 
 Természetesen szükséges új migrációt hozzáadni a projekthez és frissíteni az adatbázis sémáját. A fenti betöltés csak üres Titles tábla esetén fut le, tehát törölni kell belőle az adatokat (törölhető az adatbázis is, ekkor értelemszerűen újra létre kell hozni a betöltés előtt).
 
-Tippek:
+## Tippek
 
  :bulb: Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között [különbséget tenni](https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)), mert a fájlban kisbetűsen szerepel (pl. *short*), ami az enum értékek között nagybetűsen (*Short*).
  
@@ -132,7 +132,9 @@ Tippek:
 
  :bulb: Gyorsan kiüríthetjük a táblát a `TRUNCATE TABLE Titles` [utasítással](https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16).
  
-Beadandó: az elkészült kód képernyőképe, ill. demonstrálandó, hogy betöltődtek az adatok (minden tulajdonság megfelelően ki van töltve).
+## Beadandó
+
+Az elkészült kód képernyőképe, ill. demonstrálandó, hogy betöltődtek az adatok (minden tulajdonság megfelelően ki van töltve).
 
 ## Következő feladat
 
