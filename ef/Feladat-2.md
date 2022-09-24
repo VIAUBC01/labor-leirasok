@@ -99,7 +99,8 @@ public async Task StartAsync(CancellationToken cancellationToken)
     //...korábbi kódok kikommentezve...
 
     if (!await DbContext.Titles.AnyAsync(cancellationToken))
-        await DbContext.ImportFromFileAsync(@"C:\------\title.basics.tsv.gz"); // Az útvonal értelemszerűen kitöltendő.
+        await DbContext.ImportFromFileAsync(@"C:\------\title.basics.tsv.gz"); 
+                                       // Az útvonal értelemszerűen kitöltendő.
 
     await Host.StopAsync();
 }
@@ -115,14 +116,22 @@ Ezzel be is kerülnek az adatok az adatbázisba:
 
 A fenti példa és a dokumentáció (https://www.imdb.com/interfaces/) alapján bővítsd a Title osztály modelljét és a betöltés során a Title objektumok előállítását az alábbi tulajdonságokkal! A tulajdonság neve C#-ban PascalCase-ben legyen, a szótárban camelCasing-ben van.
 
-- TitleType: legyen egy saját TitleType névre hallgató enum típus a Data projektben, aminek az értékei: `Unknown`, `Short`, `Movie`, `TvMovie`, `TvSeries`, `TvEpisode`, `TvShort`, `TvMiniSeries`, `TvSpecial`, `Video`, `VideoGame`. Az Enum értéke a TSV-ben string-ként van tárolva (pl. tvShort), használd a feldolgozáshoz az `Enum.Parse` függvény megfelelő overloadját! **Gyakran keresünk ez alapján, ezért indexelni kell.**
-- OriginalTitle: string érték, az eredeti nyelvű címe a műnek.
-- StartYear: a kiadás évszáma. Lehet null értékű is. Számként kell tárolni. **Gyakran keresünk ez alapján, ezért indexelni kell.**
-- EndYear: csak sorozatok esetén a sorozat záró részének kiadási évszáma. Lehet null értékű is. Számként kell tárolni.
-- RuntimeMinutes: A futási idő percben. Lehet null is.
+- `TitleType`: legyen egy saját szintén `TitleType` névre hallgató enum típus a Data projektben, aminek az értékei: `Unknown`, `Short`, `Movie`, `TvMovie`, `TvSeries`, `TvEpisode`, `TvShort`, `TvMiniSeries`, `TvSpecial`, `TvPilot` , `Video`, `VideoGame`. Az enum értéke a TSV-ben string-ként van tárolva (pl. tvShort), használd a feldolgozáshoz az `Enum.Parse` függvény megfelelő overloadját! **Gyakran keresünk ez alapján, ezért indexelni kell.**
+- `OriginalTitle`: szöveges érték, az eredeti nyelvű címe a műnek. Nem kell indexelni.
+- `StartYear`: a kiadás évszáma. Lehet `null` értékű is. Számként kell tárolni. **Gyakran keresünk ez alapján, ezért indexelni kell.**
+- `EndYear`: csak sorozatok esetén a sorozat záró részének kiadási évszáma. Lehet `null` értékű is. Számként kell tárolni.
+- `RuntimeMinutes`: A futási idő percben. Lehet `null` is.
 
 Természetesen szükséges új migrációt hozzáadni a projekthez és frissíteni az adatbázis sémáját. A fenti betöltés csak üres Titles tábla esetén fut le, tehát törölni kell belőle az adatokat (törölhető az adatbázis is, ekkor értelemszerűen újra létre kell hozni a betöltés előtt).
 
+Tippek:
+
+ :bulb: Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között [különbséget tenni](https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)), mert a fájlban kisbetűsen szerepel (pl. *short*), ami az enum értékek között nagybetűsen (*Short*).
+ 
+ :bulb: Nullozható egész szám szövegből való átalakításánál használhatjuk [az engedékenyebb átalakító függvényt](https://stackoverflow.com/a/52969952) a `null` értékek elegánsabb kezeléséhez.
+
+ :bulb: Gyorsan kiüríthetjük a táblát a `TRUNCATE TABLE Titles` [utasítással](https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16).
+ 
 Beadandó: az elkészült kód képernyőképe, ill. demonstrálandó, hogy betöltődtek az adatok (minden tulajdonság megfelelően ki van töltve).
 
 ## Következő feladat
