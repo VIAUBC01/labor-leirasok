@@ -31,7 +31,7 @@ namespace MovieCatalog.Data
 
        
         /// <summary>
-        /// Azon művek lekérdezése, amiknek az elsődleges címében VAGY az eredeti címében szerepel a megadott szövegrész.
+        /// Azon művek lekérdezése, amiknek az elsődleges címében szerepel a megadott szövegrész.
         /// Maximum 10 eredmény érkezhet a lekérdezésre, és az eredmény objektumokban a hozzájuk tartozó műfajok is ki vannak töltve.
         /// Kisbetű-nagybetű érzékenységgel nem foglalkozik.
         /// </summary>
