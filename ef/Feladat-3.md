@@ -9,7 +9,7 @@ A művekhez műfajok tartoznak. A műfajok a `genres` kulcsú elemben találhat�
 :bulb: Explicit esetben a `Title`-ön kívül két entitást kell definiálni:
   - az egyik maga a műfaj (`Genre`), amiben az azonosító és a név tulajdonságok szerepelnek, 
   - a másik a kapcsolótábla, `TitleGenre` névre hallgató entitás lehet, amiben egy egyedi azonosító van, és két külső kulcs: egy `TitleId` és egy  `GenreId`,
-  - a `TitleGenre`-ban definiáljunk a külső kulcsokhoz egy-egy navigation property-t, a `Title` és `Genre` entitásokban pedig egy-egy `ICollection<TitleGenre>` típusút (inicializálni ezeket nem kell, lekérdezéskor lesznek feltöltve adattal).
+  - a `TitleGenre`-ban definiáljunk a külső kulcsokhoz egy-egy navigation property-t, a `Title` és `Genre` entitásokban pedig egy-egy `ICollection<TitleGenre>` típusút.
 
 :bulb: Hogy ne kapj fordítási figyelmeztetést `null` értékek kezelése miatt, a kollekció típusú navigációs property-ket mindig inicializáld üres listára, míg a nem kollekció típusú navigációs property-ket explicit `null` értékre a null forgiving operátorral. Példa az utóbbira: `public Genre Genre { get; set; } = null!;`
 
