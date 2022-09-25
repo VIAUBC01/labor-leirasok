@@ -81,11 +81,10 @@ public async Task ImportFromFileAsync(string filePath, int? maxValues = 100_000)
 }
 
 ```
-- Mivel a fájl és tartalma óriási, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.
+- Mivel arra készülünk, hogy a fájl és tartalma óriási is lehet, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.
 - Ezért kellett, hogy ne a teljes fájlt egyszerre beolvassuk, hanem gyakorlatilag soronként streameljük a fájlból a szótárakat, azokat pedig transzformáljuk Title típusú elemekre. Ha a géped nem bírja, a maxValues értéket leveheted 10 000-re.
 
-3. Töltsük le a gépünkre az aktuális `title.basics.tsv.gz` fájlt ([IMDb data files available for download (https://datasets.imdbws.com/, Figyelem! ~124 MB!)](https://datasets.imdbws.com/)), majd töltsük be a fájl tartalmát az adatbázisba.
-  - Ha korlátos erőforrással dolgozunk, akkor a fájlból egy [jelentősen kisebb, csak az első 100 000 sort tartalmazó lenyomat található itt (~2 MB)](res/title.basics.stub.tsv.gz). Ez a fájl szintén használható, de a későbbi bónusz feladat ezzel értelemszerűen nem végezhető el. A fájl utólag is lecserélhető.
+3. Töltsük le a gépünkre az aktuális `title.basics.tsv.gz` fájl ([IMDb data files available for download (https://datasets.imdbws.com/, ~124 MB!)](https://datasets.imdbws.com/)) helyett egy [jelentősen kisebb, csak az első 100 000 sort tartalmazó részletet itt (~2 MB)](res/title.basics.stub.tsv.gz).
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
@@ -106,7 +105,7 @@ public async Task StartAsync(CancellationToken cancellationToken)
 }
 ```
 
-Futtatás előtt ürítsük ki a Titles táblát!
+Futtatás előtt ürítsük ki a **Titles** táblát!
 
 Ezzel be is kerülnek az adatok az adatbázisba:
 
@@ -134,7 +133,9 @@ Természetesen szükséges új migrációt hozzáadni a projekthez és frissíte
  
 ## Beadandó
 
-Az elkészült kód képernyőképe, ill. demonstrálandó, hogy betöltődtek az adatok (minden tulajdonság megfelelően ki van töltve).
+Ha a 3. feladattal is elkészülsz, akkor a 2. feladathoz nem kell beadni semmit.
+
+Az adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a műveket tartalmazó tábla tartalma) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a tábla oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).
 
 ## Következő feladat
 
