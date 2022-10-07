@@ -3,11 +3,11 @@
 Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kibővítve) fogjuk hasznosítani, hogy egy RESTful API-t készítsünk ASP.NET Core-ban.
 
 1. Hozz létre egy új C# nyelvű ASP.NET Core Web API típusú projektet `MovieCatalog.Api` néven
-    - **Érdemes a laborgépeken kikapcsolni a "Configure for HTTPS" lehetőséget, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt.** Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
+    - Érdemes a laborgépeken kikapcsolni a *Configure for HTTPS lehetőséget*, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt. Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
     - .NET verzió: 6.0
     - Minden extra opció legyen kikapcsolva, kivéve 
       - *Use controllers*
-      - Enable OpenAPI support* - ezzel a műveleteink metaadata alapján generálódó [tesztoldalt](https://swagger.io/tools/swagger-ui/) kapunk
+      - *Enable OpenAPI support* - ezzel a műveleteink metaadata alapján generálódó [Swagger UI tesztoldalt](https://swagger.io/tools/swagger-ui/) kapunk
     - *Authentication type* is *None* legyen
     
 1. Nem lesz szükség a létrejött projektben az alábbi fájlokra, ezek törölhetők:
@@ -59,19 +59,18 @@ Készíts egy új API kontrollert `GenresController` néven! A controller az al�
   - ha az ID azonosítójú elem nem található, visszatérés 404-gyel ([Not found](https://httpstatusdogs.com/404-not-found))
   - egyébként 200-as HTTP válaszkóddal tér vissza ([Ok](https://httpstatusdogs.com/200-ok)), a válasz törzsében az adott ID-jú sorosított `Genre` objektum
 
-Beadandó: 
+## Beadandó
 - Az elkészült kontroller kódjáról készült kép(ek).
-- 3 képernyőkép, ahol a 3 feltételnek megfelelő kérésre érkező válaszokat láthatjuk tetszőleges böngészőből vagy HTTP hibakereső eszközből indítva.
-  - Az üres lekérdezéshez mindenképp szükséges az adatbázis kézi manipulációja!
+- 3 képernyőkép, ahol a 3 feltételnek megfelelő kérésre érkező válaszokat láthatjuk tetszőleges böngészőből vagy a Swagger UI tesztoldalról.
 
 Tudnivalók, megjegyzések, tippek (a teljes laborra vonatkozva):
 - Az adatbázis szinte sémája szinte megegyezik az EF laboron megismerttel, kivéve:
   - új mezők kerültek be a művekhez
-  - az új művek azonosítóját az adatbázis osztja ki, azt kézzel beállítani nem szabad.
+  - az új művek azonosítóját az adatbázis osztja ki
 - A XXXService osztályok a kivételes eseteket kivétel dobással kezelik (pl. a megadott ID-val nem található elem)
-- Kiinduló kontroller kódot [lehet generáltatni](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio#scaffold-a-controller), de ehhez a laborhoz az *API controller with read/write actions* generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni
+- Kiinduló kontroller kódot [lehet generáltatni](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio#scaffold-a-controller), de ehhez a laborhoz az **API controller with read/write actions** generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
-- Régebbi .NET-en, vagy Open API nélkül az F5 hatására a szerver elindul, automatikusan a https://localhost:443xy/weatherforecast URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a `WeatherForecastController`t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (`launchUrl` mező átírása vagy törlése).
+- Régebbi .NET-en, vagy Open API/Swagger nélkül az F5 hatására a szerver elindul, automatikusan a */weatherforecast* URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a `WeatherForecastController`t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (`launchUrl` mező átírása vagy törlése).
 - Módosító/beszúró műveleteknél szükség van egy elemre sorosított formában, ezt kell általában ezen műveleteknél a törzsben küldeni. Érdemes ezt a sorosított formát a lekérdező művelet válaszából elcsenni.
 
 ## Következő feladat
