@@ -1,6 +1,6 @@
 # Feladat 2.
 
-Egészítsd ki/módosítsd a GenresControllert az alábbiaknak megfelelően:
+Valósítsd meg az alábbi API műveleteket:
   - `PUT /api/genres/<ID>`
     - az ID azonosítójú műfaj módosítása,
     -   a Controller függvény `Genre`-t vár, de csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (`TitleGenres` elemek) nem; ez volna az ún. "overposting" támadás,
@@ -13,7 +13,7 @@ Egészítsd ki/módosítsd a GenresControllert az alábbiaknak megfelelően:
     - a Controller függvény `Genre`-t vár, de csak a műfaj közvetlen tulajdonságait (azaz a nevét) lehet megadni (csak azt mentjük)
     - a név nem URL-ből, hanem a kérés törzséből jön,
     - ha már van megadott nevű műfaj, visszatérés a 419-es HTTP válaszkóddal ([Conflict](https://httpstatusdogs.com/409-conflict)),
-    - sikeres visszatérés 201-gyel, aminek válaszában megtalálható, hogy honnan (melyik URL-ről) kérhető le az új erőforrás.
+    - sikeres visszatérés 201-gyel, a válasz tartalmaz egy Location header-t, aminek értéket megmutatja, hogy honnan (melyik URL-ről) kérhető le az új erőforrás. (Tipp: [CreatedAtAction függvény - ezesetben a kétparaméteres nem jó](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction?view=aspnetcore-6.0))
   - `DELETE /api/genres/<ID>`
     - a megadott ID-jú genre objektum törlése,
     - ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal ([Not found](https://httpstatusdogs.com/404-not-found))
