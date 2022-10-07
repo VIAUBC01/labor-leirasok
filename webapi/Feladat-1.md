@@ -63,7 +63,10 @@ Készíts egy új API kontrollert `GenresController` néven! A controller az al�
 - Az elkészült kontroller kódjáról készült kép(ek).
 - 3 képernyőkép, ahol a 3 feltételnek megfelelő kérésre érkező válaszokat láthatjuk tetszőleges böngészőből vagy a Swagger UI tesztoldalról.
 
-Tudnivalók, megjegyzések, tippek (a teljes laborra vonatkozva):
+# Tudnivalók, megjegyzések, tippek
+
+(A teljes laborra vonatkoznak)
+
 - Az adatbázis szinte sémája szinte megegyezik az EF laboron megismerttel, kivéve:
   - új mezők kerültek be a művekhez
   - az új művek azonosítóját az adatbázis osztja ki
