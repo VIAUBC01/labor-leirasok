@@ -17,7 +17,6 @@ Valósítsd meg az alábbi API műveleteket:
   - `DELETE /api/genres/<ID>`
     - a megadott ID-jú genre objektum törlése,
     - ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal ([Not found](https://httpstatusdogs.com/404-not-found))
-  - Az első feladatban elkészült két `GET`-es kérés sikeres eredményeképpen előálló objektumokban legyen benne az is egy `NumberOfTitles` nevű tulajdonságban, hogy hány mű tartozik a műfajba!
 
 Beadandó:
 - Az érintett kódok a szokásos formában.
