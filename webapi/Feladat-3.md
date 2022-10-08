@@ -1,18 +1,30 @@
 # Feladat 3.
 
-A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (Title) műveleteit is (kivéve az összes mű lekérdezését):
+A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (`Title`) alábbi műveleteit is:
 - `GET api/titles/<ID>`
 - `PUT api/titles/<ID>`
 - `POST api/titles`
-- `DELETE api/titles/<ID>`
 
-A `Title` entitás nem utazhat a dróton, azaz nem jöhet paraméterben és nem szabad vele visszatérni az API végpontokon! Saját modell objektum létrehozásával kell megoldani a kezelését. A transzformációkat minden irányban neked kell megvalósítanod.
+Eltérés, hogy műveknek lehet ugyanazon neve, tehát nem lesz konfliktus, ha ugyanazt próbáljuk meg többször beszúrni. Az azonosítónak megfelelő mű meglétét viszont továbbra is ellenőrizni kell!
 
-Eltérés, hogy műveknek lehet ugyanazon neve, tehát nem lesz konfliktus, ha ugyanazt próbáljuk meg többször beszúrni.
+A `Title` entitás nem utazhat a dróton, 
+- azaz nem jöhet paraméterben
+- nem szabad vele visszatérni az API végpontokon
+- tehát nem hivatkozhat rá sehol a `TitlesController`  
 
-A modellben legyen benne minden információ, ami az entitásban is megtalálható! Az egyetlen eltérés a műfajokban van: nem `TitleGenre` entitások, hanem csak a hozzá tartozó műfajok ID-ja szerepeljen a modellben! Törekedj rá, hogy a transzformációs logikát ne duplikáld sehol a kódban, próbáld kiszervezni (például saját szolgáltatással, a Controlleren definiált segédfüggvénnyel, copy constructor használatával stb.)!
+Helyette a [Dtos mappában](./snippets/Dtos) lévő DTO-kat kell használni:
 
-Tipp: a GET/PUT/POST hívásokhoz mind használható egyazon modell objektum!
+- `TitleInsertUpdateModel` ezt várjuk a klienstől módosításkor, beszúráskor
+- `TitleQueryModel` ezt vagy ilyen kollekciót adunk vissza a kliensnek lekérdezéskor
+
+A DTO-k DTO <=> Entitás konvertáló függvényt/konstruktort is tartalmaznak.
+
+Adateléréshez a [Services mappában](./snippets/Services) lévő `ITitleService` és `TitleService` típusokat használd.
+
+## Beadandó tesztkérések
+
+- Mindegyik módosító végpontra egy sikeres és egy tetszőleges sikertelen kérés/válasz bemutatása.
+- A GET-es kérés bemutatása egyetlen elem lekérdezésére.
 
 ## Következő feladat
 
