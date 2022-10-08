@@ -31,22 +31,27 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
     - **Ha már korábbról van ugyanilyen névvel adatbázisunk, azt érdemes törölni, vagy más néven elnevezni a connection stringben az adatbázist, hogy ne akadjanak össze.**
 
-1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](./snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip).
+1. Add hozzá a projekthez a *Microsoft.EntityFrameworkCore.SqlServer* NuGet csomagot
 
-1. Regisztráld a kontextust a DI rendszerbe. (Program.cs)
+1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](./snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
 
-1. Add hozzá a projekthez az előre elkészített kivétel osztályokat [innen](./snippets/Exceptions) egy új *Exceptions* mappába. 
+1. Regisztráld a kontextust a DI rendszerbe. (Program.cs) 
 
-1. Add hozzá a projekthez az előre elkészített `GenreService` és az `IGenreService` osztályokat [innen](./snippets/Services) egy új *Services* mappába. 
+1. Add hozzá a projekthez az előkészített kivétel osztályokat [innen](./snippets/Exceptions) egy új *Exceptions* mappába. 
+
+1. Add hozzá a projekthez az előkészített `GenreService` és az `IGenreService` osztályokat [innen](./snippets/Services) egy új *Services* mappába. 
 
 1. Regisztráld az `IGenreService`-t a DI rendszerbe [*scoped* életciklussal](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)). (Program.cs)
 
 # Általános szabályok
 
-- A kontroller nem használhatja adatbáziselérésre a kontextust, csak a *IXXXService* interfész műveleteit.
+- A kontroller nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található *IXXXService* interfész műveleteit, közvetetten pedig a *XXXService* függvényeit.
+- A kontroller közvetlenül nem példányosíthatja a *XXXService*-t, csak konstruktoron keresztül kaphatja *IXXXService*-ként
 - A kontroller függvényei (azaz a műveletek)
     - aszinkronok (`async`), de a nevüknek nem kell `Async`-ra végződni
     - `Task<ActionResult>` vagy `Task<ActionResult<T>>` visszatérési értékűek, ahol a `T` kollekció is lehet
+- A *XXXService* osztályok a különleges eseteket ([unhappy path](https://en.wikipedia.org/wiki/Happy_path)) kivétel dobással jelzik a hívó felé. A szükséges kivétel típusok már implementálva vannak a projektben, az [Exceptions mappából](./snippets/Exceptions) másoltuk be őket.
+- A *XXXService* osztályokban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor
 
 # Feladat 1.
 
@@ -59,22 +64,33 @@ Készíts egy új API kontrollert `GenresController` néven! A controller az al�
   - ha az ID azonosítójú elem nem található, visszatérés 404-gyel ([Not found](https://httpstatusdogs.com/404-not-found))
   - egyébként 200-as HTTP válaszkóddal tér vissza ([Ok](https://httpstatusdogs.com/200-ok)), a válasz törzsében az adott ID-jú sorosított `Genre` objektum
 
-## Beadandó
-- Az elkészült kontroller kódjáról készült kép(ek).
-- 3 képernyőkép, ahol a 3 feltételnek megfelelő kérésre érkező válaszokat láthatjuk tetszőleges böngészőből vagy a Swagger UI tesztoldalról.
+# Általános tudnivalók, megjegyzések, tippek
 
-# Tudnivalók, megjegyzések, tippek
-
-(A teljes laborra vonatkoznak)
-
-- Az adatbázis szinte sémája szinte megegyezik az EF laboron megismerttel, kivéve:
+- Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
   - új mezők kerültek be a művekhez
-  - az új művek azonosítóját az adatbázis osztja ki
-- A XXXService osztályok a kivételes eseteket kivétel dobással kezelik (pl. a megadott ID-val nem található elem)
-- Kiinduló kontroller kódot [lehet generáltatni](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio#scaffold-a-controller), de ehhez a laborhoz az **API controller with read/write actions** generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni
+  - új index a *Title.StartYear* oszlopra
+  - az új művek azonosítóját az adatbázis osztja ki  
+- A *XXXService* osztályok a kivételes eseteket kivételdobással kezelik (pl. a megadott ID-val nem található elem `ObjectNotFoundException<>` dobást eredményez)
+- Kiinduló kontroller kódot [lehet generáltatni](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio#scaffold-a-controller). Ehhez a laborhoz az **API controller with read/write actions** generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni.
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 - Régebbi .NET-en, vagy Open API/Swagger nélkül az F5 hatására a szerver elindul, automatikusan a */weatherforecast* URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a `WeatherForecastController`t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (`launchUrl` mező átírása vagy törlése).
 - Módosító/beszúró műveleteknél szükség van egy elemre sorosított formában, ezt kell általában ezen műveleteknél a törzsben küldeni. Érdemes ezt a sorosított formát a lekérdező művelet válaszából elcsenni.
+- Általad írt kódrészletekről képernyőképet kell beadni. Ezek a fájlok érintettek:
+  - Program.cs
+  - kontrollerek kódfájljai
+  - *XXXService*-ek kódfájljai
+- Minden feladathoz beadandók tesztkésekről készítendő képek. A képet a *Swagger UI* beépített weboldalról kell készíteni. A kép a *Curl* résztől a *Server response*-ig terjedő részt (a *Responses* részt már nem) tartalmazza (response header és response body is, ha van!). Példák:
+
+![This is an image](./images/req_p%C3%A9lda.png)
+
+![This is an image](./images/req_p%C3%A9lda2.png)
+
+
+## Beadandó tesztkérések
+
+- listázás
+- egy elem sikeres lekérdezése
+- nem létező elem lekérdezése
 
 ## Következő feladat
 
