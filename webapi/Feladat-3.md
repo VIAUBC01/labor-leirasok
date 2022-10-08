@@ -8,7 +8,7 @@ A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (`Title`
 Eltérés, hogy műveknek lehet ugyanazon neve, tehát nem lesz konfliktus, ha ugyanazt próbáljuk meg többször beszúrni. Az azonosítónak megfelelő mű meglétét viszont továbbra is ellenőrizni kell!
 
 A `Title` entitás nem utazhat a dróton, 
-- azaz nem jöhet paraméterben
+- azaz nem jöhet a klienstől paraméterben
 - nem szabad vele visszatérni az API végpontokon
 - tehát nem hivatkozhat rá sehol a `TitlesController`  
 
@@ -23,8 +23,9 @@ Adateléréshez a [Services mappában](./snippets/Services) lévő `ITitleServic
 
 ## Beadandó tesztkérések
 
-- Mindegyik módosító végpontra egy sikeres és egy tetszőleges sikertelen kérés/válasz bemutatása.
-- A GET-es kérés bemutatása egyetlen elem lekérdezésére.
+- A módosító és a beszúró végpontra egy-egy sikeres és egy tetszőleges sikertelen kérés/válasz bemutatása.
+- egy elem sikeres lekérdezése
+- nem létező elem lekérdezése
 
 ## Következő feladat
 

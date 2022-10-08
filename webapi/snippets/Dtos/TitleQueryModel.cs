@@ -13,8 +13,6 @@ public class TitleQueryModel
         StartYear = title.StartYear;
         EndYear = title.EndYear;
         RuntimeMinutes = title.RuntimeMinutes;
-        //AverageRating = title.AverageRating;
-        //NumberOfVotes = title.NumberOfVotes;
         Genres = genreIDs;
     }
 
@@ -25,7 +23,5 @@ public class TitleQueryModel
     public int? StartYear { get; set; }
     public int? EndYear { get; set; }
     public int? RuntimeMinutes { get; set; }
-    //public float? AverageRating { get; set; }
-    //public int NumberOfVotes { get; set; }
     public IEnumerable<int>? Genres { get; set; }
 }

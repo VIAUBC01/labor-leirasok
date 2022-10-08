@@ -14,11 +14,11 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
     - `Controllers/WeatherForecastController.cs`
     - `WeatherForecast.cs`
 
-1. Töltsd le az alábbi DACPAC fájlt [innen](./data/moviecatalogdb.dacpac). Ami egy hordozható export formátum MS SQL Server adatbázisok számára.
+1. Töltsd le az alábbi DACPAC fájlt [innen](./data/imdbtitles_sample.dacpac). Ami egy hordozható export formátum MS SQL Server adatbázisok számára.
 
-1. Csatlakozz egy LocalDB példányhoz az SQL Server Object Explorerben. A **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra.
+1. Csatlakozz egy LocalDB példányhoz az SQL Server Object Explorerben. A **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
 
-1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az appsettings.Development.json fájlhoz (az appsettings.json "mögött" bújik meg). A beállítás neve is legyen a neptun kódod (pontosabban *DBneptunkód*).
+1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az *appsettings.Development.json* fájlhoz (az *appsettings.json* "mögött" bújik meg). A beállítás neve is legyen a neptun kódod (pontosabban *DBneptunkód*).
 
     ``` JSON
     {
@@ -35,7 +35,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
 1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](./snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
 
-1. Regisztráld a kontextust a DI rendszerbe. (Program.cs) 
+1. Regisztráld az adatbázis kontextust a DI rendszerbe. (Program.cs) 
 
 1. Add hozzá a projekthez az előkészített kivétel osztályokat [innen](./snippets/Exceptions) egy új *Exceptions* mappába. 
 
@@ -47,10 +47,10 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
 - A kontroller nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található *IXXXService* interfész műveleteit, közvetetten pedig a *XXXService* függvényeit.
 - A kontroller közvetlenül nem példányosíthatja a *XXXService*-t, csak konstruktoron keresztül kaphatja *IXXXService*-ként
-- A kontroller függvényei (azaz a műveletek)
+- A kontroller függvényei (azaz a műveletek) minden esetben
     - aszinkronok (`async`), de a nevüknek nem kell `Async`-ra végződni
     - `Task<ActionResult>` vagy `Task<ActionResult<T>>` visszatérési értékűek, ahol a `T` kollekció is lehet
-- A *XXXService* osztályok a különleges eseteket ([unhappy path](https://en.wikipedia.org/wiki/Happy_path)) kivétel dobással jelzik a hívó felé. A szükséges kivétel típusok már implementálva vannak a projektben, az [Exceptions mappából](./snippets/Exceptions) másoltuk be őket.
+- A *XXXService* osztályok a különleges eseteket ([unhappy path](https://en.wikipedia.org/wiki/Happy_path)) kivételdobással jelzik a hívó felé. A szükséges kivételtípusok már implementálva vannak a projektben, az [Exceptions mappából](./snippets/Exceptions) másoltuk be őket.
 - A *XXXService* osztályokban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor
 
 # Feladat 1.

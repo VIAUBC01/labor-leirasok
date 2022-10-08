@@ -19,10 +19,6 @@ public class Title
 
     public TitleType TitleType { get; set; }
 
-    public float? AverageRating { get; set; }
-
-    public int NumberOfVotes { get; set; }
-
     public ICollection<TitleGenre> TitleGenres { get; set; }
         = new List<TitleGenre>();
     public override string ToString() => $"Title {Id}: {TitleType} - {PrimaryTitle} ({OriginalTitle}, [{StartYear?.ToString() ?? "?"}{(EndYear != null ? $"-{EndYear}" : "")}]{($"<{RuntimeMinutes} min>" )}{(TitleGenres.Any() ? $" - {string.Join(", ", TitleGenres.Select(g => $"{g.Genre.Name}"))}" : string.Empty)}";
