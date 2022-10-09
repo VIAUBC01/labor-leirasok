@@ -113,9 +113,10 @@ namespace MovieCatalog.Data.Design
     {
         public MovieCatalogDbContext CreateDbContext(string[] args) =>
             new(new Logger<MovieCatalogDbContext>(new LoggerFactory()), 
-                                                  new DbContextOptionsBuilder<MovieCatalogDbContext>()
-                                                  .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MovieCatalog")
-                                                  .Options);
+                new DbContextOptionsBuilder<MovieCatalogDbContext>()
+                    .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MovieCatalog")
+                    .Options
+                );
     }
 }
 ```
