@@ -2,7 +2,7 @@
 
 Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kibővítve) fogjuk hasznosítani, hogy egy RESTful API-t készítsünk ASP.NET Core-ban.
 
-1. Hozz létre egy új C# nyelvű ASP.NET Core Web API típusú projektet `MovieCatalog.Api` néven
+1. Hozz létre egy új C# nyelvű ASP.NET Core Web API (nem Web App!) típusú projektet `MovieCatalog.Api` néven
     - Érdemes a laborgépeken kikapcsolni a *Configure for HTTPS lehetőséget*, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt. Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
     - .NET verzió: 6.0
     - Minden extra opció legyen kikapcsolva, kivéve 
@@ -67,7 +67,6 @@ Készíts egy új API kontrollert `GenresController` néven! A controller az al�
 # Általános tudnivalók, megjegyzések, tippek
 
 - Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
-  - új mezők kerültek be a művekhez
   - új index a *Title.StartYear* oszlopra
   - az új művek azonosítóját az adatbázis osztja ki  
 - A *XXXService* osztályok a kivételes eseteket kivételdobással kezelik (pl. a megadott ID-val nem található elem `ObjectNotFoundException<>` dobást eredményez)
