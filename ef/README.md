@@ -12,11 +12,6 @@ A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/READ
     - ASP.NET and web development
     - .NET desktop development
     - Data storage and processing
-- (Javasolt) HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.:
-  - [Fiddler](https://www.telerik.com/download/fiddler)
-  - [Postman](https://www.postman.com/downloads/)
-
-<hr />
 
 - Opcionálisak:
   - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): Express/Developer változatok ingyenesen használhatók
@@ -58,7 +53,7 @@ A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki port�
 
 A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
 
-<span style="cursor: pointer; color: red; border: 1px solid; padding: 0 0.5rem;" title="Figyelem!">!</span> Minden ábrán tagadhatatlan formában legyen rajta a Neptun kódod (pl. beszúrt példaadatban a lekérdezés eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb ablakban)! A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen **önálló**.
+A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen **önálló**.
 
 ## Feladatok
 

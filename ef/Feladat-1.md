@@ -35,9 +35,7 @@ Lássunk neki!
 
 Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben (a verziószámok lehetnek nagyobbak):
 
-<div style="text-align: center">
-  <img src="images/elokeszuletek-vege.png" alt="Előkészületek végi állapot" style="max-width: 100%" >
-</div>
+![Előkészületek végi állapot](./images/elokeszuletek-vege.png)
 
 # Alap infrastruktúra kialakítása, tesztelése
 
@@ -125,7 +123,8 @@ namespace MovieCatalog.Data.Design
 4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! Terminálban/PowerShell ablakban adjuk ki az alábbi parancsokat (Visual Studio-ban és Code-ban is a `Ctrl+ö` billentyűkombináció nyit egy Developer PowerShell ablakot) a **Data projekt mappájából**:
 - `dotnet ef migrations add TitlesTable`
 - `dotnet ef database update`
-- ![Migrációk elkészítése és futtatása](images/migraciok-vege.png)
+
+![Migrációk elkészítése és futtatása](images/migraciok-vege.png)
 
 5. Készítsük el a konzol alkalmazást reprezentáló osztályt a Terminal projektben.
 
