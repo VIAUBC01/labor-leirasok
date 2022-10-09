@@ -25,12 +25,12 @@ Lássunk neki!
     - `dotnet tool install --global dotnet-ef`
       - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
-1. Hozzunk létre egy új .NET (.NET 6 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) MovieCatalog.Data néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
-1. Adjunk a solutionhöz egy új .NET C# konzol projektet is MovieCatalog.Terminal néven!
+1. Hozzunk létre egy új .NET (.NET 6 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) **MovieCatalog.Data** néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
+1. Adjunk a solutionhöz egy új .NET C# konzol projektet is **MovieCatalog.Terminal** néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
-1. Adjunk referenciát a `Microsoft.Extensions.Hosting` NuGet csomagra a MovieCatalog.Terminal projektből!
-1. Adjunk referenciát a `Microsoft.EntityFrameworkCore.SqlServer` és `Microsoft.EntityFrameworkCore.Design` NuGet csomagokra a MovieCatalog.Data projektből!
+1. Adjunk referenciát a `Microsoft.Extensions.Hosting` NuGet csomagra a **MovieCatalog.Terminal** projektből!
+1. Adjunk referenciát a `Microsoft.EntityFrameworkCore.SqlServer` és `Microsoft.EntityFrameworkCore.Design` NuGet csomagokra a **MovieCatalog.Data** projektből!
 1. Állítsuk be a konzolos projektet Startup projektként, így F5 (Start with Debugging) hatására ez fog elindulni. Ezzel a projekt neve félkövér lesz.
 
 Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben (a verziószámok lehetnek nagyobbak):
@@ -39,7 +39,7 @@ Ha mindent jól csináltunk, az alábbiakat kell látnunk a projektszerkezetben 
 
 # Alap infrastruktúra kialakítása, tesztelése
 
-1. Hozzunk létre egy új mappát az adatrétegben Entities néven, és adjuk hozzá a `Title` entitást:
+1. Hozzunk létre egy új mappát az adatrétegben *Entities* néven, és adjuk hozzá a `Title` entitást:
 ``` C#
 namespace MovieCatalog.Data.Entities
 {
