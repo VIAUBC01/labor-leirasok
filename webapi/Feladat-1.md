@@ -16,7 +16,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
 1. Töltsd le az alábbi DACPAC fájlt [innen](./data/imdbtitles_sample.dacpac). Ami egy hordozható export formátum MS SQL Server adatbázisok számára.
 
-1. Csatlakozz egy LocalDB példányhoz az SQL Server Object Explorerben. A **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
+1. Csatlakozz egy LocalDB példányhoz az SQL Server Object Explorerben. Ezután a **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
 
 1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az *appsettings.Development.json* fájlhoz (az *appsettings.json* "mögött" bújik meg). A beállítás neve is legyen a neptun kódod (pontosabban *DBneptunkód*).
 
@@ -55,7 +55,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
 # Feladat 1.
 
-Készíts egy új API kontrollert `GenresController` néven! A controller az alábbi műveleteket tudja elvégezni:
+Készíts egy új API kontrollert `GenresController` néven! A kontroller az alábbi műveleteket tudja elvégezni:
 - `GET /api/genres`
   - az összes műfaj lekérdezése,
   - 200-as HTTP válaszkóddal tér vissza ([Ok](https://httpstatusdogs.com/200-ok)), a válasz törzsben a műfajok sorosított listájával
