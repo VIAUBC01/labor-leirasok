@@ -1,22 +1,76 @@
 # Feladat 3.
 
+## Lapozás & rendezés - specifikáció
+
+### Lapozás
 A lapozást és rendezést a kezdőoldalon kell megvalósítani, minden paraméter URL-ben utazzon! A lapozáshoz az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:
 - Legyen látható az összes találat száma.
-- Legyen látható az aktuális oldalméret egy legördülő menüben, lehetséges értékei: 12, 30, 60, 120. Az alapérték 60. Újratöltés után mindig a megfelelő elem legyen kiválasztva!
-- Az oldalméret változtatásakor az oldal töltődjön újra az első oldalon, az új oldalmérettel! Ehhez a JavaScriptes `onchange` eseménykezelőt lehet például használni. Egyszerű megoldás definiálni egy űrlapot, amiben a `select` szerepel a megfelelő paraméterekkel, valamint egy `hidden` `input`ot 1-es `PageNumber` értékkel. Ezután már csak a `select` `onchange`-ben kell megfelelően elsütni a `form` `submit` eseményét.
+- Legyen választható az aktuális oldalméret egy legördülő menüben, lehetséges értékei: 10, 20, 30, 60, 120. Az alapérték 20. Újratöltés után mindig a megfelelő elem legyen kiválasztva!
+- Bármelyik lapozási beállítás változtatásakor az oldal töltődjön újra az első oldalon, az új oldalmérettel! Ehhez a JavaScriptes `onchange` eseménykezelőt lehet például használni. Egyszerű megoldás definiálni egy űrlapot, amiben a `select` szerepel a megfelelő paraméterekkel, valamint egy `hidden` `input`ot 1-es `PageNumber` értékkel. Ezután már csak a `select` `onchange`-ben kell megfelelően elsütni a `form` `submit` eseményét.
 - Legyenek láthatók a lehetséges oldalszámok egy oldalválasztóval az alábbinak megfelelően:
     - Az első 3 oldal mindig legyen látható (ha van).
     - Az aktuális plusz/mínusz 1 oldal mindig legyen látható (ha van).
     - Az utolsó 3 oldal mindig legyen látható (ha van).
     - A további oldalakat három pont (...) jelzi, ahol kimaradás történik.
     - A ...-on kívüli elemekre kattintva a megfelelő oldal töltődik be. Fontos, hogy a PageSize paraméter értéke lapozáskor megmarad!
-- Az oldalválasztóhoz javasolt (nem kötelező) a [Bootstrap Pagination](https://getbootstrap.com/docs/4.5/components/pagination/) komponenst használni.
+- Az oldalválasztóhoz javasolt (nem kötelező) a [Bootstrap Pagination](https://getbootstrap.com/docs/5.0/components/pagination/) komponenst használni.
 - Az oldalszám technikailag az adatrétegből 0-tól indul, de a felületen/URL-ben 1-től induljon, tehát az eltolást a megfelelő helyeken alkalmazd!
+- Ha a lapozási paraméterek nincsenek az URL-ben, írányítsd át a kérést egy olyan címre, ami már tartalmazza a paramétereket, így a felhasználó mindig tudja a címből, hogy mi a lapozás/rendezés állapota.
+
+### Rendezés
+
 - A rendezéshez két legördülő tartozik, amik bármelyikének változásának hatására az oldal az új paraméterekkel újratöltődik:
-    - a TitleSort lehetséges értékei alapján,
-    - Ascending/Descending, amely a SortAscending értékét állítja be megfelelően.
+    - a rendezési mező, mellyel a `TitleSort` lehetséges értékei közül lehet választani, illetve
+    - a rendezés iránya, mellyel a `SortDescending` értékei közül lehet választani. A `true` érték _Descending_, a `false` _Ascending_ feliratként jelenik meg.
 - A rendezés megadásakor az oldalméret nem változik, az oldalszám viszont 1-re állítódik.
-- A paraméterek kölcsönös megtartásához (pl. lapozáskor az oldalméret és rendezés ne változzon; rendezéskor az oldalméret ne változzon) navigációkor használhatjuk az `asp-route-all-data` Tag Helpert, aminek átadhatjuk az aktuális query paraméterek szótárát; ezután felülírhatjuk a további értékeket:
+
+## Megvalósítás lépései
+
+Nem kötelező így csinálni, de egy lehetséges megoldás lépései a következők.
+
+1. Vegyél fel 4 property-t az `IndexModel`-be az alábbi nevekkel és alapértelmezett értékkel:
+    - `PageSize`, alapértelmezett értéke 20
+    - `PageNumber`, alapértelmezett értéke 1
+    - `TitleSort`, alapértelmezett értéke `TitleSort.ReleaseYear`
+    - `SortDescending`, alapértelmezett értéke `true`
+Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`).
+
+1. A `GetTitlesAsync` hívását paraméterezd fel a 4 property alapján.
+
+Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni az oldalt. Például a **/?SortDescending=False&PageSize=30&TitleSort=ReleaseYear&PageNumber=3** cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.
+
+1. Valósítsd meg az `OnGet` elején a specifikációnak megfelelő átirányítást, tehát ha a cím csak simán a gyökércím, akkor irányítson el a `/?PageSize=20&PageNumber=1&TitleSort=ReleaseYear&SortDescending=True` címre. A kérés query string értékei a `Request.QueryString` propertyből kérdezhetők le. Az átirányítás végezhető a `RedirectToPage` függvény [hívásával](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)). Vigyázz, mert ha az átirányítás nem jó, könnyen "végtelen ciklus"-ba kerülhetsz.
+
+1. Vegyél fel a 3 legördülő menühöz egy-egy a legördülő menüben szereplő opciókat leíró `SelectItems[]` típusú property-t az `IndexModel`-be (a `PageNumber` nem legördülő menüből jön!). A tömbben a specifikációnak megfelelő opciók szerepeljenek. Figyelj, hogy a példány létrehozásnál [a feliratot, az adatkötött property-nek beállítandó értéket és az alapértelmezetten kiválasztott elemet](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.-ctor?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-rendering-selectlistitem-ctor(system-string-system-string-system-boolean)) is megfelelően töltsd ki.
+
+1. Vegyél fel a látható oldalszámok felsorolására egy property-t az `IndexModelbe`. Egy lehetséges megadása az alábbi (feltételezve, hogy a `GetTitlesAsync` által visszaadott művek a `Titles` property-be kerülnek):
+
+```csharp
+public IReadOnlyList<int> PageNumberOptions =>
+    new[]{
+            1, 2, 3, PageNumber - 1, PageNumber, PageNumber + 1, Titles.LastPageNumber - 1,
+            Titles.LastPageNumber, Titles.LastPageNumber + 1
+        }
+        .Where(i => i > 0 && i <= Titles.LastPageNumber + 1)
+        .Distinct()
+        .OrderBy(i => i)
+        .ToArray();
+```
+
+1. A razor felület egy lehetséges megvalósítását megtalálod [itt](./snippets/index.paging.cshtml). Ebben egy `<nav>` tag található, amit a listázó felület `<div class="row">`-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a `Titles` property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
+
+1. Írd át az összes elem számát megjelenítő részt, hogy tényleg az összes elem számát jelenítse meg.
+
+1. Kösd be a 3 legördülő menünek az opcióikat, azaz a korábbi `SelectItems[]` típusú property-ket. Kösd be a lehetséges oldalszámokat megadó propertyt is a konstans lista helyére, hogy ne csak az első pár oldal opciója jelenjen meg.
+
+Példa végeredmény (`/?SortDescending=True&TitleSort=Runtime&PageSize=30&PageNumber=3`):
+![Feladat 3.](images/feladat-3.png)
+
+## Magyarázat a minta razor felülethez
+
+A 3 legördülő és a lapváltó gomboknak mind-mind állítgatniuk a nekik megfelelő query string paramétert, **de** közben a többi query string paraméterre is figyelniük kell, vannak amiket meg kell tartani, vannak amiket alapértelmezett értékre kell átírni.
+
+A paraméterek kölcsönös megtartásához (pl. lapozáskor az oldalméret és rendezés ne változzon; rendezéskor az oldalméret ne változzon) navigációkor használhatjuk az `asp-route-all-data` Tag Helpert, aminek átadhatjuk az aktuális query paraméterek szótárát; ezután felülírhatjuk a további értékeket:
     ``` HTML
     <a class="page-link"
         asp-all-route-data="Request.Query.ToDictionary(v => v.Key, v => v.Value?.ToString())"
@@ -38,11 +92,6 @@ A lapozást és rendezést a kezdőoldalon kell megvalósítani, minden paramét
         }
         <input type="hidden" asp-for="PageNumber" value="1" />
     </form>
-    ```
-
-Példa végeredmény (`/?SortDescending=True&TitleSort=Runtime&PageSize=30&PageNumber=3`):
-
-![Feladat 3.](images/feladat-3.png)
 
 ## Következő feladatok
 
