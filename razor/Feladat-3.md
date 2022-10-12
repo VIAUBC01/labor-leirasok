@@ -37,7 +37,7 @@ Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) 
 
 1. A `GetTitlesAsync` hívását paraméterezd fel a 4 property alapján.
 
-Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni az oldalt. Például a **/?SortDescending=False&PageSize=30&TitleSort=ReleaseYear&PageNumber=3** cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.
+    Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni az oldalt. Például a **/?SortDescending=False&PageSize=30&TitleSort=ReleaseYear&PageNumber=3** cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.
 
 1. Valósítsd meg az `OnGet` elején a specifikációnak megfelelő átirányítást, tehát ha a cím csak simán a gyökércím, akkor irányítson el a `/?PageSize=20&PageNumber=1&TitleSort=ReleaseYear&SortDescending=True` címre. A kérés query string értékei a `Request.QueryString` propertyből kérdezhetők le. Az átirányítás végezhető a `RedirectToPage` függvény [hívásával](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)). Vigyázz, mert ha az átirányítás nem jó, könnyen "végtelen ciklus"-ba kerülhetsz.
 
@@ -45,17 +45,17 @@ Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e ve
 
 1. Vegyél fel a látható oldalszámok felsorolására egy property-t az `IndexModelbe`. Egy lehetséges megadása az alábbi (feltételezve, hogy a `GetTitlesAsync` által visszaadott művek a `Titles` property-be kerülnek):
 
-```csharp
-public IReadOnlyList<int> PageNumberOptions =>
-    new[]{
-            1, 2, 3, PageNumber - 1, PageNumber, PageNumber + 1, Titles.LastPageNumber - 1,
-            Titles.LastPageNumber, Titles.LastPageNumber + 1
-        }
-        .Where(i => i > 0 && i <= Titles.LastPageNumber + 1)
-        .Distinct()
-        .OrderBy(i => i)
-        .ToArray();
-```
+    ```csharp
+    public IReadOnlyList<int> PageNumberOptions =>
+        new[]{
+                1, 2, 3, PageNumber - 1, PageNumber,    PageNumber + 1, Titles.LastPageNumber -    1,
+                Titles.LastPageNumber, Titles.  LastPageNumber + 1
+            }
+            .Where(i => i > 0 && i <= Titles.   LastPageNumber + 1)
+            .Distinct()
+            .OrderBy(i => i)
+            .ToArray();
+    ```
 
 1. A razor felület egy lehetséges megvalósítását megtalálod [itt](./snippets/index.paging.cshtml). Ebben egy `<nav>` tag található, amit a listázó felület `<div class="row">`-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a `Titles` property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
 
@@ -71,27 +71,31 @@ Példa végeredmény (`/?SortDescending=True&TitleSort=Runtime&PageSize=30&PageN
 A 3 legördülő és a lapváltó gomboknak mind-mind állítgatniuk a nekik megfelelő query string paramétert, **de** közben a többi query string paraméterre is figyelniük kell, vannak amiket meg kell tartani, vannak amiket alapértelmezett értékre kell átírni.
 
 A paraméterek kölcsönös megtartásához (pl. lapozáskor az oldalméret és rendezés ne változzon; rendezéskor az oldalméret ne változzon) navigációkor használhatjuk az `asp-route-all-data` Tag Helpert, aminek átadhatjuk az aktuális query paraméterek szótárát; ezután felülírhatjuk a további értékeket:
-    ``` HTML
-    <a class="page-link"
-        asp-all-route-data="Request.Query.ToDictionary(v => v.Key, v => v.Value?.ToString())"
-        asp-route-PageNumber="@i">
-        @i
-    </a>
-    ```
-    Ugyanez a megoldás űrlapokon nem használható, ott az aktuális `QueryString` értéket kell feldolgozni, így például a [szűrési feltételeket](Feladat-4.md) is meg tudjuk tartani:
-    ``` HTML
-    <form method="get">
-        <select asp-for="PageSize" class="form-control-sm" onchange="..." asp-items="@(...)">
-        </select>
-        @foreach (var (key, value) in Request.Query.Where(
-            q => q.Key != nameof(Model.TitleSort) // ezt azért szűrjük ki, mert a select-ben állítjuk ugyanezen az űrlapon
-            && q.Key != nameof(Model.PageNumber) // ezt pedig azért, mert rejtett mezőben 1-re állítjuk, hogy oldalméret váltásakor az első oldalra megyünk
-            ))
-        {
-            <input type="hidden" name="@key" value="@value" />
-        }
-        <input type="hidden" asp-for="PageNumber" value="1" />
-    </form>
+
+```html
+ <a class="page-link"
+     asp-all-route-data="Request.Query.ToDictionary(v => v.Key, v => v.Value?.ToString())"
+     asp-route-PageNumber="@i">
+     @i
+ </a>
+```
+
+Ugyanez a megoldás űrlapokon nem használható, ott az aktuális `QueryString` értéket kell feldolgozni, így például a [szűrési feltételeket](Feladat-4.md) is meg tudjuk tartani:
+    
+```html
+<form method="get">
+    <select asp-for="PageSize" class="form-control-sm" onchange="..." asp-items="@(...)">
+    </select>
+    @foreach (var (key, value) in Request.Query.Where(
+        q => q.Key != nameof(Model.TitleSort) // ezt azért szűrjük ki, mert a select-ben állítjuk ugyanezen az űrlapon
+        && q.Key != nameof(Model.PageNumber) // ezt pedig azért, mert rejtett mezőben 1-re állítjuk, hogy oldalméret váltásakor az első oldalra megyünk
+        ))
+    {
+        <input type="hidden" name="@key" value="@value" />
+    }
+    <input type="hidden" asp-for="PageNumber" value="1" />
+</form>
+```
 
 ## Következő feladatok
 
