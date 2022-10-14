@@ -9,7 +9,7 @@
         <div>
             @for (int i = 1; i < new Random().Next(5, 10); i++)
             {
-                <a class="text-nowrap" style="font-size: 1.2em" href="/">Genre<text>@i</text> (<small class="text-muted">@(new Random().Next(50, 500))</small>)</a>
+                <span class="text-nowrap" style="font-size: 1.2em">Genre<text>@i</text> (<small class="text-muted">@(new Random().Next(50, 500))</small>)</span>
             }
         </div>
         <hr class="d-block d-md-none" />
@@ -30,12 +30,12 @@
                                 </h5>
                             </a>
                             <h6 class="text-muted"><i>OriginalTitle<text>@i</text></i></h6>
-                            <a class="badge rounded-pill bg-primary text-nowrap">
+                            <span class="badge rounded-pill bg-primary text-nowrap">
                                 Title Type Name
-                            </a>
+                            </span>
                             @for (int j = 1; j < new Random().Next(2,5); j++)
                             {
-                                <a class="badge rounded-pill bg-secondary text-nowrap" href="/">Genre<text>@j</text></a>
+                                <span class="badge rounded-pill bg-secondary text-nowrap" href="/">Genre<text>@j</text></span>
                             }
                         </div>
                     </div>

@@ -1,5 +1,7 @@
 ﻿using MovieCatalogApi.Entities;
 
+namespace MovieCatalog.Web.Utils;
+
 /// <summary>
 /// Szűrési feltételeket tároló objektum. Minden érték opcionális.
 /// </summary>
@@ -49,4 +51,6 @@ public class TitleFilter
     /// A műfajokra vizsgáló szűrő. Inkluzív, tehát bármely műfaji egyezésre vizsgál.
     /// </summary>
     public List<string>? Genres { get; set; }
+
+    public static TitleFilter Empty { get; } = new();
 }

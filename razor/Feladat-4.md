@@ -1,48 +1,45 @@
 # Feladat 4.
 
-Készítsük el a szűrőjét a műveknek!
+## Szűrés - specifikáció
 
-A szűrő egy beviteli űrlap lesz, amely GET kérést intéz az Index oldalhoz (hasonlóan a [Lapozás és rendezés](Feladat-3.md) feladatban látottakhoz).
+A szűrést a kezdőoldalon (*Index*) kell megvalósítani, minden paraméter URL-ben utazzon!
 
-Előszöris, a bal oldali "műfajfelhőben" levő egyes műfajokra kattintva szűrjük le az aktuális találati listát úgy, hogy csak a műfajnak megfelelő elemek jelenjenek meg. Ha a műfaj "ki van választva", kapjon egy kiemelést. Ha újra kiválasztjuk, az aláhúzás eltűnik. Ha a lapozással már foglalkoztunk, akkor az oldalszámot 1-re kell állítanunk (vagy törölnünk, ugyanis 1 az alapérték).
+A szűréshez az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:
+- összesen egy darab szűrőmező a címeknek
+- jelölőnégyzet-lista a típusnak (`TitleType`)
+- minden számhoz, évszámhoz két-két szűrőmező (min-max értékek)
+- a műfajokat az első feladat bal oldali "műfajfelhője" helyett a műfajok is jelölőnégyzet listából legyenek választhatók, a feliratok viszont maradjanak ugyanazok (tartalmazzák a számosságokat).
+- a műfajok számosságának nem kell módosulnia a szűrés használata során
 
-Az Index oldalra kössük ki az URL-ből érkező MoviesFilter objektumot:
+## Megvalósítás lépései
 
-```C#
-[BindPropery(SupportsGet = true)]
-public MoviesFilter Filter { get; set; }
-```
+Nem kötelező így csinálni, de egy lehetséges megoldás lépései a következők.
 
-Ezt a szűrőt az esetleges [lapozási és rendezési paraméterekkel](Feladat-3.md) adjuk át a lekérdezést végrehajtó `GetTitlesAsync` metódusnak. Hogyan tudjuk megadni ezt a komplex objektumot GET paraméterként? Például: `https://localhost:44332/?Filter.Genres=Sci-Fi`. Ezzel láthatjuk, hogy kitöltődik megfelelően a Genres lista egyetlen elemmel, ami a Sci-Fi. Ha több elemet szeretnénk megadni, akkor többször soroljuk fel ugyanazt a kulcsot (a query paraméterben szabvány szerint nem történik "sorosítás", tehát nem használunk tömböket vagy JSON objektumokat, csak egyszerű értékeket string kulccsal): `https://localhost:44332/?Filter.Genres=Sci-Fi&Filter.Genres=Action`. Egyelőre ezzel a problémával nem foglalkozunk, de ezért értelmezhető a string tömböt fogadó `Filter.Genres` tulajdonság számára egyetlen normál string átadása.
+1. Vegyél fel egy új `TitleFilter` típusú property-t az `IndexModel`-be `Filter` néven. Ne legyen nullozható, kezdeti értéke legyen egy új konstruktorral. A property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`). 
 
-Egy lehetséges megoldás váza az alábbi:
+1. Módosítsd a `GetTitlesAsync` hívását, hogy az előbb felvett property alapján szűrjön.  Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni a lapozást és a szűrést is.
 
-``` HTML
-@foreach (var genre in Model.Genres) // Az összes műfajt kiírjuk.
-{
-    var selected = Model.Filter?.Genres?.Any(g => g == genre.Name) == true; // Jelzi, hogy az aktuális műfajra épp szűrünk-e.
-    <a class="text-nowrap @(selected ? "text-dark border border-dark" : "")" 
-       asp-all-route-data="@(Request.Query.ToDictionary(kv => kv.Key, kv => kv.Value.ToString()))" @* Az aktuális query string paramétereket megtartjuk. *@
-       asp-route-Filter.Genres="@(selected ? null : genre.Name)" @* A Filter.Genres-t értelemszerűen töröljük vagy kitöltjük. *@
-       style="font-size: @genre.SizeInEm" 
-       asp-route-PageNumber="@null"> @* A PageNumbert töröljük. *@
-        @genre.Name 
-        <small class="text-muted">@genre.TitleCount</small>
-    </a>
-}
-```
+    Hogyan tudjuk megadni ezt a komplex objektumot URL paraméterként? Például: *&Filter.Genres=Sci-Fi*. Ezzel láthatjuk, hogy kitöltődik megfelelően a `Genres` lista egyetlen elemmel, ami a *Sci-Fi*. Ha több elemet szeretnénk megadni, akkor többször soroljuk fel ugyanazt a kulcsot (a query paraméterben szabvány szerint nem történik "sorosítás", tehát nem használunk tömböket vagy JSON objektumokat, csak egyszerű értékeket string kulccsal): *&Filter.Genres=Sci-Fi&Filter.Genres=Action*. Arra is figyelnünk kell, hogy az URL-ben a lapozó paraméterek is benne legyenek. Példa URL: 
+    ```
+    /?PageSize=20&PageNumber=1&TitleSort=ReleaseYear&SortDescending=True&Filter.Genres=Comedy
+    ```
 
-Ezzel a szűrés "már működik is". Ami hátravan, az az űrlap elkészítése a szűréshez.
+1. Kommentezd ki a műfajfelhő rész razor kódját.
+
+1. A szűrő űrlap egy lehetséges megvalósítását megtalálod [itt](./snippets/index.filter.cshtml). Helyezd el úgy a saját oldaladba, hogy a kikommentezett rész helyén jelenjen meg. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
+
+1. A szűrőfelület űrlapjának *Genres* részén lévő üres *div*-et töltsd ki egy hasonló ciklussal, mint ami a *TitleTypes* részen van, de itt a műfajokat listázd. Figyelj rá, hogy a `Filter.TitleTypes` helyett a `Filter.Genres`-t használd, a feliratok viszont a műfajok nevei legyenek, és továbbra is tartalmazzák a számosságokat.
 
 Az alábbi ábrán látható paramétereket kérd be a felhasználótól, értelemszerűen a szűréseknek megfelelően működnie kell!
 
 ![Feladat 4.](images/feladat-4.png)
 
+## Beadandó tesztesetek
+
+- Két darab, különbözőképpen felparaméterezett szűrés. Szövegesen szerepeljen a jegyzőkönyvben a szűrés gomb megnyomása utáni teljes URL is.
 
 ## Következő feladatok
 
-A korábbi feladatokat tetszőleges sorrendben elvégezheted, ha még nem tetted:
+Folytathatod a [szerkesztő oldallal](Feladat-2.md), ha még nem csináltad korábban.
 
-- [Mű szerkesztő oldala](Feladat-2.md)
-
-- [Lapozás és rendezés](Feladat-3.md)
+:godmode: Egyébként végeztél a feladatokkal. :godmode: 

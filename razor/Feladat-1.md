@@ -33,7 +33,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 1. Regisztráld az adatbázis kontextust a DI rendszerbe. (Program.cs) 
 
-1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) egy új *Utils* mappába. 
+1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) és kivételtípusokat [innen](./snippets/Exceptions) egy új *Utils*, illetve *Exceptions* mappába. 
 
 1. Add hozzá a projekthez az előkészített `MovieCatalogDataService` és az `IMovieCatalogDataService` típusokat [innen](./snippets/Services) egy új *Services* mappába.
 
@@ -51,9 +51,9 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod az [itt található razor leírót](./snippets/Pages/index.static.cshtml). Kipróbáláshoz az *index.cshtml*-ed cseréld le a fájl tartalmára.
 
-*Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak.
+*Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
 
-1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló link. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is.
+1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is.
 
 1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
     - címe, 
@@ -67,6 +67,7 @@ Az alábbi szabályok szerint szűrd a műveket:
  - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
  - `StartYear` szerint csökkenően rendezve az első 20 darab
  - a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
+ - a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat
 
 ![Feladat 1.](images/feladat-1.png)
 ![Feladat 1.](images/feladat-1b.png)
@@ -83,27 +84,29 @@ Az alábbi szabályok szerint szűrd a műveket:
     ``` HTML
     @inject MovieCatalog.Data.IMovieCatalogDataService DataService
     ```
+- Komplex, referencia típusú (pl. `PagedResult<>`) változókat, propertyket, ha a `null` értéknek nincs értelme, akkor érdemes nem `null` értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak `Empty` statikus tagja ([például a beépített kollekcióknak általában van](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-6.0)) és használjuk azt.
 - Megkönnyítheti a fejlesztést a [Hot Reload funkció](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022), mely lehetővé teszi, hogy a kódváltoztatásaink sokkal gyorsabban (teljes újraindítás nélkül) érvényre jussanak.
 - Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
   - új index a *Title.StartYear* oszlopra
   - az új művek azonosítóját az adatbázis osztja ki  
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 
+## Beadandó tesztesetek
+
+- Főoldal megjelenítve, minden főbb rész látható
+
 ## Következő feladatok
 
-Ezt követően 3 további feladatot végezhetsz el tetszőleges sorrendben plusz egy-egy érdemjegyért:
+Ezekkel folytathatod:
 
 - [Mű szerkesztő oldala](Feladat-2.md)
-
 - [Lapozás és rendezés](Feladat-3.md)
-
-- [Szűrés](Feladat-4.md)
 
 # Bónusz feladat
 
 Plusz egy jegyért (ha az elégséges enélkül is megvan) **mindkét** alábbi feladatot oldd meg:
 
-1. A műfajok linkfelhőjében minél több mű van egy műfajban,  legyen annál nagyobb a betűméret. A legkevesebb elemet tartalmazó műfaj mérete 100% (az alapértelmezett méret, `1em`), a legtöbbet tartalmazó 200% (`2em`), a kettő között lineáris az eloszlás. Mivel dinamikusan számított az érték, most ezt megadhatjuk a `style` attribútumban.
+1. A műfajfelhőben minél több mű van egy műfajban,  legyen annál nagyobb a betűméret. A legkevesebb elemet tartalmazó műfaj mérete 100% (az alapértelmezett méret, `1em`), a legtöbbet tartalmazó 200% (`2em`), a kettő között lineáris az eloszlás. Mivel dinamikusan számított az érték, most ezt megadhatjuk a `style` attribútumban.
 
 Példa: ha a legtöbb elemet tartalmazó műfajban 250 elem van, a legkevesebb elemet tartalmazóban 100, akkor 137 elemet tartalmazó műfaj esetén a méret:
 

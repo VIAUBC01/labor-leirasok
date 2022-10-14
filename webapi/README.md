@@ -9,7 +9,7 @@ Az előfeltételek, felkészülés, áttekintés és általános tájékoztató 
 A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel:
 - **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál tartalmazza a következőket: 
   - az általad írt kódrészletekről készített képernyőkép(ek)
-  - 1 vagy több ábra tesztkérésekről. Bővebben az anyagban
+  - 1 vagy több ábra tesztkérésekről. Bővebben az anyagban.
 
 ## Értékelés
 

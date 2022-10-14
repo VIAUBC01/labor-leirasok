@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-
-namespace MovieCatalog.Web.Utils;
+﻿namespace MovieCatalog.Web.Utils;
 
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,12 +22,10 @@ public sealed class PagedResult<TEntity>
         Results = ImmutableArray<TEntity>.Empty;
     }
 
-    private static readonly PagedResult<TEntity> empty = new ();
-
     /// <summary>
     /// Üres példány nem nullozható változók inicializációjához.
     /// </summary>
-    public static PagedResult<TEntity> Empty => empty;
+    public static PagedResult<TEntity> Empty { get; } = new ();
 
     /// <summary>
     /// Az eredményeket tartalmazó betöltött, nem módosítható kollekció.
