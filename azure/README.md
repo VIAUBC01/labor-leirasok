@@ -118,8 +118,6 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 - hiába kéri, hogy hozzunk létre erőforráscsoportot, nem tudunk, mert nincs hozzá jogunk. Helyette **minden további parancsban, ahol meg kell adni erőforráscsoportot**, a `myResourceGroup` helyett adjuk meg a sandbox előfizetésben alapból létrehozott erőforráscsoport nevét. Ennek a névnek a lekérdezését lásd fentebb az előfizetés beüzemelésénél.
 
-- *[Az Azure App Service alkalmazás kezelése](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése)* részben az előfizetés nem a BME domain-ben jön létre (ahová a fiók alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a `learn.docs.microsoft.com`-ra a jobb felső sarokban lévő ikonra kattintva, ahogy ezen a [képen](media/switch_azure_directory.png) látható.
-
 :bulb: Tippek és hasznos tudnivalók:
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
@@ -133,6 +131,8 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 :bulb: a [diagnosztikai naplók lekérdezéséről szóló rész](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval) és az [Azure portálos rész](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése) már az App Service létrehozása is után megoldható, nem kell a végéig elérni a megoldással.
 
 :bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből
+
+:bulb: Némelyik képernyőkép elkészítéséhez be kell lépni az Azure portálra. Mivel a sandbox előfizetés nem a BME domain-ben jön létre (ahová a fiókunk alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a `learn.docs.microsoft.com`-ra a [portál beállítóoldalán](https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#switch-and-manage-directories)
 
 :warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
