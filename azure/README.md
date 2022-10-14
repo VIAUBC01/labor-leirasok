@@ -27,7 +27,7 @@ git ellenőrzése, ajánlott verzió legalább v2.28 (Windows), v2.17 (Linux)
 ```bash
 git --version
 ```
-.NET Core SDK ellenőrzése, legalább v5.0 legyen
+.NET Core SDK ellenőrzése, legalább v6.0 legyen
 ```bash
 dotnet --version
 ```
@@ -69,7 +69,7 @@ A válasz valami hasonló lesz, a sandbox előfizetésünk adatai jelennek meg:
 
 Másoljuk ki az `id` értékét (jelen példában `03821083-c843-496d-b555-65106b80c178`)
 
-Ezek után már **ne a weboldal jobb oldalán lévő terminálon** (nem kell bezárni sem, mert ott lehet követni, hogy meddig él még az előfizetésünk) dolgozzunk, hanem egy sima terminálban, Windows-on Parancssorban (cmd) vagy Windows Terminal-ban (ez utóbbi az ajánlott), Linuxon pedig a beépített terminálon. A parancsértelmező (azaz shell) is többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van. A Windows parancssor alapból *cmd*-t indít, a Windows Terminal-ban választhatunk, hogy az új lap mivel induljon.
+Ezek után már **ne a weboldal jobb oldalán lévő terminálon** (de nem kell bezárni sem, mert ott lehet követni, hogy meddig él még az előfizetésünk) dolgozzunk, hanem külön asztali terminálban. A parancsértelmező (azaz shell) többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van.
 
 Jelentkezzünk be Azure CLI-vel:
 
@@ -133,7 +133,6 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 :bulb: a [diagnosztikai naplók lekérdezéséről szóló rész](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval) és az [Azure portálos rész](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése) már az App Service létrehozása is után megoldható, nem kell a végéig elérni a megoldással.
 
 :bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből
-
 
 :warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
