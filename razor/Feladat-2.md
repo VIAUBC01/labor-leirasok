@@ -2,15 +2,15 @@
 
 ## Beszúrás & módosítás - specifikáció
 
-A film kártyájáról lehessen elnavigálni egy új oldalra (pl. a címre kattintva vagy egy új ikonnal vagy linkkel), ahol a film adatait szerkeszthetjük.
+A filmlistából lehessen elnavigálni egy új oldalra (pl. a címre, mint linkre kattintva), ahol a mű adatait szerkeszthetjük. Emellett egy főoldalon lévő külön gombbal/linkkel is ugyanerre az új oldalra lehessen navigálni, de ilyenkor új művet lehessen felvenni.
+
 - A szerkesztés önálló oldalon legyen, a `/Title/{Id:int?}` URL-en legyen elérhető!
-- Legyen a nézet áttekinthető, lényegretörő!
 - Az `Id` paraméter/tulajdonság tehát URL-ből jön (ha van), és GET kérés hatására is ki kell töltődnie.
 - Ha `Id` nincs megadva, akkor egy üres `Title` létrehozását végezzük.
 - Ha az `Id` meg van adva, a film adatait töltsd ki az adatbázis adatai alapján!
 - Használd az `asp-for` adatkötést a tulajdonságok megjelenítéséhez!
 - A mentés ugyanezen URL-en keresztül történjen, viszont POST művelet hatására végződjön el. Mentés után GET kéréssel menjünk vissza az oldal szerkesztő felületére (lásd: [PRG](https://en.wikipedia.org/wiki/Post/Redirect/Get)).
-- Típusból csak egyet (rádiógomb-csoport vagy legördülő lista), műfajból többet (műfajonkénti checkbox vagy többkiválasztásos lista) is meg lehet adni.
+- Típusból (`TitleType`) csak egyet, műfajból többet is meg lehet adni. A felhasználó e kettő adatnál választhasson az értékek közül egy-egy listából.
 - A műfajok listáját értelemszerűen külön lekérdezésben le kell kérdezni POST és GET esetén is.
 
 ### Validációk
@@ -41,7 +41,12 @@ Nem kötelező így csinálni, de egy lehetséges megoldás lépései a követke
 
 1. Adj hozzá az *Index* oldalhoz egy új [link-gombot](https://getbootstrap.com/docs/5.0/components/buttons/#button-tags), ami egyszerűen a *Title* oldalra linkel, hogy így beszúró módban jelenjen meg a *Title* oldal.
 
-Példa végeredmény:
+## Végső kinézet
+
+Teszt URL:
+```
+/Title/5723720
+```
 
 ![Feladat 2.](images/feladat-2.png)
 

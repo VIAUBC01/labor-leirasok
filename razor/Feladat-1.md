@@ -93,7 +93,7 @@ Az alábbi szabályok szerint szűrd a műveket:
 
 ## Beadandó tesztesetek
 
-- Főoldal megjelenítve, minden főbb rész látható
+- Főoldal megjelenítve, minden főbb rész látható. A teljes címsor és menüsor is.
 
 ## Következő feladatok
 

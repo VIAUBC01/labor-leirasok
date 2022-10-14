@@ -2,7 +2,7 @@
 
 ## Szűrés - specifikáció
 
-A szűrést a kezdőoldalon (*Index*) kell megvalósítani, minden paraméter URL-ben utazzon!
+A szűrést a kezdőoldalon (*Index*) kell megvalósítani, minden paraméter URL-ben utazzon! Alapértelmezetten ne legyen semmilyen szűrés (az első feladatban még volt).
 
 A szűréshez az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:
 - összesen egy darab szűrőmező a címeknek
@@ -30,13 +30,13 @@ Nem kötelező így csinálni, de egy lehetséges megoldás lépései a követke
 
 1. A szűrőfelület űrlapjának *Genres* részén lévő üres *div*-et töltsd ki egy hasonló ciklussal, mint ami a *TitleTypes* részen van, de itt a műfajokat listázd. Figyelj rá, hogy a `Filter.TitleTypes` helyett a `Filter.Genres`-t használd, a feliratok viszont a műfajok nevei legyenek, és továbbra is tartalmazzák a számosságokat.
 
-Az alábbi ábrán látható paramétereket kérd be a felhasználótól, értelemszerűen a szűréseknek megfelelően működnie kell!
+## Végső kinézet
 
 ![Feladat 4.](images/feladat-4.png)
 
 ## Beadandó tesztesetek
 
-- Két darab, különbözőképpen felparaméterezett szűrés. Szövegesen szerepeljen a jegyzőkönyvben a szűrés gomb megnyomása utáni teljes URL is.
+- Legalább két darab, különbözőképpen felparaméterezett szűrés. Szövegesen szerepeljen a jegyzőkönyvben a szűrés gomb megnyomása utáni teljes URL is.
 
 ## Következő feladatok
 

@@ -12,7 +12,7 @@ A lapozást és rendezést a kezdőoldalon (*Index*) kell megvalósítani, minde
     - Az aktuális plusz/mínusz 1 oldal mindig legyen látható (ha van).
     - Az utolsó 3 oldal mindig legyen látható (ha van).
     - A további oldalakat három pont (...) jelzi, ahol kimaradás történik.
-    - A ...-on kívüli elemekre kattintva a megfelelő oldal töltődik be. Fontos, hogy a PageSize paraméter értéke lapozáskor megmarad!
+    - A ...-on kívüli elemekre kattintva a megfelelő oldal töltődik be. Fontos, hogy a `PageSize` paraméter értéke lapozáskor megmarad!
 - Az oldalválasztóhoz javasolt (nem kötelező) a [Bootstrap Pagination](https://getbootstrap.com/docs/5.0/components/pagination/) komponenst használni.
 - Az oldalszám technikailag az adatrétegből 0-tól indul, de a felületen/URL-ben 1-től induljon, tehát az eltolást a megfelelő helyeken alkalmazd!
 - Ha a lapozási paraméterek nincsenek az URL-ben, irányítsd át a kérést egy olyan címre, ami már tartalmazza a paramétereket, így a felhasználó mindig tudja a címből, hogy mi a lapozás/rendezés állapota.
@@ -33,13 +33,22 @@ Nem kötelező így csinálni, de egy lehetséges megoldás lépései a követke
     - `PageNumber`, alapértelmezett értéke 1
     - `TitleSort`, alapértelmezett értéke `TitleSort.ReleaseYear`
     - `SortDescending`, alapértelmezett értéke `true`
-Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`).
+
+    Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`).
 
 1. A `GetTitlesAsync` hívását paraméterezd fel a 4 property alapján.
 
-    Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni az lapozást. Például a **/?SortDescending=False&PageSize=30&TitleSort=ReleaseYear&PageNumber=3** cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.
+    Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni az lapozást. Például a 
+    ```
+    /?SortDescending=False&PageSize=30&TitleSort=ReleaseYear&PageNumber=3
+    ```
+    cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.
 
-1. Valósítsd meg az `OnGet` elején a specifikációnak megfelelő átirányítást, tehát ha a cím csak simán a gyökércím, akkor irányítson el a `/?PageSize=20&PageNumber=1&TitleSort=ReleaseYear&SortDescending=True` címre. A kérés query string értékei a `Request.QueryString` propertyből kérdezhetők le. Az átirányítás végezhető a `RedirectToPage` függvény [hívásával](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)). Vigyázz, mert ha az átirányítás nem jó, könnyen "végtelen ciklus"-ba kerülhetsz. Az átirányítás miatt az `OnGet` visszatérési értéke `Task<ActionResult>`-ra kell változzon, emiatt minden végrehajtási ágon visszatérési értéket kell adni. A **nem** átirányítós ágon ilyenkor a `Page()` hívás visszatérési értéke legyen egyben az `OnGet` visszatérési értéke is.
+1. Valósítsd meg az `OnGet` elején a specifikációnak megfelelő átirányítást, tehát ha a cím csak simán a gyökércím, akkor irányítson el a 
+    ```
+    /?PageSize=20&PageNumber=1& TitleSort=ReleaseYear&SortDescending=True
+    ```
+    címre. A kérés query string értékei a   `Request.QueryString` propertyből kérdezhetők     le. Az átirányítás végezhető a  `RedirectToPage` függvény [hívásával](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)). Vigyázz, mert  ha az átirányítás nem jó, könnyen "végtelen  ciklus"-ba kerülhetsz. Az átirányítás miatt az `OnGet` visszatérési értéke `Task<ActionResult>`-ra kell változzon, emiatt minden végrehajtási ágon visszatérési értéket kell adni. A **nem** átirányítós ágon ilyenkor a `Page()` hívás visszatérési értéke legyen egyben az `OnGet` visszatérési értéke is.
 
 1. Vegyél fel a 3 legördülő menühöz egy-egy a legördülő menüben szereplő opciókat leíró `SelectItems[]` típusú property-t az `IndexModel`-be (a `PageNumber` nem legördülő menüből jön!). A tömbben a specifikációnak megfelelő opciók szerepeljenek. Figyelj, hogy a példány létrehozásnál [a feliratot, az adatkötött property-nek beállítandó értéket és az alapértelmezetten kiválasztott elemet](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.-ctor?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-rendering-selectlistitem-ctor(system-string-system-string-system-boolean)) is megfelelően töltsd ki.
 
@@ -63,7 +72,13 @@ Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) 
 
 1. Kösd be a 3 legördülő menünek az opcióikat, azaz a korábbi `SelectItems[]` típusú property-ket. Kösd be a lehetséges oldalszámokat megadó propertyt is a konstans lista helyére, hogy ne csak az első pár oldal opciója jelenjen meg.
 
-Példa végeredmény (`/?SortDescending=True&TitleSort=Runtime&PageSize=30&PageNumber=3`):
+## Végső kinézet
+
+Teszt URL:
+```
+/?SortDescending=True&TitleSort=ReleaseYear&PageSize=30&PageNumber=3
+```
+
 ![Feladat 3.](images/feladat-3.png)
 
 ## Magyarázat a minta razor felülethez
@@ -99,7 +114,7 @@ Ugyanez a megoldás űrlapokon nem használható, ott az aktuális `QueryString`
 
 ## Beadandó tesztesetek
 
-- Két darab, különbözőképpen beállított lapozás. Szövegesen szerepeljen a jegyzőkönyvben az átállítás utáni teljes URL is.
+- Legalább két darab, különbözőképpen beállított lapozás. Szövegesen szerepeljen a jegyzőkönyvben az átállítás utáni teljes URL is.
 
 ## Következő feladatok
 
