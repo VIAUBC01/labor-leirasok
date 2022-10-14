@@ -9,11 +9,13 @@ A mérés Windows és Linux rendszeren is teljesíthető. Telepítés előtt aj�
 Telepítendő parancssoros eszközök:    
  - Azure CLI - [Windows](https://aka.ms/installazurecliwindows) [Linux](https://docs.microsoft.com/hu-hu/cli/azure/install-azure-cli) 
  - [git](https://git-scm.com/downloads) (Visual Studio telepítő is feltelepíti)
- - [.NET Core 5.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
+ - [.NET Core 6.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
 
 Egyéb kellékek:
  - [Windows Terminal](https://www.microsoft.com/hu-hu/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) (opcionális, csak Windows-on telepíthető)
  - valamilyen szövegszerkesztő, pl. jegyzettömb, [Visual Studio Code](https://code.visualstudio.com/)
+
+A legjobb, ha Windows Terminal-t tudunk használni, de jó a [Visual Studio Code terminálja](https://code.visualstudio.com/docs/terminal/basics) is.
 
 ### Telepítés ellenőrzése
 
