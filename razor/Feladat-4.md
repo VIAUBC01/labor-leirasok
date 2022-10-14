@@ -15,7 +15,7 @@ A szűréshez az oldal tetején és/vagy alján kell szerepelnie egy lapozósáv
 
 Nem kötelező így csinálni, de egy lehetséges megoldás lépései a következők.
 
-1. Vegyél fel egy új `TitleFilter` típusú property-t az `IndexModel`-be `Filter` néven. Ne legyen nullozható, kezdeti értéke legyen egy új konstruktorral. A property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`). 
+1. Vegyél fel egy új `TitleFilter` típusú property-t az `IndexModel`-be `Filter` néven. Nem lehet `null` értékű, kezdeti értéke legyen üres példány (`TitleFilter.Empty`). A property automatikusan állítódjon be a HTTP kérés (query string) alapján (`BindProperty` attribútum) [GET kérés esetén is](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1) (`SupportsGet`). 
 
 1. Módosítsd a `GetTitlesAsync` hívását, hogy az előbb felvett property alapján szűrjön.  Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni a lapozást és a szűrést is.
 
@@ -26,7 +26,7 @@ Nem kötelező így csinálni, de egy lehetséges megoldás lépései a követke
 
 1. Kommentezd ki a műfajfelhő rész razor kódját.
 
-1. A szűrő űrlap egy lehetséges megvalósítását megtalálod [itt](./snippets/index.filter.cshtml). Helyezd el úgy a saját oldaladba, hogy a kikommentezett rész helyén jelenjen meg. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
+1. A szűrő űrlap egy lehetséges megvalósítását megtalálod [itt](./snippets/Pages/Index.filter.cshtml). Helyezd el úgy a saját oldaladba, hogy a kikommentezett rész helyén jelenjen meg. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
 
 1. A szűrőfelület űrlapjának *Genres* részén lévő üres *div*-et töltsd ki egy hasonló ciklussal, mint ami a *TitleTypes* részen van, de itt a műfajokat listázd. Figyelj rá, hogy a `Filter.TitleTypes` helyett a `Filter.Genres`-t használd, a feliratok viszont a műfajok nevei legyenek, és továbbra is tartalmazzák a számosságokat.
 

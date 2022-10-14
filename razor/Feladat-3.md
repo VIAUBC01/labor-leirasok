@@ -66,7 +66,7 @@ Nem kötelező így csinálni, de egy lehetséges megoldás lépései a követke
             .ToArray();
     ```
 
-1. A lapozást vezérlő felületrész egy lehetséges megvalósítását megtalálod [itt](./snippets/index.paging.cshtml). Ebben egy `<nav>` tag található, amit a listázó felület `<div class="row">`-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a `Titles` property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
+1. A lapozást vezérlő felületrész egy lehetséges megvalósítását megtalálod [itt](./snippets/Pages/Index.paging.cshtml). Ebben egy `<nav>` tag található, amit a listázó felület `<div class="row">`-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a `Titles` property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.
 
 1. Írd át az összes elem számát megjelenítő részt, hogy tényleg az összes elem számát jelenítse meg.
 
