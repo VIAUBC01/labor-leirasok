@@ -16,7 +16,7 @@ Az [Entity Framework laboron](../ef/README.md) készült adatmodellt (kissé kib
 
 1. Töltsd le az alábbi DACPAC fájlt [innen](./data/imdbtitles_sample.dacpac). Ami egy hordozható export formátum MS SQL Server adatbázisok számára.
 
-1. Csatlakozz egy LocalDB példányhoz az SQL Server Object Explorerben. Ezután a **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
+1. Csatlakozz egy LocalDB példányhoz a Visual Studio-s SQL Server Object Explorerben. Ezután a **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
 
 1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az *appsettings.Development.json* fájlhoz (az *appsettings.json* "mögött" bújik meg). A beállítás neve is legyen a neptun kódod (pontosabban *DBneptunkód*).
 
@@ -69,6 +69,7 @@ Készíts egy új API kontrollert `GenresController` néven! A kontroller az al�
 - Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
   - új index a *Title.StartYear* oszlopra
   - az új művek azonosítóját az adatbázis osztja ki  
+  - az ezen órai modell pont a fentiek miatt nem kompatibilis az előző órai adatbázissal
 - A *XXXService* osztályok a kivételes eseteket kivételdobással kezelik (pl. a megadott ID-val nem található elem `ObjectNotFoundException<>` dobást eredményez)
 - Kiinduló kontroller kódot [lehet generáltatni](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio#scaffold-a-controller). Ehhez a laborhoz az **API controller with read/write actions** generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni.
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
