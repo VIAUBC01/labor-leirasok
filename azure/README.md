@@ -59,15 +59,13 @@ Bővebb leírás a [Felhő alapú szoftverfejlesztés tárgy honlapjáról](http
 Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
 
 
-### [Feladat 1](Feladat-1.md)
+### Feladat 1
 
-Ez egy hivatalos [Microsoft oktatóanyag](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app) - a gépi magyar fordítás kézileg magyarított változata. A gépi fordítás nem túl jó, tehát ne az eredetit nézzétek, hanem [ezt](Feladat-1.md). Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását!
+Végzed el a következő hivatalos Microsoft oktatóanyagot: [magyarul (gépi fordítású)](https://docs.microsoft.com/hu-hu/azure/app-service/tutorial-dotnetcore-sqldb-app) vagy [angolul](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app). Az angol az ajánlott, mivel az az eredeti, a magyar gépi fordítás sem rossz, követhető, de néhány helyen rosszul ragoz vagy furán fogalmaz. Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását!
 
-Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning: eltérés az eredeti, Microsoft által megálmodott folyamathoz képest:
+Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehet végrehajtani többfajta eszközzel (Azure CLI, Azure portal, stb.). Szabadon választhattok, hogy milyen eszközzel dolgoztok, melyik fület választjátok, de az elején érdemes eldönteni és végig ahhoz tartni magatokat.
 
-- hiába kéri, hogy hozzunk létre erőforráscsoportot, nem tudunk, mert nincs hozzá jogunk. Helyette **minden további parancsban, ahol meg kell adni erőforráscsoportot**, a `myResourceGroup` helyett adjuk meg a sandbox előfizetésben alapból létrehozott erőforráscsoport nevét. Ennek a névnek a lekérdezését lásd fentebb az előfizetés beüzemelésénél.
-
-:bulb: Tippek és hasznos tudnivalók:
+#### :bulb: Tippek és hasznos tudnivalók parancssort használóknak:
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
@@ -75,25 +73,15 @@ Mivel sandbox előfizetést használunk, van néhány :warning: fontos :warning:
 
 :bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
 
-:bulb: ha az Azure-ban futó változattal gond van, érdemes előrevenni a [diagnosztikai naplók lekérdezéséről szóló részt](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval)
-
-:bulb: a [diagnosztikai naplók lekérdezéséről szóló rész](Feladat-1.md#diagnosztikai-naplók-lekérdezése-log-streaming-funkcióval) és az [Azure portálos rész](Feladat-1.md#az-azure-app-service-alkalmazás-kezelése) már az App Service létrehozása is után megoldható, nem kell a végéig elérni a megoldással.
-
-:bulb: ha az első feladatot túl sokáig tartott megoldani (> 2óra), akkor érdemesebb új sandbox előfizetést aktiválni (azaz hagyni lejárni az előzőt). Semmilyen erőforrásra nincs szükség a második feladathoz az elsőből
-
-:bulb: Némelyik képernyőkép elkészítéséhez be kell lépni az Azure portálra. Mivel a sandbox előfizetés nem a BME domain-ben jön létre (ahová a fiókunk alapból tartozik), ezért alapból valószínűleg nem látszanak a szolgáltatások az Azure portálon. Előbb át kell váltani a könyvtárat a `learn.docs.microsoft.com`-ra a [portál beállítóoldalán](https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#switch-and-manage-directories)
-
 :warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat
 
-:warning: a connection string beállítása csak a parancssori ablak bezárásig él
+#### :bulb: Tippek és hasznos tudnivalók mindenkinek:
 
-:warning: a környezeti változóban megadott connection string csak a lokális alkalmazásban működik
+:bulb: ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a [diagnosztikai naplók lekérdezéséről szóló részt](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources#8---configure-and-stream-application-logs). A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.
 
 ### [Feladat 2](Feladat-2.md)
 
-Ez már nem fordítás, minden infó a [feladat oldalán](Feladat-2.md).
-
-:bulb: Ha már kevés idő van hátra az előfizetésből, akkor inkább várd meg amíg lejár és kezdj tiszta lappal.
+Ez már nem Microsoft anyag, minden infó a [feladat oldalán](Feladat-2.md).
 
 ## Beadandó
 
@@ -111,8 +99,7 @@ Böngészőről készült képernyőképeknél:
 
 - a böngészőablak teljes méretű (maximalizált legyen) 
 - látszódjon a címsor és a weboldal megjelenő része
-
-Az egy feladathoz tartozó beadott képek ugyanazon előfizetés használatát mutassák. Például az első feladat Azure CLI belépésről  és App Service létrehozásról beadott kép ne különböző sandbox előfizetések használata során jöjjenek létre. Feladatok (az első és második) között lehet eltérés.
+- Azure portálnál látszódjon a jobb felső sarokban az Azure portálra belépett felhasználó a jobb felső sarokban
 
 A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.
 
