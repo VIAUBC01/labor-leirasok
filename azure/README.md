@@ -1,12 +1,13 @@
 # Azure webhoszting
 
-A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban, cross-platform eszközökkel végezzük. A felhőben Linux alapú szerver fogja az alkalmazást futtatni, bár ebből sokat nem érzékelünk.
+A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban vagy webes felületen is végezhetjük.
 
 ## Előkészületek
 
+### Ha parancssorban dolgoznál
 A mérés Windows és Linux rendszeren is teljesíthető. Telepítés előtt ajánlott ellenőrizni a lenti parancsokkal, hogy mi van már eleve feltelepítve.
 
-Telepítendő parancssoros eszközök:    
+Telepítendő parancssoros eszközök (ha még nincsenek telepítv):    
  - Azure CLI - [Windows](https://aka.ms/installazurecliwindows) [Linux](https://docs.microsoft.com/hu-hu/cli/azure/install-azure-cli) 
  - [git](https://git-scm.com/downloads) (Visual Studio telepítő is feltelepíti)
  - [.NET Core 6.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
@@ -17,7 +18,7 @@ Egyéb kellékek:
 
 A legjobb, ha Windows Terminal-t tudunk használni, de jó a [Visual Studio Code terminálja](https://code.visualstudio.com/docs/terminal/basics) is.
 
-### Telepítés ellenőrzése
+#### Telepítés ellenőrzése
 
 Azure CLI ellenőrzése, ajánlott verzió legalább v2.13
 ```bash
@@ -32,71 +33,19 @@ git --version
 dotnet --version
 ```
 
+### Ha böngészőben dolgoznál
+
+Elsődlegesen böngésző kell csak.
+
+Egyéb kellékek:
+ - valamilyen szövegszerkesztő, pl. jegyzettömb, [Visual Studio Code](https://code.visualstudio.com/)
+
 ### Azure előfizetés beüzemelése
-A mérés ún. sandbox előfizetéssel teljesítendő. Ezt az alábbi weboldalon lehet aktiválni: [link](
-https://docs.microsoft.com/hu-hu/learn/modules/develop-app-that-queries-azure-sql/3-exercise-create-tables-bulk-import-query-data).
-A `Sign in to activate sandbox` gombra nyomva. Belépéshez az edu.bme.hu fiókot kell használni. Ha még nem volt korábban ilyen előfizetés aktiválva a fiókhoz, akkor a kért engedélyt is meg kell adni a Microsoft Learn oldalnak.
 
-![Azure Sandbox activated](media/sandbox_activated.png)
+A mérés hallgatói Azure előfizetéssel teljesítendő, [itt aktiváld](https://azure.microsoft.com/en-us/free/students/).
 
-Miután a fenti üzenet megjelenik, dolgozhatunk az előfizetéssel, a weboldal jobb oldalán megjelenik az *Azure Cloud Shell*. Itt adjuk ki a következő parancsot:
-
-```
-az account list
-```
-
-A válasz valami hasonló lesz, a sandbox előfizetésünk adatai jelennek meg:
-
-```javascript
-[
-  {
-    "cloudName": "AzureCloud",
-    "homeTenantId": "******",
-    "id": "03821083-c843-496d-b555-65106b80c178",
-    "isDefault": true,
-    "managedByTenants": [],
-    "name": "Concierge Subscription",
-    "state": "Enabled",
-    "tenantId": "*****",
-    "user": {
-      "cloudShellID": true,
-      "name": "simon.gabor@vik.bme.hu",
-      "type": "user"
-    }
-  }
-]
-```
-
-Másoljuk ki az `id` értékét (jelen példában `03821083-c843-496d-b555-65106b80c178`)
-
-Ezek után már **ne a weboldal jobb oldalán lévő terminálon** (de nem kell bezárni sem, mert ott lehet követni, hogy meddig él még az előfizetésünk) dolgozzunk, hanem külön asztali terminálban. A parancsértelmező (azaz shell) többfajta lehet, a mérésanyagban a cmd (Windows), PowerShell (Windows) és bash (Linux, WSL) szerepel. Ahol a futtatandó parancs különbözik, az külön jelölve van.
-
-Jelentkezzünk be Azure CLI-vel:
-
-```bash
-az login
-```
-
-Ez egy böngészőlapot nyit meg, ahol be kell jelentkezni szintén az edu.bme.hu-s fiókkal. Ezt követően pár másodperc múlva a paramcs lefut, kilistázva az aktív előfizetéseket.
-
-Egy fiókhoz viszont több aktív előfizetés is kapcsolódhat, az Azure CLI parancsok mindig egy adott előfizetésen dolgoznak, hogy melyiken, azt az ún. alapértelmezett előfizetés adja meg. A biztonság kedvéért állítsuk be az Azuer CLI parancsokban használandó előfizetésnek a weboldalon kilistázott előfizetést, lecserélve az `id` helyőrző értékét a korábban megszerzett `id` értékre:
-
-```bash
-az account set -s <id>
-```
-
-:warning::warning::warning: Fontos tudnivalók a sandbox előfizetésről:
-
-- 4 óra időtartamig él
-- egy fiókkal naponta max. 10 db. hozható létre
-- nem minden régióban enged erőforrásokat létrehozni. Ha a `West Europe` régióban nem engedi, akkor használjuk a `Central US`-t,
-- az előfizetésen belül nem hozható létre erőforráscsoport. Helyette egy már eleve létre van hozva `learn-<valamilyen azonosito>` névvel. A pontos nevet a következő paranccsal lehet lekérdezni:
-
-```bash
-az group list
-```
-
-A keresett név a válasz JSON `name` tulajdonságából olvasható ki.
+Bővebb leírás a [Felhő alapú szoftverfejlesztés tárgy honlapjáról](https://www.aut.bme.hu/Course/felho)
+> [Azure for Students](https://azure.microsoft.com/en-us/free/students/) - ez az újabb program, 100$ kredittel egy évre (de évente megújítható). Bankkártya regisztráció nem szükséges. Ezt próbáljtátok meg aktiválni! Edu.bme.hu-s fiókot érdemes használni az aktivációhoz. Fontos, hogy 10-11 hónap után indul egy megújítási időablak és ha abban nem újítjátok meg, akkor ki kell várni míg egy több hónapos inaktív időszak után teljesen törődik az előfizetés és utána tudtok (ugyanazzal az email címmel) egy teljesen új előfizetést igényelni.
 
 ## Feladatok
 
