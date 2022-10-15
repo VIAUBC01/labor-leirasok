@@ -90,6 +90,7 @@ Az alábbi szabályok szerint szűrd a műveket:
   - új index a *Title.StartYear* oszlopra
   - az új művek azonosítóját az adatbázis osztja ki  
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
+- Előfordulhat, ha például nagy az adatbázis, és nem indexelt oszlopokra szűrünk/rendezünk, hogy timeout-ra futunk. Ilyenkor első körben próbálkozzunk más szűrési/rendezési beállításokkal.
 
 ## Beadandó tesztesetek
 
