@@ -31,7 +31,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](../webapi/snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
 
-1. Regisztráld az adatbázis kontextust a DI rendszerbe. (Program.cs) 
+1. Regisztráld [az adatbázis kontextust](../webapi/snippets/Entities/MovieCatalogDbContext.cs) a DI rendszerbe. (Program.cs) 
 
 1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) és kivételtípusokat [innen](./snippets/Exceptions) egy új *Utils*, illetve *Exceptions* mappába. 
 
@@ -42,8 +42,8 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 # Általános szabályok
 
 - `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit, közvetetten pedig a `MovieCatalogDataService` függvényeit.
-- A kontroller közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként
-- A `MovieCatalogDataService` osztályban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor
+- A kontroller közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
+- A `MovieCatalogDataService` osztályban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor.
     
 # Feladat 1.
 
