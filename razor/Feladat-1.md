@@ -21,7 +21,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
         "ConnectionStrings": {
             "DB<neptun kódra írj át>": "Server=(localdb)\\mssqllocaldb;Database=<neptun kódra írj át>;Trusted_Connection=True;MultipleActiveResultSets=true"
         },
-        "Logging": { ... }
+        "Logging": { "..." }
     }
     ```
 
