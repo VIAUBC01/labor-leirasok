@@ -53,7 +53,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 *Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
 
-1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is.
+1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is. Kapcsolódó `IMovieCatalogDataService` művelet a `GetGenresWithTitleCountsAsync`.
 
 1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
     - címe, 
@@ -62,7 +62,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
     - típusa,
     - műfajai
 
-Az alábbi szabályok szerint szűrd a műveket:
+Az alábbi szabályok szerint szűrd a műveket az `IMovieCatalogDataService.GetTitlesAsync` segítségével:
  - csak film (`Movie`) típus
  - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
  - `StartYear` szerint csökkenően rendezve az első 20 darab
