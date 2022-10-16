@@ -69,7 +69,11 @@ Az alábbi szabályok szerint szűrd a műveket:
  - megjelenési év szerint csökkenően rendezve az első 20 darab
  - a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat
 
+## Végső kinézet különböző méretek esetén
+
 ![Feladat 1.](images/feladat-1.png)
+
+
 ![Feladat 1.](images/feladat-1b.png)
 
 # Általános tudnivalók, megjegyzések, tippek
