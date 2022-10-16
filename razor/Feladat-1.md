@@ -58,15 +58,15 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
     - címe, 
     - eredeti címe, ha nem egyezik meg a címmel,
-    - megjelenés és zárás éve (ha van),
+    - megjelenés és zárás éve - ha 2015 a megjelenés éve és 2020 a zárás éve, akkor (2015 - 2020) alakban; ha viszont nincs zárás éve, akkor (2015) alakban
     - típusa,
     - műfajai
 
-Az alábbi szabályok szerint szűrd a műveket az `IMovieCatalogDataService.GetTitlesAsync` segítségével:
+Az alábbi szabályok szerint szűrd a műveket:
+ - a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
  - csak film (`Movie`) típus
  - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
- - `StartYear` szerint csökkenően rendezve az első 20 darab
- - a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
+ - megjelenési év szerint csökkenően rendezve az első 20 darab
  - a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat
 
 ![Feladat 1.](images/feladat-1.png)
