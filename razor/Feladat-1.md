@@ -41,8 +41,8 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 # Általános szabályok
 
-- `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit, közvetetten pedig a `MovieCatalogDataService` függvényeit.
-- A kontroller közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
+- `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit (közvetetten tehát a `MovieCatalogDataService` függvényeit).
+- `PageModel` leszármazott közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
 - A `MovieCatalogDataService` osztályban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor.
     
 # Feladat 1.
