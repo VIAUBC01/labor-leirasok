@@ -119,7 +119,7 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
     ```
     dotnet ef database update --connection "<Azure SQL DB connection string>"
     ```
-- A naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
+- Ha Azure portálon dolgozol, akkor a naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
 - A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
@@ -156,7 +156,7 @@ Terminálparancsok kimenetéről készült képernyőképeknél:
 
 Böngészőről készült képernyőképeknél:
 
-- a böngészőablak teljes méretű (maximalizált legyen) 
+- a böngészőablak teljes méretű (maximalizált) legyen 
 - látszódjon a címsor és a weboldal megjelenő része
 - Azure portálnál látszódjon a jobb felső sarokban az Azure portálra belépett felhasználó a jobb felső sarokban
 
@@ -166,7 +166,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 1. képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve kiterjesztés nélkül |
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
 | Azure CLI belépés | Azure portál főoldal, belépés után | `f1_azlogin` |
 | App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f1_app` |
@@ -178,8 +178,11 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.
 
 - képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
-    - első indítás után `f1_v1`
-    - :cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen `f1_v2`
+
+| Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| -----------------|--------------------------------------------------------------|
+| első indítás után     | `f1_v1` |
+| :cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen    | `f1_v2` |
 
 :cloud:: az így jelölt képek nem szükségesek az elégséges szint eléréséhez. Összesen 5+1 kép kell az elégégeshez.
     
@@ -187,7 +190,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 
 - képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve kiterjesztés nélkül |
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
 | App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f2_app` |
 | Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f2_sqldb` |
@@ -197,7 +200,10 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 A lekérdezett naplóüzenetek tartalmával kapcsolatban itt sincs elvárás.
 
 - képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
-    - első indítás után `f2_v1`
+
+| Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| -----------------|--------------------------------------------------------------|
+| első indítás után     | `f2_v1` |
 
 :cloud:: az így jelölt képek nem szükségesek a négyes szint eléréséhez.
 
