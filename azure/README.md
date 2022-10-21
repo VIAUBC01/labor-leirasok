@@ -86,11 +86,13 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
 
 :bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
 
-:bulb: a munkakönyvtár (ahol a parancssorunk áll) legyen egyszerű, pl. c:\work (Windows) vagy ~/src (Linux)
+:bulb: a munkakönyvtár (ahol a parancssorunk áll) legyen egyszerű, pl. c:\work\neptunkód (Windows) vagy ~/src (Linux)
 
 :bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
 
 #### Tippek és hasznos tudnivalók Azure portált használóknak
+
+:bulb: Az Azure portálra történő első belépéskor érdemes [beállítani a portál nyelvét](https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region). Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.
 
 :bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a `Create` gombot megnyomni, különben nem indul el a létrehozási folyamat!
 
@@ -112,11 +114,12 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
     ```
     "AZURE_SQL_CONNECTIONSTRING": "Server=(localdb)\\mssqllocaldb;Trusted_Connection=True;MultipleActiveResultSets=true"
     ```
-- A `dotnet ef database update` parancsnak add meg az Azure adatbázisod connection stringjét. Tehát:
+- A `dotnet ef database update` parancsnak add meg az Azure adatbázisod connection stringjét:
 
     ```
-    dotnet ef database update --connection "portálról kimásolt connection string"
+    dotnet ef database update --connection "<Azure SQL DB connection string>"
     ```
+- A naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
 - A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
@@ -148,7 +151,7 @@ Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* 
 Terminálparancsok kimenetéről készült képernyőképeknél: 
 
 - a terminál ablaka teljes méretű (maximalizált) legyen
-- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani) [Példa](media/sql_create.png)
+- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
 - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
 
 Böngészőről készült képernyőképeknél:
@@ -161,46 +164,50 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 ### Beadandó - Feladat 1
 
-- képernyőképek az alábbi parancsok kimenetéről:
-    - **Azure CLI belépés** (`az login`); képernyőkép fájlneve kiterjesztés nélkül: `f1_azlogin`
-    - **Azure SQL szerver létrehozása;** `f1_sqlsrv`
-    - **Azure SQL adatbázis létrehozása;** `f1_sqldb`
-    - **Azure App Service Plan létrehozása;** `f1_appplan`
-    - **Azure Web App létrehozása;** `f1_app`
-    - **git push Azure-ba - az eredeti, első push**; `f1_push1`
-    - git push Azure-ba - a módosított (`Done` property hozzáadása után); `f1_push2`
-    - **diagnosztikai napló lekérdezése (`az webapp log tail`) egy új teendő létrehozása után** (ha a módosítás nem készült el, akkor lehet az eredeti változatról is). A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania; `f1_log`
+1. képernyőképek az alábbi lépésekről
 
-- képernyőképek a böngészőben futó Azure Web App főoldaláról:
-    - **az eredeti változat futása** ([példa](media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)); `f1_v1`
-    - a módosított változat futása ([példa](media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)); `f1_v2`
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve kiterjesztés nélkül |
+| -----------------|--------------------| -----------------------------------------|
+| Azure CLI belépés | Azure portál főoldal, belépés után | `f1_azlogin` |
+| App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f1_app` |
+| Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f1_sqldb` |
+| Service Connector létrehozása (`az webapp connection create`) | Az App Service *Service Connector* oldala | `f1_svcconn` |
+| Adatbázis inicializálása (`dotnet ef database update`) | Adatbázis inicializálása (`dotnet ef database update`) (ez kivételesen terminálparancs kimenet) | `f1_efmigr` |
+| :cloud: Diagnosztikai naplók lekérdezése egy elem módosítása után | :cloud: Az App Service *Log stream* oldala egy elem módosítása után | `f1_log` |
 
-- képernyőképek az Azure portálról:
-    - **az Azure Web App áttekintő oldala** ([példa](media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)); `f1_portal`
+A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.
 
+- képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
+    - első indítás után `f1_v1`
+    - :cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen `f1_v2`
+
+:cloud:: az így jelölt képek nem szükségesek az elégséges szint eléréséhez. Összesen 5+1 kép kell az elégégeshez.
+    
 ### Beadandó - Feladat 2
 
-- képernyőképek az alábbi parancsok kimenetéről:
-    - Azure CLI belépés (`az login`); `f2_azlogin` (csak ha nem ugyanaz a sandbox előfizetés, mint az első feladatnál)
-    - Azure SQL adatbázis létrehozása; `f2_sqldb`
-    - Azure Web App létrehozása; `f2_app`
-    - git push Azure-ba - az eredeti, első push; `f2_push`
-    - diagnosztikai napló lekérdezése egy film módosítása után (`az webapp log tail`) . A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a módosítás kérésnek látszania; `f2_log`
+- képernyőképek az alábbi lépésekről
 
-- képernyőképek a böngészőben futó Azure Web App-ról:
-    - főoldalról; `f2_index`
-    - valamely film szerkesztő oldaláról; `f2_detail`
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve kiterjesztés nélkül |
+| -----------------|--------------------| -----------------------------------------|
+| App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f2_app` |
+| Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f2_sqldb` |
+| Service Connector létrehozása (`az webapp connection create`) | Az App Service *Service Connector* oldala | `f2_svcconn` |
+| :cloud: Diagnosztikai naplók lekérdezése a főoldal betöltődése után | :cloud: Az App Service *Log stream* oldala a főoldal betöltődése után | `f2_log` |
 
-- képernyőképek az Azure portálról:
-    - az Azure Web App áttekintő oldala; `f2_portal`
+A lekérdezett naplóüzenetek tartalmával kapcsolatban itt sincs elvárás.
 
+- képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
+    - első indítás után `f2_v1`
+
+:cloud:: az így jelölt képek nem szükségesek a négyes szint eléréséhez.
 
 :warning: A beadás után érdemes törölni minden Azure erőforrást.
 
 ## Értékelési irányelvek
 
-- ha nincs meg minden **kiemelt** kép az első feladatból :arrow_right: 1
-- ha csak a **kiemelt** képek készülnek el az első feladatból :arrow_right: 2
+- ha **nem** csak jelölt (:cloud:) képek hiányoznak az első feladatból :arrow_right: 1
+- ha csak jelölt (:cloud:) kép hiányzik az első feladatból:arrow_right: 2
 - ha minden elkészül az első feladatból :arrow_right: 3
+- ha csak jelölt (:cloud:) kép hiányzik a második feladatból:arrow_right: 4
 - ha minden elkészül az első és a második feladatból is :arrow_right: 5
 
