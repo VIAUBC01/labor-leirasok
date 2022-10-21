@@ -166,7 +166,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 #### Képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
 | Azure CLI belépés | Azure portál főoldal, belépés után | `f1_azlogin` |
 | App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f1_app` |
@@ -179,7 +179,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 
 #### Képernyőképek a böngészőben futó webalkalmazás **főoldaláról**
 
-| Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| Képernyőkép böngészőről | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
 | első indítás után     | `f1_v1` |
 | :cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen    | `f1_v2` |
@@ -190,7 +190,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 
 #### Képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
 | App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f2_app` |
 | Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f2_sqldb` |
@@ -201,7 +201,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban itt sincs elvárás.
 
 #### Képernyőképek a böngészőben futó MovieCatalog webalkalmazás **főoldaláról**
 
-| Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
+| Képernyőkép böngészőről | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
 | első indítás után     | `f2_v1` |
 
