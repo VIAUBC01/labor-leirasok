@@ -1,6 +1,6 @@
 # Azure webhoszting
 
-A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni Azure SQL, illetve Azure App Service szolgáltatásokra építve. A műveleteket parancssorban vagy webes felületen is végezhetjük.
+A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql/), illetve [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) szolgáltatásokra építve. A műveleteket parancssorban vagy webes felületen is végezhetjük.
 
 ## Előkészületek
 
