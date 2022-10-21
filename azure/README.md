@@ -164,7 +164,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 ### Beadandó - Feladat 1
 
-1. képernyőképek az alábbi lépésekről
+#### Képernyőképek az alábbi lépésekről
 
 | Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
@@ -177,7 +177,7 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.
 
-- képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
+#### Képernyőképek a böngészőben futó webalkalmazás **főoldaláról**
 
 | Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
@@ -188,7 +188,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
     
 ### Beadandó - Feladat 2
 
-- képernyőképek az alábbi lépésekről
+#### Képernyőképek az alábbi lépésekről
 
 | Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------| -----------------------------------------|
@@ -199,7 +199,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 
 A lekérdezett naplóüzenetek tartalmával kapcsolatban itt sincs elvárás.
 
-- képernyőképek a böngészőben futó webalkalmazás **főoldaláról**:
+#### Képernyőképek a böngészőben futó MovieCatalog webalkalmazás **főoldaláról**
 
 | Képernyőkép böngészőről | Képernyőkép fájlneve (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
