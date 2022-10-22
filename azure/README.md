@@ -102,8 +102,8 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
 
 - Az App Service létrehozásakor az App neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
 - Az SQL Server létrehozásakor az szerver neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
-- Az SQL Database létrehozásakor ún. *Serverless* adatbázist hozzunk létre 
-    - ha Azure portálon dolgozol, ehhez elég ha a *Development* leehetőséget választod a *Workload environment* beállításnál.
+- Az SQL Database létrehozásakor ajánlott ún. *Serverless* adatbázist létrehozni, mivel az alapértelmezés egy drága éles adatbázis - ha egy ilyet elfelejtesz beadás után törölni, nagyon hamar kimeríti a hallgatói előfizetésed keretét
+    - ha Azure portálon dolgozol, ehhez elég, ha a *Development* lehetőséget választod a *Workload environment* beállításnál.
     - ha parancssorban dolgozol, [plusz paramétereket kell átadni](https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview?view=azuresql#create-a-new-database-in-the-serverless-compute-tier) az `az sql database create`-nek
 - Ha Azure portálon dolgozol, akkor az SQL Server tűzfal és hálózati beállítás menüpontja megváltozott! *Networking* a menüpont új neve és a *Public access* fülön az *Add your client IPv4 address (x.y.w.z)* opcióval tudod a saját géped címét hozzáadni a tűzfalszabályokhoz. Ne felejtsd el alul a *Save* gombot megnyomni!
 - Az appsettings.json fájlban ne írd át magát a connection string-et, csak a connection string **nevét**. Ne kerüljön a konfigurációs fájlba jelszó! Tehát ehelyett
