@@ -120,7 +120,7 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
     dotnet ef database update --connection "<Azure SQL DB connection string>"
     ```
 - Ha Azure portálon dolgozol, akkor a naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
-- Ha parancssorban dolgozol és *git push* művelettel telepítesz, akkor a Program.cs, appsettings.json változásokat előbb commitolnod kell.
+- Ha parancssorban dolgozol és *git push* művelettel telepítesz, akkor a Program.cs, appsettings.json változásokat push előtt commitolnod kell.
 - A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
