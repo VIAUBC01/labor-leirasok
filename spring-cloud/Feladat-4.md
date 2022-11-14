@@ -44,7 +44,7 @@ A fenti logika lekódolása önálló feladat, előtte viszont közösen oldjuk 
     @EnableFeignClients(basePackageClasses = {BonusApi.class})
     ```
 
-  - A booking projekt src\main\application.properties fájlba tedd be ezt a sort:
+  - A booking projekt src\main\resources\application.properties fájlba tedd be ezt a sort:
 
     ```
     feign.bonus.url=http://localhost:8080/bonus
