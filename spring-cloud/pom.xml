@@ -1,0 +1,21 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>hu.bme.aut.szoftlab</groupId>
+    <artifactId>spring-cloud</artifactId>
+    <version>1.0</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>bonus-api</module>
+        <module>bonus</module>
+        <module>booking</module>
+        <module>currency-api</module>
+        <module>currency</module>
+		    <module>flights-api</module>
+		    <module>flights</module>
+    </modules>
+</project>
