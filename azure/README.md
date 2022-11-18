@@ -105,6 +105,10 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
 - Az SQL Database létrehozásakor ajánlott ún. *Serverless* adatbázist létrehozni, mivel az alapértelmezés egy drága éles adatbázis - ha egy ilyet elfelejtesz beadás után törölni, nagyon hamar kimeríti a hallgatói előfizetésed keretét
     - ha Azure portálon dolgozol, ehhez elég, ha a *Development* lehetőséget választod a *Workload environment* beállításnál.
     - ha parancssorban dolgozol, [plusz paramétereket kell átadni](https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview?view=azuresql#create-a-new-database-in-the-serverless-compute-tier) az `az sql database create`-nek
+- A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
+
+Az alábbiakat a Microsoft 2022. novemberben javította a leírásában, de a félév elején még hibásan szerepeltek, úgyhogy történeti okokból még felsoroljuk:
+
 - Ha Azure portálon dolgozol, akkor az SQL Server tűzfal és hálózati beállítás menüpontja megváltozott! *Networking* a menüpont új neve és a *Public access* fülön az *Add your client IPv4 address (x.y.w.z)* opcióval tudod a saját géped címét hozzáadni a tűzfalszabályokhoz. Ne felejtsd el alul a *Save* gombot megnyomni!
 - Az appsettings.json fájlban ne írd át magát a connection string-et, csak a connection string **nevét**. Ne kerüljön a konfigurációs fájlba jelszó! Tehát ehelyett
     ```
@@ -121,7 +125,7 @@ Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehe
     ```
 - Ha Azure portálon dolgozol, akkor a naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
 - Ha parancssorban dolgozol és *git push* művelettel telepítesz, akkor a Program.cs, appsettings.json változásokat push előtt commitolnod kell.
-- A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
+
 
 ### Feladat 2
 
