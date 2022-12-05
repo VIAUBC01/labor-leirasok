@@ -164,7 +164,7 @@ export class AppModule { }
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TweetWithId } from './models';
-
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -174,11 +174,11 @@ export class TweetsApiService {
   constructor(private http: HttpClient) { }
 
   public getTweetsAsync(): Promise<TweetWithId[]> {
-    return this.http.get<TweetWithId[]>('/api/tweets').toPromise();
+    return firstValueFrom(this.http.get<TweetWithId[]>('/api/tweets'));
   }
 
   public createTweetAsync(text: string, userName: string, tags: string[] | undefined): Promise<any> {
-    return this.http.post('/api/tweets', { text, userName, tags }).toPromise();
+    return firstValueFrom(this.http.post('/api/tweets', { text, userName, tags }));
   }
 }
 ```
