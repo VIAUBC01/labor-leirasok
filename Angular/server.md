@@ -17,7 +17,7 @@ Ez az alkalmazás egy REST API-t publikáló alkalmazás, amely elindítása ut�
 * `GET http://localhost:3000/api/tweets/<ID>`: Visszaad egy adott azonosítójú tweetet. 
 * `DELETE http://localhost:3000/api/tweets/<IDS_LIST>`: Kitörli az adott azonostójú tweeteket. Az ID-kat vesszővel elválasztva kell leírni
 
-## Az almalmazás futtatása
+## Az alkalmazás futtatása
 
 1. Telepítsük fel a `package.json` fájl alapján a szükséges segédkönyvtárakat. 
     ```cmd
