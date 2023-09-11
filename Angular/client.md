@@ -22,7 +22,7 @@ Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő paran
 ng new --help
 ```
 
-**A jegyzőkönyvben válaszoljuk meg a kövektező kérdéseket:**
+**A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:**
 
 * Mit jelent a `--prefix=twit` beállítás?
 * Mit jelent a `--style=scss` kapcsoló?
