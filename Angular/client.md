@@ -13,23 +13,21 @@ $ npm install -g @angular/cli
 Ezután adjuk ki a következő parancsot: 
 
 ```cmd
-$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss -d
+$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss
 ```
 
-Az utolsó `-d` kapcsoló a *dry run* rövidítése, ilyenkor csak teszteljük a parancsot: az `ng` kiírja, hogy milyen fájlokat hozna létre, de valójában nem jön létre semmi. Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő parancsot: 
+Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő parancsot: 
 
 ```cmd
 ng new --help
 ```
-
-Ha megértettük az egyes kapcsolók jelentését, adjuk ki a fenti parancsot a `-d` kapcsoló nélkül, így létrejön a kezdő Angular projektünk. 
 
 **A jegyzőkönyvben válaszoljuk meg a kövektező kérdéseket:**
 
 * Mit jelent a `--prefix=twit` beállítás?
 * Mit jelent a `--style=scss` kapcsoló?
 
-Telepítsük fel a függőségeket:
+Telepítsük fel a függőségeket (ha szükséges, előbb a terminálon navigáljunk a létrehozott mappába):
 
 ```cmd
 $ npm install
@@ -49,7 +47,7 @@ Röviden nézzük át, mi is történik, amikor elindul az alkalmazásunk:
 1. Az `ng serve` parancs, (vagy `ng build`) kiadásakor az `ng` fogja az összes TypeScript fájlunkat és generál belőlük egy darab JavaScript fájlt. Ugyanígy fogja az összes `scss` fájlt és generál belőlük egyetlen css fájlt. Ezután elhelyez az `index.html` fájlba két hivatkozást a generált ún. *bundle* fájlokra. Ezt az `index.html` fájlt fogja majd visszaküldeni a böngészőnek a webszerver. 
 1. A JavaScript kódunk belépési pontja a `main.ts`-ben található. A `platformBrowserDynamic().bootstrapModule(AppModule)` sor elindítja az Angular keretrendszert és betölti az `AppModule`-t, amely az `app.module.ts` fájlban található. 
 1. Az `AppModule` egy TypeScript modult definiál, amelyben összefogunk néhány komponenst, ill. service-t, amelyeket elérhetővé szeretnénk tenni az alkalmazásunkban. Az egyik ilyen komponens az `AppComponent`, amelyet az `app.component.ts` fájl definiál. 
-1. A komponsek legfontosabb tulajdonságai a *selector*, a *komponens osztály* és a *HTML sablon*. 
+1. A komponensek legfontosabb tulajdonságai a *selector*, a *komponens osztály* és a *HTML sablon*. 
     * A szelektor egy HTML tag neve. Miután a böngésző betöltötte az Angular keretrendszert megnézi, hogy a HTML kódban található-e olyan tag, amely egy adott komponens nevével egyezik meg. 
     * Ha igen, akkor a HTML sablonban lévő HTML tartalmat beilleszti az adott tag helyére. 
     * Közben létrehoz egy JavaScript objektumot a komponens osztály példányosításával. Ennek az objektumnak a propertyjei, illetve függvényei elérhetők lesznek a HTML sablonból. 
@@ -140,7 +138,7 @@ Generáljuk le a service-t az `ng` tool segítséségével:
 ng g s tweets-api
 ```
 
-Ez létrehoz egy `tweets-api.service.ts` fájlt és hozzáadja a service-t az `app.module.ts` fájlhoz is: 
+Ez létrehoz egy `tweets-api.service.ts` fájlt. Adjuk hozzá a service-t az `app.module.ts` fájlhoz is, ha nem adta volna hozzá magától: 
 
 ```ts
 @NgModule({
@@ -183,7 +181,7 @@ export class TweetsApiService {
 }
 ```
 
-A `HttpClient` observable típusú objektumokkal tér vissza, ezekből a `toPromise` függvénnyel tudunk Promise-t készíteni. [A Promise-ok segítségével kezeljük az aszinkronitást](https://javascript.info/async).
+A `HttpClient` observable típusú objektumokkal tér vissza, ezekből pl. a `firstValueFrom` függvény tud Promise-t készíteni. [A Promise-ok segítségével kezeljük az aszinkronitást](https://javascript.info/async).
 
 **A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:**
  * Mit jelent, hogy a HTTP komunikáció aszinkron az alkalmazásunk és a backend között?
@@ -197,10 +195,10 @@ Generáljunk egy új komponenst, amelyet tweetek megjelenítésére fogunk haszn
 $ ng g c tweets-list -m app
 ```
 
-**A jegyzőkönyvben válaszoljuk meg a következő kérdést: **
+**A jegyzőkönyvben válaszoljuk meg a következő kérdést:**
 * Az `ng g c tweets-list -m app` parancsban mik az egyes paraméterek jelentései? (Segítség kérhető az `ng g c --help` paranccsal.)
 
-Írjuk meg a komponens osztály kódját!
+Írjuk meg a komponens osztály kódját, az importokat értelemszerűen kezelve!
 
 ```ts
 @Component({
@@ -249,9 +247,7 @@ Majd írjuk meg a HTML sablont, amely megjeleníti a tweeteket!
 </table>
 ```
 
-**A jegyzőkönyvben magyarázza el, hogyan működik a TypeScript osztály és hogy milyen HTML kódot generál a sablon.**
-
-**Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!**
+**A jegyzőkönyvben magyarázza el, hogyan működik a fenti TypeScript osztály és hogy milyen HTML kódot generál a sablon.**
 
 A korábban elmondottak értelmében ki kell még egészíteni az `app-routing.module.ts`-ben a `routes` változó érétkét:
 
@@ -292,6 +288,7 @@ Ezután már csak futtatni kell az angular tesztszervert a fenti proxy beállít
 ```cmd
 $ ng serve --proxy-config .\proxy.conf.json
 ```
+**Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!**
 
 ## Új Tweet hozzáadása
 
@@ -353,9 +350,7 @@ export class NewTweetComponent implements OnInit {
 <button (click)="send()">Send</button>
 ```
 
-**A jegyzőkönyvben magyarázza el, hogyan működik a TypeScript osztály és hogy milyen HTML kódot generál a sablon.**
-
-**Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!**
+**A jegyzőkönyvben magyarázza el, hogyan működik a fenti TypeScript osztály és hogy milyen HTML kódot generál a sablon.**
 
 
 Egészítsük ki a `routes` változót: 
@@ -376,6 +371,7 @@ const routes: Routes = [
 <a [routerLink]="['/new']">New</a>
 <!-- ... -->
 ```
+**Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!**
 
 ## Bootstrap téma használata
 
