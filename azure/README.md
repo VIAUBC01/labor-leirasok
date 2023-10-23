@@ -62,6 +62,7 @@ A jelentősebb eltérések:
 - Az 1.3-as lépésnél a létrehozás több percig eltarthat, addig a 3.1-es lépéssel lehet haladni.
 - A 3.1-es lépésnél a fork létrehozásánál hagyjuk meg az alapértelmezett beállításokat.
 - A 3.7-es lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
+- A 6.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.
 - A 7. lépést (erőforrások törlése) csak akkor hajtsd végre, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
