@@ -22,7 +22,7 @@ Bővebb leírás a [Felhő alapú szoftverfejlesztés tárgy honlapjáról](http
   - Azure SQL Server
   - Azure App Service
 
-Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé és/vagy mögé pár extra karakter. ABC123 neptun kód esetén az Azure SQL Server neve lehet például `abc123srv`.
+Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé és/vagy mögé pár extra karakter.
 
 
 ### Feladat 1
