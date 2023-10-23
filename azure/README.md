@@ -4,19 +4,7 @@ A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell 
 
 ## Előkészületek
 
-A mérés Windows és Linux rendszeren is teljesíthető. A közös részhez böngészőn kívül nem szükséges semmilyen egyéb eszköz. 
-
-Ha mindenképp ki akarjuk próbálni az alkalmazást lokális gépen, akkor az alábbiak szükségesek.
-
-Telepítendő parancssoros eszközök (ha még nincsenek telepítve):    
- - [.NET Core 7.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
-
- Egyéb kellékek:
- - [Windows Terminal](https://www.microsoft.com/hu-hu/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) (opcionális, csak Windows-on telepíthető)
- - valamilyen szövegszerkesztő, pl. jegyzettömb, [Visual Studio Code](https://code.visualstudio.com/)
- - *Visual Studio 2022* (opcionális): az Azure-ba való telepítés lépése ezzel is végezhető.
-
- A legjobb, ha terminálként Windows Terminal-t tudunk használni, de jó a [Visual Studio Code terminálja](https://code.visualstudio.com/docs/terminal/basics) is.
+A mérés Windows és Linux rendszeren is teljesíthető. A méréshez böngészőn kívül nem szükséges semmilyen egyéb eszköz.
 
 ### Azure előfizetés beüzemelése
 
@@ -48,6 +36,7 @@ A jelentősebb eltérések:
 - Az alkalmazás [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache)-t használ gyorsítótárként
 - Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé [Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/overview) reprezentálja a kapcsolatot.
 - Az összes előbb említett erőforrást egy füst alatt a **Web app + Database** varázslóval/sablonnal hozzuk létre.
+- Az adatbázis séma inicializáláshoz egy futtatható állományt ([EF Core migration bundle](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles)) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.
 
 #### Tippek és hasznos tudnivalók
 
@@ -59,39 +48,22 @@ A jelentősebb eltérések:
 
 :bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a `Create` gombot megnyomni, különben nem indul el a létrehozási folyamat!
 
-:warning: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene [futtatni](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle).
+:bulb: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene [futtatni](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle).
+
+:warning: alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!
 
 
 ### Eltérések
 
-- Az első feladat előtt említett klónozást nem kell elvégezni, nincs rá szükség.
-
-- Az App Service létrehozásakor az App neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
-- Az SQL Server létrehozásakor az szerver neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
-- Az SQL Database létrehozásakor ajánlott ún. *Serverless* adatbázist létrehozni, mivel az alapértelmezés egy drága éles adatbázis - ha egy ilyet elfelejtesz beadás után törölni, nagyon hamar kimeríti a hallgatói előfizetésed keretét
-    - ha Azure portálon dolgozol, ehhez elég, ha a *Development* lehetőséget választod a *Workload environment* beállításnál.
-    - ha parancssorban dolgozol, [plusz paramétereket kell átadni](https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview?view=azuresql#create-a-new-database-in-the-serverless-compute-tier) az `az sql database create`-nek
-- A feladat végén **ne töröld az Azure erőforrásokat**! Majd csak akkor, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
-
-Az alábbiakat a Microsoft 2022. novemberben javította a leírásában, de a félév elején még hibásan szerepeltek, úgyhogy történeti okokból még felsoroljuk:
-
-- Ha Azure portálon dolgozol, akkor az SQL Server tűzfal és hálózati beállítás menüpontja megváltozott! *Networking* a menüpont új neve és a *Public access* fülön az *Add your client IPv4 address (x.y.w.z)* opcióval tudod a saját géped címét hozzáadni a tűzfalszabályokhoz. Ne felejtsd el alul a *Save* gombot megnyomni!
-- Az appsettings.json fájlban ne írd át magát a connection string-et, csak a connection string **nevét**. Ne kerüljön a konfigurációs fájlba jelszó! Tehát ehelyett
-    ```
-    "MyDbConnection": "Server=(localdb)\\mssqllocaldb;Trusted_Connection=True;MultipleActiveResultSets=true"
-    ```
-    az alábbi legyen:
-    ```
-    "AZURE_SQL_CONNECTIONSTRING": "Server=(localdb)\\mssqllocaldb;Trusted_Connection=True;MultipleActiveResultSets=true"
-    ```
-- A `dotnet ef database update` parancsnak add meg az Azure adatbázisod connection stringjét:
-
-    ```
-    dotnet ef database update --connection "<Azure SQL DB connection string>"
-    ```
-- Ha Azure portálon dolgozol, akkor a naplózó (*Application Logging*) funkciónak nem kell megadni megtartási időszakot (*retention period*), helyette a naplózási szintet (*Level*) állítsuk *Information*-re.
-- Ha parancssorban dolgozol és *git push* művelettel telepítesz, akkor a Program.cs, appsettings.json változásokat push előtt commitolnod kell.
-
+- Az első lépés előtt említett klónozást nem kell elvégezni, nincs rá szükség.
+- Az 1.1 lépés előtt értelmes elvégezni a **Microsoft.Sql** resource provider regisztrációját. Minden Azure műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (**Microsoft.Sql** azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva) és az első lépés varázslója hibát adhat (_SQLAzure is not available for your selection of subscription and location_). [Segédlet](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) egy resource provider regisztrálásához.
+- Az 1.2 lépésben az app nevében (Name) az XYZ rész a neptun kódod legyen. A logikai SQL Server neve (Server name), az adatbázis neve (Database name), a cache neve (Cache name) szintén az _123_ rész helyett a neptun kódod legyen.
+- Az 1.2.7-es allépésben lehet, hogy nem az SQLAzure van kiválasztva, ilyenkor válasszuk ki mi.
+- Az 1.3-as lépésnél a létrehozás több percig eltarthat, addig a 3.1-es lépéssel lehet haladni.
+- A 3.1-es lépésnél a fork létrehozásánál hagyjuk meg az alapértelmezett beállításokat.
+- A 3.7-es lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
+- A 3.8-as lépésben a neptun kód
+- A 7. lépést (erőforrások törlése) csak akkor hajtsd végre, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
 
