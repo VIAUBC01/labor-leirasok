@@ -1,51 +1,22 @@
 # Azure webhoszting
 
-A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql/), illetve [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) szolgáltatásokra építve. A műveleteket parancssorban vagy webes felületen is végezhetjük.
+A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql/), illetve [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) szolgáltatásokra építve.
 
 ## Előkészületek
 
-A mérés Windows és Linux rendszeren is teljesíthető. Telepítés előtt ajánlott ellenőrizni a lenti ellenőrző parancsokkal, hogy mi van már eleve feltelepítve.
+A mérés Windows és Linux rendszeren is teljesíthető. A közös részhez böngészőn kívül nem szükséges semmilyen egyéb eszköz. 
+
+Ha mindenképp ki akarjuk próbálni az alkalmazást lokális gépen, akkor az alábbiak szükségesek.
 
 Telepítendő parancssoros eszközök (ha még nincsenek telepítve):    
- - [.NET Core 6.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
-
+ - [.NET Core 7.0 SDK](https://docs.microsoft.com/hu-hu/dotnet/core/install/) (Visual Studio telepítő is feltelepíti)
 
  Egyéb kellékek:
  - [Windows Terminal](https://www.microsoft.com/hu-hu/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) (opcionális, csak Windows-on telepíthető)
  - valamilyen szövegszerkesztő, pl. jegyzettömb, [Visual Studio Code](https://code.visualstudio.com/)
- - *Visual Studio 2022* (opcionális): az Azure-ba való telepítés lépése ezzel is végezhető parancssor vagy Visual Studio Code helyett.
+ - *Visual Studio 2022* (opcionális): az Azure-ba való telepítés lépése ezzel is végezhető.
 
  A legjobb, ha terminálként Windows Terminal-t tudunk használni, de jó a [Visual Studio Code terminálja](https://code.visualstudio.com/docs/terminal/basics) is.
-
-
-#### Telepítés ellenőrzése
-
-.NET Core SDK ellenőrzése, legalább v6.0 legyen
-```bash
-dotnet --version
-```
-
-### Ha parancssorban dolgoznál
-
-Telepítendő további parancssoros eszközök (ha még nincsenek telepítve):    
- - Azure CLI - [Windows](https://aka.ms/installazurecliwindows) [Linux](https://docs.microsoft.com/hu-hu/cli/azure/install-azure-cli) 
- - [git](https://git-scm.com/downloads) (Visual Studio telepítő is feltelepíti)
-
-
-#### Telepítés ellenőrzése
-
-Azure CLI ellenőrzése, ajánlott verzió legalább v2.13
-```bash
-az --version
-```
-git ellenőrzése, ajánlott verzió legalább v2.28 (Windows), v2.17 (Linux)
-```bash
-git --version
-```
-
-### Ha böngészőben dolgoznál
-
-Elsődlegesen böngésző kell csak. Pár parancsot itt is parancssorban kell futtatni. 
 
 ### Azure előfizetés beüzemelése
 
@@ -70,35 +41,30 @@ Ha névütközés miatt nem lehet simán a neptun kód, akkor kerüljön elé é
 
 Végzed el a következő hivatalos Microsoft oktatóanyagot: [magyarul (gépi fordítású)](https://docs.microsoft.com/hu-hu/azure/app-service/tutorial-dotnetcore-sqldb-app) vagy [angolul](https://docs.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app). Az angol az ajánlott, mivel az az eredeti, a magyar gépi fordítás sem rossz, követhető, de néhány helyen rosszul ragoz vagy furán fogalmaz. Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását is!
 
-Az útmutató külön füleken megmutatja, hogy az egyes lépéseket hogyan lehet végrehajtani többfajta eszközzel (Azure CLI, Azure portal, Visual Studio, stb.). Szabadon választhattok, hogy milyen eszközzel dolgoztok, melyik fület választjátok, de az elején érdemes eldönteni és végig ahhoz tartani magatokat.
+A feladat hasonló a [Háttéralkalmazások tárgy Azure-os gyakorlatához](https://github.com/BMEVIAUBB04/gyakorlat-azure), de jóval komolyabb, komplexebb annál. 
 
-#### Tippek és hasznos tudnivalók mindenkinek
+A jelentősebb eltérések:
+- minden létrejövő erőforrás alapból csak egymást éri el (privát elérés), így mi sem tudunk az internet felől csatlakozni ezekhez vagy belépni ezekbe (kivéve Azure portál meghatározott funkcióin keresztül). Ez egy biztonsági ökölszabály (_secure-by-default_), így ne kapcsold be az internet felőli elérés(eke)t. A privát elérés alapja egy virtuális hálózat. Ebbe a hálózatba kerülnek be az Azure erőforrásaink. Platformszolgáltatásaink lesznek, ezek esetén az ajánlott integrációs módszer a [privát hálózati végpontok](https://www.fugue.co/blog/cloud-network-security-101-azure-private-link-private-endpoints) alkalmazása. Kifelé a virtuális hálózat zárt, a publikus DNS névfeloldás sem működik, ezért jön létre privát DNS, így továbbra is hálózati névvel tudunk hivatkozni az egyes szolgáltatásokra, pl. adatbázis szerver.
+- Az alkalmazás [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache)-t használ gyorsítótárként
+- Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé [Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/overview) reprezentálja a kapcsolatot.
+- Az összes előbb említett erőforrást egy füst alatt a **Web app + Database** varázslóval/sablonnal hozzuk létre.
 
-:bulb: ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a [diagnosztikai naplók lekérdezéséről szóló részt](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources#8---configure-and-stream-application-logs). A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.
-
-:warning: ha Visual Studio Code-ot használunk szövegszerkesztőként, akkor minden kódfájl módosítás után explicit mentsük el a fájlt (CTRL+S), különben a `git`, `dotnet ef` parancsok nem fogják érzékelni a változásokat.
-
-:bulb: Régióként ajánlott a nyugat- vagy észak-európait használni (West Europe, North Europe). Az elején válaszd ki az egyiket és azt használd végig.
-
-:warning: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön kellene a migrációt lefuttatni egy erőteljesebb jogú felhasználót tartalmazó connection string-gel.
-
-#### Tippek és hasznos tudnivalók parancssort használóknak
-
-:bulb: érdemes legalább két konzolablakot használni, mindkettőben ugyanabban a könyvtárban állni, de az egyikben csak az Azure CLI (`az` kezdetű) parancsokat futtatni, a másikban minden mást
-
-:bulb: a munkakönyvtár (ahol a parancssorunk áll) legyen egyszerű, pl. c:\work\neptunkód (Windows) vagy ~/src (Linux)
-
-:bulb: érdemes egy jegyzettömböt is nyitni és a különböző többször használatos értékeket ment közben feljegyezni (connection string, erőforráscsoport neve, stb.)
-
-#### Tippek és hasznos tudnivalók Azure portált használóknak
+#### Tippek és hasznos tudnivalók
 
 :bulb: Az Azure portálra történő első belépéskor érdemes [beállítani a portál nyelvét](https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region). Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.
 
+:bulb: ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a [diagnosztikai naplók lekérdezéséről szóló részt](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app#6-stream-diagnostic-logs). A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.
+
+:bulb: Régióként ajánlott a nyugat- vagy észak-európait használni (West Europe, North Europe). Az elején válaszd ki az egyiket és azt használd végig.
+
 :bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a `Create` gombot megnyomni, különben nem indul el a létrehozási folyamat!
 
-:bulb: Nem kell mindig megvárni, míg egy létrehozási folyamat elkészül, például az SQL Server létrehozásához nem kell megvárni amíg az App Service elkészül. Nyilván a Service Connector létrehozásához viszont már kell, hogy kész legyen az adatbázisunk.
+:warning: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene [futtatni](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle).
+
 
 ### Eltérések
+
+- Az első feladat előtt említett klónozást nem kell elvégezni, nincs rá szükség.
 
 - Az App Service létrehozásakor az App neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
 - Az SQL Server létrehozásakor az szerver neve a neptun kódod (vagy a neptun kódodból képzett név) legyen
