@@ -67,19 +67,30 @@ A jelentősebb eltérések:
 
 ### Feladat 2
 
-Az első feladatban megismert módszerekkel telepítsd az ASP.NET Core Razor Pages mérésen készített *MovieCatalog.Web* projektedet Azure-ba. Használd ki, hogy egy SQL Server alatt több adatbázis és egy App Service Plan alatt több App Service App / Web App lehet, tehát nem kell új SQL Servert vagy App Service Plan-t létrehoznod.
+Az első feladatban megismert módszerekkel telepítsd az ASP.NET Core Razor Pages mérésen készített *MovieCatalog.Web* projektedet Azure-ba. A feladathoz tartozó erőforrások egy új erőforráscsoportba (resource group) kerüljenek.
 
-Ehhez a feladathoz már nincs részletes leírás, csak a főbb lépéseket adjuk meg:
+Ehhez a feladathoz már nincs részletes leírás, csak néhány extra tippet adunk:
 
-- új SQL adatbázis létrehozása az előző feladat szervere alá
-- adatbázis feltöltése. Használd az [Azure SQL-lel kompatibilis DACPAC](./data/imdbtitles_sample_azure.dacpac) csomagot. Ebben ugyanazok az adatok vannak, mint a Razor mérésen. Majdnem ugyanúgy tudod használni, mint a korábbi DACPAC-ot, csak itt most egy 
-    - [Azure adatbázishoz kell csatlakoznod](https://stackoverflow.com/a/66015950) a Visual Studio-s SQL Server Object Explorer-ből
-    - és csatlakozás után nem a *Databases* feliratra kell jobbklikkelned, hanem a *Databases*-t kibontva a konkrét adatbázisra (ott kell lennie a már ismerős *Publish Data-tier Application* menüpontnak)
-- új App Service létrehozása. A neve most is tartalmazza a neptun kódodat. App Service Plan-nek add meg a már meglévő Plan-t.
-- új *Service Connector* létrehozása az új App Service-hez
-- a projekteden belül az *appsettings.json*-ben és a *Program.cs*-ben írd át a connection string *nevét* (és csak a nevét!) *DBneptunkód*-ról *AZURE_SQL_CONNECTIONSTRING*-re
-    - adatbázis migrációt, `dotnet ef` parancsokat most nem kell futtatni, mert az adatbázis már fel van töltve
-- végül mehet a telepítés!
+:bulb: Ne kövesd szolgaian az első feladat elnevezéseit, mert névütközések lesznek. Találj ki saját neveket, de ahol kell, ott legyen benne a neptun kódod
+
+:bulb: A Runtime stack-et a MovieCatalog projekt .NET verziójához igazítsd (megtalálod a projekt fájlban)
+
+:bulb: Redis Cache-t nem kell létrehozni
+
+:bulb: EF Migration bundle-t nem kell csinálni, az ehhez szükséges EF eszközt sem kell feltenni a GitHub Actions YAML-ben.
+
+:bulb: Az adatbázis feltöltéséhez használd a [mellékelt Azure SQL-lel kompatibilis DACPAC](./data/imdbtitles_sample_azure.dacpac) csomagot. Ehhez:   
+
+1. töltsd fel a csomagot a projekted repojába, például a projekt fájl mellé.
+1. módosítsd a GitHub Actions YAML fájlt (.github alkönyvtárban), hogy a kimeneti könyvtárba másolja a csomagot
+```yaml
+ - name: Copy dacpac
+   run: |
+    cp MovieCatalog.Web/imdbtitles_sample_azure.dacpac ${{env.DOTNET_ROOT}}/myapp
+```
+1. az App Service-be SSH-zva ellenőrizd, hogy a git push után induló telepítési folyamat feltöltötte-e a `/home/site/wwwroot` mappába a DACPAC csomagot.
+1. DACPAC csomagot parancssorból az [sqlpackage](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16) eszközzel telepíthetünk. Ehhez azonban le kell tölteni (`wget`) az eszközt csomagolva, kicsomagolni (`unzip`), futtathatóvá tenni (`chmod`) majd futtatni (`sqlpackage`). A [parancsnak](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-publish?view=sql-server-ver16) szüksége van a
+connection string-re, ami környezeti változóként rendelkezésre áll. Mindezen műveletekre egy példát ad a [mellékelt parancsfájl](./data/sqlpackage-appservice.sh). A legtöbb esetben elég csak a fájl tartalmát lefuttatni az SSH terminálon.
 
 ### Végeztél
 
