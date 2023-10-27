@@ -155,7 +155,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 | Az új App Service áttekintő oldala (Overview)                                                   | Böngésző     | `f2_app`                      |
 | Az új adatbázis áttekintő oldala (Overview)                                                     | Böngésző     | `f2_sqldb`                    |
 | sqlpackage futtatása                                                                            | SSH terminál | `f2_dbmigr`                   |
-| :cloud: Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |                 |
+| :cloud: Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f2_svcconn`                  |                 |
 
 #### Képernyőképek a böngészőben futó MovieCatalog webalkalmazás **főoldaláról**
 
