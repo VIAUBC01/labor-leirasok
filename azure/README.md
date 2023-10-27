@@ -49,6 +49,8 @@ A jelentősebb eltérések:
 
 :warning: Alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!
 
+:warning: Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.
+
 
 ### Eltérések
 
@@ -61,7 +63,7 @@ A jelentősebb eltérések:
 - A 3.7-es lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
 - A 6.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.
 - A 6.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.
-- A 7. lépést (erőforrások törlése) csak akkor hajtsd végre, ha a másik feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
+- A 7. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 ### Feladat 2
 
