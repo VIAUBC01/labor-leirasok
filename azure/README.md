@@ -99,23 +99,24 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 
 :godmode: Végeztél a feladatokkal. :godmode:
 
+:warning: A beadás után érdemes törölni minden Azure erőforrást.
+
 ## Beadandó
 
 ### Általános elvek
 
 Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* vagy *png* formátumban. 
 
-Terminálparancsok kimenetéről készült képernyőképeknél: 
-
-- a terminál ablaka teljes méretű (maximalizált) legyen
-- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
-- bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
-
-Böngészőről készült képernyőképeknél:
+Elvárások:
 
 - a böngészőablak teljes méretű (maximalizált) legyen 
 - látszódjon a címsor és a weboldal megjelenő része
 - Azure portálnál látszódjon a jobb felső sarokban az Azure portálra belépett felhasználó a jobb felső sarokban
+
+Terminálparancsok kimenetéről készült képernyőképeknél: 
+
+- ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
+- bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
 
 A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.
 
@@ -131,6 +132,8 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 | EF Migration bundle futtatása                                                           | SSH terminál | `f1_efmigr`                   |
 | Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |
 | :cloud: Az App Service *Log stream* oldala egy elem módosítása után                     | Böngésző     | `f1_log`                      |
+
+:bulb: Service Connector-ok validálása az App Service [Service Connector lapján](https://learn.microsoft.com/en-us/azure/service-connector/quickstart-portal-container-apps): jelölj ki minden kapcsolatot és felül nyomd meg a _Validate_ gombot. Várd meg, amíg az ellenőrzés lefut.
 
 A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.
 
@@ -160,9 +163,7 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 | -----------------|--------------------------------------------------------------|
 | első indítás után     | `f2_v1` |
 
-:cloud:: az így jelölt képek nem szükségesek a négyes szint eléréséhez.
-
-:warning: A beadás után érdemes törölni minden Azure erőforrást.
+:cloud:: az így jelölt képek nem szükségesek a jeles szint eléréséhez.
 
 ## Értékelési irányelvek
 
