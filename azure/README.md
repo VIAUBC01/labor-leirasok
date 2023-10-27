@@ -82,12 +82,12 @@ Ehhez a feladathoz már nincs részletes leírás, csak néhány extra tippet ad
 :bulb: Az adatbázis feltöltéséhez használd a [mellékelt Azure SQL-lel kompatibilis DACPAC](./data/imdbtitles_sample_azure.dacpac) csomagot. Ehhez:   
 
 1. töltsd fel a csomagot a projekted repojába, például a projekt fájl mellé.
-1. módosítsd a GitHub Actions YAML fájlt (.github alkönyvtárban), hogy a kimeneti könyvtárba másolja a csomagot
-```yaml
- - name: Copy dacpac
-   run: |
-    cp MovieCatalog.Web/imdbtitles_sample_azure.dacpac ${{env.DOTNET_ROOT}}/myapp
-```
+1. módosítsd a GitHub Actions YAML fájlt (.github alkönyvtárban), hogy a kimeneti könyvtárba másolja a csomagot. A másolásra egy módja az alábbi lépés beszúrása a feltöltési lépés elé. Ellenőrizd, hogy az elérési út megfelelő-e: a repo gyökeréhez képest kell az elérési útvonalat megadni.
+    ```yaml
+     - name: Copy dacpac
+       run: |
+        cp MovieCatalog.Web/    imdbtitles_sample_azure.dacpac ${{env.  DOTNET_ROOT}}/myapp
+    ```
 1. az App Service-be SSH-zva ellenőrizd, hogy a git push után induló telepítési folyamat feltöltötte-e a `/home/site/wwwroot` mappába a DACPAC csomagot.
 1. DACPAC csomagot parancssorból az [sqlpackage](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16) eszközzel telepíthetünk. Ehhez azonban le kell tölteni (`wget`) az eszközt csomagolva, kicsomagolni (`unzip`), futtathatóvá tenni (`chmod`) majd futtatni (`sqlpackage`). A [parancsnak](https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-publish?view=sql-server-ver16) szüksége van a
 connection string-re, ami környezeti változóként rendelkezésre áll. Mindezen műveletekre egy példát ad a [mellékelt parancsfájl](./data/sqlpackage-appservice.sh). A legtöbb esetben elég csak a fájl tartalmát lefuttatni az SSH terminálon.
