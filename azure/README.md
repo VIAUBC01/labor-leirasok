@@ -107,13 +107,13 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 
 Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* vagy *png* formátumban. 
 
-Elvárások:
+Képernyőképekkel kapcsolatos elvárások:
 
 - a böngészőablak teljes méretű (maximalizált) legyen 
 - látszódjon a címsor és a weboldal megjelenő része
 - Azure portálnál látszódjon a jobb felső sarokban az Azure portálra belépett felhasználó a jobb felső sarokban
 
-Terminálparancsok kimenetéről készült képernyőképeknél: 
+SSH terminálparancsok kimenetéről készült képernyőképeknél: 
 
 - ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
 - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
