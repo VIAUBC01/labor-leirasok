@@ -45,12 +45,15 @@ A jelentősebb eltérések:
 
 :bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a `Create` gombot megnyomni, különben nem indul el a létrehozási folyamat!
 
+:bulb: Érdemes folyamatosan ellenőrizni, hogy van-e olyan bedandó képernyőkép, amit épp el tudsz készíteni.
+
+:bulb: Az SSH terminált érdemes egy külön böngészőfülön megnyitni. Ezen a fülön ne navigálj el a terminál oldaláról.
+
 :bulb: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene [futtatni](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle).
 
 :warning: Alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!
 
 :warning: Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.
-
 
 ### Eltérések
 
@@ -120,20 +123,20 @@ A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltölten
 
 #### Képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Fájlnév (kiterjesztés nélkül) |
-| -----------------|--------------------| -----------------------------------------|
-| Azure CLI belépés | Azure portál főoldal, belépés után | `f1_azlogin` |
-| App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f1_app` |
-| Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f1_sqldb` |
-| Service Connector létrehozása (`az webapp connection create`) | Az App Service *Service Connector* oldala | `f1_svcconn` |
-| Adatbázis inicializálása (`dotnet ef database update`) | Adatbázis inicializálása (`dotnet ef database update`) (ez kivételesen terminálparancs kimenet) | `f1_efmigr` |
-| :cloud: Diagnosztikai naplók lekérdezése egy elem módosítása után | :cloud: Az App Service *Log stream* oldala egy elem módosítása után | `f1_log` |
+| Kép tartalma                                                                            | Típus        | Fájlnév (kiterjesztés nélkül) |
+|-----------------------------------------------------------------------------------------|--------------|-------------------------------|
+| Azure portál főoldal, belépés után                                                      | Böngésző     | `f1_azlogin`                  |
+| Az új App Service áttekintő oldala (Overview)                                           | Böngésző     | `f1_app`                      |
+| Az új adatbázis áttekintő oldala (Overview)                                             | Böngésző     | `f1_sqldb`                    |
+| EF Migration bundle futtatása                                                           | SSH terminál | `f1_efmigr`                   |
+| Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |
+| :cloud: Az App Service *Log stream* oldala egy elem módosítása után                     | Böngésző     | `f1_log`                      |
 
 A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.
 
 #### Képernyőképek a böngészőben futó webalkalmazás **főoldaláról**
 
-| Képernyőkép böngészőről | Fájlnév (kiterjesztés nélkül) |
+| Kép tartalma | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
 | első indítás után     | `f1_v1` |
 | :cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen    | `f1_v2` |
@@ -144,18 +147,16 @@ A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem ke
 
 #### Képernyőképek az alábbi lépésekről
 
-| Parancssor esetén (terminálparancs)|Azure portál esetén (böngésző) | Fájlnév (kiterjesztés nélkül) |
-| -----------------|--------------------| -----------------------------------------|
-| App Service létrehozás | Az új App Service áttekintő oldala (Overview)     | `f2_app` |
-| Adatbázis létrehozása | Az új adatbázis áttekintő oldala (Overview)      | `f2_sqldb` |
-| Service Connector létrehozása (`az webapp connection create`) | Az App Service *Service Connector* oldala | `f2_svcconn` |
-| :cloud: Diagnosztikai naplók lekérdezése a főoldal betöltődése után | :cloud: Az App Service *Log stream* oldala a főoldal betöltődése után | `f2_log` |
-
-A lekérdezett naplóüzenetek tartalmával kapcsolatban itt sincs elvárás.
+| Kép tartalma                                                                                    | Típus        | Fájlnév (kiterjesztés nélkül) |
+|-------------------------------------------------------------------------------------------------|--------------|-------------------------------|
+| Az új App Service áttekintő oldala (Overview)                                                   | Böngésző     | `f2_app`                      |
+| Az új adatbázis áttekintő oldala (Overview)                                                     | Böngésző     | `f2_sqldb`                    |
+| sqlpackage futtatása                                                                            | SSH terminál | `f2_dbmigr`                   |
+| :cloud: Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |                 |
 
 #### Képernyőképek a böngészőben futó MovieCatalog webalkalmazás **főoldaláról**
 
-| Képernyőkép böngészőről | Fájlnév (kiterjesztés nélkül) |
+| Kép tartalma | Fájlnév (kiterjesztés nélkül) |
 | -----------------|--------------------------------------------------------------|
 | első indítás után     | `f2_v1` |
 
