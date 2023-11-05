@@ -15,7 +15,7 @@ Az alkalmazás elkészítése során törekedjen a strukturált felépítésre, 
 Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a labor. Az Alapok részen kívül megoldott minden további részfeladat hiánytalan megvalósítása plusz egy jegyet jelent. A feladatok részben egymásra épülnek, ezért az ebből következő hiányok – feladat kihagyás esetén – szükség szerint áthidalhatók pl. dummy adatok vagy nem perzisztált adatok használatával.
 
 ## Feltöltés
-* A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni az AUT portálra a jelzett határidőig.
+* A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni a Moodle portálra a jelzett határidőig.
 * A ZIP-ből az \app\build\intermediates mappából minden kerüljön törlésre, kivéve az \app\build\intermediates\apk\ mappa, az abban lévő APK fájl mindenképpen maradjon benne. 
 * A feltöltött ZIP file-ba kerüljön egy egyszerű, név-neptun-kóddal ellátott PDF dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
 
@@ -23,11 +23,11 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 * Törekedjen a rövid osztályokra és függvényekre, valamint az átlátható forráskódra 
 * Ügyeljen a megfelelően hierarchikus package szervezésre, a kódolás során tartsa szem előtt a Clean Code elveket.
 * A felhasználói felület a lehet egyszerűbb, nem elvárás látványos felületet készíteni.
-* JSON to Kotlin konverter például: https://http4k-data-class-gen.herokuapp.com/json 
+* JSON to Kotlin konverter például: https://transform.tools/json-to-kotlin
 * Kezelje megfelelően a készülék elforgatása során bekövetkező életciklus változásokat.
 * Perzisztencia és hálózati hívásoknál figyeljen a megfelelő szálkezelésre!.
 * Gondoljon az internetkapcsolat hiányára, a távoli kiszolgálók hibáira és ezek megfelelő lekezelésére, illetve a felhasználó megfelelő tájékoztatására.
-* A Google Térkép használatához, valamint a szükséges API kulcs elkészítéséhez az Android Studio új projekt Google Maps Activity opciója jó példát mutat.
+* A Google Térkép használatához, valamint a szükséges API kulcs elkészítéséhez az Android Studio új Google Maps Activity opciója jó példát mutat.
 * A tesztelés Nexus 5X API 31, Android 12.0 (Google APIs) x86_64 emulátoron fog történni.
 * Érdemes az előző féléves előadáson és a laborokon tanult ismereteket és projekteket alapul venni a feladatok megoldásához.
     * https://www.aut.bme.hu/Course/VIAUBB03 
@@ -38,7 +38,7 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 ## 1. Alapok
 
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
-    * https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+    * https://icon.kitchen
     * New Image/Vector Asset -> Asset Studio
 * Valósítson meg navigációt egy tetszőleges megközelítéssel (NavigationDrawer, ViewPager, BottomNavigationView, Főmenü activity három gombbal stb.), amivel összesen három felület (Activity vagy Fragment) között lehet váltani az alkalmazásban. 
 * Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
@@ -48,9 +48,9 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 
 ```gradle
 //Retrofit dependencies
-def retrofit_version = "2.9.0"
-implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+val retrofit_version = "2.9.0"
+implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
 //Glide dependencies
 ```
