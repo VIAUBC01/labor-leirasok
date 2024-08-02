@@ -13,7 +13,7 @@ $ npm install -g @angular/cli
 Ezután adjuk ki a következő parancsot: 
 
 ```cmd
-$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss
+$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss --no-standalone
 ```
 
 Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő parancsot: 
@@ -27,7 +27,7 @@ ng new --help
 * Mit jelent a `--prefix=twit` beállítás?
 * Mit jelent a `--style=scss` kapcsoló?
 
-Telepítsük fel a függőségeket (ha szükséges, előbb a terminálon navigáljunk a létrehozott mappába):
+Telepítsük fel a függőségeket (ha szükséges, előbb a terminálon navigáljunk a létrehozott mappába - ```cd twitter```):
 
 ```cmd
 $ npm install
