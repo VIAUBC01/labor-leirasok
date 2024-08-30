@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.6</version>
+    <version>3.3.3</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>hu.bme.aut.szoftlab</groupId>
@@ -15,8 +15,8 @@
   <name>currency-api</name>
 
   <properties>
-    <java.version>11</java.version>
-    <spring-cloud.version>2020.0.4</spring-cloud.version>
+    <java.version>17</java.version>
+    <spring-cloud.version>2023.0.3</spring-cloud.version>
   </properties>
   <dependencyManagement>
     <dependencies>
