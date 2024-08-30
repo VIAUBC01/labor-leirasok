@@ -6,9 +6,9 @@ Az egy gépen történő futtatáshoz mindenképp külön portot kell beállíta
 
 De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások belső konfig fájljaiban akarja konfigurálni, hanem egy központosított helyen, ezért egy konfig szervert fog bevezetni. A konfig szerver egy külön alkalmazás lesz (a neve pl. *config*), amelyeknek a bonus, currency és flights alkalmazások a kliensei lesznek, vagyis ettől fogják lekérdezni induláskor a saját konfigurációjukat. A Spring Cloud Config projekt beépítve tartalmaz támogatást a szerver és a kliens oldalhoz is, amit az alábbi módon vehetünk igénybe:
 
-1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 11-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
+1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 17-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
 
-2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a 2020.0.4, ami property-be van kiszervezve):
+2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a 2023.0.3, ami property-be van kiszervezve):
 
    ```
    <dependencyManagement>
@@ -23,7 +23,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
    	</dependencies>
    </dependencyManagement>
    ```
-   A dependencyManagement tag nem összekeverendő a dependencies taggel! Ha egy konkrét Spring cloud-os függőséget ténylegesen használni akarunk, akkor azt a dependencies tagbe kell tenni, persze a verziót elhagyhatjuk, mert azt megkajuk a dependencyManagement tagből:
+   A dependencyManagement tag nem összekeverendő a dependencies taggel! Ha egy konkrét Spring cloud-os függőséget ténylegesen használni akarunk, akkor azt a dependencies tagbe kell tenni, persze a verziót elhagyhatjuk, mert azt megkapjuk a dependencyManagement tagből:
 
    ```
    <dependencies>
@@ -74,7 +74,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
      - A &lt;properties&gt; tagbe helyezzük el ezt a sort:
 
      ```
-             <spring-cloud.version>2020.0.4</spring-cloud.version>
+             <spring-cloud.version>2023.0.3</spring-cloud.version>
      ```
 
      - A &lt;properties&gt; tag alá helyezzük el ezeket a sorokat:
