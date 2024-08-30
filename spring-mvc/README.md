@@ -6,7 +6,7 @@ A labor során egy adatréteget és egy hozzá kapcsolódó REST API-t fogunk me
 
 A labor elvégzéséhez szükséges eszközök:
 
-- JDK 11, pl. innen: https://adoptopenjdk.net/
+- JDK 17, pl. innen: https://adoptium.net/
 - Tetszőleges Java alapú IDE, pl. Spring Tools 4 for Eclipse: https://spring.io/tools
 - HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.: [Postman](https://www.postman.com/downloads/)
 
