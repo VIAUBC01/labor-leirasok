@@ -49,8 +49,8 @@ A feladatok során az _Adventure Works_ mintaadatbázissal dolgozunk. Az adatbá
 
 A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető által meghatározott módon:
 
-- A Visual Studio projekt könyvtára
-- Minden feladat végeredményéről egy képernyőkép a riport _preview_ ablakában a releváns részekről
+- A Visual Studio-projekt könyvtára
+- Minden feladat végeredményéről egy képernyőkép a riport _Preview_ ablakában a releváns részekről
 
 ## Értékelés
 
