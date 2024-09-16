@@ -1,6 +1,6 @@
 # Microsoft SQL Server Reporting Services használata
 
-A labor során egy új eszközzel, a Microsoft SQL Server Reporting Serviceszel ismerkedünk meg.
+A labor során egy új eszközzel, a *Microsoft SQL Server Reporting Services*zel ismerkedünk meg.
 
 ## Előfeltételek, felkészülés
 
@@ -37,7 +37,7 @@ A feladatok során az _Adventure Works_ mintaadatbázissal dolgozunk. Az adatbá
    - Server name: `(localdb)\mssqllocaldb`
    - Authentication: `Windows Authentication`
 
-1. A _File / Open / File..._ menüpont használatával nyisd meg az előbbi mappából az `instawdb.sql` fájlt. **Még ne futtasd!** Előbb kapcsold be az SQLCMD módot: a _Query_ menüben _SQLCMD Mode_. Csak ezt követően válasszuk az _Execute_ lehetőséget.
+1. A _File / Open / File…_ menüpont használatával nyisd meg az előbbi mappából az `instawdb.sql` fájlt. **Még ne futtasd!** Előbb kapcsold be az SQLCMD módot: a _Query_ menüben _SQLCMD Mode_. Csak ezt követően válasszuk az _Execute_ lehetőséget.
 
    ![SQLCMD mód](images/sql-management-sqlcmd-mode.png)
 
