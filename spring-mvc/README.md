@@ -1,6 +1,6 @@
 # Adatréteg és REST API fejlesztése Spring Boottal
 
-A labor során egy adatréteget és egy hozzá kapcsolódó REST API-t fogunk megvalósítani Spring Boot platformon. Az adatmodellt JPA entitásokkal valósítjuk meg, amelyek kényelmes használatához a Spring Data JPA által nyújtott lehetőségeket használjuk fel. Néhány adatrétegen keresztül elérhető funkciót REST API formájában publikálunk, a Spring MVC-re támaszkodva. 
+A labor során egy adatréteget és egy hozzá kapcsolódó REST API-t fogunk megvalósítani Spring Boot platformon. Az adatmodellt JPA-entitásokkal valósítjuk meg, amelyek kényelmes használatához a Spring Data JPA által nyújtott lehetőségeket használjuk fel. Néhány adatrétegen keresztül elérhető funkciót REST API formájában publikálunk, a Spring MVC-re támaszkodva. 
 
 ## Előfeltételek, felkészülés
 
@@ -8,7 +8,7 @@ A labor elvégzéséhez szükséges eszközök:
 
 - JDK 17, pl. innen: https://adoptium.net/
 - Tetszőleges Java alapú IDE, pl. Spring Tools 4 for Eclipse: https://spring.io/tools
-- HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.: [Postman](https://www.postman.com/downloads/)
+- HTTP-kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.: [Postman](https://www.postman.com/downloads/)
 
 <hr />
 
@@ -40,11 +40,11 @@ Egy hasznos tutorial:
 ## Beadandó
 
 A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel, egy zipelt fájlban:
-- **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
+- **PDF** formátumban (`.docx` nem elfogadott!) az egyes feladatoknál megnevezett: 
   - konkrét kódrészletekről készített képernyőkép(ek), 
   - 1 mondatos magyarázat
-  - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb ablakban)!
-- A projekt forrását (src\main mappa elegendő)
+  - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun-kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb-ablakban)!
+- A projekt forrását (az `src\main` mappa elegendő)
 
 ## Értékelés
 
