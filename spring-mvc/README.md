@@ -52,4 +52,4 @@ A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elv
 
 ## Feladatok
 
-Összesen 4 feladat van. [Itt kezdd](Feladat-1.md) az első feladattal.
+Összesen 4 feladat van. [Itt kezdd](Feladat-1.md) az elsővel.
