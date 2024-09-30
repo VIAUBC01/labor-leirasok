@@ -11,11 +11,11 @@ Egy PUT típusú kérést kezelő végpontot kell fejleszteni az ingatlanok mód
   - a historikus sor érvényességének végét jelző időbélyeget (ez a most éppen aktuális időbélyeg lesz)
 - A historikus sor beszúrása után az új adatokkal kell felülírni a meglévő sort az eredeti ingatlan táblában.
 
-Készíts egy végpontot, amelyen egy adott ingatlan ID-hez lekérdezhető az adattörténete (az összes sor a historikus táblából + az aktuális érték).
+Készíts egy GET végpontot is, mellyel lekérdezhető egy adott ingatlan ID adattörténete (az összes sor a historikus táblából + az aktuális érték).
 
 Egy példa:
 
-- T₁ időpontban létrehoztak X₁ irányárral egy ingatlant, melynek id-je 1.
+- T₁ időpontban létrehoztak X₁ irányárral egy ingatlant, melynek ID-je `1`.
 - T₂ időpontban módosították az irányárát X₂-re.
 - T₃ időpontban módosították az irányárát X₃-ra.
 
