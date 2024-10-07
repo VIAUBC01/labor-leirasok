@@ -1,4 +1,4 @@
-# Feladat 1: Kategória nézet és adatbeszúrás
+# Feladat 1: Kategórianézet és adatbeszúrás
 
 ## Nézet létrehozása
 
