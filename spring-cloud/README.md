@@ -29,7 +29,7 @@ Hivatalos dokumentációk:
 
 ## Beadandó
 
-A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel, egy zipelt fájlban:
+A labor elvégzése után az alábbi tartalmat kérjük beadni a Moodle-re történő feltöltéssel, egy zipelt fájlban:
 - **PDF** formátumban (`.docx` nem elfogadott!) az egyes feladatoknál pontosan megnevezett:
   - konkrét kódrészletekről készített képernyőkép(ek),
   - 1 mondatos magyarázat
