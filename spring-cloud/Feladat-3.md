@@ -4,7 +4,7 @@ A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy 
 
 1. Hozzuk létre a gatewayszerver projektjét! Ismét célszerű a _File_ > _New_ > _Spring Starter Project_ varázslót használni. A projekt neve legyen `gateway`. A következő oldalon a lehetséges függőségek közül válasszuk ki:
 
-   - A Spring Cloud Routing csoportból a *Gateway*t. (Így egy kész gateway implementációt kapunk, amit csak fel kell konfigolnunk.)
+   - A Spring Cloud Routing csoportból a ***Reactive*** *Gateway*t. (Így egy kész gateway implementációt kapunk, amit csak fel kell konfigolnunk.)
    - A Spring Cloud Config csoportból a *Config Client*et. (Így az API gateway is a config szerverről fogja venni a saját konfigját.)
    - A Spring Cloud Discovery csoportból az *Eureka Discovery Client*et. (Így az API gateway is be fog jelentkezni az Eureka-szervernél, valamint az Eureka-szervertől fogja megtudni a többi szolgáltatás aktuális címét.)
 
