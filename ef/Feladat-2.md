@@ -1,4 +1,6 @@
-# Adatbetöltés
+# 2. feladat
+
+## Adatbetöltés
 
 Az adatbetöltést az IMDb által minden nap közzétett TSV (tabulátorral elválasztott értékek) típusú fájlok alapján végezzük. A hivatalos dokumentáció ezekről a fájlokról itt található: [IMDb Datasets (https://www.imdb.com/interfaces/))](https://www.imdb.com/interfaces/). Minket most a `title.basics.tsv.gz` fájl érdekel, ami a megfelelő adatokat tartalmazza ahhoz, hogy filmek alapadatait (cím, kiadás dátuma, műfaj) tárolhassuk.
 

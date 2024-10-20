@@ -7,12 +7,14 @@ A labor során egy adatréteget fogunk megvalósítani, amely a következő 2 la
 A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/README.md), [Web API](../webapi/README.md) és [Razor](../razor/README.md) laborok igényei megegyeznek):
 
 - Windows
-- Microsoft Visual Studio 2022 (Community verzió is megfelelő)
-  - minimálisan szükséges workload-ok: 
+  - A feladatok megoldhatóak Linux és macOS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio Code, JetBrains Rider stb.) kell használni. 
+  Ezeket a lehetőségeket viszont nem tárgyaljuk.
+- Microsoft Visual Studio 2022 (a _Community_ verzió is megfelelő)
+  - Az _Operating system not supported_ hibaüzenetre _OK_-ot lehet nyomni
+  - Minimálisan szükséges workloadok:
     - ASP.NET and web development
     - .NET desktop development
     - Data storage and processing
-
 - Opcionálisak:
   - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): Express/Developer változatok ingyenesen használhatók
     - az útmutatók alapján a Visual Studio mellett feltelepülő _LocalDB_ változatot használjuk
@@ -23,9 +25,9 @@ A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/READ
       - Azure Data Studio (SSMS újabb verziói feltelepítik)
 
 A laborok elvégzéséhez használható segédanyagok és felkészülési anyagok:
-- [Hivatalos jegyzetek a Háttéralkalmazások tárgy honlapján (belépés után jelennek meg)](https://www.aut.bme.hu/Course/VIAUBB04)
-- [Entity Framework Core (Háttéralkalmazások gyakorlat)](https://github.com/BMEVIAUBB04/gyakorlat-ef)
-- [ASP.NET Core Web API/Razor (Háttéralkalmazások gyakorlat)](https://github.com/BMEVIAUBB04/gyakorlat-rest-web-api)
+- [Hivatalos jegyzetek a _Háttéralkalmazások_ tárgy honlapján (belépés után jelennek meg)](https://www.aut.bme.hu/Course/VIAUBB04)
+- [Entity Framework Core (_Háttéralkalmazások_ gyakorlat)](https://github.com/BMEVIAUBB04/gyakorlat-ef)
+- [ASP.NET Core Web API/Razor (_Háttéralkalmazások_ gyakorlat)](https://github.com/BMEVIAUBB04/gyakorlat-rest-web-api)
 
 Hivatalos dokumentációk, amelyek jó kiindulásként szolgálnak a részletes megértéshez vagy elakadás esetén elő kell venni:
 - EF Core:
@@ -38,23 +40,22 @@ Hivatalos dokumentációk, amelyek jó kiindulásként szolgálnak a részletes 
   - [Introduction to Razor Pages in ASP.NET Core | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/)
   - [Create web APIs with ASP.NET Core | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/web-api/)
 
-### Más OS-en:
-- A feladatok megoldhatók Linux és Mac OS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio for Mac, Visual Studio Code, JetBrains Rider stb.) kell használni. Ezeket a lehetőségeket részletesen nem tárgyaljuk.
-
 ## Beadandó
 
-A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel:
-- **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
-  - konkrét kódrészletekről készített képernyőkép(ek), 
+A labor elvégzése után az alábbi tartalmat kérjük beadni a Moodle-re történő feltöltéssel:
+- **PDF** formátumban (`.docx` nem elfogadott!) az egyes feladatoknál megnevezett: 
+  - konkrét kódrészletek bemásolva, esetleg az azokról készített képernyőkép(ek)
   - 1 mondatos magyarázat
   - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. 
 
 ## Értékelés
 
-A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
+A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. 
+Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
 
-A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen **önálló**.
+A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! 
+A feladatok megoldása minden esetben teljesen **önálló**.
 
 ## Feladatok
 
-Összesen 4 feladat van. [Itt kezdd](Feladat-1.md) az első feladattal.
+Összesen 4 feladat van. [Itt kezdd](Feladat-1.md) az elsővel.
