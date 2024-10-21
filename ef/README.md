@@ -7,8 +7,7 @@ A labor során egy adatréteget fogunk megvalósítani, amely a következő 2 la
 A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/README.md), [Web API](../webapi/README.md) és [Razor](../razor/README.md) laborok igényei megegyeznek):
 
 - Windows
-  - A feladatok megoldhatóak Linux és macOS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio Code, JetBrains Rider stb.) kell használni. 
-  Ezeket a lehetőségeket viszont nem tárgyaljuk.
+  - A feladatok megoldhatóak Linux és macOS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio Code, JetBrains Rider stb.) kell használni. Ezeket a lehetőségeket viszont nem tárgyaljuk.
 - Microsoft Visual Studio 2022 (a _Community_ verzió is megfelelő)
   - Az _Operating system not supported_ hibaüzenetre _OK_-ot lehet nyomni
   - Minimálisan szükséges workloadok:
@@ -49,11 +48,9 @@ A labor elvégzése után az alábbi tartalmat kérjük beadni a Moodle-re tört
 
 ## Értékelés
 
-A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. 
-Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
+A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó vagy hiányos feladatrész mínusz egy jegy.
 
-A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! 
-A feladatok megoldása minden esetben teljesen **önálló**.
+A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen **önálló**.
 
 ## Feladatok
 

@@ -131,12 +131,7 @@ A `Title` entitásunkon konfiguráltuk az `Id` és `PrimaryTitle` tulajdonságok
 - Az EF alapértelmezett konvencióként a mezők nullozhatóságát [a leképzendő property típusának nullozhatósága adja](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions). 
 A `string` típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséget külön nem kell beállítanunk.
 
-3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). 
-Hozzunk létre egy `Design` nevű mappát a `Data` projektben, benne az alábbi factory osztályt, ami egy `DbContext`-et tud gyártani nekünk. 
-A factoryt "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. 
-A connection stringet az éles alkalmazás nem ezt a factoryt használva fogja átadni. 
-Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert `internal` láthatóságú. 
-Értelemszerűen a connection string cserélendő, ha nem LocalDB-n készül az alkalmazás, de alapértelmezetten és a laborokon ez teljesen megfelelő.
+3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy `Design` nevű mappát a `Data` projektben, benne az alábbi factory osztályt, ami egy `DbContext`-et tud gyártani nekünk. A factoryt "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factoryt használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert `internal` láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB-n készül az alkalmazás, de alapértelmezetten és a laborokon ez teljesen megfelelő.
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -157,8 +152,7 @@ namespace MovieCatalog.Data.Design
 }
 ```
 
-4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! 
-A terminálban / a PowerShell-ablakban adjuk ki az alábbi parancsokat (Visual Studióban és Code-ban is a `Ctrl+Ö` billentyűkombináció nyit egy Developer PowerShell-ablakot) a **`MovieCatalog.Data` projekt mappájából**:
+4. Készítsünk migrációt, majd futtassuk le azt az adatbázison! A terminálban / a PowerShell-ablakban adjuk ki az alábbi parancsokat (Visual Studióban és Code-ban is a `Ctrl+Ö` billentyűkombináció nyit egy Developer PowerShell-ablakot) a **`MovieCatalog.Data` projekt mappájából**:
 - ```bash
   dotnet ef migrations add TitlesTable
   ```
@@ -211,14 +205,9 @@ namespace MovieCatalog.Terminal
 ```
 
 - Láthatjuk, hogy a `TestConsole` osztály számít rá, hogy kapni fog *valahonnan* egy `MovieCatalogDbContext` példányt, tehát felkészültünk arra, hogy a rendszer dependency injectiont használ.
-- Érdekesség a `cancellationToken` névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti `StopAsync`-nak. 
-Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. 
-Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla. 
-Ha egy függvényt írunk, ami `CancellationToken`-t kap, akkor a tokent illik továbbpasszolni azt minden általunk hívott függvénynek (ha van olyan változata, ami fogad ilyen paramétert).
+- Érdekesség a `cancellationToken` névre hallgató paraméter. Ez egy aktiválható token, amit átpasszolhatunk további aszinkron kéréseknek, pl. a fenti `StopAsync`-nak. Ez azt eredményezi, hogy ezek a hívások megvizsgálatják, valaki "nyomott-e mégsemet" a láncban feljebb, és ha igen, akkor abbahagyják a futást. Nem szükséges használni, de szép, szofisztikált pattern, jó tudni róla. Ha egy függvényt írunk, ami `CancellationToken`-t kap, akkor a tokent illik továbbpasszolni azt minden általunk hívott függvénynek (ha van olyan változata, ami fogad ilyen paramétert).
 
-6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. 
-A legelegánsabb megoldás az ASP.NET-tel analóg módon egy `GenericHostBuilder` osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. 
-Cseréljük le a `Program.cs` fájl teljes tartalmát az alábbira:
+6. Készítsük el a konzolt kiszolgáló részt az alkalmazásban. A legelegánsabb megoldás az ASP.NET-tel analóg módon egy `GenericHostBuilder` osztály segítségével elkészíteni a hosztkészítő objektumot, majd az megépíteni és elindítani. Cseréljük le a `Program.cs` fájl teljes tartalmát az alábbira:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -239,15 +228,13 @@ using IHost host = Host.CreateDefaultBuilder(args)
 await host.RunAsync();
 ```
 
-A fenti indítási módszer analóg a *Háttéralkalmazások*ból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: 
-itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
+A fenti indítási módszer analóg a *Háttéralkalmazások*ból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
 
 💡 Ha meg akarjuk nézni az EF által generált SQL-t, állítsuk át a naplózási szintet a `ConfigureLogging` hívásban `LogLevel.Information`-re.
 
 ## Beadandó
 
-Szúrj be egy rekordot a `Titles` táblába a terminálalkalmazásból, melyben a cím a Neptun-kódod! 
-Másold be vagy készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
+Szúrj be egy rekordot a `Titles` táblába a terminálalkalmazásból, melyben a cím a Neptun-kódod!Másold be vagy készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
 - SQL-alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS 
 - a konzolalkalmazásban történő újbóli lekérdezéssel, a konzolra történő kiírással (a `Logger`-példányra történő `LogInformation()`-hívással)!
 
