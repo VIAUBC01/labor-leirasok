@@ -15,14 +15,13 @@ A labor elvégzéséhez szükséges eszközök (az [Entity Framework](../ef/READ
     - ASP.NET and web development
     - .NET desktop development
     - Data storage and processing
-- Opcionálisak:
-  - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): Express/Developer változatok ingyenesen használhatók
-    - az útmutatók alapján a Visual Studio mellett feltelepülő _LocalDB_ változatot használjuk
-      - ettől el lehet térni, ekkor megfelelően, értelemszerűen módosítandó a kapcsolódáshoz használt _connection string_
-  - [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
-    - Alternatívák:
-      - Visual Studio beépített *SQL Server Object Explorer* komponense és kapcsolódó felületei 
-      - Azure Data Studio (SSMS újabb verziói feltelepítik)
+- [Microsoft SQL Server 2019](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): az _Express_/_Developer_ változatok ingyenesen használhatóak
+  - az útmutatók alapján ezen a laboron a Visual Studio mellett feltelepülő _LocalDB_ változatot használjuk
+    - ettől el lehet térni, ekkor megfelelően, értelemszerűen módosítandó a kapcsolódáshoz használt _connection string_
+- [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (opcionális)
+  - Alternatívák:
+    - Visual Studio beépített *SQL Server Object Explorer* komponense és kapcsolódó felületei 
+    - Azure Data Studio (SSMS újabb verziói feltelepítik)
 
 A laborok elvégzéséhez használható segédanyagok és felkészülési anyagok:
 - [Hivatalos jegyzetek a _Háttéralkalmazások_ tárgy honlapján (belépés után jelennek meg)](https://www.aut.bme.hu/Course/VIAUBB04)
