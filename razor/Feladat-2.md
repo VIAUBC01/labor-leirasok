@@ -1,4 +1,4 @@
-# Feladat 2.
+# 2. feladat
 
 ## Beszúrás & módosítás - specifikáció
 

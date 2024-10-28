@@ -1,4 +1,4 @@
-# Szerver oldali renderelés: Razor
+# Szerveroldali renderelés: Razor
 
 A labor során az [Entity Framework laboron](../ef/README.md) készített adatréteget felhasználva fogunk megvalósítani egy egyszerű, szerver-oldali renderelést használó webalkalmazást.
 

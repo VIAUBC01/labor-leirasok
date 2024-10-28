@@ -1,4 +1,4 @@
-# Előkészítés
+## Előkészítés
 
 Most is az [Entity Framework laboron](../ef/README.md) készült adatmodellt fogjuk hasznosítani, hogy egy szerveroldalon renderelt webalkalmazást készítsünk ASP.NET Core-ban.
 
@@ -9,61 +9,48 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
     - .NET verzió: 6.0
     - Minden extra opció legyen kikapcsolva
     - *Authentication type* is *None* legyen
-    
 1. Töltsd le az alábbi DACPAC fájlt [innen](../webapi/data/imdbtitles_sample.dacpac). Ami egy hordozható export formátum MS SQL Server adatbázisok számára.
-
-1. Csatlakozz egy LocalDB példányhoz a Visual Studio-s SQL Server Object Explorerben. A **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a neptun kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
-
-1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az *appsettings.Development.json* fájlhoz (az *appsettings.json* "mögött" bújik meg). A beállítás neve is legyen a neptun kódod (pontosabban *DBneptunkód*).
-
-    ``` JSON
+1. Csatlakozz egy LocalDB példányhoz a Visual Studio-s SQL Server Object Explorerben. A **Databases** mappán jobbklikk, majd válaszd *Publish Data-tier Application* opciót. Tallózd be a DACPAC fájlt és add meg adatbázis nevét, ami legyen a Neptun-kódod, majd mehet a [*Publish*](https://learn.microsoft.com/en-us/sql/ssdt/extract-publish-and-register-dacpac-files?view=sql-server-ver16#publish-data-tier-application). Ezzel telepíted a DACPAC fájlban lévő objektumokat, adatokat az adatbázis kiszolgálóra. Import után érdemes ráfrissíteni az adatbázisok listájára.
+1. Add hozzá a fejlesztésre szánt kapcsolódási stringet az `appsettings.Development.json` fájlhoz (az `appsettings.json` "mögött" bújik meg). A beállítás neve is legyen a Neptun-kódod (pontosabban `DBneptunkód`).
+    ```json
     {
         "ConnectionStrings": {
-            "DB<neptun kódra írj át>": "Server=(localdb)\\mssqllocaldb;Database=<neptun kódra írj át>;Trusted_Connection=True;MultipleActiveResultSets=true"
+            "DB<Neptun-kódra írj át>": "Server=(localdb)\\mssqllocaldb;Database=<Neptun-kódra írj át>;Trusted_Connection=True;MultipleActiveResultSets=true"
         },
         "Logging": { "..." }
     }
     ```
-
     - **Ha már korábbról van ugyanilyen névvel adatbázisunk, azt érdemes törölni, vagy más néven elnevezni a connection stringben az adatbázist, hogy ne akadjanak össze.**
+1. Add hozzá a projekthez a *Microsoft.EntityFrameworkCore.SqlServer* NuGet-csomag `6.0.35`-ös verzióját.
+1. Add hozzá az előre elkészített [entitásmodell- és adatbáziskontextusfájlokat](../webapi/snippets/Entities) a projektedhez egy új `Entities` könyvtárba. Ehhez érdemes [letölteni ezt a git repót](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
+1. Regisztráld [az adatbáziskontextust](../webapi/snippets/Entities/MovieCatalogDbContext.cs) a DI-rendszerbe. (`Program.cs`)
+1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) és kivételtípusokat [innen](./snippets/Exceptions) egy új `Utils`, illetve `Exceptions` mappába.
+1. Add hozzá a projekthez az előkészített `MovieCatalogDataService` és az `IMovieCatalogDataService` típusokat [innen](./snippets/Services) egy új `Services` mappába.
+1. Regisztráld az `IMovieCatalogDataService`-t a DI-rendszerbe [*scoped* életciklussal](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)). (`Program.cs`)
 
-1. Add hozzá a projekthez a *Microsoft.EntityFrameworkCore.SqlServer* NuGet csomagot
+## Általános szabályok
 
-1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](../webapi/snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
-
-1. Regisztráld [az adatbázis kontextust](../webapi/snippets/Entities/MovieCatalogDbContext.cs) a DI rendszerbe. (Program.cs) 
-
-1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) és kivételtípusokat [innen](./snippets/Exceptions) egy új *Utils*, illetve *Exceptions* mappába. 
-
-1. Add hozzá a projekthez az előkészített `MovieCatalogDataService` és az `IMovieCatalogDataService` típusokat [innen](./snippets/Services) egy új *Services* mappába.
-
-1. Regisztráld az `IMovieCatalogDataService`-t a DI rendszerbe [*scoped* életciklussal](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)). (Program.cs)
-
-# Általános szabályok
-
-- `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit (közvetetten tehát a `MovieCatalogDataService` függvényeit).
-- `PageModel` leszármazott közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
+- `PageModel`-leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [`Services` mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit (közvetetten tehát a `MovieCatalogDataService` függvényeit).
+- `PageModel`-leszármazott közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
 - A `MovieCatalogDataService` osztályban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor.
     
-# Feladat 1.
+# 1. feladat
 
-1. Módosítsd az oldal felső menüsorában a *Home* menüponttól balra eső első, főoldalra mutató menüpont feliratát a neptunkódodra.
-
-1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod az [itt található razor leírót](./snippets/Pages/Index.static.cshtml). Kipróbáláshoz a *Pages/Index.cshtml*-ed cseréld le a fájl tartalmára.
-
-*Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
-
-1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is. Kapcsolódó `IMovieCatalogDataService` művelet a `GetGenresWithTitleCountsAsync`.
-
-1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
-    - címe, 
-    - eredeti címe, ha nem egyezik meg a címmel,
-    - megjelenés és zárás éve - ha 2015 a megjelenés éve és 2020 a zárás éve, akkor (2015 - 2020) alakban; ha viszont nincs zárás éve, akkor (2015) alakban
-    - típusa,
-    - műfajai
+1. Módosítsd az oldal felső menüsorában a *Home* menüponttól balra eső első, főoldalra mutató menüpont feliratát a Neptun-kódodra.
+1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod az [itt található razor leírót](./snippets/Pages/Index.static.cshtml). Kipróbáláshoz a `Pages/Index.cshtml`-ed cseréld le a fájl tartalmára.<br>
+<br>
+*Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.<br>
+<br>
+    1. A kezdőoldalon bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is. Kapcsolódó `IMovieCatalogDataService` művelet a `GetGenresWithTitleCountsAsync`.
+    1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
+        - címe, 
+        - eredeti címe, ha nem egyezik meg a címmel,
+        - megjelenés és zárás éve - ha 2015 a megjelenés éve és 2020 a zárás éve, akkor (2015 - 2020) alakban; ha viszont nincs zárás éve, akkor (2015) alakban
+        - típusa,
+        - műfajai
 
 Az alábbi szabályok szerint szűrd a műveket:
- - a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
+ - a `MovieCatalogDataService.GetTitlesAsync` függvényt kell használnod
  - csak film (`Movie`) típus
  - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
  - megjelenési év szerint csökkenően rendezve az első 20 darab
@@ -73,10 +60,9 @@ Az alábbi szabályok szerint szűrd a műveket:
 
 ![Feladat 1.](images/feladat-1.png)
 
-
 ![Feladat 1.](images/feladat-1b.png)
 
-# Általános tudnivalók, megjegyzések, tippek
+## Általános tudnivalók, megjegyzések, tippek
 
 - Az oldalba hivatkozva megtalálhatod a Bootstrap és jQuery adott verzióját. Értelemszerűen a stílusozást érdemes így a Bootstrappel végezni, a jQuery is szabadon használható. Ha verzióproblémát tapasztalsz valamelyik Bootstrap funkció/komponens használatakor, [letöltheted a Bootstrap oldaláról](https://getbootstrap.com/) az előre fordított verziót és felülírhatod a jelenleg használtat a *wwwroot/lib/bootstrap* mappában. [Ugyanezt megteheted a jQuery-vel is](https://jquery.com/download/), bár ott verziókompatibilitási problémák ritkábbak, ugyanis nem fejlesztik annyira aktívan.
 - Nem szükséges szépnek/ergonomikusnak lennie az oldalnak, de mindenképpen láthatónak kell lennie, hogy mely elemek tartoznak össze.
@@ -85,29 +71,29 @@ Az alábbi szabályok szerint szűrd a műveket:
 - A Razor kódból a PageModel objektumot a `@Model` tulajdonságon keresztül érjük el.
 - Tetszőleges további objektumokat, szolgáltatásokat készíthetsz a feladatok megoldásához.
 - Ha egy page nem Razor Page (pl. a Layout oldal), használható az `@inject` direktíva objektum injektálására. Minden más esetben javasolt a normál konstruktor injektálás.
-    ``` HTML
+    ```html
     @inject MovieCatalog.Data.IMovieCatalogDataService DataService
     ```
 - Komplex, referencia típusú (pl. `PagedResult<>`) változókat, propertyket, ha a `null` értéknek nincs értelme, akkor érdemes nem `null` értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak `Empty` statikus tagja ([például a beépített kollekcióknak általában van](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-6.0)) és használjuk azt.
 - Megkönnyítheti a fejlesztést a [Hot Reload funkció](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022), mely lehetővé teszi, hogy a kódváltoztatásaink sokkal gyorsabban (teljes újraindítás nélkül) érvényre jussanak.
 - Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
-  - új index a *Title.StartYear* oszlopra
+  - új index a `Title.StartYear` oszlopra
   - az új művek azonosítóját az adatbázis osztja ki  
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 - Előfordulhat, ha például nagy az adatbázis, és nem indexelt oszlopokra szűrünk/rendezünk, hogy timeout-ra futunk. Ilyenkor első körben próbálkozzunk más szűrési/rendezési beállításokkal.
 
 ## Beadandó tesztesetek
 
-- Főoldal megjelenítve, minden főbb rész látható. A teljes címsor és menüsor is. Látható egy olyan mű is, aminek van végdátuma / zárás éve, illetve olyan is, aminek nem egyezik az elsődleges címe az eredeti címével (adatbázisban módosíts, ha alapból nem jelennének meg ilyenek).
+- Főoldal megjelenítve, minden főbb rész látható. A teljes címsor és menüsor is. Látható egy olyan mű is, aminek van végdátuma / zárás éve, illetve olyan is, aminek nem egyezik az elsődleges címe az eredeti címével (az adatbázisban módosíts, ha alapból nem jelennének meg ilyenek).
 
 ## Következő feladatok
 
 Ezekkel folytathatod:
 
-- [Mű szerkesztő oldala](Feladat-2.md)
+- [Mű szerkesztőoldala](Feladat-2.md)
 - [Lapozás és rendezés](Feladat-3.md)
 
-# Bónusz feladat
+# Bónuszfeladat
 
 Plusz egy jegyért (ha az elégséges enélkül is megvan) **mindkét** alábbi feladatot oldd meg:
 

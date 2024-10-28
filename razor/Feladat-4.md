@@ -1,4 +1,4 @@
-# Feladat 4.
+# 4. feladat
 
 ## Szűrés - specifikáció
 
