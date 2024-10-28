@@ -1,6 +1,6 @@
-# Feladat 2.
+# 2. feladat
 
-Valósítsd meg az alábbi API műveleteket:
+Valósítsd meg az alábbi API-műveleteket:
   - `PUT /api/genres/<ID>`
     - az ID azonosítójú műfaj módosítása,
     -   a művelet `Genre`-t vár, de csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (`TitleGenres` elemek) nem; ez volna az ún. "overposting" támadás,
