@@ -1,4 +1,4 @@
-# Feladat 3.
+# 3. feladat
 
 ## Lapozás & rendezés - specifikáció
 
