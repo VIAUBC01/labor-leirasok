@@ -1,4 +1,4 @@
-# Feladat 4
+# 4. feladat
 
 1. Hozd létre az alábbi interfészt a Data projektben:
 
