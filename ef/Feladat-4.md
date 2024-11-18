@@ -42,7 +42,10 @@ namespace MovieCatalog.Data
 }
 ```
 
-2. Implementáld az interfészt egy `MovieCatalogDataService` nevű osztályban, de a `GetGenresAsync` kivételével egyelőre csak dobjanak kivételt. A kivételt dobó metódusvázakat legeneráltathatod, ha az alábbi fájlt létrehozva [használod a megfelelő code fix-et (`Ctrl+.`)](https://learn.microsoft.com/en-us/visualstudio/ide/reference/implement-interface?view=vs-2022):
+2. Implementáld az interfészt egy `MovieCatalogDataService` nevű osztályban, de a `GetGenresAsync` kivételével egyelőre
+   csak dobjanak kivételt. A kivételt dobó metódusvázakat legeneráltathatod, ha az alábbi fájlt
+   létrehozva [használod a megfelelő code fix-et (
+   `Ctrl+.`)](https://learn.microsoft.com/en-us/visualstudio/ide/reference/implement-interface?view=vs-2022):
 
 ``` C#
 using Microsoft.EntityFrameworkCore;
@@ -87,9 +90,11 @@ namespace Microsoft.Extensions.DependencyInjection
 }
 ```
 
-Ez a logika csak azért kell, hogy a következő lépésben ne kelljen hivatkozni az `internal` láthatóságú `MovieCatalogDataService` típusra.
+Ez a logika csak azért kell, hogy a következő lépésben ne kelljen hivatkozni az `internal` láthatóságú
+`MovieCatalogDataService` típusra.
 
-4. Add hozzá a szolgáltatáskonténerhez az adatszolgáltatást az előbbi függvény meghívásával (Terminal projekt, Program.cs):
+4. Add hozzá a szolgáltatáskonténerhez az adatszolgáltatást az előbbi függvény meghívásával (Terminal projekt,
+   Program.cs):
 
 ``` C#
 using IHost host = Host.CreateDefaultBuilder(args)
@@ -102,7 +107,7 @@ using IHost host = Host.CreateDefaultBuilder(args)
     .Build();
 ```
 
-5.  Injektáltass a `TestConsole` osztályba egy  `IMovieCatalogDataService` példányt.
+5. Injektáltass a `TestConsole` osztályba egy  `IMovieCatalogDataService` példányt.
 
 6. A könnyebb konzolos kiírás érdekében definiáld felül a `Genre` és a `Tile` `ToString` metódusát (Data projekt)
 
@@ -118,7 +123,9 @@ public override string ToString() => $"Genre {Name} ({Id})";
 public override string ToString() => $"Title {Id}: {TitleType} - {PrimaryTitle} ({OriginalTitle}, [{StartYear?.ToString() ?? "?"}{(EndYear != null ? $"-{EndYear}" : "")}]{($"<{RuntimeMinutes} min>" )}{(TitleGenres.Any() ? $" - {string.Join(", ", TitleGenres.Select(g => $"{g.Genre.Name}"))}" : string.Empty)}";
 ```
 
-7. Implementáld most már az XML kommenteknek megfelelően a `MovieCatalogDataService` legalább még egy metódusát `GetGenresAsync`-en kívül. Teszteléshez bővítsd a `TestConsole` `StartAync` függvényét. Segítségül megadjuk az alábbi, minden metódust tesztelő egyszerű kódrészletet. **A paramétereket cseréld le sajátra! (ahol van paraméter)**
+7. Implementáld most már az XML kommenteknek megfelelően a `MovieCatalogDataService` legalább még egy metódusát
+   `GetGenresAsync`-en kívül. Teszteléshez bővítsd a `TestConsole` `StartAync` függvényét. Segítségül megadjuk az
+   alábbi, minden metódust tesztelő egyszerű kódrészletet. **A paramétereket cseréld le sajátra! (ahol van paraméter)**
 
 ```csharp
 // GetGenresAsync
@@ -157,6 +164,7 @@ Logger.LogInformation(
 ```
 
 Beadandó:
+
 - az elkészült **saját/átírt** kódrészletekről készített képernyőképek,
 - a terminal alkalmazásban futtatott lekérdezések eredménye a konzolra (`Logger`) írva.
 
