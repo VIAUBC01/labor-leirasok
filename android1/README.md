@@ -1,49 +1,74 @@
 # Világjáró Android-alkalmazás fejlesztése (Android 1. labor)
 
-Készítsen Kotlin nyelven Világjáró Android-alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon részletezett API-hívások segítségével töltse be.
+Készítsen Kotlin nyelven Világjáró Android-alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon
+részletezett API-hívások segítségével töltse be.
 Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API-végpont példákat.
 
 * https://restcountries.com/v3.1/all
 * https://restcountries.com/v3.1/name/Hungary
 * stb.
 
-Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy tervezhessen, és ne közben kelljen módosítani az adatmodellen pl.
-Az alkalmazás elkészítése során törekedjen a strukturált felépítésre, package-k szervezésére. Készítsen letisztult, ergonomikus felhasználói felületeket, figyeljen a vissza gomb megfelelő működésére, továbbá a hibák kezelésére és a felhasználó számára történő releváns visszajelzésekre.
+Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy
+tervezhessen, és ne közben kelljen módosítani az adatmodellen pl.
+Az alkalmazás elkészítése során törekedjen a strukturált felépítésre, package-k szervezésére. Készítsen letisztult,
+ergonomikus felhasználói felületeket, figyeljen a vissza gomb megfelelő működésére, továbbá a hibák kezelésére és a
+felhasználó számára történő releváns visszajelzésekre.
 
 ## Értékelés
-Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a labor. Az Alapok részen kívül megoldott minden további részfeladat hiánytalan megvalósítása plusz egy jegyet jelent. A feladatok részben egymásra épülnek, ezért az ebből következő hiányok – feladat kihagyás esetén – szükség szerint áthidalhatók pl. dummy adatok vagy nem perzisztált adatok használatával.
+
+Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a labor. Az Alapok részen kívül megoldott minden
+további részfeladat hiánytalan megvalósítása plusz egy jegyet jelent. A feladatok részben egymásra épülnek, ezért az
+ebből következő hiányok – feladat kihagyás esetén – szükség szerint áthidalhatók pl. dummy adatok vagy nem perzisztált
+adatok használatával.
 
 ## Feltöltés
+
 * A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni a Moodle portálra a jelzett határidőig.
-* A ZIP-ből az `app\build\intermediates` mappából minden kerüljön törlésre, kivéve az `app\build\intermediates\apk` mappa, az abban lévő `.apk`-fájl mindenképpen maradjon benne. 
-* A feltöltött ZIP file-ba kerüljön egy egyszerű, név-Neptun-kóddal ellátott PDF-dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
+* A ZIP-ből az `app\build\intermediates` mappából minden kerüljön törlésre, kivéve az `app\build\intermediates\apk`
+  mappa, az abban lévő `.apk`-fájl mindenképpen maradjon benne.
+* A feltöltött ZIP file-ba kerüljön egy egyszerű, név-Neptun-kóddal ellátott PDF-dokumentáció, melyben szerepeljenek az
+  egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség
+  szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
 
 ## Tippek
-* Törekedjen a rövid osztályokra és függvényekre, valamint az átlátható forráskódra 
+
+* Törekedjen a rövid osztályokra és függvényekre, valamint az átlátható forráskódra
 * Ügyeljen a megfelelően hierarchikus package szervezésre, a kódolás során tartsa szem előtt a Clean Code elveket.
 * A felhasználói felület a lehet egyszerűbb, nem elvárás látványos felületet készíteni.
 * JSON to Kotlin konverter például: https://transform.tools/json-to-kotlin
 * Kezelje megfelelően a készülék elforgatása során bekövetkező életciklus változásokat.
 * Perzisztencia és hálózati hívásoknál figyeljen a megfelelő szálkezelésre!.
-* Gondoljon az internetkapcsolat hiányára, a távoli kiszolgálók hibáira és ezek megfelelő lekezelésére, illetve a felhasználó megfelelő tájékoztatására.
-* A Google Térkép használatához, valamint a szükséges API-kulcs elkészítéséhez az Android Studio új Google Maps Activity opciója jó példát mutat.
-* Érdemes az előző féléves előadáson és a laborokon tanult ismereteket és projekteket alapul venni a feladatok megoldásához.
-    * https://www.aut.bme.hu/Course/VIAUBB03 
-    * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/El%C5%91ad%C3%A1s%20p%C3%A9ld%C3%A1k 
-    * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/Labor 
+* Gondoljon az internetkapcsolat hiányára, a távoli kiszolgálók hibáira és ezek megfelelő lekezelésére, illetve a
+  felhasználó megfelelő tájékoztatására.
+* A Google Térkép használatához, valamint a szükséges API-kulcs elkészítéséhez az Android Studio új Google Maps Activity
+  opciója jó példát mutat.
+* Érdemes az előző féléves előadáson és a laborokon tanult ismereteket és projekteket alapul venni a feladatok
+  megoldásához.
+    * https://www.aut.bme.hu/Course/VIAUBB03
+    * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/El%C5%91ad%C3%A1s%20p%C3%A9ld%C3%A1k
+    * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/Labor
 * A feladat megvalósítása és beadása során önálló, egyedi munkákat várunk.
 
 ## 1. Alapok
 
-* Állítsa át a `Vilagjaro/app/build.gradle.kts` fájlban a `compileSdk` és a `targetSdk` értékét `35`-re, majd kattintson a _Sync Now_-ra.
+* Állítsa át a `Vilagjaro/app/build.gradle.kts` fájlban a `compileSdk` és a `targetSdk` értékét `35`-re, majd kattintson
+  a _Sync Now_-ra.
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
     * https://icon.kitchen, vagy
     * `app/src/main/res` mappa > _New_ > _Image/Vector Asset_ > _Asset Studio_
-* Valósítson meg navigációt egy tetszőleges megközelítéssel (`NavigationDrawer`, `ViewPager`, `BottomNavigationView`, Főmenü activity három gombbal stb.), amivel összesen három felület (`Activity` vagy `Fragment`) között lehet váltani az alkalmazásban. 
-* Készítsen a `Toolbar`-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar-üzenetben kiírja az Ön nevét és Neptun-kódját. 
-* Az első felületen készítsen `RecyclerView`-alapú görgethető listát, amihez egy beviteli mező (pl. rögzített `EditText` és gomb a felület telején vagy `AlertDialog` `FloatingActionButton`-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét (name -> common), hárombetűs országkódját (`cca3`) és zászlóját. 
-* A zászló képét a Glide osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag -> png) felhasználásával. 
-* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
+* Valósítson meg navigációt egy tetszőleges megközelítéssel (`NavigationDrawer`, `ViewPager`, `BottomNavigationView`,
+  Főmenü activity három gombbal stb.), amivel összesen három felület (`Activity` vagy `Fragment`) között lehet váltani
+  az alkalmazásban.
+* Készítsen a `Toolbar`-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy
+  Snackbar-üzenetben kiírja az Ön nevét és Neptun-kódját.
+* Az első felületen készítsen `RecyclerView`-alapú görgethető listát, amihez egy beviteli mező (pl. rögzített `EditText`
+  és gomb a felület telején vagy `AlertDialog` `FloatingActionButton`-ra kattintva) segítségével lehet dinamikusan
+  hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek
+  tartalmazzák az ország angol nevét (name -> common), hárombetűs országkódját (`cca3`) és zászlóját.
+* A zászló képét a Glide osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag -> png)
+  felhasználásával.
+* Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter
+  response) a szükséges adatmezőkre (előretekintve a további feladatokra is).
 
 ```gradle
 //Retrofit dependencies
@@ -55,7 +80,7 @@ implementation(libs.glide)
 ```
 
 ```kotlin
-data class CountryData (
+data class CountryData(
     //...
 )
 ```
@@ -70,6 +95,7 @@ interface CountryApi {
 ```
 
 `NetworkManager.kt`
+
 ```kotlin
 object NetworkManager {
     private val retrofit: Retrofit
@@ -92,48 +118,48 @@ object NetworkManager {
 }
 ```
 
-
 `item_country.xml`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingBottom="8dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:paddingBottom="8dp"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:paddingTop="8dp">
 
     <ImageView
-        android:id="@+id/ivFlag"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="center_vertical" />
+            android:id="@+id/ivFlag"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvCountryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:gravity="center_vertical"
-            tools:text="Country" />
+            android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvCountryAlpha3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:gravity="center_vertical"
-            tools:text="Code" />
+                android:id="@+id/tvCountryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:gravity="center_vertical"
+                tools:text="Country"/>
+
+        <TextView
+                android:id="@+id/tvCountryAlpha3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:gravity="center_vertical"
+                tools:text="Code"/>
     </LinearLayout>
 
 </LinearLayout>
@@ -165,19 +191,21 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
         notifyItemInserted(countries.size)
     }
 
-    inner class CountryViewHolder(val binding:  ItemCountryBinding) :
+    inner class CountryViewHolder(val binding: ItemCountryBinding) :
         RecyclerView.ViewHolder(binding.root) {
     }
 }
 ```
 
 `dialog_new_country.xml`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--...-->
 ```
 
 `AddCountryDialogFragment.kt`
+
 ```kotlin
 class AddCountryDialogFragment : AppCompatDialogFragment() {
 
@@ -188,13 +216,13 @@ class AddCountryDialogFragment : AppCompatDialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        try{
-            listener = if (targetFragment != null){
+        try {
+            listener = if (targetFragment != null) {
                 targetFragment as AddCountryDialogListener
             } else {
                 activity as AddCountryDialogListener
             }
-        } catch ( e: ClassCastException){
+        } catch (e: ClassCastException) {
             throw RuntimeException(e)
         }
     }
@@ -222,29 +250,30 @@ class AddCountryDialogFragment : AppCompatDialogFragment() {
 ```
 
 `activity_list.xml`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/coordinatorContent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ListActivity">
+                                                     android:id="@+id/coordinatorContent"
+                                                     xmlns:tools="http://schemas.android.com/tools"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     tools:context=".ListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/country_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/country_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@android:drawable/ic_input_add"/>
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@android:drawable/ic_input_add"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
@@ -261,11 +290,11 @@ class ListActivity : AppCompatActivity(),
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.fab.setOnClickListener{
+        binding.fab.setOnClickListener {
             AddCountryDialogFragment()
                 .show(supportFragmentManager, AddCountryDialogFragment::class.java.simpleName)
         }
-        
+
         binding.countryList.layoutManager = LinearLayoutManager(this)
         adapter = CountryAdapter()
         onCountryAdded("Hungary")
@@ -307,21 +336,27 @@ class ListActivity : AppCompatActivity(),
 }
 ```
 
-
 ## 2. Részletes nézet és Wikipédia
 
-* Adott listaelem kiválasztása esetén a kiválasztott ország részletes nézete legyen betöltve a második felületre szépen elrendezve, címkékkel, mértékegységekkel. A részletes nézet tartalmazza legalább az ország nevét, fővárosát, népességét, területét.
-* Adott listaelem hosszú kiválasztása esetén pedig kiválasztott ország angol Wikipédia-oldala töltsön be az alapértelmezett böngészőalkalmazásban. (A szóközt a Wikipédia automatikusan alulvonásra cseréli.) Pl.: https://en.wikipedia.org/wiki/Hungary, https://en.wikipedia.org/wiki/Costa_Rica.
+* Adott listaelem kiválasztása esetén a kiválasztott ország részletes nézete legyen betöltve a második felületre szépen
+  elrendezve, címkékkel, mértékegységekkel. A részletes nézet tartalmazza legalább az ország nevét, fővárosát,
+  népességét, területét.
+* Adott listaelem hosszú kiválasztása esetén pedig kiválasztott ország angol Wikipédia-oldala töltsön be az
+  alapértelmezett böngészőalkalmazásban. (A szóközt a Wikipédia automatikusan alulvonásra cseréli.)
+  Pl.: https://en.wikipedia.org/wiki/Hungary, https://en.wikipedia.org/wiki/Costa_Rica.
 
 ## 3. Perzisztencia
 
-* Az alkalmazás tegye lehetővé a listához hozzáadott országok Room-alapú perzisztens elmentését, onnan való kitörlését. Ehhez bővítse ki az egyes országokhoz tartozó listaelemet egy gombbal, amivel ki lehet törölni az aktuális országot. 
-* Az alkalmazás ismételt elindítása esetén ezeknek az elmentett országoknak vissza kell töltődniük. 
+* Az alkalmazás tegye lehetővé a listához hozzáadott országok Room-alapú perzisztens elmentését, onnan való kitörlését.
+  Ehhez bővítse ki az egyes országokhoz tartozó listaelemet egy gombbal, amivel ki lehet törölni az aktuális országot.
+* Az alkalmazás ismételt elindítása esetén ezeknek az elmentett országoknak vissza kell töltődniük.
 
 ## 4. Térkép
 
-Ebben a feladatban már ne használjunk Retrofit-hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve az előző feladat kihagyása esetén). 
+Ebben a feladatban már ne használjunk Retrofit-hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve
+az előző feladat kihagyása esetén).
 
-* A harmadik felületen egy térkép (Google, OpenStreetMap stb.) jelenjen meg. 
-* A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi koordinátákkal jelölt helyükön (`latlng`). 
+* A harmadik felületen egy térkép (Google, OpenStreetMap stb.) jelenjen meg.
+* A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi
+  koordinátákkal jelölt helyükön (`latlng`).
 * A jelölőre kattintva írja ki az ország nevét és fővárosát (`capital`). 
