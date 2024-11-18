@@ -1,8 +1,7 @@
-# Világjáró Android alkalmazás fejlesztése 
-### Android 1 labor
+# Világjáró Android-alkalmazás fejlesztése (Android 1. labor)
 
-Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon részletezett API hívások segítségével töltse be.
-Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API végpont példákat.
+Készítsen Kotlin nyelven Világjáró Android-alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon részletezett API-hívások segítségével töltse be.
+Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API-végpont példákat.
 
 * https://restcountries.com/v3.1/all
 * https://restcountries.com/v3.1/name/Hungary
@@ -16,8 +15,8 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 
 ## Feltöltés
 * A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni a Moodle portálra a jelzett határidőig.
-* A ZIP-ből az \app\build\intermediates mappából minden kerüljön törlésre, kivéve az \app\build\intermediates\apk\ mappa, az abban lévő APK fájl mindenképpen maradjon benne. 
-* A feltöltött ZIP file-ba kerüljön egy egyszerű, név-neptun-kóddal ellátott PDF dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
+* A ZIP-ből az `app\build\intermediates` mappából minden kerüljön törlésre, kivéve az `app\build\intermediates\apk` mappa, az abban lévő `.apk`-fájl mindenképpen maradjon benne. 
+* A feltöltött ZIP file-ba kerüljön egy egyszerű, név-Neptun-kóddal ellátott PDF-dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
 
 ## Tippek
 * Törekedjen a rövid osztályokra és függvényekre, valamint az átlátható forráskódra 
@@ -27,8 +26,7 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 * Kezelje megfelelően a készülék elforgatása során bekövetkező életciklus változásokat.
 * Perzisztencia és hálózati hívásoknál figyeljen a megfelelő szálkezelésre!.
 * Gondoljon az internetkapcsolat hiányára, a távoli kiszolgálók hibáira és ezek megfelelő lekezelésére, illetve a felhasználó megfelelő tájékoztatására.
-* A Google Térkép használatához, valamint a szükséges API kulcs elkészítéséhez az Android Studio új Google Maps Activity opciója jó példát mutat.
-* A tesztelés Nexus 5X API 31, Android 12.0 (Google APIs) x86_64 emulátoron fog történni.
+* A Google Térkép használatához, valamint a szükséges API-kulcs elkészítéséhez az Android Studio új Google Maps Activity opciója jó példát mutat.
 * Érdemes az előző féléves előadáson és a laborokon tanult ismereteket és projekteket alapul venni a feladatok megoldásához.
     * https://www.aut.bme.hu/Course/VIAUBB03 
     * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/El%C5%91ad%C3%A1s%20p%C3%A9ld%C3%A1k 
@@ -37,22 +35,23 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
 
 ## 1. Alapok
 
+* Állítsa át a `Vilagjaro/app/build.gradle.kts` fájlban a `compileSdk` és a `targetSdk` értékét `35`-re, majd kattintson a _Sync Now_-ra.
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
-    * https://icon.kitchen
-    * New Image/Vector Asset -> Asset Studio
-* Valósítson meg navigációt egy tetszőleges megközelítéssel (NavigationDrawer, ViewPager, BottomNavigationView, Főmenü activity három gombbal stb.), amivel összesen három felület (Activity vagy Fragment) között lehet váltani az alkalmazásban. 
-* Készítsen a Toolbar-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar üzenetben kiírja az Ön nevét és Neptun-kódját. 
-* Az első felületen készítsen RecyclerView alapú görgethető listát, amihez egy beviteli mező (pl. rögzített EditText és gomb a felület telején vagy AlertDialog FloatingActionButton-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét (name -> common), hárombetűs országkódját (cca3) és zászlóját. 
+    * https://icon.kitchen, vagy
+    * `app/src/main/res` mappa > _New_ > _Image/Vector Asset_ > _Asset Studio_
+* Valósítson meg navigációt egy tetszőleges megközelítéssel (`NavigationDrawer`, `ViewPager`, `BottomNavigationView`, Főmenü activity három gombbal stb.), amivel összesen három felület (`Activity` vagy `Fragment`) között lehet váltani az alkalmazásban. 
+* Készítsen a `Toolbar`-on egy menüt, ami egy tetszőlegesen ideillő ikonként látható, kiválasztás esetén pedig egy Snackbar-üzenetben kiírja az Ön nevét és Neptun-kódját. 
+* Az első felületen készítsen `RecyclerView`-alapú görgethető listát, amihez egy beviteli mező (pl. rögzített `EditText` és gomb a felület telején vagy `AlertDialog` `FloatingActionButton`-ra kattintva) segítségével lehet dinamikusan hozzáadni országokat a Retrofit osztálykönyvtár és a RestCountries API felhasználásával. Az egyes lista elemek tartalmazzák az ország angol nevét (name -> common), hárombetűs országkódját (`cca3`) és zászlóját. 
 * A zászló képét a Glide osztálykönyvtár segítségével töltse be az API által visszaadott URL (flag -> png) felhasználásával. 
 * Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). 
 
 ```gradle
 //Retrofit dependencies
-val retrofit_version = "2.9.0"
-implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
+implementation(libs.retrofit)
+implementation(libs.converter.gson)
 
-//Glide dependencies
+//Glide dependency
+implementation(libs.glide)
 ```
 
 ```kotlin
@@ -70,11 +69,11 @@ interface CountryApi {
 }
 ```
 
-NetWorkManager.kt
+`NetworkManager.kt`
 ```kotlin
 object NetworkManager {
     private val retrofit: Retrofit
-    private val countryApi: CountryApi;
+    private val countryApi: CountryApi
 
     private const val SERVICE_URL = "https://restcountries.com/"
 
@@ -94,7 +93,7 @@ object NetworkManager {
 ```
 
 
-item_country.xml
+`item_country.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -122,7 +121,8 @@ item_country.xml
             android:id="@+id/tvCountryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:gravity="center_vertical"
             tools:text="Country" />
 
@@ -130,7 +130,8 @@ item_country.xml
             android:id="@+id/tvCountryAlpha3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:gravity="center_vertical"
             tools:text="Code" />
     </LinearLayout>
@@ -170,13 +171,13 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
 }
 ```
 
-dialog_new_country.xml
+`dialog_new_country.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<!--...->
+<!--...-->
 ```
 
-AddCountryDialogFragment.kt
+`AddCountryDialogFragment.kt`
 ```kotlin
 class AddCountryDialogFragment : AppCompatDialogFragment() {
 
@@ -203,7 +204,7 @@ class AddCountryDialogFragment : AppCompatDialogFragment() {
             .setTitle("New country")
             .setView(binding.root)
             .setPositiveButton("Add") { _, _ ->
-                listener.onCountryAdded(binding.etNewCountry!!.text.toString())
+                listener.onCountryAdded(binding.etNewCountry.text.toString())
             }
             .setNegativeButton("Cancel", null)
             .create()
@@ -220,9 +221,7 @@ class AddCountryDialogFragment : AppCompatDialogFragment() {
 }
 ```
 
-
-
-activity_list.xml
+`activity_list.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -233,7 +232,6 @@ activity_list.xml
     tools:context=".ListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/country_list"
         android:layout_width="match_parent"
@@ -310,22 +308,20 @@ class ListActivity : AppCompatActivity(),
 ```
 
 
+## 2. Részletes nézet és Wikipédia
 
- 
-## 2. Részletes nézet és Wikipedia
-
-* Adott listaelem kiválasztása esetén a kiválasztott ország részletes nézete kerüljön betöltésre a második felületre, szépen elrendezve, címkékkel, mértékegységekkel. A részletes nézet tartalmazza legalább az ország nevét, fővárosát, népességét, területét.
-* Adott listaelem hosszú kiválasztása esetén pedig kiválasztott ország angol Wikipedia oldala töltsön be az alapértelmezett böngésző alkalmazásban. (a szóközt a Wikipedia automatikusan redirekteli alulvonásra) Pl. https://en.wikipedia.org/wiki/Hungary, https://en.wikipedia.org/wiki/Costa_Rica 
+* Adott listaelem kiválasztása esetén a kiválasztott ország részletes nézete legyen betöltve a második felületre szépen elrendezve, címkékkel, mértékegységekkel. A részletes nézet tartalmazza legalább az ország nevét, fővárosát, népességét, területét.
+* Adott listaelem hosszú kiválasztása esetén pedig kiválasztott ország angol Wikipédia-oldala töltsön be az alapértelmezett böngészőalkalmazásban. (A szóközt a Wikipédia automatikusan alulvonásra cseréli.) Pl.: https://en.wikipedia.org/wiki/Hungary, https://en.wikipedia.org/wiki/Costa_Rica.
 
 ## 3. Perzisztencia
 
-* Az alkalmazás tegye lehetővé a listához hozzáadott országok Room alapú perzisztens elmentését, onnan való kitörlését. Ehhez bővítse ki az egyes országokhoz tartozó listaelemet egy gombbal, amivel ki lehet törölni az aktuális országot. 
+* Az alkalmazás tegye lehetővé a listához hozzáadott országok Room-alapú perzisztens elmentését, onnan való kitörlését. Ehhez bővítse ki az egyes országokhoz tartozó listaelemet egy gombbal, amivel ki lehet törölni az aktuális országot. 
 * Az alkalmazás ismételt elindítása esetén ezeknek az elmentett országoknak vissza kell töltődniük. 
 
 ## 4. Térkép
 
-Ebben a feladatban már ne használjunk Retrofit hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve az előző feladat kihagyása esetén). 
+Ebben a feladatban már ne használjunk Retrofit-hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve az előző feladat kihagyása esetén). 
 
 * A harmadik felületen egy térkép (Google, OpenStreetMap stb.) jelenjen meg. 
-* A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi koordinátákkal jelölt helyükön (latlng). 
-* A jelölőre kattintva írja ki az ország nevét és fővárosát (capital). 
+* A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi koordinátákkal jelölt helyükön (`latlng`). 
+* A jelölőre kattintva írja ki az ország nevét és fővárosát (`capital`). 
