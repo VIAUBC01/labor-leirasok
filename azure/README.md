@@ -77,28 +77,26 @@ A feladat hasonló a [_Háttéralkalmazások_ tárgy Azure-os gyakorlatához](ht
 
 ##### További eltérések
 
-- Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.
-- Az 2.1 lépés előtt értelmes elvégezni a **Microsoft.Sql** resource provider regisztrációját. Minden Azure műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (**Microsoft.Sql** azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva) és az első lépés varázslója hibát adhat (_SQLAzure is not available for your selection of subscription and location_). [Segédlet](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) egy resource provider regisztrálásához.
+- Kezdheted a 2-es lépéssel, és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.
+- Az 2.1 lépés előtt értelmes elvégezni a `Microsoft.Sql` resource provider regisztrációját. Minden Azure-műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (`Microsoft.Sql` azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva), így az első lépés varázslója hibát adhat (_SQLAzure is not available for your selection of subscription and location_). [Segédlet](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) egy resource provider regisztrálásához.
 - Az 2.2.3 lépésben az app nevében (Name) az XYZ rész a Neptun-kódod legyen. A logikai SQL Server neve (Server name), az adatbázis neve (Database name), a cache neve (Cache name) szintén az _123_ rész helyett a Neptun-kódod legyen.
-- A 2.2.5-ös allépésben lehet, hogy nem az SQLAzure van kiválasztva, ilyenkor válasszuk ki mi.
-- 4.4-4.5: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is
-- A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
-- A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.
-- A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.
+- 4.4–4.5: Copilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is.
+- A 4.5-ös lépésben a YAML-fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML-fájlt eredményezhet!
+- A 7.2-es lépésben a napló nézetben az üzenetek 2-5 perces késéssel jelennek meg, különösen a bekapcsolást követően! A lefuttatott SQL-parancsoknak idővel meg kellene jelenniük (ha nem gyorsítótár szolgálja ki a kérést).
 - A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
 
 #### Beadandó
 
 ##### Képernyőképek az alábbi lépésekről
 
-| Kép tartalma                                                                            | Típus        | Fájlnév (kiterjesztés nélkül) |
-|-----------------------------------------------------------------------------------------|--------------|-------------------------------|
-| Azure portál főoldala belépés után                                                      | Böngésző     | `f1_azlogin`                  |
-| Az új App Service áttekintő oldala (_Overview_)                                         | Böngésző     | `f1_app`                      |
-| Az új adatbázis áttekintő oldala (_Overview_)                                           | Böngésző     | `f1_sqldb`                    |
-| EF Migration bundle futtatása                                                           | SSH-terminál | `f1_efmigr`                   |
-| Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |
-| ☁️ Az App Service *Log stream* oldala egy elem módosítása után                          | Böngésző     | `f1_log`                      |
+| Kép tartalma                                                                                                            | Típus        | Fájlnév (kiterjesztés nélkül) |
+|-------------------------------------------------------------------------------------------------------------------------|--------------|-------------------------------|
+| Az Azure portál főoldala belépés után                                                                                   | Böngésző     | `f1_azlogin`                  |
+| Az új App Service áttekintő oldala (_Overview_)                                                                         | Böngésző     | `f1_app`                      |
+| Az _App Service_-en belül a _Service Connector_ aloldalon a *Cache for Redis*en kívül minden kapcsolat le van validálva | Böngésző     | `f1_svcconn`                  |
+| Az EF Migration bundle futtatása                                                                                        | SSH-terminál | `f1_efmigr`                   |
+| Az új adatbázis áttekintő oldala (_Overview_)                                                                           | Böngésző     | `f1_sqldb`                    |
+| ☁️ Az App Service *Log stream* oldala egy elem módosítása után                                                          | Böngésző     | `f1_log`                      |
 
 💡 Service Connector-ok validálása az App Service [Service Connector lapján](https://learn.microsoft.com/en-us/azure/service-connector/quickstart-portal-container-apps): jelölj ki minden kapcsolatot és felül nyomd meg a _Validate_ gombot. Várd meg, amíg az ellenőrzés lefut.
 
@@ -144,7 +142,7 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 
 :godmode: Végeztél a feladatokkal. :godmode:
 
-⚠️ A beadás után érdemes törölni minden Azure erőforrást.
+⚠️ A beadás után érdemes törölni minden Azure-erőforrást.
     
 ### Beadandó - 2. feladat
 
