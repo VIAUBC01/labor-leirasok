@@ -8,7 +8,8 @@ Ebben a feladatban az értékesítőkről fogunk riportot készíteni.
 
 Az új riporthoz új adatokra lesz szükségünk. Bővítsük ki a lekérdezésünket, azaz a *dataset*et.
 
-1. A _Report Data_ panelen a _Datasets_ alatt az _AdventureWorksDataset_-re jobb kattintással válasszuk a *Dataset Properties*t, majd bővítsük a queryt:
+1. A _Report Data_ panelen a _Datasets_ alatt az _AdventureWorksDataset_-re jobb kattintással válasszuk a *Dataset
+   Properties*t, majd bővítsük a queryt:
 
    ```diff
    SELECT
@@ -31,35 +32,43 @@ Az új riporthoz új adatokra lesz szükségünk. Bővítsük ki a lekérdezés�
    HAVING ppc.Name = 'Clothing'
    ```
 
-   A _Refresh Fields_ gombra kattintva ellenőrizhetjük, sikerült-e jól beírnunk. Ha nem jön hibaüzenet, akkor jók vagyunk. Zárjuk be a szerkesztőablakot.
+   A _Refresh Fields_ gombra kattintva ellenőrizhetjük, sikerült-e jól beírnunk. Ha nem jön hibaüzenet, akkor jók
+   vagyunk. Zárjuk be a szerkesztőablakot.
 
-1. A _Report data_ ablakban az *AdventureWorksDataset*et nyissuk ki, vagy ha ki van nyitva, akkor csukjuk be és nyissuk ki újra. Ekkor meg kell jelenjen egy új _SalesPersonName_ mező.
+1. A _Report data_ ablakban az *AdventureWorksDataset*et nyissuk ki, vagy ha ki van nyitva, akkor csukjuk be és nyissuk
+   ki újra. Ekkor meg kell jelenjen egy új _SalesPersonName_ mező.
 
-1. Ezután jobb klikk a *Data Sources*ben az _AdventureWorks2014_-re > _Convert to Shared Data Source_, majd jobb klikk az _AdventureWorksDataset_-re > _Convert to Shared Dataset_. Ezzel a data source és a dataset is megosztható több riportfájl között.
+1. Ezután jobb klikk a *Data Sources*ben az _AdventureWorks2014_-re > _Convert to Shared Data Source_, majd jobb klikk
+   az _AdventureWorksDataset_-re > _Convert to Shared Dataset_. Ezzel a data source és a dataset is megosztható több
+   riportfájl között.
 
 ## Új riport és adatforrások
 
 Az előbb megosztottá konvertáltuk a data source-t és a datasetet. Ezeket fogjuk egy új riportban felhasználni.
 
-1. *Solution Explorer*ben jobb klikk a _Reports_ mappára > _Add_ > _New Item…_ > _Report_. Az új riport neve legyen "Sales People".
+1. *Solution Explorer*ben jobb klikk a _Reports_ mappára > _Add_ > _New Item…_ > _Report_. Az új riport neve legyen "
+   Sales People".
 
-1. Nyissuk meg az új riportot. Az új riporthoz még nincsenek adatforrások. A _Report Data_ panelen vegyük fel a már meglevő adatforrásokat:
+1. Nyissuk meg az új riportot. Az új riporthoz még nincsenek adatforrások. A _Report Data_ panelen vegyük fel a már
+   meglevő adatforrásokat:
 
-   - Jobb klikk a _Data Sources_ node-on > _Add Data Source…_
+    - Jobb klikk a _Data Sources_ node-on > _Add Data Source…_
 
-   - Válasszuk a _Use shared data source reference_ opciót, és válasszuk ki az "AdventureWorks2014" nevűt.
+    - Válasszuk a _Use shared data source reference_ opciót, és válasszuk ki az "AdventureWorks2014" nevűt.
 
-     ![Megosztott adatforrás](images/rs-add-datasource-shared.png)
+      ![Megosztott adatforrás](images/rs-add-datasource-shared.png)
 
-   - Jobb klikk a *Datasets*re > _Add Dataset…_
+    - Jobb klikk a *Datasets*re > _Add Dataset…_
 
-   - Válasszuk ki a _Use a shared dataset._ opciót, és alatta válasszuk ki a már létező *AdventureWorksDataset*et
+    - Válasszuk ki a _Use a shared dataset._ opciót, és alatta válasszuk ki a már létező *AdventureWorksDataset*et
 
-     ![Megosztott adathalmaz](images/rs-add-dataset-shared.png)
+      ![Megosztott adathalmaz](images/rs-add-dataset-shared.png)
 
 ## Riport tartalma
 
-Készíts táblázatos riportot arról, hogy az egyes értékesítők mikor mit adtak el. Csoportosíts termékkategória és értékesítő szerint. Készíts egy összegző sort, ami az egyes értékesítők mindenkori eladásait összegzi! Ügyelj a számértékek formázására!
+Készíts táblázatos riportot arról, hogy az egyes értékesítők mikor mit adtak el. Csoportosíts termékkategória és
+értékesítő szerint. Készíts egy összegző sort, ami az egyes értékesítők mindenkori eladásait összegzi! Ügyelj a
+számértékek formázására!
 
 A megoldás kulcsa az alábbi táblázat és csoportosítás összeállítása. A kategóriát a _Subcat_ mező tartalmazza.
 
@@ -69,7 +78,10 @@ Az alábbihoz hasonló legyen a végső riport:
 
 ![Összegzés kinézete](images/rs-sales-person-total.png)
 
-> Tipp: Ugyanúgy az _Add Total_ > _After_ funkciót kell használni, mint a közös feladatoknál. Amit itt el lehet rontani, hogy az _Add Total_ > _After_-t **nem** a `[SalesPersonName]`-en jobb klikkelve kell kiválasztani, hanem a `[Subcat]`-en jobb klikkelve – hiszen őket akarjuk összegezni, nem a *Sales Person* sorokat. (Ha a *SalesPersonName*-re kattintva csináljuk, abból "teljes összeg" lesz, hiszen minden értékesítőt összegzünk.)
+> Tipp: Ugyanúgy az _Add Total_ > _After_ funkciót kell használni, mint a közös feladatoknál. Amit itt el lehet rontani,
+> hogy az _Add Total_ > _After_-t **nem** a `[SalesPersonName]`-en jobb klikkelve kell kiválasztani, hanem a `[Subcat]`-en
+> jobb klikkelve – hiszen őket akarjuk összegezni, nem a *Sales Person* sorokat. (Ha a *SalesPersonName*-re kattintva
+> csináljuk, abból "teljes összeg" lesz, hiszen minden értékesítőt összegzünk.)
 
 ## Végeztél
 
