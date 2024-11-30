@@ -55,6 +55,12 @@ Ha el akarjuk indítani a webszervert proxy üzemmódban, akkor az `index.html` 
 $ http-server --proxy http://localhost:3000/
 ```
 
+Ha a fenti parancsnál nem található a http-server, próbálkozzunk az alábbival:
+
+```cmd
+$ npx http-server --proxy http://localhost:3000/
+```
+
 Ha elindult a `http-server`, alapértelmezetten a `8080`-as porton figyel (ez egyébként konfigurálható a `--port` kapcsolóval). A weboldalunkat tehát megnyithatjuk a böngészőben a `http://localhost:8080/index.html` URL-t beírva. 
 
 Mivel a `main.js`-t betölti a HTML-oldalunk és abban a konzolra kiírunk egy szöveget, ha megnyitjuk a developer toolbar-t a böngészőben (`F12`-vel), akkor a *Console* tabon látnunk kell ezt a szöveget. 
