@@ -55,9 +55,9 @@ Ha el akarjuk indítani a webszervert proxy üzemmódban, akkor az `index.html` 
 $ http-server --proxy http://localhost:3000/
 ```
 
-Ha a fenti parancsnál nem található a http-server, próbálkozzunk az alábbival:
+Ha a fenti parancsnál nem található a `http-server`, próbálkozzunk az alábbival:
 
-```cmd
+```shell
 $ npx http-server --proxy http://localhost:3000/
 ```
 
