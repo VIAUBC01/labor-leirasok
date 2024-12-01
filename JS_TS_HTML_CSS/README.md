@@ -6,14 +6,14 @@ lekérdezésére alkalmas webalkalmazás és egy azt kiszolgáló szerver elkés
 
 A megvalósítandó alkalmazás két részből áll:
 
-1. A backend a [NodeJS](https://nodejs.org/en/) JavaScript-motoron
+1. A backend a [Node.js](https://nodejs.org/en/) JavaScript-motoron
    futtatott [ExpressJS keretrendszert](https://expressjs.com/) használó alkalmazás, amit TypeScript nyelven kell
    elkészíteni.
 2. A frontend egy egyszerű HTML-oldal és hozzá tartozó JavaScript-kód, amelyet szintén TypeScript nyelven fogunk
    megírni. Ebben a példában még nem használunk semmilyen frontend keretrendszert.
 
 A feladathoz semmilyen kezdő kódot nem használunk fel, mindent mi fogunk megírni, a projekteket is mindenki maga készíti
-el. Fejlesztéshez és futtatáshoz mindössze a [NodeJS](https://nodejs.org/en/)-re lesz szükség, továbbá egy
+el. Fejlesztéshez és futtatáshoz mindössze a [Node.js](https://nodejs.org/en/)-re lesz szükség, továbbá egy
 szövegszerkesztőre. Javasuljuk a [Visual Studio Code (`vscode`)](https://code.visualstudio.com/) használatát. (Egyik
 feladathoz szükség lesz egy ingyenes segédlkalmazásra, de erről majd később részletesen.)
 
@@ -41,7 +41,7 @@ Mielőtt nekilátunk a kód elkészítéséhez, tekintsük át, hogy az alkalmaz
   Ezt nevezzük REST API-nak. Tegyük fel, hogy a backendalkalmazást a `localhost:3000` hálózati címen érjük el. Ekkor
   például a `localhost:3000/tweets` URL-re küldött HTTP `GET` kérés visszaadhatja az összes tweetet, vagy az ugyanerre a
   címre küldött `POST` kéréssel küldhetünk új üzenetet.
-    * A backend JavaScript-kódját a NodeJS futtatja.
+    * A backend JavaScript-kódját a Node.js futtatja.
     * A JavaScript helyett TypeScript nyelven kódolunk, majd a TypeScript-fordítóval lefordítjuk a TypeScript-fájlokat
       JavaScript-fájlokká.
 * A böngészőben futó webalkalmazás egy egyszerű HTML-fájlból és egyetlen hozzátartozó JavaScript-fájlból fog állni.

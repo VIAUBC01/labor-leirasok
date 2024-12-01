@@ -6,7 +6,7 @@ Egy üres könyvtárban hozzunk létre egy `client` és egy `server` könyvtára
 
 ## Szerverprojektek előkészítése
 
-Lépjünk be a `server` könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy NodeJS-projektet a következő
+Lépjünk be a `server` könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy Node.js-projektet a következő
 parancs kiadásával:
 
 ```shell
