@@ -7,7 +7,7 @@ Az Angular keretrendszer egy `ng` nevű programcsomagot is tartalmaz, amely nagy
 Ha saját gépen dolgozunk, és nincs még telepítve a gépünkre, telepítsük az `ng` programcsomagot (a laborgépeken erre nincs szükség): 
 
 ```cmd
-$ npm install -g @angular/cli
+$ npm install -g @angular/cli@17
 ```
 
 Ezután adjuk ki a következő parancsot: 
