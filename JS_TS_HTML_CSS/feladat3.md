@@ -63,4 +63,4 @@ nézzen ki:
 
 A kész felületről kerüljön képernyőkép a jegyzőkönyvbe!
 
-_Végeztél a laborral! 🎉_
+_Végzett a laborral! 🎉_
