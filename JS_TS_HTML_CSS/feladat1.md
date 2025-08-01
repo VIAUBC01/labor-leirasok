@@ -1,119 +1,135 @@
-# Szerver alkalmazás
+# Szerveralkalmazás
 
 ## Könyvtárak létrehozása
 
-Egy üres könyvtárban hozzunk létre egy `client` és egy `server` könyvtárat.
+Egy üres könyvtárban hozzunk létre egy `client` és egy `server` könyvtárat!
 
-## Szerver projektek előkészítése
+## Szerverprojektek előkészítése
 
-Lépjünk be a szerver könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy NodeJS projektet a következő parancs kiadásával: 
+Lépjünk be a `server` könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy Node.js-projektet a következő
+parancs kiadásával:
 
-```cmd
-$ npm init
+```shell
+$ npm init -y
 ```
 
-Ez létrehoz egy `package.json` fájlt, amiben a projektünk függőségeit (más programkönyvtárakat (= `npm` package)) leírjuk. 
+Ez létrehoz egy `package.json` fájlt, amiben a projektünk függőségeit (más programkönyvtárakat, azaz `npm` package-eket)
+leírjuk.
 
-Ellenőrizzük, hogy a TypeScript fordító telepítve van a gépünkre! Ezt érdemes a `-g` kapcsolóval telepíteni, így nem csak az adott program számára lesz elérhető, hanem globálisan az egész számítógépen. 
+Ellenőrizzük, hogy a TypeScript-fordító telepítve van-e a gépünkre! Ezt érdemes a `-g` kapcsolóval telepíteni, így nem
+csak az adott program számára lesz elérhető, hanem globálisan az egész számítógépen.
 
-```cmd
+```shell
 $ npm install typescript -g
 ```
 
-Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeScript projektet is, amellyel azt konfiguráljuk, hogy ha a könyvtárban kiadjuk a `tsc` (TypeScript Compiler) parancsot, akkor mely fájlokat és hogyan fordítsuk le. 
+Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeScript-projektet is, amellyel azt
+konfiguráljuk, hogy ha a könyvtárban kiadjuk a `tsc` (TypeScript Compiler) parancsot, akkor mely fájlokat és hogyan
+fordítsuk le.
 
-```cmd
+```shell
 $ tsc --init
 ```
 
-A generált `tsconfig.json` fájl tartamazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: 
+A generált `tsconfig.json` fájl tartamazza a TypeScript-projekt és -fordító beállításait. Írjuk át az alapértelmezett
+beállításokat az alábbiaknak megfelelően:
 
 ```json
 {
   "compilerOptions": {
-    "target": "es6",                          
-    "module": "commonjs",                     
-    "outDir": "./build/",                     
-    "strict": true,                           
-    "esModuleInterop": true,                  
-    "skipLibCheck": true,                     
-    "forceConsistentCasingInFileNames": true  
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./build/",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   }
 }
 ```
 
 Amin változtattunk:
-* `outDir`: ebbe a könyvtárba fogja generálni a TypeScript fordító (`tsc`) a JavaScript fájlokat. 
-* `strict`: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító
+
+* `outDir`: ebbe a könyvtárba fogja generálni a TypeScript-fordító (`tsc`) a JavaScript-fájlokat.
+* `strict`: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító.
 
 ## REST API programozása
 
-A feladat során egy REST APIt szeretnénk megvalósítani. Vagyis az a cél, hogy a szerveralkalmazásunkra érkező HTTP kérésekre megfelelő választ tudjunk adni. Ehhez az `Express` nevű keretrendszert fogjuk használni. Ezt betöltve csak fel kell konfigurálnunk, azaz megadnunk, hogy milyen végpontokat (urleket) kell figyeljen és az egyes végpontokra érkező HTTP kérésekre milyen HTTP választ akarunk küldeni. 
+A feladat során egy REST API-t szeretnénk megvalósítani. Vagyis az a cél, hogy a szerveralkalmazásunkra érkező
+HTTP-kérésekre megfelelő választ tudjunk adni. Ehhez az `Express` nevű keretrendszert fogjuk használni. Ezt betöltve
+csak fel kell konfigurálnunk, azaz megadnunk, hogy milyen végpontokat (URL-eket) kell figyeljen, és az egyes végpontokra
+érkező HTTP-kérésekre milyen HTTP-választ akarunk küldeni.
 
 Adjuk hozzá az `express` csomagot a projektünkhöz!
 
-```cmd
+```shell
 $ npm install express -s
 ```
 
-Mivel TypeScript nyelven dolgozunk, adjuk hozzá a `@types/express` csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt `express` könytárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. 
+Mivel TypeScript nyelven dolgozunk, adjuk hozzá a `@types/express` csomagot is. Ez TypeScript nyelvű típusannotációkat
+tartalmaz az eredetileg JavaScript nyelven megírt `express` könytárhoz, így a fordító ellenőrizni tudja, hogy
+megfelelően használjuk-e a könyvtárat.
 
-```cmd 
+```shell 
 $ npm install @types/express -s
 ```
 
 Hozzunk létre egy `app` könyvtárat, abban pedig egy `main.ts` fájlt, amiben helyezzük el a következő kódot:
 
 ```ts
-console.log('hello world!');
+console.log('Hello World!');
 ```
+
 ## Fordítás, futtatás
 
-A TypeScript fájlokat a `tsc` paranccsal tudjuk lefordítani. 
+A TypeScript-fájlokat a `tsc` paranccsal tudjuk lefordítani.
 
-```cmd
+```shell
 $ tsc
 ```
 
-Ennek eredménye egy `main.js` fájl lesz a `build` mappában. Ezt az egyszerű js fájlt a `node` segítségével futtathatjuk:
+Ennek eredménye egy `main.js` fájl lesz a `build` mappában. Ezt az egyszerű JS-fájlt a `node` segítségével futtathatjuk:
 
-```cmd
+```shell
 $ node .\build\main.js
 ```
 
-Ha mindent jól csináltunk, a konzolon megjelenik a "hello world!" szöveg.
+Ha mindent jól csináltunk, a konzolon megjelenik a _Hello World!_ szöveg.
 
 A `node` projektekben lehetőség van szkriptek definiálására. Írjuk be a következő részeket a `package.json` fájlba:
 
 ```json
 /*...*/
 "scripts": {
-    "build" : "tsc",
-    "start" : "node ./build/main.js",
-    "build-and-start": "tsc & node ./build/main.js"
+"build": "tsc",
+"start": "node ./build/main.js",
+"build-and-start": "tsc && node ./build/main.js"
 },
 /*...*/
 ```
 
-Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az `npm run` parancsot, ha pedig egy konkrét szkriptet szreetnénk futtatni, adjuk ki az `npm run <szkript neve>` parancsot. 
+Ha ki szeretnénk listázni, hogy milyen szkriptek érhetőek el az adott projekthez, akkor futtassuk az `npm run`
+parancsot. Ha pedig egy konkrét szkriptet szeretnénk futtatni, adjuk ki az `npm run <szkript neve>` parancsot.
 
-A fenti szkriptek szerepe a következő: 
-* `build`: lefordítja a TypeScript kódunkat (kiadja a `tsc` parancsot)
+A fenti szkriptek szerepe a következő:
+
+* `build`: lefordítja a TypeScript-kódunkat (kiadja a `tsc` parancsot)
 * `start`: elindítja a már lefordított alkalmazást
-* `build-and-start`: lefordítja a kódot, majd elindítja a lefordított `main.js`-t. 
+* `build-and-start`: lefordítja a kódot, majd elindítja a lefordított `main.js`-t.
 
-Innentől tehát, ha változik a kód, elég a következő parancsot kiadni az újrafordításhoz és futtatáshoz: 
+Innentől tehát, ha változik a kód, elég a következő parancsot kiadni az újrafordításhoz és futtatáshoz:
 
-```cmd
+```shell
 $ npm run build-and-start
 ```
 
-## Twitter szerver logikájának megvalósítása
+## Twitter-szerver logikájának megvalósítása
 
 A következő komponenseket fogjuk megvalósítani:
-* Típusok, amely leírják az egyes üzeneteket. Az üzeneteket a továbbiakban *tweet*eknek fogjuk nevezni.
-* Egy adatbázis osztály, amely képes eltárolni a tweeteket, újat beszúrni, visszaadni a létező tweetek listáját. 
-* Egy `express` alapú API, amely biztosítja a végpontokat a tweetek lekérdezéséhez és visszaadásához. 
+
+* Típusok, melyek leírják az egyes üzeneteket. Az üzeneteket a továbbiakban *tweet*eknek fogjuk nevezni.
+* Egy adatbázisosztály, amely képes eltárolni a tweeteket, újat beszúrni, illetve visszaadni a létező tweetek listáját.
+* Egy `express` alapú API, amely biztosítja a végpontokat a tweetek lekérdezéséhez és visszaadásához.
 
 ### Modellek
 
@@ -122,7 +138,7 @@ Hozzuk létre az `app/models.ts` fájlt:
 ```ts
 //app/models.ts
 export type Tweet = {
-    text : string,
+    text: string,
     userName: string,
     tags?: string[]
 }
@@ -136,11 +152,12 @@ Hozzuk létre az `app/database.ts` fájlt:
 
 ```ts
 //app/database.ts
-import { Tweet, TweetWithId } from "./models";
+import {Tweet, TweetWithId} from "./models";
 
 let i = 0;
-function generateTweetId() : string {
-    i++; 
+
+function generateTweetId(): string {
+    i++;
     return i.toString();
 }
 
@@ -162,7 +179,7 @@ export class Database {
         };
     }
 
-    public getAllTweets() : TweetWithId[] {
+    public getAllTweets(): TweetWithId[] {
         return Array.from(this.tweetsByIds.keys()).map(id => ({
             id,
             ...this.tweetsByIds.get(id)!
@@ -171,60 +188,71 @@ export class Database {
 }
 ```
 
-Láthatjuk, hogy a tweeteket egyszerűen a memóriában fogjuk tárolni, tehát nincsen az alkalmazásunk mögött semmilyen perzisztens tároló, adatbázis. Ha a szervert újraindítjuk, az addig posztolt tweetek elvesznek. 
+Láthatjuk, hogy a tweeteket egyszerűen a memóriában fogjuk tárolni, tehát nincsen az alkalmazásunk mögött semmilyen
+perzisztens tároló, adatbázis. Ha a szervert újraindítjuk, az addig posztolt tweetek elvesznek.
 
-**Fontos, hogy a fenti kódokat ne csak bemásoljuk, hanem meg is értsük!** A jegyzőkönyvben válaszoljon az alábbi kérdésekre: 
+**Fontos, hogy a fenti kódokat ne csak bemásoljuk, hanem meg is értsük!** A jegyzőkönyvben válaszoljon az alábbi
+kérdésekre:
 
-1. JavaScriptben mire szolgál a `Map` típus? 
+1. JavaScriptben mire szolgál a `Map` típus?
 1. Mi a különbség a `type` és az osztály (`class`) között?
-1. Magyarázza el, hogy az `app/database.ts` fájlban a `getTweetById` függvényben, a `return` utasítás utáni rész pontosan mit jelent, mi lesz a visszatérési érték!
+1. Magyarázza el, hogy az `app/database.ts` fájlban a `getTweetById` függvényben, a `return` utasítás utáni rész
+   pontosan mit jelent, mi lesz a visszatérési érték!
 
-Egészítse ki a `Database` osztály függvényeit loggolással (`console.log(...)`), amelyben a meghívott művelet neve mellett a következő információk kerüljenek kiírásra: 
-* Új tweet esetén írjuk ki a tweet szövegét, beküldőjét, azonosítóját, tagjeit. 
-* Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. 
-* Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. 
+Egészítse ki a `Database` osztály függvényeit logolással (`console.log(…)`), amelyben a meghívott művelet neve mellett a
+következő információk legyenek kiírva:
 
-### Egyedi tweet azanosítók
+* Új tweet esetén: a tweet szövege, beküldője, azonosítója, tagjei.
+* Egy tweet lekérdezésénél: a lekérdezett tweet azonosítója.
+* Tweetek lekérdezésénél: hány tweet található az adatbázisban.
 
-Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi [GUID](https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3)okat fogunk generálni egy `uuid` nevű `npm package` segítségével:
+### Egyedi tweetazonosítók
 
-```cmd
+Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a
+fenti kódban tettük), de ehelyett
+egyedi [GUID](https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3)-kat fogunk generálni egy `uuid`
+nevű `npm package` segítségével:
+
+```shell
 $ npm install uuid -s
 $ npm install @types/uuid -s
 ```
 
-Alakítsuk át a `database.ts`-t a következő módon: 
+Alakítsuk át a `database.ts`-t a következő módon:
 
 ```ts
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
-function generateTweetId() : string {
-    return uuidv4(); 
+function generateTweetId(): string {
+    return uuidv4();
 }
 ```
 
-### Adatbázis tesztelése
+### Az adatbázis tesztelése
 
 Helyezzük el a következő részt a `main.ts` fájlban:
 
 ```ts
-import { Database } from "./database";
+import {Database} from "./database";
 
 let db = new Database();
 db.addTweet({
-    text: 'Hello World!',
+    text: "Hello World!",
     tags: ["init"],
     userName: "mark"
 });
 ```
 
-Ezután futtatva az alkalmazást meg kell jelenjen a konzolon a log üzenet az új tweetről. **Tegyünk erről egy képet a jegyzőkönyvbe!**
+Ezután az alkalmazást futtatva meg kell jelenjen a konzolon a log az új tweetről. **Tegyünk erről egy képet a
+jegyzőkönyvbe!**
 
-## Web-API
+## Web API
 
-Az API programozásához az `express` csomag mellett szükség lesz annak egy pluginjára is ([`body-parser`](http://expressjs.com/en/resources/middleware/body-parser.html)), amely a HTTP válaszok JSON tartalmának a parse-olását teszi lehetővé: 
+Az API programozásához az `express` csomag mellett szükség lesz annak egy pluginjára is ([
+`body-parser`](http://expressjs.com/en/resources/middleware/body-parser.html)), amely a HTTP-válaszok JSON-tartalmának a
+parse-olását teszi lehetővé:
 
-```cmd
+```shell
 $ npm install body-parser -s
 $ npm install @types/body-parser -s
 ```
@@ -233,14 +261,15 @@ Hozzuk létre az `app/web-api.ts` fájlt!
 
 ```ts
 //app/web-api.ts
-import { Database } from "./database";
+import {Database} from "./database";
 import express from 'express';
-import bodyParser  from 'body-parser';
-import { Tweet } from "./models";
+import bodyParser from 'body-parser';
+import {Tweet} from "./models";
 
 export class TwitterApi {
 
-    constructor(private db: Database, private port: number) { }
+    constructor(private db: Database, private port: number) {
+    }
 
     public startServer() {
         const app: express.Application = express();
@@ -289,11 +318,15 @@ export class TwitterApi {
 }
 ```
 
-**A jegyzőkönyvben válaszoljon a következő kérdésekre:** 
-* Milyen  végpontokat definiál a fenti kód. Egy táblázatban szerepeljen a végpont URL-je, a HTTP metódus, azt hogy várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a leírásban. 
-* Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint? 
+**A jegyzőkönyvben válaszoljon a következő kérdésekre:**
 
-Egészítsük ki a fenti függvényeket úgy, hogy egy-egy beérkező kérés esetén kikerüljön a logra, hogy milyen kérés érkezett!
+* Milyen végpontokat definiál a fenti kód? Egy táblázatban szerepeljen a végpont URL-je, a HTTP-metódus, azt hogy
+  várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a
+  leírásban.
+* Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint?
+
+Egészítsük ki a fenti függvényeket úgy, hogy egy-egy beérkező kérés esetén kikerüljön a logra, hogy milyen kérés
+érkezett!
 
 ## Szerver elindítása
 
@@ -305,16 +338,24 @@ api.startServer();
 ```
 
 ## Tesztelés
-A szerver alkalmazás alapvető funkcióit ezzel megvalósítottuk, most ezt szeretnénk tesztelni. Ha megnyitjuk a böngészőt és beírjuk, hogy `http://localhost:3000`, akkor a böngésző megjeleníti a "Twitter szerver" információt. Ezzel máris teszteltük az egyik végpontot. A többi végpont, például a létrehozás, teszteléséhez azonban már egy tweet adatait is el kellene küldeni . 
 
-Egyszerű HTTP kérések összeállításához és elküldéséhez nagyon jól használható segédalkalmazás a [Postman](https://www.postman.com/). [Töltsük le](https://www.postman.com/downloads/) és indítsuk el az alkalmazást (nem kell regisztrálni hozzá). 
+A szerveralkalmazás alapvető funkcióit ezzel megvalósítottuk, most ezt szeretnénk tesztelni. Ha megnyitjuk a böngészőt
+és beírjuk, hogy `http://localhost:3000`, akkor a böngésző megjeleníti a _Twitter server_ információt. Ezzel máris
+teszteltük az egyik végpontot. A többi végpont, például a létrehozás teszteléséhez azonban már egy tweet adatait is el
+kellene küldeni.
 
-Ismerkedjünk meg a felületével! Az alábbi ábrán látható, hogyan tudunk elküldeni egy POST üzenetet. Meg kell adnunk az URL-t, az üzenet törzsét (*body*) a megfelelő formátumban. (Figyelem, JSON formátumban kötelező a property neveket idézőjelek közé tenni.) A *Send* gombra kattintva elküldhető az üzenet és alul látható a válasz.
+Egyszerű HTTP-kérések összeállításához és elküldéséhez nagyon jól használható segédalkalmazás
+a [Postman](https://www.postman.com/). [Töltsük le](https://www.postman.com/downloads/) és indítsuk el az alkalmazást (
+nem kell regisztrálni hozzá).
+
+Ismerkedjünk meg a felületével! Az alábbi ábrán látható, hogyan tudunk elküldeni egy POST üzenetet. Meg kell adnunk az
+URL-t, az üzenet törzsét (*body*) a megfelelő formátumban. (JSON formátumban kötelező a propertyneveket idézőjelek közé
+tenni!) A *Send* gombra kattintva elküldhető az üzenet és alul látható a válasz.
 
 ![Postman](postman-post.png)
 
 A jegyzőkönyvben készüljön képernyőkép minden végpont teszteléséről Postman segítéségével!
 
-Ha elkészült a szerver, [folytassuk a kliens alkalmazással](feladat2.md)!
+Ha elkészült a szerver, folytassuk a [kliensalkalmazással!](feladat2.md)
 
 
