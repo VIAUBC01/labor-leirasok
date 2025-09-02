@@ -1,0 +1,1835 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+      
+      
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+    
+    
+      
+        <title>Angular kliens - BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9c788c91.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../extra-material-theme.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#angular-kliens" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-header__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Angular kliens
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Váltás sötét témára"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Váltás sötét témára" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent=""  aria-label="Váltás világos témára"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Váltás világos témára" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Tudnivalók
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../android1/" class="md-tabs__link">
+        Laborok
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-nav__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
+          Tudnivalók
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tudnivalók" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tudnivalók
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Tárgy ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub/" class="md-nav__link">
+        Feladatok beadása (GitHub)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub-Actions/" class="md-nav__link">
+        GitHub Actions ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub-credentials/" class="md-nav__link">
+        Egyetemi laborokban: GitHub belépés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/contributing/" class="md-nav__link">
+        Hozzájárulás az anyaghoz
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Laborok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Laborok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Laborok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android1/" class="md-nav__link">
+        Android 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android2/" class="md-nav__link">
+        Android 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" tabindex="0" aria-expanded="false">
+          EF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EF" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          EF
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/" class="md-nav__link">
+        Adatréteg készítése Entity Frameworkkel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-1/" class="md-nav__link">
+        Áttekintés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-2/" class="md-nav__link">
+        Adatbetöltés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-3/" class="md-nav__link">
+        Feladat 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-4/" class="md-nav__link">
+        Feladat 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" tabindex="0" aria-expanded="false">
+          JS, TS, HTML, CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JS, TS, HTML, CSS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          JS, TS, HTML, CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/" class="md-nav__link">
+        HTML + CSS + JavaScript/TypeScript mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-1/" class="md-nav__link">
+        Szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-2/" class="md-nav__link">
+        Twitter webalkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-3/" class="md-nav__link">
+        További feladatok
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="false">
+          MSSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MSSQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          MSSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/" class="md-nav__link">
+        Microsoft SQL Szerver programozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-1/" class="md-nav__link">
+        Feladat 1: Kategória nézet és adatbeszúrás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-2/" class="md-nav__link">
+        Feladat 2: Számla ellenőrzése tárolt eljárással
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-3/" class="md-nav__link">
+        Feladat 3: Számla tábla denormalizálása
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" tabindex="0" aria-expanded="false">
+          Preact
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Preact" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Preact
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/" class="md-nav__link">
+        Preact Mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/server/" class="md-nav__link">
+        Twitter szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/client/" class="md-nav__link">
+        Preact kliens
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8" tabindex="0" aria-expanded="false">
+          Razor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Razor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Razor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/" class="md-nav__link">
+        Szerver oldali renderelés: Razor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9" tabindex="0" aria-expanded="false">
+          Reporting Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reporting Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reporting Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reportingservices/" class="md-nav__link">
+        Microsoft SQL Server Reporting Services használata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reportingservices/Feladat-1/" class="md-nav__link">
+        Feladat 1: Táblázatos riport
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reportingservices/Feladat-2/" class="md-nav__link">
+        Feladat 2: Vizualizáció
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reportingservices/Feladat-3/" class="md-nav__link">
+        Feladat 3: Értékesítői riport
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10" tabindex="0" aria-expanded="false">
+          Spring Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring Cloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Spring Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/" class="md-nav__link">
+        Microservice architektúra Spring Cloud platformon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-1/" class="md-nav__link">
+        1. Feladat: Config server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-2/" class="md-nav__link">
+        2. Feladat: Discovery server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-3/" class="md-nav__link">
+        3. Feladat: API gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-4/" class="md-nav__link">
+        4. Feladat: OpenFeign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11" tabindex="0" aria-expanded="false">
+          Spring MVC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring MVC" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Spring MVC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/" class="md-nav__link">
+        Adatréteg és REST API fejlesztése Spring Boottal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-1/" class="md-nav__link">
+        1. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-2/" class="md-nav__link">
+        2. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-3/" class="md-nav__link">
+        3. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-4/" class="md-nav__link">
+        4. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12" tabindex="0" aria-expanded="false">
+          Web API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/" class="md-nav__link">
+        RESTful API készítése: Web API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-generalt-kod-megertese" class="md-nav__link">
+    A generált kód megértése
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modell-osztalyok" class="md-nav__link">
+    Modell osztályok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kommunikacio-a-backenddel" class="md-nav__link">
+    Kommunikáció a backenddel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tweetek-listaja" class="md-nav__link">
+    Tweetek listája
+  </a>
+  
+    <nav class="md-nav" aria-label="Tweetek listája">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#futtatas" class="md-nav__link">
+    Futtatás
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uj-tweet-hozzaadasa" class="md-nav__link">
+    Új Tweet hozzáadása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootstrap-tema-hasznalata" class="md-nav__link">
+    Bootstrap téma használata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tweetek-torlese" class="md-nav__link">
+    Tweetek törlése
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="angular-kliens">Angular kliens<a class="headerlink" href="#angular-kliens" title="Permanent link">&para;</a></h1>
+<p>Hozzunk létre egy üres könyvtárat a munkához. </p>
+<p>Az Angular keretrendszer egy <code>ng</code> nevű programcsomagot is tartalmaz, amely nagyban megkönnyíti az Angular projektek menedzselését. Segít létrehozni új projeketeket, fájlokat, illetve segít az Angular alkalmazások elindításában is. </p>
+<p>Ha saját gépen dolgozunk, és nincs még telepítve a gépünkre, telepítsük az <code>ng</code> programcsomagot (a laborgépeken erre nincs szükség): </p>
+<div class="highlight"><pre><span></span><code>$ npm install -g @angular/cli@17
+</code></pre></div>
+<p>Ezután adjuk ki a következő parancsot: </p>
+<div class="highlight"><pre><span></span><code>$ ng new twitter --inline-style=false --inline-template=false --interactive=false --prefix=twit --routing=true --skip-git=true --skip-install --strict=true --style=scss --no-standalone
+</code></pre></div>
+<p>Az egyes kapcsolók jelentését megtekinthetjük ha kiadjuk a következő parancsot: </p>
+<div class="highlight"><pre><span></span><code>ng new --help
+</code></pre></div>
+<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:</strong></p>
+<ul>
+<li>Mit jelent a <code>--prefix=twit</code> beállítás?</li>
+<li>Mit jelent a <code>--style=scss</code> kapcsoló?</li>
+</ul>
+<p>Telepítsük fel a függőségeket (ha szükséges, előbb a terminálon navigáljunk a létrehozott mappába - <code>cd twitter</code>):</p>
+<div class="highlight"><pre><span></span><code>$ npm install
+</code></pre></div>
+<p>Egyből ki is próbálhatjuk a legenerált alkalmazást, ha kiadjuk a következő parancsot: </p>
+<div class="highlight"><pre><span></span><code>$ ng serve 
+</code></pre></div>
+<p>... és megnyitjuk a böngészőben a <code>localhost:4200</code>-as címet.</p>
+<h2 id="a-generalt-kod-megertese">A generált kód megértése<a class="headerlink" href="#a-generalt-kod-megertese" title="Permanent link">&para;</a></h2>
+<p>Röviden nézzük át, mi is történik, amikor elindul az alkalmazásunk:
+1. Az <code>ng serve</code> parancs, (vagy <code>ng build</code>) kiadásakor az <code>ng</code> fogja az összes TypeScript fájlunkat és generál belőlük egy darab JavaScript fájlt. Ugyanígy fogja az összes <code>scss</code> fájlt és generál belőlük egyetlen css fájlt. Ezután elhelyez az <code>index.html</code> fájlba két hivatkozást a generált ún. <em>bundle</em> fájlokra. Ezt az <code>index.html</code> fájlt fogja majd visszaküldeni a böngészőnek a webszerver. 
+1. A JavaScript kódunk belépési pontja a <code>main.ts</code>-ben található. A <code>platformBrowserDynamic().bootstrapModule(AppModule)</code> sor elindítja az Angular keretrendszert és betölti az <code>AppModule</code>-t, amely az <code>app.module.ts</code> fájlban található. 
+1. Az <code>AppModule</code> egy TypeScript modult definiál, amelyben összefogunk néhány komponenst, ill. service-t, amelyeket elérhetővé szeretnénk tenni az alkalmazásunkban. Az egyik ilyen komponens az <code>AppComponent</code>, amelyet az <code>app.component.ts</code> fájl definiál. 
+1. A komponensek legfontosabb tulajdonságai a <em>selector</em>, a <em>komponens osztály</em> és a <em>HTML sablon</em>. 
+    * A szelektor egy HTML tag neve. Miután a böngésző betöltötte az Angular keretrendszert megnézi, hogy a HTML kódban található-e olyan tag, amely egy adott komponens nevével egyezik meg. 
+    * Ha igen, akkor a HTML sablonban lévő HTML tartalmat beilleszti az adott tag helyére. 
+    * Közben létrehoz egy JavaScript objektumot a komponens osztály példányosításával. Ennek az objektumnak a propertyjei, illetve függvényei elérhetők lesznek a HTML sablonból. </p>
+<p>Ha jól megnézzük a generált <code>index.html</code> fájlt, abban megtalálható a <code>&lt;twit-root&gt;&lt;/twit-root&gt;</code> tag, amely pont az <code>AppComponent</code> szelektora. Ezért az alkalmazás elindításakor az <code>AppComponent</code> sablonjában leírt HTML tartalmat fogjuk látni. </p>
+<p>Hogyan tudunk újabb komponseket megjeleníteni, ha mindig az <code>AppComponent</code> fog megjelenni? Az Angular alkalmazás generálásakor beállítottuk, hogy szeretnénk ún. *routing*ot használni. Nézzük meg az <code>app.component.html</code> fájl legvégét, itt a következő HTML tag található: <code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code>. Töröljük ki az előtte lévő szöveget és legyen a következő a fájl tartlma: </p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Twitter<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">router-outlet</span><span class="p">&gt;&lt;/</span><span class="nt">router-outlet</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Mire való a <code>router-outlet</code> elem? Ha átnézzük a kódot, nem találunk olyan komponenst, amelynek ez lenne a szelektora, mert ez egy speciális elem. Az <code>app-routing.module.ts</code> fájlban létrejött egy <code>routes</code> nevű változó: </p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">routes</span><span class="o">:</span><span class="w"> </span><span class="kt">Routes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">];</span>
+</code></pre></div>
+<p>Ennek a feladata, hogy a böngészőbe beírt URL alapján eldöntse, hogy melyik komponenst szeretnék megjeleníteni a <code>router-outlet</code> helyén. A listában felsorolhatjuk a következő URLeket és a hozzájuk tartozó komponenst. Amint átírjuk az URLt, vagy a felhasználó egy linket átnavigál egy másik URLre, mindig a megfelelő komponens fog megjelenni. </p>
+<p>Tegyük fel például, hogy szeretnénk, hogy a <code>localhost:4200/tweets</code> URLre navigálva megjelenjen a tweetek listája. 
+1. Ehhez létre kell hozni egy új komponenst
+2. Ki kell egészíteni a <code>routes</code> listát
+3. Ki kell tenni egy linket valahova az oldalra, amely átnavigál a <code>localhost:4200/tweets</code> oldalra. </p>
+<p><strong>A jegyzőkönyvben választoljuk meg a következő kérdéseket</strong>: 
+* Mi az az Angular modul?
+* Mire való az Angular service? </p>
+<h2 id="modell-osztalyok">Modell osztályok<a class="headerlink" href="#modell-osztalyok" title="Permanent link">&para;</a></h2>
+<p>Hozzunk létre egy <code>models.ts</code> fájlt az <code>src/app</code> mappában a következő tartalommal: </p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Tweet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">userName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tags?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">TweetWithId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Tweet</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ezeket a típusokat fogjuk használni a tweetek leírására. </p>
+<h2 id="kommunikacio-a-backenddel">Kommunikáció a backenddel<a class="headerlink" href="#kommunikacio-a-backenddel" title="Permanent link">&para;</a></h2>
+<p>Ahhoz, hogy kommunikálni tudjunk a backenddel, szükségünk lesz HTTP kérések küldésére. 
+1. Először létrehozunk egy service-t, amelyben kiszervezzük a kommunikációjának a kódját. 
+1. HTTP kérések elküldésére az Angular beépített <code>HttpClientModule</code> modulját és azon belül is a <code>HTTPClient</code> service-t fogjuk használni. </p>
+<p>Egészítsük ki az <code>app.module.ts</code> fájlt a <code>HttpClientModule</code> és a <code>FormsModule</code> importálásával!</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">NgModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">HttpClientModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppRoutingModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./app-routing.module&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppComponent</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">FormsModule</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/forms&#39;</span><span class="p">;</span>
+
+<span class="kd">@NgModule</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">declarations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">AppComponent</span><span class="p">,</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">BrowserModule</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">AppRoutingModule</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">HttpClientModule</span><span class="p">,</span><span class="w"> </span><span class="c1">// importálás</span>
+<span class="w">    </span><span class="nx">FormsModule</span><span class="w"> </span><span class="c1">// importálás</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">bootstrap</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Generáljuk le a service-t az <code>ng</code> tool segítséségével: </p>
+<div class="highlight"><pre><span></span><code>ng g s tweets-api
+</code></pre></div>
+<p>Ez létrehoz egy <code>tweets-api.service.ts</code> fájlt. Adjuk hozzá a service-t az <code>app.module.ts</code> fájlhoz is, ha nem adta volna hozzá magától: </p>
+<div class="highlight"><pre><span></span><code><span class="kd">@NgModule</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">declarations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="c1">//...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">TweetsApiService</span><span class="w"> </span><span class="c1">// hozzáadás a modulhoz</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">bootstrap</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Írjuk meg a service-be a segédfüggvényeket, amellyel le tudjuk kérdezni a tweeteket, illetve új tweetet tudunk létrehozni: </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">HttpClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Injectable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TweetWithId</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./models&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">firstValueFrom</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">providedIn</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;root&#39;</span>
+<span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">TweetsApiService</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="nx">http</span><span class="o">:</span><span class="w"> </span><span class="kt">HttpClient</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">getTweetsAsync</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">TweetWithId</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">firstValueFrom</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">TweetWithId</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;/api/tweets&#39;</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">createTweetAsync</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">userName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">firstValueFrom</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/tweets&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">userName</span><span class="p">,</span><span class="w"> </span><span class="nx">tags</span><span class="w"> </span><span class="p">}));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A <code>HttpClient</code> observable típusú objektumokkal tér vissza, ezekből pl. a <code>firstValueFrom</code> függvény tud Promise-t készíteni. <a href="https://javascript.info/async">A Promise-ok segítségével kezeljük az aszinkronitást</a>.</p>
+<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:</strong>
+ * Mit jelent, hogy a HTTP komunikáció aszinkron az alkalmazásunk és a backend között?
+ * Mit jelent, hogy egy függvény visszatérési értéke <code>Promise</code>?</p>
+<h2 id="tweetek-listaja">Tweetek listája<a class="headerlink" href="#tweetek-listaja" title="Permanent link">&para;</a></h2>
+<p>Generáljunk egy új komponenst, amelyet tweetek megjelenítésére fogunk használni a következő paranccsal!</p>
+<div class="highlight"><pre><span></span><code>$ ng g c tweets-list -m app
+</code></pre></div>
+<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdést:</strong>
+* Az <code>ng g c tweets-list -m app</code> parancsban mik az egyes paraméterek jelentései? (Segítség kérhető az <code>ng g c --help</code> paranccsal.)</p>
+<p>Írjuk meg a komponens osztály kódját, az importokat értelemszerűen kezelve!</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Component</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;twit-tweets-list&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./tweets-list.component.html&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">styleUrls</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;./tweets-list.component.scss&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">TweetsListComponent</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="nx">apiSvc</span><span class="o">:</span><span class="w"> </span><span class="kt">TweetsApiService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">tweets</span><span class="o">:</span><span class="w"> </span><span class="kt">TweetWithId</span><span class="p">[]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">refresh</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">apiSvc</span><span class="p">.</span><span class="nx">getTweetsAsync</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">tweets</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tweets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tweets</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">getTagsString</span><span class="p">(</span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">tags</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Majd írjuk meg a HTML sablont, amely megjeleníti a tweeteket!</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;refresh()&quot;</span><span class="o">&gt;</span><span class="nx">Refresh</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">table</span><span class="w"> </span><span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="s2">&quot;tweets&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">thead</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Id</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Text</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Tags</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/tr&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/thead&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">tr</span><span class="w"> </span><span class="o">*</span><span class="nx">ngFor</span><span class="o">=</span><span class="s2">&quot;let tweet of tweets&quot;</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">id</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">text</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span>
+<span class="w">                </span><span class="p">{{</span><span class="nx">getTagsString</span><span class="p">(</span><span class="nx">tweet</span><span class="p">.</span><span class="nx">tags</span><span class="p">)}}</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/tr&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/tbody&gt;</span>
+<span class="o">&lt;</span><span class="err">/table&gt;</span>
+</code></pre></div>
+<p><strong>A jegyzőkönyvben magyarázza el, hogyan működik a fenti TypeScript osztály és hogy milyen HTML kódot generál a sablon.</strong></p>
+<p>A korábban elmondottak értelmében ki kell még egészíteni az <code>app-routing.module.ts</code>-ben a <code>routes</code> változó érétkét:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">routes</span><span class="o">:</span><span class="w"> </span><span class="kt">Routes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tweets&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="kt">TweetsListComponent</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">];</span>
+</code></pre></div>
+<p>Már csak egy link kirakása van hátra. Például az <code>app.component.html</code> alkalmas erre, mert annak tartalma mindig megjelenik: </p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Twitter<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="err">[</span><span class="na">routerLink</span><span class="err">]=&quot;[&#39;/</span><span class="na">tweets</span><span class="err">&#39;]&quot;</span><span class="p">&gt;</span>Tweets<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">router-outlet</span><span class="p">&gt;&lt;/</span><span class="nt">router-outlet</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="futtatas">Futtatás<a class="headerlink" href="#futtatas" title="Permanent link">&para;</a></h3>
+<p>Mint a bevezetőben szó volt róla, ahhoz, hogy működtessük az alkalmazásunkat, az Angular tesztszerverét be kell állítani úgy, hogy proxy üzemmódban működjön. Ehhez hozzunk létre egy <code>proxy.conf.json</code> fájlt a gyökérkönyvtárban (ahol az <code>angular.json</code> is van): </p>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;/api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;secure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+Így megadjuk, hogy minden kérést, amely a <code>/api</code> prefixre érkezik, azt továbbítani kell a backendnek. </p>
+<p>Ezután már csak futtatni kell az angular tesztszervert a fenti proxy beállításokra hivatkozva: </p>
+<p><div class="highlight"><pre><span></span><code>$ ng serve --proxy-config .\proxy.conf.json
+</code></pre></div>
+<strong>Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!</strong></p>
+<h2 id="uj-tweet-hozzaadasa">Új Tweet hozzáadása<a class="headerlink" href="#uj-tweet-hozzaadasa" title="Permanent link">&para;</a></h2>
+<p>A fentiekhez nagyon hasonló módon egy újabb oldalt szeretnénk létrehozni, amellyel új tweeteket tudunk majd elküldeni: </p>
+<p>Hozzunk létre egy új komponenst:</p>
+<div class="highlight"><pre><span></span><code>$ ng g c new-tweet -m app
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">//new-tweet.component.ts</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">OnInit</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Route</span><span class="p">,</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TweetsApiService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../tweets-api.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Component</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;twit-new-tweet&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;./new-tweet.component.html&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">styleUrls</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;./new-tweet.component.scss&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">NewTweetComponent</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnInit</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="nx">apiSvc</span><span class="o">:</span><span class="w"> </span><span class="kt">TweetsApiService</span><span class="p">,</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">router</span><span class="o">:</span><span class="w"> </span><span class="kt">Router</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">tagsStr</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">userName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">send</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">text</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">userName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">apiSvc</span><span class="p">.</span><span class="nx">createTweetAsync</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">text</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">userName</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tagsStr</span><span class="o">?</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)).</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigateByUrl</span><span class="p">(</span><span class="s2">&quot;/tweets&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- new-tweet.component.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;userName&quot;</span><span class="p">&gt;</span>Username:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;userName&quot;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&quot;</span><span class="na">userName</span><span class="err">&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="p">&gt;</span>Text:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">textarea</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&quot;</span><span class="na">text</span><span class="err">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;tags&quot;</span><span class="p">&gt;</span>Tags:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;tags&quot;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&quot;</span><span class="na">tagsStr</span><span class="err">&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&quot;</span><span class="na">send</span><span class="err">()&quot;</span><span class="p">&gt;</span>Send<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><strong>A jegyzőkönyvben magyarázza el, hogyan működik a fenti TypeScript osztály és hogy milyen HTML kódot generál a sablon.</strong></p>
+<p>Egészítsük ki a <code>routes</code> változót: 
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">routes</span><span class="o">:</span><span class="w"> </span><span class="kt">Routes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="c1">//...</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;new&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="kt">NewTweetComponent</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">];</span>
+</code></pre></div></p>
+<p>...és tegyünk ki egy új linket az <code>app.component.html</code> sablonban: </p>
+<p><div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- ... --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="err">[</span><span class="na">routerLink</span><span class="err">]=&quot;[&#39;/</span><span class="na">new</span><span class="err">&#39;]&quot;</span><span class="p">&gt;</span>New<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- ... --&gt;</span>
+</code></pre></div>
+<strong>Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!</strong></p>
+<h2 id="bootstrap-tema-hasznalata">Bootstrap téma használata<a class="headerlink" href="#bootstrap-tema-hasznalata" title="Permanent link">&para;</a></h2>
+<p>Bár a Bootstrap témák használatához vannak kifejezetten Angularhoz fejlesztett modulok (<a href="https://ng-bootstrap.github.io/#/home">példa</a>), mi most mégis az egyszerűbb módon fogjuk hivatkozni a könyvtárat. </p>
+<p>A Bootstrap végső soron néhány css és JavaScript fájlt biztosít. Feladatunk annyi, hogy az alkalmazás indításakor betöltjük péládul a css fájlt. Erre két lehetőségünk is van: 
+1. Az <code>index.html</code> elején a <code>head</code> tagban a szokásos módon hivatkozhatunk fájlokat. 
+2. Kihasználjuk az <code>ng</code> bevezetőben már említett tulajdonságát, amely összecsomagol css és JavaScript fájlokat. </p>
+<p>A második megoldást fogjuk használni. 
+1. Telepítsük fel a Bootstrap fájljait a gépünkre: 
+    <div class="highlight"><pre><span></span><code>$ npm install -s bootstrap
+</code></pre></div>
+    Ez a parancsa a <code>node_modules/bootstrap</code> mappába letölti a könyvtár fájljait. 
+2. Konfiguráljuk az <code>angular.json</code> fájlban a keretrendszert, hogy a letöltött könyvtárból becsomagolja az egyik css (illetve scss) fájlt:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*...*/</span>
+<span class="w">    </span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*...*/</span>
+<span class="w">        </span><span class="nt">&quot;twitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/*...*/</span>
+<span class="w">            </span><span class="nt">&quot;architect&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/*...*/</span>
+<span class="w">                </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="cm">/*...*/</span>
+<span class="w">                    </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="cm">/*...*/</span>
+<span class="w">                        </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                            </span><span class="s2">&quot;node_modules/bootstrap/scss/bootstrap.scss&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;src/styles.scss&quot;</span>
+<span class="w">                        </span><span class="p">],</span>
+<span class="w">                        </span><span class="cm">/*...*/</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="cm">/*...*/</span>
+<span class="w">                 </span><span class="p">},</span>
+<span class="w">                 </span><span class="cm">/*...*/</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="cm">/*...*/</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="cm">/*...*/</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="cm">/*...*/</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>A Bootstrap keretrendszer segítségével adjon hozzá néhány stílust az oldalhoz, hogy szebben nézzen ki. Illesszen be a tweets és az új tweet oldalakról egy-egy képernyőképet a jegyzőkönyvbe!</strong></p>
+<h2 id="tweetek-torlese">Tweetek törlése<a class="headerlink" href="#tweetek-torlese" title="Permanent link">&para;</a></h2>
+<p>Egészítse ki az oldalt úgy, hogy a tweetek listája mellett megjelenjen egy törlés gomb is, amely megnyomására kitöröljük a megfelelő tweetet. </p>
+<p><strong>Az idevágó kódrészleteket és egy képernyőképet illesszen be a jegyzőkönybe!</strong></p>
+
+    <hr>
+  <div class="md-source-file">
+    <span class="md-source-file__fact"> <span class="md-icon" title="Utolsó frissítés"> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z">
+          </path>
+        </svg>
+      </span>
+      <span title="2025. szeptember 2. 18:50:15">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      </span>
+    </span>
+
+    
+
+    <span class="md-source-file__fact">
+      <span class="md-icon" title="Szerzők">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z">
+          </path>
+        </svg>
+      </span>
+      <span>Szerzők</span>
+      <nav></nav>      
+    </span>
+  </div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; BME VIK AUT
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

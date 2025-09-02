@@ -1,0 +1,73 @@
+﻿@page "{Id:int?}"
+@using MovieCatalogApi.Entities
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model MovieCatalog.Web.Pages.TitleModel
+
+@{
+    IReadOnlyCollection<SelectListItem> genreOptions = await Model.GetGenreOptionsAsync();
+}
+
+@if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+<form method="post">
+    @if (!Model.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert-warning"></div>
+    }
+
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="PrimaryTitle"></label>
+                    <input asp-for="PrimaryTitle" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="OriginalTitle"></label>
+                    <input asp-for="OriginalTitle" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <label class="col-12 text-center" asp-for="TitleType"></label>
+                @foreach (var type in Enum.GetNames(typeof(TitleType)))
+                {
+                    <div class="col-3">
+                        <input class="form-check-input" type="radio" asp-for="TitleType" value="@type" />@type
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                <div class="col-auto">
+                    <label asp-for="StartYear"></label>
+                    <input asp-for="StartYear" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <label asp-for="EndYear"></label>
+                    <input asp-for="EndYear" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-auto">
+                    <label asp-for="RuntimeMinutes"></label>
+                    <input asp-for="RuntimeMinutes" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                <label asp-for="Genres"></label>
+                <select asp-for="Genres" multiple asp-items="genreOptions" class="form-control" style="overflow-y: hidden" size="@genreOptions.Count"></select>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

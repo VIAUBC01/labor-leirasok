@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-4 col-12  text-center" style="font-size: 0.8em">
+        <div>
+            @for (int i = 1; i < new Random().Next(5, 10); i++)
+            {
+                <span class="text-nowrap" style="font-size: 1.2em">Genre<text>@i</text> (<small class="text-muted">@(new Random().Next(50, 500))</small>)</span>
+            }
+        </div>
+        <hr class="d-block d-md-none" />
+    </div>
+    <div class="col-md-8 col-12">
+        <div class="row">
+            @for (int i = 1; i < new Random().Next(5, 10); i++)
+            {
+                <div class="col-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="/">
+                                <h5>
+                                    PrimaryTitle<text>@i</text>
+                                    (<small>
+                                        StartYear<text> - EndYear</text>
+                                    </small>)
+                                </h5>
+                            </a>
+                            <h6 class="text-muted"><i>OriginalTitle<text>@i</text></i></h6>
+                            <span class="badge rounded-pill bg-primary text-nowrap">
+                                Title Type Name
+                            </span>
+                            @for (int j = 1; j < new Random().Next(2,5); j++)
+                            {
+                                <span class="badge rounded-pill bg-secondary text-nowrap" href="/">Genre<text>@j</text></span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

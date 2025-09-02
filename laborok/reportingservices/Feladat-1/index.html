@@ -1,0 +1,1754 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Feladat-2/">
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+    
+    
+      
+        <title>Feladat 1: Táblázatos riport - BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9c788c91.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../extra-material-theme.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#feladat-1-tablazatos-riport" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-header__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feladat 1: Táblázatos riport
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Váltás sötét témára"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Váltás sötét témára" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent=""  aria-label="Váltás világos témára"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Váltás világos témára" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Tudnivalók
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../android1/" class="md-tabs__link md-tabs__link--active">
+        Laborok
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-nav__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
+          Tudnivalók
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tudnivalók" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tudnivalók
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Tárgy ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub/" class="md-nav__link">
+        Feladatok beadása (GitHub)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub-Actions/" class="md-nav__link">
+        GitHub Actions ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/GitHub-credentials/" class="md-nav__link">
+        Egyetemi laborokban: GitHub belépés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tudnivalok/github/contributing/" class="md-nav__link">
+        Hozzájárulás az anyaghoz
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Laborok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Laborok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Laborok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android1/" class="md-nav__link">
+        Android 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android2/" class="md-nav__link">
+        Android 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" tabindex="0" aria-expanded="false">
+          EF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EF" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          EF
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/" class="md-nav__link">
+        Adatréteg készítése Entity Frameworkkel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-1/" class="md-nav__link">
+        Áttekintés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-2/" class="md-nav__link">
+        Adatbetöltés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-3/" class="md-nav__link">
+        Feladat 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ef/Feladat-4/" class="md-nav__link">
+        Feladat 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" tabindex="0" aria-expanded="false">
+          JS, TS, HTML, CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JS, TS, HTML, CSS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          JS, TS, HTML, CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/" class="md-nav__link">
+        HTML + CSS + JavaScript/TypeScript mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-1/" class="md-nav__link">
+        Szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-2/" class="md-nav__link">
+        Twitter webalkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS_TS_HTML_CSS/Feladat-3/" class="md-nav__link">
+        További feladatok
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="false">
+          MSSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MSSQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          MSSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/" class="md-nav__link">
+        Microsoft SQL Szerver programozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-1/" class="md-nav__link">
+        Feladat 1: Kategória nézet és adatbeszúrás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-2/" class="md-nav__link">
+        Feladat 2: Számla ellenőrzése tárolt eljárással
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mssql/Feladat-3/" class="md-nav__link">
+        Feladat 3: Számla tábla denormalizálása
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" tabindex="0" aria-expanded="false">
+          Preact
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Preact" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Preact
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/" class="md-nav__link">
+        Preact Mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/server/" class="md-nav__link">
+        Twitter szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preact/client/" class="md-nav__link">
+        Preact kliens
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8" tabindex="0" aria-expanded="false">
+          Razor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Razor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Razor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/" class="md-nav__link">
+        Szerver oldali renderelés: Razor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../razor/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9" tabindex="0" aria-expanded="true">
+          Reporting Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reporting Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reporting Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Microsoft SQL Server Reporting Services használata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Feladat 1: Táblázatos riport
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Feladat 1: Táblázatos riport
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hozzuk-letre-az-elso-report-definition-fajlt" class="md-nav__link">
+    Hozzuk létre az első Report Definition fájlt.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adatforras-data-source-beallitasa" class="md-nav__link">
+    Adatforrás (data source) beállítása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adathalmaz-data-set-megadasa" class="md-nav__link">
+    Adathalmaz (data set) megadása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-feladatresz-tablazatos-riport-keszitese" class="md-nav__link">
+    A) feladatrész - Táblázatos riport készítése
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-feladatresz-csoportositas-es-osszegzes" class="md-nav__link">
+    B) feladatrész - Csoportosítás és összegzés
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kovetkezo-feladat" class="md-nav__link">
+    Következő feladat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Feladat-2/" class="md-nav__link">
+        Feladat 2: Vizualizáció
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Feladat-3/" class="md-nav__link">
+        Feladat 3: Értékesítői riport
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10" tabindex="0" aria-expanded="false">
+          Spring Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring Cloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Spring Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/" class="md-nav__link">
+        Microservice architektúra Spring Cloud platformon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-1/" class="md-nav__link">
+        1. Feladat: Config server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-2/" class="md-nav__link">
+        2. Feladat: Discovery server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-3/" class="md-nav__link">
+        3. Feladat: API gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-cloud/Feladat-4/" class="md-nav__link">
+        4. Feladat: OpenFeign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11" tabindex="0" aria-expanded="false">
+          Spring MVC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring MVC" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Spring MVC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/" class="md-nav__link">
+        Adatréteg és REST API fejlesztése Spring Boottal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-1/" class="md-nav__link">
+        1. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-2/" class="md-nav__link">
+        2. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-3/" class="md-nav__link">
+        3. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring-mvc/Feladat-4/" class="md-nav__link">
+        4. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12" tabindex="0" aria-expanded="false">
+          Web API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/" class="md-nav__link">
+        RESTful API készítése: Web API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webapi/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hozzuk-letre-az-elso-report-definition-fajlt" class="md-nav__link">
+    Hozzuk létre az első Report Definition fájlt.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adatforras-data-source-beallitasa" class="md-nav__link">
+    Adatforrás (data source) beállítása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adathalmaz-data-set-megadasa" class="md-nav__link">
+    Adathalmaz (data set) megadása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-feladatresz-tablazatos-riport-keszitese" class="md-nav__link">
+    A) feladatrész - Táblázatos riport készítése
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-feladatresz-csoportositas-es-osszegzes" class="md-nav__link">
+    B) feladatrész - Csoportosítás és összegzés
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kovetkezo-feladat" class="md-nav__link">
+    Következő feladat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="feladat-1-tablazatos-riport">Feladat 1: Táblázatos riport<a class="headerlink" href="#feladat-1-tablazatos-riport" title="Permanent link">&para;</a></h1>
+<p>A feladat <strong>közösen megoldott</strong>.</p>
+<p>Készíts egy új <em>Report Server</em> típusú projektet Visual Studioban:</p>
+<ol>
+<li>Indítsd el a Visual Studio-t.</li>
+<li>Válaszd a <em>Create a new project</em> opciót.</li>
+<li>Keresd meg a <em>Report Server</em> (nem a <em>wizard</em>!) projekt típust, és hozz létre egy új projektet.</li>
+</ol>
+<p><img alt="Visual Studio projekt típus" src="../images/vs-create-report-server-project.png" /></p>
+<p>A Report Server projekt elsősorban úgynevezett <em>Report Definition</em> (.rdl) fájlokból áll, amelyek definiálják a riport előállításához szükséges adatforrásokat (lekérdezéseket), és a kinézet sablonját, amit adatokkal feltöltve kapjuk az eredmény riportot. A neve onnan ered, hogy ezeket a riportokat nem csak a fejlesztői gépen lehet lefuttatni, hanem egy un. <em>Report Server</em>-re publikálhatóak, ahonnan a vállalat megfelelő üzleti szereplői mindig friss riportokat kérhetnek, az aktuális adatok alapján. Mi ezen a laboron azonban csak a Visual Studio-ban fogjuk látni a riportot.</p>
+<h2 id="hozzuk-letre-az-elso-report-definition-fajlt">Hozzuk létre az első Report Definition fájlt.<a class="headerlink" href="#hozzuk-letre-az-elso-report-definition-fajlt" title="Permanent link">&para;</a></h2>
+<ol>
+<li><em>Solution Explorer</em>-ben jobb klikk a <em>Reports</em>-ra és <em>Add</em> &gt; <em>New Item</em>.</li>
+</ol>
+<p><img alt="Új report hozzáadása" src="../images/rs-add-new-report.png" /></p>
+<ol>
+<li>A sablonok közül válasszuk a Report lehetőséget. Nevezzük el <em>Sales Orders.rdl</em>-nek, majd nyomjunk rá az Add-re. Ekkor megnyílik a Report Designer, ahol az új .rdl fájlt láthatjuk Design nézetben.</li>
+</ol>
+<p><img alt="Report Desinger" src="../images/rs-report-designer.png" /></p>
+<p>A Report Designer a fejlesztőfelületünk. Két nézete van: <em>Design</em> és <em>Preview</em>. Emellett a Report Data panel is megnyílik, itt lehet definiálni az adatforrásokat. Ha megvagyunk az adatforrások megadásával, a Design fülön tudjuk a riportot vizuálisan megtervezni, majd ha már kellőképpen előrehaladtunk a riport készítésével, a <em>Preview</em> fülön tudjuk kipróbálni.</p>
+<h2 id="adatforras-data-source-beallitasa">Adatforrás (data source) beállítása<a class="headerlink" href="#adatforras-data-source-beallitasa" title="Permanent link">&para;</a></h2>
+<p>Az adatforrás definálja, a riport adatai honnan származnak. A mi esetünkben ez a korábban lérehozott SQL Server adatbázis lesz.</p>
+<ol>
+<li>A <em>Report Data</em> panelen <em>New</em> &gt; <em>Data Source</em>. A neve legyen "AdventureWorks2014".</li>
+</ol>
+<p><img alt="Add datasource" src="../images/rs-add-datasource.png" /></p>
+<ol>
+<li>
+<p>A megjelenő űrlapon válasszuk a <em>Microsoft SQL Server</em> típust és a <em>connection string</em> mező melletti gombra kattintva adjuk meg ismét az adatbázis elérését</p>
+</li>
+<li>
+<p>Server name: <code>(localdb)\mssqllocaldb</code></p>
+</li>
+<li>Authentication: <code>Windows Authentication</code></li>
+<li>
+<p>Select or enter database name: <code>AdventureWorks2014</code></p>
+</li>
+<li>
+<p>OK-ézzuk le a dialógusokat. Majd nyissuk meg <strong>újra</strong> a Data Source tulajdonságait (jobb egérrel és <em>Data Source Properties</em>), és ellenőrizzük a <em>Credentials</em> fület, mert a Visual Studio néha "elfelejti" a beállítást. Az alábbi checkbox-nak kell kijelölve lennie:</p>
+</li>
+</ol>
+<p><img alt="Data source credentials beállítás" src="../images/rs-data-source-properties.png" /></p>
+<h2 id="adathalmaz-data-set-megadasa">Adathalmaz (data set) megadása<a class="headerlink" href="#adathalmaz-data-set-megadasa" title="Permanent link">&para;</a></h2>
+<p>Ahhoz, hogy riportokat készíthessük, az adatforráshoz adathalmazokat (dataset) is meg kell adnunk. Ez gyakorlatilag egy lekérdezést fog jelenteni az adatforrás felé.</p>
+<ol>
+<li>A <em>Report Data</em> panelen válasszuk a <em>New</em> &gt; <em>Dataset</em> opciót. Nevezzük el a datasetet "AdventureWorksDataset"-nek. Data source-ot a legördülő menüből tudunk választani, használjuk az előzőleg elészítettet, és alkalmazzuk az alábbi beállításokat:</li>
+</ol>
+<p><img alt="Data set tulajdonságok" src="../images/rs-data-set-properties.png" /></p>
+<ol>
+<li>Írjuk be a következő Query-t.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="n">soh</span><span class="p">.</span><span class="n">OrderDate</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="nb">Date</span><span class="p">],</span>
+<span class="n">soh</span><span class="p">.</span><span class="n">SalesOrderNumber</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">Order</span><span class="p">],</span>
+<span class="n">pps</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Subcat</span><span class="p">,</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Product</span><span class="p">,</span>
+<span class="k">SUM</span><span class="p">(</span><span class="n">sd</span><span class="p">.</span><span class="n">OrderQty</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Qty</span><span class="p">,</span>
+<span class="k">SUM</span><span class="p">(</span><span class="n">sd</span><span class="p">.</span><span class="n">LineTotal</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">LineTotal</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Sales</span><span class="p">.</span><span class="n">SalesPerson</span><span class="w"> </span><span class="n">sp</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Sales</span><span class="p">.</span><span class="n">SalesOrderHeader</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">soh</span>
+<span class="w">      </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">BusinessEntityID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soh</span><span class="p">.</span><span class="n">SalesPersonID</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Sales</span><span class="p">.</span><span class="n">SalesOrderDetail</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sd</span>
+<span class="w">      </span><span class="k">ON</span><span class="w"> </span><span class="n">sd</span><span class="p">.</span><span class="n">SalesOrderID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soh</span><span class="p">.</span><span class="n">SalesOrderID</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Production</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pp</span>
+<span class="w">      </span><span class="k">ON</span><span class="w"> </span><span class="n">sd</span><span class="p">.</span><span class="n">ProductID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="n">ProductID</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Production</span><span class="p">.</span><span class="n">ProductSubcategory</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pps</span>
+<span class="w">      </span><span class="k">ON</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="n">ProductSubcategoryID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pps</span><span class="p">.</span><span class="n">ProductSubcategoryID</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Production</span><span class="p">.</span><span class="n">ProductCategory</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ppc</span>
+<span class="w">      </span><span class="k">ON</span><span class="w"> </span><span class="n">ppc</span><span class="p">.</span><span class="n">ProductCategoryID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pps</span><span class="p">.</span><span class="n">ProductCategoryID</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ppc</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">soh</span><span class="p">.</span><span class="n">OrderDate</span><span class="p">,</span><span class="w"> </span><span class="n">soh</span><span class="p">.</span><span class="n">SalesOrderNumber</span><span class="p">,</span>
+<span class="w">         </span><span class="n">pps</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">soh</span><span class="p">.</span><span class="n">SalesPersonID</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="n">ppc</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Clothing&#39;</span>
+</code></pre></div>
+<p>Ha megvagyunk, nyomjuk meg a <em>Refresh fields</em> gombot.</p>
+<p>A többi fülön most nincs dolgunk, kattintsunk az OK-ra.</p>
+<h2 id="a-feladatresz-tablazatos-riport-keszitese">A) feladatrész - Táblázatos riport készítése<a class="headerlink" href="#a-feladatresz-tablazatos-riport-keszitese" title="Permanent link">&para;</a></h2>
+<p>Most, hogy megvan a kapcsolatunk az adatbázis felé, és a lekérdezést is megírtuk, elkezdhetünk riportokat gyártani. A riport nem más, mint a lekérdezés eredménye megjelenítve táblázatokban, diagramokban.</p>
+<ol>
+<li>
+<p>Nyissuk meg a <em>Toolbox</em> panelt, ha még nem látszana (<em>View</em> menüben megtalálható).</p>
+</li>
+<li>
+<p>Válasszuk ki a <em>Table</em> eszközt, majd a Design fül középső részén elhelyezkedő üres, fehér téglalapra "rajzoljunk" egy táblázatot, mintha csak egy négyszöget rajzolnánk Paintben:</p>
+</li>
+</ol>
+<p><img alt="Table hozzáadása" src="../images/rs-add-table.png" /></p>
+<ol>
+<li>Váltsunk vissza a <em>Report Data</em> panelre, és nyissuk le az AdventureWorksDataset-et.</li>
+</ol>
+<p><img alt="Dataset mezők" src="../images/rs-dataset-fields.png" /></p>
+<blockquote>
+<p>Ha ez üres vagy nem nyitható le, általában az a baj, hogy a dataset létrehozásakor nem nyomtuk meg a <em>Refresh Fields</em> gombot. Ezt még nem késő megtenni: jobb kattintás a dataseten &gt; <em>Dataset properties</em>, majd a megjelenő ablakban nyomjuk meg a <em>Refresh Fields</em> gombot.</p>
+</blockquote>
+<ol>
+<li>A <em>Date</em> mezőt húzzuk rá az imént "rajzolt" táblázat első oszlopára. Ilyesmi eredményt kell kapjunk:</li>
+</ol>
+<p><img alt="Date oszlop hozzáadása" src="../images/rs-table-add-date-col.png" /></p>
+<blockquote>
+<p>A második sorban látható <code>[Date]</code> jelöli a kiértékelendő kifejezést, míg az eső sorban látható "Date" felirat lesz az oszlop fejléce a riportban – ez utóbbit át is írhatjuk.</p>
+</blockquote>
+<ol>
+<li>Az előbbi módszerrel húzzuk be a második oszlopba az <em>Order</em>, a harmadikba a <em>Product</em> mezőt. A <em>Qty</em> mezőt is húzzuk be a jobb szélső oszlop szélére úgy, hogy felengedés előtt egy + jelet lássunk az egérkurzor alatt, és egy függőleges kék vonalat a táblázat szélén. Így egy új, negyedik oszlopba fog kerülni a mező. Ugyanígy eljárva húzzuk be a <em>LineTotal</em> mezőt is ötödik oszlopnak.</li>
+</ol>
+<p><img alt="További oszlopok" src="../images/rs-table-add-order-product-qty-col.png" /></p>
+<ol>
+<li>Ezzel el is készült az első riportunk. Nézzük meg a Preview fülön. Elsőre kicsit lassan töltődik be, erre számítsunk. A továbbiakban már gyorsabb lesz!</li>
+</ol>
+<p><img alt="Riport előnézete" src="../images/rs-table-preview-1.png" /></p>
+<p>Az elkészült riportot például kinyomtathatjuk, vagy exportálhatjuk több féle formátumba (Word, Excel, PowerPoint, PDF). Jelen állapotában azért van rajta még mit csiszolni, pl. a végösszeg mezőnél nincs jelölve a valuta, és az értéket is bőven elég lenne 2 tizedesjelre kerekítve megmutatni. A dátum formázása és az oszlopok szélessége sem az igazi.</p>
+<ol>
+<li>Menjünk vissza a <em>Design</em> fülre, és a táblázatunkban kattintsunk jobb egérgombbal a <code>[Date]</code> kifejezésen, majd válasszuk a <em>Text Box Properties</em> opciót. Itt a <em>Number</em> fülön válasszuk a <em>Date</em> kategóriát, és válasszunk ki egy szimpatikus dátumformátumot.</li>
+</ol>
+<p><img alt="Date oszlop formázása" src="../images/rs-table-date-col-properties.png" /></p>
+<ol>
+<li>A <code>[LineTotal]</code> kifejezésen jobb klikkelve az előbbivel analóg módon a <em>Text Box Properties</em>-t kiválasztva formázzuk <em>Number</em> alatt <em>Currency</em>-ként az összeget.</li>
+</ol>
+<p><img alt="Line total formázása" src="../images/rs-table-linetotal-col-properties.png" /></p>
+<ol>
+<li>A táblázat fejléc sor fölötti szürke téglalapok szélei fölé mozgatva az egeret a szokásos átméretező kurzor ikonokkal találkozhatunk. (Kb. mintha Excelben vagy Wordben próbálnánk táblázatot méretezni.) Ennek segítségével méretezzük át kicsit szélesebbre a táblázatot, és esetleg vegyük szűkebbre a <em>Qty</em> és <em>Line Total</em> oszlopokat a többihez képest.</li>
+</ol>
+<p>Végül vastagítsuk ki a fejléc sor feliratait. Ehhez jelöljük ki a teljes sort a bal szélén található szürke négyzetre kattintva, majd a fenti eszköztáron kattintsunk a <em>Bold</em> gombra</p>
+<p><img alt="Első sor formázása" src="../images/rs-table-bolt-header-row.png" /></p>
+<p>Ha ránézünk a Preview fülre, ilyesmit kell látnunk:</p>
+<p><img alt="Riport előnézete" src="../images/rs-table-preview-2.png" /></p>
+<h2 id="b-feladatresz-csoportositas-es-osszegzes">B) feladatrész - Csoportosítás és összegzés<a class="headerlink" href="#b-feladatresz-csoportositas-es-osszegzes" title="Permanent link">&para;</a></h2>
+<p>A riport jelenleg ömlesztve tartalmazza az adatokat. Ezek eladási adatok, adott termékekből adott napon eladott mennyiség. Rendezzük csoportokba az adatokat.</p>
+<ol>
+<li>
+<p>Térjünk vissza a <em>Design</em> fülre. Győződjünk meg róla, hogy a táblázatunk alatt látjuk a <em>Row Groups</em> panelt – ha nem lenne ott, jobb klikkeljünk a dizájn felületen, és a <em>View</em> menüben pipáljuk ki a <em>Grouping</em> opciót.</p>
+</li>
+<li>
+<p>A <em>Report Data</em> panelről húzzuk a <em>Date</em> mezőt a <em>Row Groups</em> panelre, azon belül is a <em>(Details)</em> sor fölé.</p>
+</li>
+</ol>
+<p><img alt="Csoportosítás dátum alapján" src="../images/rs-group-by-date.png" /></p>
+<p>A táblázatunk megjelenése a következőképpen fog változni:</p>
+<p><img alt="Csoportosítás hatása a táblázatra" src="../images/rs-group-by-date-table-designer.png" /></p>
+<ol>
+<li>Húzzuk az <em>Order</em> mezőt is a <em>Row Groups</em> panelre a <em>Date</em> és a <em>(Details)</em> közé.</li>
+</ol>
+<p><img alt="Csoportotsítás megrendelés szerint" src="../images/rs-group-by-order.png" /></p>
+<ol>
+<li>A csoportként megadott elemeknek automatikusan létrehozott oszlopokat a táblázatban a rendszer. Mivel már korábban is felvettük őket, ezért most kétszer is szerepelnek; töröljük őket. A felettük található szürke téglalapra kattintva jelöljük ki a <strong>jobb oldali</strong> <em>Date</em> és <em>Order</em> oszlopokat, és töröljük ki őket (jobb kattintás és <em>Delete Columns</em>).</li>
+</ol>
+<p><img alt="Duplikált oszlopok" src="../images/rs-group-by-duplicated-columns.png" /></p>
+<p>Az új <em>Date</em> oszlop formátuma ezzel visszaállt az eredeti formátumra, de a <em>Text Style Properties</em> segítségével újra be tudjuk állítani.</p>
+<p>Ha most megnézzük a <em>Preview</em> fület, láthatjuk, hogy az általunk megadott szempontok szerint (és az általunk megadott sorrendben) csoportosításra kerülnek a riport sorai.</p>
+<p><img alt="Csoportosított táblázat" src="../images/rs-table-preview-3.png" /></p>
+<ol>
+<li>Váltsunk vissza <em>Design</em> nézetre. Kattintsunk jobb egérgombbal a <code>[LineTotal]</code> cellára, és válasszuk az <em>Add Total</em> opciót. Ezzel az egyes <em>Order</em>-ekhez (amik mentén csoportosítottunk) meg fog jelenni a rendelések összege. Ehhez alapból nem rendelődik címke, de beírhatunk egyet: bal gombbal kattintsunk a megfelelő üres cellába, és írjuk be: "Order Total"</li>
+</ol>
+<p><img alt="Rendelés összege" src="../images/rs-add-total-order.png" /></p>
+<ol>
+<li>CTRL billentyűt nyomva tartva kattintsunk az <em>Order Total</em> cellájára, majd a tőle jobbra levő két cellára is, hogy kijelöljük őket, és a <em>Format</em> menüből válasszunk új háttérszínt nekik.</li>
+</ol>
+<p><img alt="Rendelés összeg színezése" src="../images/rs-add-total-order-color.png" /></p>
+<ol>
+<li>Az eredményt szokás szerint megnézhetjük a <em>Preview</em> fülön:</li>
+</ol>
+<p><img alt="Előnézet" src="../images/rs-table-preview-4.png" /></p>
+<ol>
+<li>
+<p>Készítsünk napi összegzést is!</p>
+</li>
+<li>
+<p>Váltsunk vissza <em>Design</em> nézetre</p>
+</li>
+<li>Jobb klikk az <code>[Order]</code> cellán, válasszuk az <em>Add Total</em> &gt; <em>After</em> lehetőséget.</li>
+<li>Az <code>[Order]</code> cella alatt megjelenik egy "Total" feliratú cella. Kattintsunk bele, és írjuk át "Daily Total"-ra.</li>
+<li>
+<p>Válasszuk ki ezt a cellát, és mellette a másik hármat (pl. a CTRL nyomvatartása mellett végigkattintgatva őket), majd adjunk nekik valamilyen háttérszínt (<em>Format</em> &gt; <em>Background color</em>).</p>
+</li>
+<li>
+<p>Mivel az adatbázisban egy naphoz nagyon sok megrendelés is tartozhat, a <em>Preview</em> fülön akár 4-5 oldalt is le kell görgetni, mire megpillantjuk munkánk gyümölcsét:</p>
+</li>
+</ol>
+<p><img alt="Napi összeg" src="../images/rs-table-preview-5.png" /></p>
+<h2 id="kovetkezo-feladat">Következő feladat<a class="headerlink" href="#kovetkezo-feladat" title="Permanent link">&para;</a></h2>
+<p>Folytasd a <a href="../Feladat-2/">következő feladattal</a>.</p>
+
+    <hr>
+  <div class="md-source-file">
+    <span class="md-source-file__fact"> <span class="md-icon" title="Utolsó frissítés"> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z">
+          </path>
+        </svg>
+      </span>
+      <span title="2025. szeptember 2. 18:50:15">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      </span>
+    </span>
+
+    
+
+    <span class="md-source-file__fact">
+      <span class="md-icon" title="Szerzők">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z">
+          </path>
+        </svg>
+      </span>
+      <span>Szerzők</span>
+      <nav></nav>      
+    </span>
+  </div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; BME VIK AUT
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

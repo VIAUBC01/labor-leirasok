@@ -1,0 +1,2037 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+      
+      
+      
+        <link rel="prev" href="../android2/">
+      
+      
+        <link rel="next" href="../ef/">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+    
+    
+      
+        <title>Azure - BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9c788c91.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../extra-material-theme.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#azure" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-header__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Azure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aut" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Váltás sötét témára"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Váltás sötét témára" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent=""  aria-label="Váltás világos témára"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Váltás világos témára" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Lapok" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Tudnivalók
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../android1/" class="md-tabs__link md-tabs__link--active">
+        Laborok
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" class="md-nav__button md-logo" aria-label="BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok" data-md-component="logo">
+      
+  <img src="../../logo-bme-aut.png" alt="logo">
+
+    </a>
+    BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/viaubc01/labor-leirasok" title="Főoldalra ugrás" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    viaubc01/labor-leirasok
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
+          Tudnivalók
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tudnivalók" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tudnivalók
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Tárgy ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tudnivalok/github/GitHub/" class="md-nav__link">
+        Feladatok beadása (GitHub)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tudnivalok/github/GitHub-Actions/" class="md-nav__link">
+        GitHub Actions ismertető
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tudnivalok/github/GitHub-credentials/" class="md-nav__link">
+        Egyetemi laborokban: GitHub belépés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tudnivalok/github/contributing/" class="md-nav__link">
+        Hozzájárulás az anyaghoz
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+          Laborok
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Laborok" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Laborok
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android1/" class="md-nav__link">
+        Android 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android2/" class="md-nav__link">
+        Android 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Azure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Azure
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#azure-webhoszting" class="md-nav__link">
+    Azure webhoszting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elokeszuletek" class="md-nav__link">
+    Előkészületek
+  </a>
+  
+    <nav class="md-nav" aria-label="Előkészületek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-elofizetes-beuzemelese" class="md-nav__link">
+    Azure előfizetés beüzemelése
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feladatok" class="md-nav__link">
+    Feladatok
+  </a>
+  
+    <nav class="md-nav" aria-label="Feladatok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altalanos-szabalyok" class="md-nav__link">
+    Általános szabályok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feladat-1" class="md-nav__link">
+    Feladat 1
+  </a>
+  
+    <nav class="md-nav" aria-label="Feladat 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tippek-es-hasznos-tudnivalok" class="md-nav__link">
+    Tippek és hasznos tudnivalók
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elteresek" class="md-nav__link">
+    Eltérések
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feladat-2" class="md-nav__link">
+    Feladat 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vegeztel" class="md-nav__link">
+    Végeztél
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beadando" class="md-nav__link">
+    Beadandó
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altalanos-elvek" class="md-nav__link">
+    Általános elvek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beadando-feladat-1" class="md-nav__link">
+    Beadandó - Feladat 1
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó - Feladat 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-az-alabbi-lepesekrol" class="md-nav__link">
+    Képernyőképek az alábbi lépésekről
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol" class="md-nav__link">
+    Képernyőképek a böngészőben futó webalkalmazás főoldaláról
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beadando-feladat-2" class="md-nav__link">
+    Beadandó - Feladat 2
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó - Feladat 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-az-alabbi-lepesekrol_1" class="md-nav__link">
+    Képernyőképek az alábbi lépésekről
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-a-bongeszoben-futo-moviecatalog-webalkalmazas-fooldalarol" class="md-nav__link">
+    Képernyőképek a böngészőben futó MovieCatalog webalkalmazás főoldaláról
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ertekelesi-iranyelvek" class="md-nav__link">
+    Értékelési irányelvek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" tabindex="0" aria-expanded="false">
+          EF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EF" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          EF
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ef/" class="md-nav__link">
+        Adatréteg készítése Entity Frameworkkel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ef/Feladat-1/" class="md-nav__link">
+        Áttekintés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ef/Feladat-2/" class="md-nav__link">
+        Adatbetöltés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ef/Feladat-3/" class="md-nav__link">
+        Feladat 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ef/Feladat-4/" class="md-nav__link">
+        Feladat 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" tabindex="0" aria-expanded="false">
+          JS, TS, HTML, CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JS, TS, HTML, CSS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          JS, TS, HTML, CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JS_TS_HTML_CSS/" class="md-nav__link">
+        HTML + CSS + JavaScript/TypeScript mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JS_TS_HTML_CSS/Feladat-1/" class="md-nav__link">
+        Szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JS_TS_HTML_CSS/Feladat-2/" class="md-nav__link">
+        Twitter webalkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../JS_TS_HTML_CSS/Feladat-3/" class="md-nav__link">
+        További feladatok
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" tabindex="0" aria-expanded="false">
+          MSSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MSSQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          MSSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mssql/" class="md-nav__link">
+        Microsoft SQL Szerver programozása
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mssql/Feladat-1/" class="md-nav__link">
+        Feladat 1: Kategória nézet és adatbeszúrás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mssql/Feladat-2/" class="md-nav__link">
+        Feladat 2: Számla ellenőrzése tárolt eljárással
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mssql/Feladat-3/" class="md-nav__link">
+        Feladat 3: Számla tábla denormalizálása
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" tabindex="0" aria-expanded="false">
+          Preact
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Preact" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Preact
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preact/" class="md-nav__link">
+        Preact Mérés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preact/server/" class="md-nav__link">
+        Twitter szerver alkalmazás
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preact/client/" class="md-nav__link">
+        Preact kliens
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8" tabindex="0" aria-expanded="false">
+          Razor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Razor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Razor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../razor/" class="md-nav__link">
+        Szerver oldali renderelés: Razor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../razor/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../razor/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../razor/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../razor/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9" tabindex="0" aria-expanded="false">
+          Reporting Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reporting Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reporting Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reportingservices/" class="md-nav__link">
+        Microsoft SQL Server Reporting Services használata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reportingservices/Feladat-1/" class="md-nav__link">
+        Feladat 1: Táblázatos riport
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reportingservices/Feladat-2/" class="md-nav__link">
+        Feladat 2: Vizualizáció
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reportingservices/Feladat-3/" class="md-nav__link">
+        Feladat 3: Értékesítői riport
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10" tabindex="0" aria-expanded="false">
+          Spring Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring Cloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Spring Cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-cloud/" class="md-nav__link">
+        Microservice architektúra Spring Cloud platformon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-cloud/Feladat-1/" class="md-nav__link">
+        1. Feladat: Config server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-cloud/Feladat-2/" class="md-nav__link">
+        2. Feladat: Discovery server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-cloud/Feladat-3/" class="md-nav__link">
+        3. Feladat: API gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-cloud/Feladat-4/" class="md-nav__link">
+        4. Feladat: OpenFeign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11" tabindex="0" aria-expanded="false">
+          Spring MVC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spring MVC" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Spring MVC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-mvc/" class="md-nav__link">
+        Adatréteg és REST API fejlesztése Spring Boottal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-mvc/Feladat-1/" class="md-nav__link">
+        1. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-mvc/Feladat-2/" class="md-nav__link">
+        2. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-mvc/Feladat-3/" class="md-nav__link">
+        3. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring-mvc/Feladat-4/" class="md-nav__link">
+        4. Feladat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12" tabindex="0" aria-expanded="false">
+          Web API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Web API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webapi/" class="md-nav__link">
+        RESTful API készítése: Web API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webapi/Feladat-1/" class="md-nav__link">
+        Előkészítés
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webapi/Feladat-2/" class="md-nav__link">
+        Feladat 2.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webapi/Feladat-3/" class="md-nav__link">
+        Feladat 3.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webapi/Feladat-4/" class="md-nav__link">
+        Feladat 4.
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#azure-webhoszting" class="md-nav__link">
+    Azure webhoszting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elokeszuletek" class="md-nav__link">
+    Előkészületek
+  </a>
+  
+    <nav class="md-nav" aria-label="Előkészületek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-elofizetes-beuzemelese" class="md-nav__link">
+    Azure előfizetés beüzemelése
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feladatok" class="md-nav__link">
+    Feladatok
+  </a>
+  
+    <nav class="md-nav" aria-label="Feladatok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altalanos-szabalyok" class="md-nav__link">
+    Általános szabályok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feladat-1" class="md-nav__link">
+    Feladat 1
+  </a>
+  
+    <nav class="md-nav" aria-label="Feladat 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tippek-es-hasznos-tudnivalok" class="md-nav__link">
+    Tippek és hasznos tudnivalók
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elteresek" class="md-nav__link">
+    Eltérések
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feladat-2" class="md-nav__link">
+    Feladat 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vegeztel" class="md-nav__link">
+    Végeztél
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beadando" class="md-nav__link">
+    Beadandó
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altalanos-elvek" class="md-nav__link">
+    Általános elvek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beadando-feladat-1" class="md-nav__link">
+    Beadandó - Feladat 1
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó - Feladat 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-az-alabbi-lepesekrol" class="md-nav__link">
+    Képernyőképek az alábbi lépésekről
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol" class="md-nav__link">
+    Képernyőképek a böngészőben futó webalkalmazás főoldaláról
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beadando-feladat-2" class="md-nav__link">
+    Beadandó - Feladat 2
+  </a>
+  
+    <nav class="md-nav" aria-label="Beadandó - Feladat 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-az-alabbi-lepesekrol_1" class="md-nav__link">
+    Képernyőképek az alábbi lépésekről
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kepernyokepek-a-bongeszoben-futo-moviecatalog-webalkalmazas-fooldalarol" class="md-nav__link">
+    Képernyőképek a böngészőben futó MovieCatalog webalkalmazás főoldaláról
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ertekelesi-iranyelvek" class="md-nav__link">
+    Értékelési irányelvek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h1>
+<h2 id="azure-webhoszting">Azure webhoszting<a class="headerlink" href="#azure-webhoszting" title="Permanent link">&para;</a></h2>
+<p>A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni <a href="https://azure.microsoft.com/en-us/products/azure-sql/">Azure SQL</a>, illetve <a href="https://azure.microsoft.com/en-us/products/app-service/">Azure App Service</a> szolgáltatásokra építve.</p>
+<h2 id="elokeszuletek">Előkészületek<a class="headerlink" href="#elokeszuletek" title="Permanent link">&para;</a></h2>
+<p>A mérés Windows és Linux rendszeren is teljesíthető. A méréshez böngészőn kívül nem szükséges semmilyen egyéb eszköz.</p>
+<h3 id="azure-elofizetes-beuzemelese">Azure előfizetés beüzemelése<a class="headerlink" href="#azure-elofizetes-beuzemelese" title="Permanent link">&para;</a></h3>
+<p>A mérés hallgatói Azure előfizetéssel teljesítendő, <a href="https://azure.microsoft.com/en-us/free/students/">itt aktiváld</a>.</p>
+<p>Bővebb leírás a <a href="https://www.aut.bme.hu/Course/felho">Felhő alapú szoftverfejlesztés tárgy honlapjáról</a></p>
+<blockquote>
+<p><a href="https://azure.microsoft.com/en-us/free/students/">Azure for Students</a> - ez az újabb program, 100$ kredittel egy évre (de évente megújítható). Bankkártya regisztráció nem szükséges. Ezt próbáljtátok meg aktiválni! Edu.bme.hu-s fiókot érdemes használni az aktivációhoz. Fontos, hogy 10-11 hónap után indul egy megújítási időablak és ha abban nem újítjátok meg, akkor ki kell várni míg egy több hónapos inaktív időszak után teljesen törődik az előfizetés és utána tudtok (ugyanazzal az email címmel) egy teljesen új előfizetést igényelni.</p>
+</blockquote>
+<h2 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h2>
+<h3 id="altalanos-szabalyok">Általános szabályok<a class="headerlink" href="#altalanos-szabalyok" title="Permanent link">&para;</a></h3>
+<p>:warning: A következő típusú Azure erőforrások nevének <strong>kötelezően</strong> tartalmaznia kell a mérést végző neptun kódját: </p>
+<ul>
+<li>Azure SQL Server</li>
+<li>Azure App Service</li>
+</ul>
+<h3 id="feladat-1">Feladat 1<a class="headerlink" href="#feladat-1" title="Permanent link">&para;</a></h3>
+<p>Végzed el a következő hivatalos Microsoft oktatóanyagot: <a href="https://learn.microsoft.com/hu-hu/azure/app-service/tutorial-dotnetcore-sqldb-app">magyarul (gépi fordítású)</a> vagy <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app">angolul</a>. Az angol az ajánlott, mivel az az eredeti, a magyar gépi fordítás sem rossz, követhető, de néhány helyen rosszul ragoz vagy furán fogalmaz. Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását is!</p>
+<p>A feladat hasonló a <a href="https://github.com/BMEVIAUBB04/gyakorlat-azure">Háttéralkalmazások tárgy Azure-os gyakorlatához</a>, de jóval komolyabb, komplexebb annál. </p>
+<p>A jelentősebb eltérések:
+- Minden létrejövő erőforrás alapból csak egymást éri el (privát elérés), így mi sem tudunk az internet felől csatlakozni ezekhez vagy belépni ezekbe (kivéve Azure portál meghatározott funkcióin keresztül). Ez egy biztonsági ökölszabály (<em>secure-by-default</em>), így ne kapcsold be az internet felőli elérés(eke)t. A privát elérés alapja egy virtuális hálózat. Ebbe a hálózatba kerülnek be az Azure erőforrásaink. Platformszolgáltatásaink lesznek, ezek esetén az ajánlott integrációs módszer a <a href="https://www.fugue.co/blog/cloud-network-security-101-azure-private-link-private-endpoints">privát hálózati végpontok</a> alkalmazása. Kifelé a virtuális hálózat zárt, a publikus DNS névfeloldás sem működik, ezért jön létre privát DNS, így továbbra is hálózati névvel tudunk hivatkozni az egyes szolgáltatásokra, pl. adatbázis szerver.
+- Az alkalmazás <a href="https://azure.microsoft.com/en-us/products/cache">Azure Redis Cache</a>-t használ gyorsítótárként
+- Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé <a href="https://learn.microsoft.com/en-us/azure/service-connector/overview">Service Connector</a> reprezentálja a kapcsolatot.
+- Az összes előbb említett erőforrást egy füst alatt a <strong>Web app + Database</strong> varázslóval/sablonnal hozzuk létre.
+- Az adatbázis séma inicializáláshoz egy futtatható állományt (<a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles">EF Core migration bundle</a>) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.</p>
+<h4 id="tippek-es-hasznos-tudnivalok">Tippek és hasznos tudnivalók<a class="headerlink" href="#tippek-es-hasznos-tudnivalok" title="Permanent link">&para;</a></h4>
+<p>:bulb: Az Azure portálra történő első belépéskor érdemes <a href="https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region">beállítani a portál nyelvét</a>. Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.</p>
+<p>:bulb: ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app#6-stream-diagnostic-logs">diagnosztikai naplók lekérdezéséről szóló részt</a>. A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.</p>
+<p>:bulb: Régióként ajánlott a nyugat- vagy észak-európait használni (West Europe, North Europe). Az elején válaszd ki az egyiket és azt használd végig.</p>
+<p>:bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a <code>Create</code> gombot megnyomni, különben nem indul el a létrehozási folyamat!</p>
+<p>:bulb: Érdemes folyamatosan ellenőrizni, hogy van-e olyan bedandó képernyőkép, amit épp el tudsz készíteni.</p>
+<p>:bulb: Az SSH terminált érdemes egy külön böngészőfülön megnyitni. Ezen a fülön ne navigálj el a terminál oldaláról.</p>
+<p>:bulb: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene <a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle">futtatni</a>.</p>
+<p>:warning: Alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!</p>
+<p>:warning: Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.</p>
+<h3 id="elteresek">Eltérések<a class="headerlink" href="#elteresek" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Az első lépés előtt említett klónozást nem kell elvégezni, nincs rá szükség.</li>
+<li>Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.</li>
+<li>Az 2.1 lépés előtt értelmes elvégezni a <strong>Microsoft.Sql</strong> resource provider regisztrációját. Minden Azure műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (<strong>Microsoft.Sql</strong> azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva) és az első lépés varázslója hibát adhat (<em>SQLAzure is not available for your selection of subscription and location</em>). <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1">Segédlet</a> egy resource provider regisztrálásához.</li>
+<li>Az 2.2 lépésben az app nevében (Name) az XYZ rész a neptun kódod legyen. A logikai SQL Server neve (Server name), az adatbázis neve (Database name), a cache neve (Cache name) szintén az <em>123</em> rész helyett a neptun kódod legyen.</li>
+<li>A 2.2.5-es allépésben lehet, hogy nem az SQLAzure van kiválasztva, ilyenkor válasszuk ki mi.</li>
+<li>4.4-4.5: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is</li>
+<li>A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!</li>
+<li>A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.</li>
+<li>A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.</li>
+<li>A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.</li>
+</ul>
+<h3 id="feladat-2">Feladat 2<a class="headerlink" href="#feladat-2" title="Permanent link">&para;</a></h3>
+<p>Az első feladatban megismert módszerekkel telepítsd az ASP.NET Core Razor Pages mérésen készített <em>MovieCatalog.Web</em> projektedet Azure-ba. A feladathoz tartozó erőforrások egy új erőforráscsoportba (resource group) kerüljenek.</p>
+<p>Ehhez a feladathoz már nincs részletes leírás, csak néhány extra tippet adunk:</p>
+<p>:bulb: Ne kövesd szolgaian az első feladat elnevezéseit, mert névütközések lesznek. Találj ki saját neveket, de ahol kell, ott legyen benne a neptun kódod</p>
+<p>:bulb: A Runtime stack-et a MovieCatalog projekt .NET verziójához igazítsd (megtalálod a projekt fájlban)</p>
+<p>:bulb: Redis Cache-t nem kell létrehozni</p>
+<p>:bulb: EF Migration bundle-t nem kell csinálni, az ehhez szükséges EF eszközt sem kell feltenni a GitHub Actions YAML-ben.</p>
+<p>:bulb: Az adatbázis feltöltéséhez használd a <a href="data/imdbtitles_sample_azure.dacpac">mellékelt Azure SQL-lel kompatibilis DACPAC</a> csomagot. Ehhez:   </p>
+<ol>
+<li>töltsd fel a csomagot a projekted repojába, például a projekt fájl mellé.</li>
+<li>módosítsd a GitHub Actions YAML fájlt (.github alkönyvtárban), hogy a kimeneti könyvtárba másolja a csomagot. A másolásra egy módja az alábbi lépés beszúrása a feltöltési lépés elé. Ellenőrizd, hogy az elérési út megfelelő-e: a repo gyökeréhez képest kell az elérési útvonalat megadni.
+    <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy dacpac</span>
+<span class="w">   </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">cp MovieCatalog.Web/    imdbtitles_sample_azure.dacpac ${{env.  DOTNET_ROOT}}/myapp</span>
+</code></pre></div></li>
+<li>az App Service-be SSH-zva ellenőrizd, hogy a git push után induló telepítési folyamat feltöltötte-e a <code>/home/site/wwwroot</code> mappába a DACPAC csomagot.</li>
+<li>DACPAC csomagot parancssorból az <a href="https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16">sqlpackage</a> eszközzel telepíthetünk. Ehhez azonban le kell tölteni (<code>wget</code>) az eszközt csomagolva, kicsomagolni (<code>unzip</code>), futtathatóvá tenni (<code>chmod</code>) majd futtatni (<code>sqlpackage</code>). A <a href="https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-publish?view=sql-server-ver16">parancsnak</a> szüksége van a
+connection string-re, ami környezeti változóként rendelkezésre áll. Mindezen műveletekre egy példát ad a <a href="data/sqlpackage-appservice.sh">mellékelt parancsfájl</a>. A legtöbb esetben elég csak a fájl tartalmát lefuttatni az SSH terminálon.</li>
+</ol>
+<h3 id="vegeztel">Végeztél<a class="headerlink" href="#vegeztel" title="Permanent link">&para;</a></h3>
+<p>:godmode: Végeztél a feladatokkal. :godmode:</p>
+<p>:warning: A beadás után érdemes törölni minden Azure erőforrást.</p>
+<h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
+<h3 id="altalanos-elvek">Általános elvek<a class="headerlink" href="#altalanos-elvek" title="Permanent link">&para;</a></h3>
+<p>Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak <em>jpg</em> vagy <em>png</em> formátumban. </p>
+<p>Képernyőképekkel kapcsolatos elvárások:</p>
+<ul>
+<li>a böngészőablak teljes méretű (maximalizált) legyen </li>
+<li>látszódjon a címsor és a weboldal megjelenő része</li>
+<li>Azure portálnál látszódjon a jobb felső sarokban az Azure portálra belépett felhasználó a jobb felső sarokban</li>
+</ul>
+<p>SSH terminálparancsok kimenetéről készült képernyőképeknél: </p>
+<ul>
+<li>ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)</li>
+<li>bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is</li>
+</ul>
+<p>A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.</p>
+<h3 id="beadando-feladat-1">Beadandó - Feladat 1<a class="headerlink" href="#beadando-feladat-1" title="Permanent link">&para;</a></h3>
+<h4 id="kepernyokepek-az-alabbi-lepesekrol">Képernyőképek az alábbi lépésekről<a class="headerlink" href="#kepernyokepek-az-alabbi-lepesekrol" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Kép tartalma</th>
+<th>Típus</th>
+<th>Fájlnév (kiterjesztés nélkül)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azure portál főoldal, belépés után</td>
+<td>Böngésző</td>
+<td><code>f1_azlogin</code></td>
+</tr>
+<tr>
+<td>Az új App Service áttekintő oldala (Overview)</td>
+<td>Böngésző</td>
+<td><code>f1_app</code></td>
+</tr>
+<tr>
+<td>Az új adatbázis áttekintő oldala (Overview)</td>
+<td>Böngésző</td>
+<td><code>f1_sqldb</code></td>
+</tr>
+<tr>
+<td>EF Migration bundle futtatása</td>
+<td>SSH terminál</td>
+<td><code>f1_efmigr</code></td>
+</tr>
+<tr>
+<td>Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva</td>
+<td>Böngésző</td>
+<td><code>f1_svcconn</code></td>
+</tr>
+<tr>
+<td>:cloud: Az App Service <em>Log stream</em> oldala egy elem módosítása után</td>
+<td>Böngésző</td>
+<td><code>f1_log</code></td>
+</tr>
+</tbody>
+</table>
+<p>:bulb: Service Connector-ok validálása az App Service <a href="https://learn.microsoft.com/en-us/azure/service-connector/quickstart-portal-container-apps">Service Connector lapján</a>: jelölj ki minden kapcsolatot és felül nyomd meg a <em>Validate</em> gombot. Várd meg, amíg az ellenőrzés lefut.</p>
+<p>A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.</p>
+<h4 id="kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol">Képernyőképek a böngészőben futó webalkalmazás <strong>főoldaláról</strong><a class="headerlink" href="#kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Kép tartalma</th>
+<th>Fájlnév (kiterjesztés nélkül)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>első indítás után</td>
+<td><code>f1_v1</code></td>
+</tr>
+<tr>
+<td>:cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen</td>
+<td><code>f1_v2</code></td>
+</tr>
+</tbody>
+</table>
+<p>:cloud:: az így jelölt képek nem szükségesek az elégséges szint eléréséhez. Összesen 5+1 kép kell az elégégeshez.</p>
+<h3 id="beadando-feladat-2">Beadandó - Feladat 2<a class="headerlink" href="#beadando-feladat-2" title="Permanent link">&para;</a></h3>
+<h4 id="kepernyokepek-az-alabbi-lepesekrol_1">Képernyőképek az alábbi lépésekről<a class="headerlink" href="#kepernyokepek-az-alabbi-lepesekrol_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Kép tartalma</th>
+<th>Típus</th>
+<th>Fájlnév (kiterjesztés nélkül)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Az új App Service áttekintő oldala (Overview)</td>
+<td>Böngésző</td>
+<td><code>f2_app</code></td>
+</tr>
+<tr>
+<td>Az új adatbázis áttekintő oldala (Overview)</td>
+<td>Böngésző</td>
+<td><code>f2_sqldb</code></td>
+</tr>
+<tr>
+<td>sqlpackage futtatása</td>
+<td>SSH terminál</td>
+<td><code>f2_dbmigr</code></td>
+</tr>
+<tr>
+<td>:cloud: Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva</td>
+<td>Böngésző</td>
+<td><code>f2_svcconn</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="kepernyokepek-a-bongeszoben-futo-moviecatalog-webalkalmazas-fooldalarol">Képernyőképek a böngészőben futó MovieCatalog webalkalmazás <strong>főoldaláról</strong><a class="headerlink" href="#kepernyokepek-a-bongeszoben-futo-moviecatalog-webalkalmazas-fooldalarol" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Kép tartalma</th>
+<th>Fájlnév (kiterjesztés nélkül)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>első indítás után</td>
+<td><code>f2_v1</code></td>
+</tr>
+</tbody>
+</table>
+<p>:cloud:: az így jelölt képek nem szükségesek a jeles szint eléréséhez.</p>
+<h2 id="ertekelesi-iranyelvek">Értékelési irányelvek<a class="headerlink" href="#ertekelesi-iranyelvek" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ha <strong>nem</strong> csak jelölt (:cloud:) képek hiányoznak az első feladatból :arrow_right: 1</li>
+<li>ha csak jelölt (:cloud:) kép hiányzik az első feladatból:arrow_right: 2</li>
+<li>ha minden elkészül az első feladatból :arrow_right: 3</li>
+<li>ha csak jelölt (:cloud:) kép hiányzik a második feladatból:arrow_right: 4</li>
+<li>ha minden elkészül az első és a második feladatból is :arrow_right: 5</li>
+</ul>
+
+    <hr>
+  <div class="md-source-file">
+    <span class="md-source-file__fact"> <span class="md-icon" title="Utolsó frissítés"> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z">
+          </path>
+        </svg>
+      </span>
+      <span title="2025. szeptember 2. 18:50:15">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      </span>
+    </span>
+
+    
+
+    <span class="md-source-file__fact">
+      <span class="md-icon" title="Szerzők">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z">
+          </path>
+        </svg>
+      </span>
+      <span>Szerzők</span>
+      <nav></nav>      
+    </span>
+  </div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; BME VIK AUT
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>
