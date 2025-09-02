@@ -1,0 +1,140 @@
+site_name: BMEVIABC01 - Szoftverfejlesztés laboratórium laborfeladatok
+site_author: Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka
+copyright: Copyright &copy; BME VIK AUT
+repo_name: viaubc01/labor-leirasok
+repo_url: https://github.com/viaubc01/labor-leirasok
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: hu
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: aut
+      primary: red
+      accent: red
+      toggle:
+        icon: material/lightbulb-outline
+        name: Váltás sötét témára
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      toggle:
+        icon: material/lightbulb
+        name: Váltás világos témára
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+  logo: logo-bme-aut.png
+  favicon: favicon.ico
+
+extra_css:
+  - extra-material-theme.css
+
+extra:
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - md_in_html
+  - pymdownx.keys
+
+plugins:
+  - search:
+      prebuild_index: true
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: timeago
+      timezone: Europe/Budapest
+      locale: hu
+  - git-committers:
+      repository: VIAUBC01/labor-leirasok
+      branch: master
+
+nav:
+  - "Tudnivalók":
+      - index.md
+      - tudnivalok/github/GitHub.md
+      - tudnivalok/github/GitHub-Actions.md
+      - tudnivalok/github/GitHub-credentials.md
+      - tudnivalok/github/contributing.md
+  - "Laborok":
+      - laborok/android1/index.md
+      - laborok/android2/index.md
+      - laborok/azure/index.md
+      - "EF":
+          - laborok/ef/index.md   
+          - laborok/ef/Feladat-1.md   
+          - laborok/ef/Feladat-2.md   
+          - laborok/ef/Feladat-3.md    
+          - laborok/ef/Feladat-4.md
+      - "JS, TS, HTML, CSS":
+          - laborok/JS_TS_HTML_CSS/index.md
+          - laborok/JS_TS_HTML_CSS/Feladat-1.md
+          - laborok/JS_TS_HTML_CSS/Feladat-2.md
+          - laborok/JS_TS_HTML_CSS/Feladat-3.md
+      - "MSSQL":
+          - laborok/mssql/index.md
+          - laborok/mssql/Feladat-1.md
+          - laborok/mssql/Feladat-2.md
+          - laborok/mssql/Feladat-3.md
+      - "Preact":
+          - laborok/preact/index.md
+          - laborok/preact/server.md
+          - laborok/preact/client.md
+      - "Razor":
+          - laborok/razor/index.md   
+          - laborok/razor/Feladat-1.md   
+          - laborok/razor/Feladat-2.md   
+          - laborok/razor/Feladat-3.md    
+          - laborok/razor/Feladat-4.md
+      - "Reporting Services":
+          - laborok/reportingservices/index.md   
+          - laborok/reportingservices/Feladat-1.md   
+          - laborok/reportingservices/Feladat-2.md   
+          - laborok/reportingservices/Feladat-3.md 
+      - "Spring Cloud":
+          - laborok/spring-cloud/index.md   
+          - laborok/spring-cloud/Feladat-1.md   
+          - laborok/spring-cloud/Feladat-2.md   
+          - laborok/spring-cloud/Feladat-3.md    
+          - laborok/spring-cloud/Feladat-4.md
+      - "Spring MVC":
+          - laborok/spring-mvc/index.md   
+          - laborok/spring-mvc/Feladat-1.md   
+          - laborok/spring-mvc/Feladat-2.md   
+          - laborok/spring-mvc/Feladat-3.md    
+          - laborok/spring-mvc/Feladat-4.md
+      - "Web API":
+          - laborok/webapi/index.md   
+          - laborok/webapi/Feladat-1.md   
+          - laborok/webapi/Feladat-2.md   
+          - laborok/webapi/Feladat-3.md    
+          - laborok/webapi/Feladat-4.md
