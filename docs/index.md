@@ -28,7 +28,7 @@ A laborok megoldását egy személyre szóló git repository-ban kell beadni. En
 
 ### Laborok értékelése
 
-Minden labort külön jeggyel értékelünk. A teljesítés feltétele a határidőig történő beadás. A jegy (1-5 skálán) a labor feladatokon megszerezhető 5 pont alapján történik. A feladatok beadásához minden esetben a GitHub platformot használjuk. 
+Minden labort külön jeggyel értékelünk. A teljesítés feltétele a határidőig történő beadás. A jegy (1-5 skálán) a labor feladatokon megszerezhető pontok alapján történik. A feladatok beadásához minden esetben a GitHub platformot használjuk. 
 
 A feladatok kiértékelése egyes laborok esetén részben **automatikusan** történik. A futtatható kódokat valóban le fogjuk futtatni, ezért minden esetben fontos a feladatleírások pontos követése (kiinduló kód váz használata, csak a megengedett fájlok változtatása, stb.)!
 
@@ -57,7 +57,7 @@ A laborok kérik, hogy készíts képernyőképet a megoldás egy-egy részérő
 
 Azért így teszünk, mert mérnökként a feladatod a problémák _megoldása_ lesz, és nem csak egy _kísérlet_ a megoldásra. Mit gondolsz, ha a munkahelyeden a főnöködnek átadsz egy nem forduló kódot, mit fog tenni?
 
-**Ha otthonról készítem el a megoldást, hogyan kapok segítséget?** Akár otthonról dolgozol, akár egyetemi laborban, egy laborvezetőhöz tartozol. Ő felel nem csak a kontaktóra megtartásáért, hanem azért is, hogy a félév közben a feladatok beadása és ellenőrzése rendben történjen.
+**Ha otthonról készítem el a megoldást, hogyan kapok segítséget?** Akár otthonról dolgozol, akár egyetemi laborban, minden mérésnek van egy laborvezetője. A tárgy Moodle oldala foglalja össze, hogy melyik mérésnek ki a laborvezetője. Ő felel nem csak a kontaktóra megtartásáért, hanem azért is, hogy a félév közben a feladatok beadása és ellenőrzése rendben történjen. Elakadás esetén is hozzá kell forulnod.
 
 **Nem segít a laborvezető. Miért?** Dehogynem segít. Viszont ha egyből megmondaná a megoldást, csak azt tanulnád meg, hogy legközelebb is meg kell kérdezni. Próbáld magad megoldani, mutass alternatívákat, kérdezz konkrétan. Mutasd meg, hogy professzionális a hozzáállásod.
 
