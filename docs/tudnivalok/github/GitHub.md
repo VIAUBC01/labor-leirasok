@@ -1,6 +1,6 @@
 # Feladatok beadása (GitHub)
 
-A feladatok beadásához a GitHub platformot használjuk. Minden labor beadása egy-egy GitHub repository-ban történik, melyet a feladatleírásban található linken keresztül kapsz meg. A labor feladatainak megoldását ezen repository-ban kell elkészítened, és ide kell feltöltened. A kész megoldás beadása a repository-ba való feltöltés után egy un. _pull request_ formájában történik, amelyet a laborvezetődhöz rendelsz.
+A feladatok beadásához a GitHub platformot használjuk. Minden labor beadása egy-egy GitHub repository-ban történik, melyet a feladatleírásban található linken keresztül kapsz meg. A labor feladatainak megoldását ezen repository-ban kell elkészítened, és ide kell feltöltened. A kész megoldás beadása a repository-ba való feltöltés után egy ún. _pull request_ formájában történik, amelyet a laborvezetődhöz rendelsz.
 
 !!! important "FONTOS"
     Az itt leírt formai előírások betartása elvárás. A nem ilyen formában beadott megoldásokat nem értékeljük.
@@ -83,7 +83,7 @@ Alább részletesen bemutatjuk a beadás menetét. Itt egy rövid összefoglaló
         ```
 
     !!! tip "Otthon"
-        Otthon a fentieket érdemes lehet a globálisan vizsgálni és felülírni a `--global` kapcsolóval.
+        Otthon a fentieket érdemes lehet globálisan vizsgálni és felülírni a `--global` kapcsolóval.
 
     GitHub Desktop-ban így tudsz kommitolni. Mindig ellenőrizd, hogy jó ágon vagy-e. Első alkalommal a _megoldas_ ág csak helyben létezik, ezért publikálni kell: _Publish this branch_.
 
