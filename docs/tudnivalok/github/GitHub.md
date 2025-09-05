@@ -65,7 +65,7 @@ Alább részletesen bemutatjuk a beadás menetét. Itt egy rövid összefoglaló
 
     Ha konzolt használsz, az új ág elkészíthető ezzel a paranccsal: `git checkout -b megoldas`
 
-1. Ezen a megoldás ágon dolgozva készítsd el a beadandókat. Akárhányszor kommitolhatsz és pusholhatsz. A megoldás része a forráskód és a feladatokban elvárt képernyőképek. Ha a feladat képernyőképet vár el, akkor azt a repository gyökerébe commitold az elvárt néven.
+1. Ezen a megoldás ágon dolgozva készítsd el a beadandókat. Mindig ki kell töltened a repo gyökerében lévő neptun.txt fájlt is a saját Neptun kódoddal. Akárhányszor kommitolhatsz és pusholhatsz. A megoldás része a forráskód és a feladatokban elvárt képernyőképek. Ha a feladat képernyőképet vár el, akkor azt a repository gyökerébe commitold az elvárt néven.
 
     !!! note "Egyetemi laborban"
         Laborgépeken mindig ellenőrízd, hogy a megfelelő névvel és email címmel kommitolsz-e. Ezt a következő command line paranccsal tudod megtenni.

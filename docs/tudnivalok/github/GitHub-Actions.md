@@ -1,12 +1,12 @@
 # GitHub Actions ismertető
 
-A laborfeladatok kiértékelésében a [GitHub Actions](https://github.com/features/actions)-re támaszkodunk. Segítségével a git repository-kon műveleteket és programokat tudunk futtatni. Ilyen művelet például a C# kód lefordítása, vagy a beadott kód tesztelése.
+Néhány laborfeladat kiértékelésében a [GitHub Actions](https://github.com/features/actions)-re támaszkodunk. Segítségével a git repository-kon műveleteket és programokat tudunk futtatni. Ilyen művelet például a C# kód lefordítása, vagy a beadott kód tesztelése.
 
 A lefutott kiértékelésről a pull request-ben fogsz értesítést kapni. Ha meg szeretnéd nézni részletesebben a háttérben történteket, vagy például az alkalmazás naplókat, a GitHub felületén az _Actions_ alatt indulhatsz el.
 
 ![GitHub Actions a webfelületen](assets/github-actions-tab.png)
 
-Az _Actions_ felületén un. _Workflow_-kat látsz; minden egyes kiértékelés futtatás egy-egy elem lesz itt (tehát historikusan is visszakereshetőek).
+Az _Actions_ felületén ún. _Workflow_-kat látsz; minden egyes kiértékelés futtatás egy-egy elem lesz itt (tehát historikusan is visszakereshetőek).
 
 ![GitHub Actions workflow lista](assets/github-actions-executions-list.png)
 
