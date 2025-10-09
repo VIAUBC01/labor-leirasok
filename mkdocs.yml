@@ -89,7 +89,7 @@ nav:
       - laborok/android1/index.md
       - laborok/android2/index.md
       - laborok/azure/index.md
-      - "EF":
+      - "Entity Framework":
           - laborok/ef/index.md   
           - laborok/ef/Feladat-1.md   
           - laborok/ef/Feladat-2.md   

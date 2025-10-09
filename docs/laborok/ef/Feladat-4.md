@@ -1,4 +1,4 @@
-# Feladat 4
+# Feladat 4: Haladó funkciók
 
 1. Hozd létre az alábbi interfészt a Data projektben:
 
@@ -160,7 +160,7 @@ Beadandó:
 - az elkészült **saját/átírt** kódrészletekről készített képernyőképek,
 - a terminal alkalmazásban futtatott lekérdezések eredménye a konzolra (`Logger`) írva.
 
-**Bónusz**: egy jegy javítás kapható, ha mindegyik lekérdezés meg van írva.
+**Bónusz**: egy jegy javítás kapható, ha mindegyik lekérdezés meg van írva. Pull Requestben jelezd szövegesen is, hogy elkészültek.
 
 ## Végeztél
 

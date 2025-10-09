@@ -1,4 +1,4 @@
-# Áttekintés
+# Feladat 1: Alap infrastruktúra
 
 A készülő alkalmazásban az [IMDB által naponta frissített, publikus adatok](https://www.imdb.com/interfaces/) felhasználásával fogjuk filmek adatait kezelni. Fontos, hogy ezt az adathalmazt saját, tanulási célra szabadon használhatjuk, minden más célra kifejezett engedélyt kell kérni.
 
@@ -25,7 +25,7 @@ Lássunk neki!
     - `dotnet tool install --global dotnet-ef`
       - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
-1. Hozzunk létre egy új .NET (.NET 6 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) **MovieCatalog.Data** néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
+1. Hozzunk létre egy új .NET (.NET 8 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) **MovieCatalog.Data** néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
 1. Adjunk a solutionhöz egy új .NET C# konzol projektet is **MovieCatalog.Terminal** néven!
 1. Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!
 1. Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.
