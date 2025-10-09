@@ -21,7 +21,7 @@
     
     
       
-        <title>Feladat 3 - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 3: Több-több kapcsolatok - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-3" class="md-skip">
+        <a href="#feladat-3-tobb-tobb-kapcsolatok" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 3
+              Feladat 3: Több-több kapcsolatok
             
           </span>
         </div>
@@ -473,14 +473,14 @@
       
       
         <label class="md-nav__link" for="__nav_2_4" tabindex="0" aria-expanded="true">
-          EF
+          Entity Framework
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="EF" data-md-level="2">
+      <nav class="md-nav" aria-label="Entity Framework" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
-          EF
+          Entity Framework
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -491,20 +491,6 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Adatréteg készítése Entity Frameworkkel
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Feladat-1/" class="md-nav__link">
         Áttekintés
       </a>
     </li>
@@ -518,8 +504,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../Feladat-1/" class="md-nav__link">
+        Feladat 1: Alap infrastruktúra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Adatbetöltés
+        Feladat 2: Adatbetöltés
       </a>
     </li>
   
@@ -542,12 +542,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 3
+          Feladat 3: Több-több kapcsolatok
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 3
+        Feladat 3: Több-több kapcsolatok
       </a>
       
         
@@ -602,7 +602,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4
+        Feladat 4: Haladó funkciók
       </a>
     </li>
   
@@ -1450,7 +1450,7 @@
 
 
 
-<h1 id="feladat-3">Feladat 3<a class="headerlink" href="#feladat-3" title="Permanent link">&para;</a></h1>
+<h1 id="feladat-3-tobb-tobb-kapcsolatok">Feladat 3: Több-több kapcsolatok<a class="headerlink" href="#feladat-3-tobb-tobb-kapcsolatok" title="Permanent link">&para;</a></h1>
 <p>A művekhez műfajok tartoznak. A műfajok a <code>genres</code> kulcsú elemben találhatók vesszővel elválasztva. <strong>A műfajokat saját táblában kell tárolni, hogy kevesebb helyet fogyasszanak a diszken és ne legyen redundáns a tárolásuk.</strong> A műfajról tároljuk az azonosítóját (szám), amit az adatbázis oszt majd ki, valamint a nevét, ami kötelező, és <strong>egyedinek</strong> kell lennie, és <strong>maximum 50 karakter hosszúságú</strong> lehet. Egy film több műfajban is lehet, egy műfajhoz több film is tartozhat. Mindkét irányban navigation property-t kell definiálni a műfaj és a mű között. Egy filmhez egy műfaj csak egyszer tartozhat!</p>
 <h2 id="tippek">Tippek<a class="headerlink" href="#tippek" title="Permanent link">&para;</a></h2>
 <p>:bulb: Az adatbázisban csak 1-többes kapcsolat létezik, több-többes kapcsolatot (many-to-many relationship) kapcsolótábla bevezetésével és 1-többes kapcsolatokkal oldjuk meg. C# szinten vagy egy-az-egyben ezt a modellt képezzük le (explicit több-többes kapcsolat), vagy csak egyszerűen a két eredeti entitásba veszünk fel kollekciókat, és csak az EF szinten jelenik meg a kapcsolótábla (<a href="https://learn.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key#many-to-many">implicit több-többes kapcsolat</a>). Bár az utóbbi egyszerűbb és kényelmesebb, de korlátozottabb, nehezebben bővíthető.</p>
@@ -1473,7 +1473,7 @@
 :bulb: Futtatás előtt érdemes most is törölni a <strong>Titles</strong> táblát, de a TRUNCATE nem használható olyan táblákon, amire idegen kulcs hivatkozás van (a <strong>Titles</strong> tábla már ilyen), helyette a <code>DELETE FROM táblanév</code> használható. Minden tábla kitörlésére/eldobására használható a <code>dotnet ef database update 0</code> parancssorból - ez kitörli minden táblánkat, majd a normál <code>dotnet ef database update</code> létrehozza őket üresen.</p>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
 <p>Az adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a kapcsolótábla és az új tábla tartalmai) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a táblák, azok oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).</p>
-<p><strong>Bónusz (nehéz!)</strong>: egy jegy javítás kapható, ha <a href="https://datasets.imdbws.com/">a teljes adathalmazt tartalmazó fájl</a> betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága).</p>
+<p><strong>Bónusz (nehéz!)</strong>: egy jegy javítás kapható, ha <a href="https://datasets.imdbws.com/">a teljes adathalmazt tartalmazó fájl</a> betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága). Ezt a pull request szövegébe írd be.</p>
 <h2 id="kovetkezo-feladat">Következő feladat<a class="headerlink" href="#kovetkezo-feladat" title="Permanent link">&para;</a></h2>
 <p>Folytasd a <a href="../Feladat-4/">következő feladattal</a>.</p>
 
@@ -1486,8 +1486,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 9. 17:50:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
       </span>
     </span>
 

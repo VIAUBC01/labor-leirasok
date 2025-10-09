@@ -21,7 +21,7 @@
     
     
       
-        <title>Áttekintés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 1: Alap infrastruktúra - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#attekintes" class="md-skip">
+        <a href="#feladat-1-alap-infrastruktura" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Áttekintés
+              Feladat 1: Alap infrastruktúra
             
           </span>
         </div>
@@ -473,14 +473,14 @@
       
       
         <label class="md-nav__link" for="__nav_2_4" tabindex="0" aria-expanded="true">
-          EF
+          Entity Framework
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="EF" data-md-level="2">
+      <nav class="md-nav" aria-label="Entity Framework" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
-          EF
+          Entity Framework
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -491,7 +491,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Adatréteg készítése Entity Frameworkkel
+        Áttekintés
       </a>
     </li>
   
@@ -514,7 +514,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Áttekintés
+        Feladat 1: Alap infrastruktúra
       </a>
       
     </li>
@@ -529,7 +529,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Adatbetöltés
+        Feladat 2: Adatbetöltés
       </a>
     </li>
   
@@ -543,7 +543,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3
+        Feladat 3: Több-több kapcsolatok
       </a>
     </li>
   
@@ -557,7 +557,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4
+        Feladat 4: Haladó funkciók
       </a>
     </li>
   
@@ -1376,7 +1376,7 @@
 
 
 
-<h1 id="attekintes">Áttekintés<a class="headerlink" href="#attekintes" title="Permanent link">&para;</a></h1>
+<h1 id="feladat-1-alap-infrastruktura">Feladat 1: Alap infrastruktúra<a class="headerlink" href="#feladat-1-alap-infrastruktura" title="Permanent link">&para;</a></h1>
 <p>A készülő alkalmazásban az <a href="https://www.imdb.com/interfaces/">IMDB által naponta frissített, publikus adatok</a> felhasználásával fogjuk filmek adatait kezelni. Fontos, hogy ezt az adathalmazt saját, tanulási célra szabadon használhatjuk, minden más célra kifejezett engedélyt kell kérni.</p>
 <p>Az elkészítendő alkalmazásunk egy osztálykönyvtár lesz, amit más kódból (pl. egy REST API-t szolgáltató web API projektből vagy egy szerveroldali renderelést használó projektből) szeretnénk majd elérni. Mivel a kódunk osztálykönyvtár, önmagában nem is futtatható, hanem egy .dll fájlként csak a kódot tartalmazza, amit más, futó .NET alkalmazásból el tudunk majd érni.</p>
 <p>Először létrehozzuk az osztálykönyvtárat, amiben az adatbázist reprezántáló DbContextet, a táblákat reprezentáló entitásokat fogjuk definiálni. Itt lesznek még a szükséges migrációk is, amelyeket az adatbázisunkon lefuttatva az adatsémát a modellel szinkronba hozhatjuk. Az adatbázist code first módszertannal modellezzük, tehát először az entitásokat fogjuk definiálni, aztán létrehozzuk a migrációkat, amiket végül lefuttatunk, így jön majd létre az adatbázisban a modellünknek megfelelő séma.</p>
@@ -1398,7 +1398,7 @@
 <li>Ezzel használhatók lesznek a <code>dotnet ef</code> parancsok.</li>
 </ul>
 </li>
-<li>Hozzunk létre egy új .NET (.NET 6 verziójú, a későbbiekben is) C# osztálykönyvtárat (<em>Class library</em>) <strong>MovieCatalog.Data</strong> néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!</li>
+<li>Hozzunk létre egy új .NET (.NET 8 verziójú, a későbbiekben is) C# osztálykönyvtárat (<em>Class library</em>) <strong>MovieCatalog.Data</strong> néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!</li>
 <li>Adjunk a solutionhöz egy új .NET C# konzol projektet is <strong>MovieCatalog.Terminal</strong> néven!</li>
 <li>Töröljük a létrejött helyőrző fájlt (Class1.cs) az adatréteg projektben!</li>
 <li>Adjunk referenciát a konzolos projektből az adatréteg projektre! Értelemszerűen így a konzolos projektből el fogjuk érni az adatréteg típusait és API-ját, fordítva viszont nem.</li>
@@ -1581,8 +1581,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 9. 17:50:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
       </span>
     </span>
 
