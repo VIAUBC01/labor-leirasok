@@ -1,4 +1,4 @@
-# Adatréteg készítése Entity Frameworkkel
+# Áttekintés
 
 A labor során egy adatréteget fogunk megvalósítani, amely a következő 2 labor ([Web API](../webapi/README.md), [Razor](../razor/README.md)) alapjául szolgál majd.
 
@@ -41,15 +41,28 @@ Hivatalos dokumentációk, amelyek jó kiindulásként szolgálnak a részletes 
 ### Más OS-en:
 - A feladatok megoldhatók Linux és Mac OS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio for Mac, Visual Studio Code, JetBrains Rider stb.) kell használni. Ezeket a lehetőségeket részletesen nem tárgyaljuk.
 
-## Beadandó
+## Labor menete
 
-A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel:
-- **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
-  - konkrét kódrészletekről készített képernyőkép(ek), 
-  - 1 mondatos magyarázat
-  - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. 
+### Git repository létrehozása és letöltése
 
-## Értékelés
+1. Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.
+
+1. Várd meg, míg elkészül a repository, majd checkout-old ki.
+
+    !!! warning "Checkout"
+        Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd [itt](../../tudnivalok/github/GitHub-credentials.md)), és próbáld újra.
+
+1. Hozz létre egy új ágat `megoldas` néven, és ezen az ágon dolgozz. 
+
+1. A `neptun.txt` fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.
+
+### Beadandük
+
+A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető által meghatározott módon.
+- Minden feladathoz 1 (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. 
+- A Visual Studio projekt könyvtára
+
+### Értékelés
 
 A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.
 

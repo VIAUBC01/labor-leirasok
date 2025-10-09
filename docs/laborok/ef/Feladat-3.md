@@ -1,4 +1,4 @@
-# Feladat 3
+# Feladat 3: Több-több kapcsolatok
 
 A művekhez műfajok tartoznak. A műfajok a `genres` kulcsú elemben találhatók vesszővel elválasztva. **A műfajokat saját táblában kell tárolni, hogy kevesebb helyet fogyasszanak a diszken és ne legyen redundáns a tárolásuk.** A műfajról tároljuk az azonosítóját (szám), amit az adatbázis oszt majd ki, valamint a nevét, ami kötelező, és **egyedinek** kell lennie, és **maximum 50 karakter hosszúságú** lehet. Egy film több műfajban is lehet, egy műfajhoz több film is tartozhat. Mindkét irányban navigation property-t kell definiálni a műfaj és a mű között. Egy filmhez egy műfaj csak egyszer tartozhat!
 
@@ -35,7 +35,7 @@ Genre = genres.TryGetValue(ng, out var g) ? g : genres[ng] =new Genre(ng)
 
 Az adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a kapcsolótábla és az új tábla tartalmai) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a táblák, azok oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).
 
-**Bónusz (nehéz!)**: egy jegy javítás kapható, ha [a teljes adathalmazt tartalmazó fájl](https://datasets.imdbws.com/) betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága).
+**Bónusz (nehéz!)**: egy jegy javítás kapható, ha [a teljes adathalmazt tartalmazó fájl](https://datasets.imdbws.com/) betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága). Ezt a pull request szövegébe írd be.
 
 ## Következő feladat
 
