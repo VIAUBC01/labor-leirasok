@@ -80,10 +80,6 @@ Készíts egy új API kontrollert `GenresController` néven! A kontroller az al�
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 - Régebbi .NET-en, vagy Open API/Swagger nélkül az F5 hatására a szerver elindul, automatikusan a */weatherforecast* URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a `WeatherForecastController`t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (`launchUrl` mező átírása vagy törlése).
 - Módosító/beszúró műveleteknél szükség van egy elemre sorosított formában, ezt kell általában ezen műveleteknél a törzsben küldeni. Érdemes ezt a sorosított formát a lekérdező művelet válaszából elcsenni.
-- Általad írt kódrészletekről képernyőképet kell beadni. Ezek a fájlok érintettek:
-    * Program.cs
-    * kontrollerek kódfájljai
-    * *XXXService*-ek kódfájljai
 - Minden feladathoz beadandók tesztkérésekről készítendő képek. A képet a *Swagger UI* beépített weboldalról kell készíteni. A kép a *Curl* résztől a *Server response*-ig terjedő részt (a *Responses* részt már nem) tartalmazza (response header és response body is, ha van!). Példák:
 
 ![This is an image](./images/req_p%C3%A9lda.png)
