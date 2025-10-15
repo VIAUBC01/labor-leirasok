@@ -1,13 +1,17 @@
-# Feladat 4.
+# Feladat 4: Művek, folytatás
 
 A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (`Title`) alábbi műveleteit is:
+
 - `DELETE api/titles/<ID>`
-  - Ne felejtsd el az ID ellenőrzést!
+
+    * Ne felejtsd el az ID ellenőrzést!
+
 - `GET api/titles?pageSize=<oldalméret>`
-  - Adja vissza a legfrissebb filmeket (maximális *StartYear*) `StartYear` szerint rendezve 
-  - *oldalméret* darab eredményt adjon vissza, de legfeljebb százat
-  - ha nincs megadva *oldalméret*, ötvenet adjon vissza
-  - az oldalmérettel kapcsolatos fenti logikát a kontrollerbe tedd, a `TitleService.GetTitlesAsync` már a szabályoknak megfelelő paramétert kapjon
+
+    * Adja vissza a legfrissebb filmeket (maximális *StartYear*) `StartYear` szerint rendezve 
+    * *oldalméret* darab eredményt adjon vissza, de legfeljebb százat
+    * ha nincs megadva *oldalméret*, ötvenet adjon vissza
+    * az oldalmérettel kapcsolatos fenti logikát a kontrollerbe tedd, a `TitleService.GetTitlesAsync` már a szabályoknak megfelelő paramétert kapjon
 
 ## Beadandó tesztkérések
 
@@ -16,7 +20,7 @@ A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (`Title`
 
 # Végeztél
 
-:godmode: Végeztél a feladatokkal. :godmode:
+Végeztél a feladatokkal.
 
 # Bónusz feladat
 
