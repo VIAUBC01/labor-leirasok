@@ -21,7 +21,7 @@
     
     
       
-        <title>Feladat 3. - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 3: Művek - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-3" class="md-skip">
+        <a href="#feladat-3-muvek" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 3.
+              Feladat 3: Művek
             
           </span>
         </div>
@@ -1253,7 +1253,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1267,7 +1267,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1281,7 +1281,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1304,12 +1304,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 3.
+          Feladat 3: Művek
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
       
         
@@ -1357,7 +1357,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1436,23 +1436,27 @@
 
 
 
-<h1 id="feladat-3">Feladat 3.<a class="headerlink" href="#feladat-3" title="Permanent link">&para;</a></h1>
-<p>A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (<code>Title</code>) alábbi műveleteit is:
-- <code>GET api/titles/&lt;ID&gt;</code>
-- <code>PUT api/titles/&lt;ID&gt;</code>
-- <code>POST api/titles</code></p>
+<h1 id="feladat-3-muvek">Feladat 3: Művek<a class="headerlink" href="#feladat-3-muvek" title="Permanent link">&para;</a></h1>
+<p>A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (<code>Title</code>) alábbi műveleteit is:</p>
+<ul>
+<li><code>GET api/titles/&lt;ID&gt;</code></li>
+<li><code>PUT api/titles/&lt;ID&gt;</code></li>
+<li><code>POST api/titles</code></li>
+</ul>
 <p>Eltérés, hogy műveknek lehet ugyanazon neve, tehát nem lesz konfliktus, ha ugyanazt próbáljuk meg többször beszúrni. Az azonosítónak megfelelő mű meglétét viszont továbbra is ellenőrizni kell!</p>
-<p>A <code>Title</code> entitás nem utazhat a dróton, 
-- azaz nem jöhet a klienstől paraméterben
-- nem szabad vele visszatérni az API végpontokon
-- tehát nem hivatkozhat rá sehol a <code>TitlesController</code>  </p>
-<p>Helyette a <a href="./snippets/Dtos">Dtos mappában</a> lévő DTO-kat kell használni:</p>
+<p>A <code>Title</code> entitás nem utazhat a dróton,</p>
+<ul>
+<li>azaz nem jöhet a klienstől paraméterben</li>
+<li>nem szabad vele visszatérni az API végpontokon</li>
+<li>tehát nem hivatkozhat rá sehol a <code>TitlesController</code>  </li>
+</ul>
+<p>Helyette a <em>Dtos</em> lévő DTO-kat kell használni:</p>
 <ul>
 <li><code>TitleInsertUpdateModel</code> ezt várjuk a klienstől módosításkor, beszúráskor</li>
 <li><code>TitleQueryModel</code> ezt vagy ilyen kollekciót adunk vissza a kliensnek lekérdezéskor</li>
 </ul>
 <p>A DTO-k DTO &lt;=&gt; Entitás konvertáló függvényt/konstruktort is tartalmaznak.</p>
-<p>Adateléréshez a <a href="./snippets/Services">Services mappában</a> lévő <code>ITitleService</code> és <code>TitleService</code> típusokat használd.</p>
+<p>Adateléréshez a <em>Services</em> mappában lévő <code>ITitleService</code> és <code>TitleService</code> típusokat használd.</p>
 <h2 id="beadando-tesztkeresek">Beadandó tesztkérések<a class="headerlink" href="#beadando-tesztkeresek" title="Permanent link">&para;</a></h2>
 <ul>
 <li>A módosító és a beszúró végpontra egy-egy sikeres és egy tetszőleges sikertelen kérés/válasz bemutatása.</li>
@@ -1471,8 +1475,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 15. 09:28:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:28:14 CEST"><span class="timeago" datetime="2025-10-15T09:28:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:28:14 CEST">2025-10-15</span>
       </span>
     </span>
 

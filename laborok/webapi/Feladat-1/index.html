@@ -21,7 +21,7 @@
     
     
       
-        <title>Előkészítés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 1: Előkészítés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#elokeszites" class="md-skip">
+        <a href="#feladat-1-elokeszites" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Előkészítés
+              Feladat 1: Előkészítés
             
           </span>
         </div>
@@ -1253,7 +1253,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1276,7 +1276,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
       
     </li>
@@ -1291,7 +1291,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1305,7 +1305,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1319,7 +1319,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1376,18 +1376,24 @@
 
 
 
-<h1 id="elokeszites">Előkészítés<a class="headerlink" href="#elokeszites" title="Permanent link">&para;</a></h1>
-<p>Az <a href="../ef/README.md">Entity Framework laboron</a> készült adatmodellt (kissé kibővítve) fogjuk hasznosítani, hogy egy RESTful API-t készítsünk ASP.NET Core-ban.</p>
+<h1 id="feladat-1-elokeszites">Feladat 1: Előkészítés<a class="headerlink" href="#feladat-1-elokeszites" title="Permanent link">&para;</a></h1>
+<p>Az <a href="../../ef">Entity Framework laboron</a> készült adatmodellt (kissé kibővítve) fogjuk hasznosítani, hogy egy RESTful API-t készítsünk ASP.NET Core-ban.</p>
 <ol>
 <li>
 <p>Hozz létre egy új C# nyelvű ASP.NET Core Web API (nem Web App!) típusú projektet <code>MovieCatalog.Api</code> néven</p>
 <ul>
 <li>Érdemes a laborgépeken kikapcsolni a <em>Configure for HTTPS lehetőséget</em>, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt. Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.</li>
-<li>.NET verzió: 6.0</li>
-<li>Minden extra opció legyen kikapcsolva, kivéve </li>
+<li>.NET verzió: 8.0</li>
+<li>
+<p>Minden extra opció legyen kikapcsolva, kivéve </p>
+<ul>
 <li><em>Use controllers</em></li>
 <li><em>Enable OpenAPI support</em> - ezzel a műveleteink metaadata alapján generálódó <a href="https://swagger.io/tools/swagger-ui/">Swagger UI tesztoldalt</a> kapunk</li>
-<li><em>Authentication type</em> is <em>None</em> legyen</li>
+</ul>
+</li>
+<li>
+<p><em>Authentication type</em> is <em>None</em> legyen</p>
+</li>
 </ul>
 </li>
 <li>
@@ -1417,61 +1423,71 @@
 </ul>
 </li>
 <li>
-<p>Add hozzá a projekthez a <em>Microsoft.EntityFrameworkCore.SqlServer</em> NuGet csomagot</p>
+<p>Add hozzá a projekthez a <em>Microsoft.EntityFrameworkCore.SqlServer</em> (verzió: 8.0.20) NuGet csomagot</p>
 </li>
 <li>
-<p>Add hozzá az előre elkészített <a href="./snippets/Entities">entitásmodell és adatbázis kontextus fájlokat</a> a projektedhez egy új Entities könyvtárba. Ehhez érdemes <a href="https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip">letölteni ezt a git repot</a>. A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.</p>
+<p>Add hozzá az előre elkészített entitásmodell és adatbázis kontextus fájlokat a projektedhez egy új Entities könyvtárba. Ehhez érdemes <a href="https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/webapi-snippets.zip">letölteni ezt a git branchet</a>. A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.</p>
 </li>
 <li>
 <p>Regisztráld az adatbázis kontextust a DI rendszerbe. (Program.cs) </p>
 </li>
 <li>
-<p>Add hozzá a projekthez az előkészített kivétel osztályokat <a href="./snippets/Exceptions">innen</a> egy új <em>Exceptions</em> mappába. </p>
+<p>Add hozzá a projekthez az előkészített kivétel osztályokat (Exceptions) egy új <em>Exceptions</em> mappába vagy másold át az <em>Exceptions</em> mappát.</p>
 </li>
 <li>
-<p>Add hozzá a projekthez az előkészített <code>GenreService</code> és az <code>IGenreService</code> osztályokat <a href="./snippets/Services">innen</a> egy új <em>Services</em> mappába. </p>
+<p>Add hozzá a projekthez az előkészített <code>GenreService</code> és az <code>IGenreService</code> osztályokat egy új <em>Services</em> mappába vagy másold át a <em>Services</em> mappát. </p>
 </li>
 <li>
-<p>Regisztráld az <code>IGenreService</code>-t a DI rendszerbe <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&amp;viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)"><em>scoped</em> életciklussal</a>. (Program.cs)</p>
+<p>Regisztráld az <code>IGenreService</code>-t a DI rendszerbe <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped"><em>scoped</em> életciklussal</a>. (Program.cs)</p>
 </li>
 </ol>
 <h1 id="altalanos-szabalyok">Általános szabályok<a class="headerlink" href="#altalanos-szabalyok" title="Permanent link">&para;</a></h1>
 <ul>
-<li>A kontroller nem használhatja adatbáziselérésre a kontextust, csak a <a href="./snippets/Services">Services mappában</a> található <em>IXXXService</em> interfész műveleteit, közvetetten pedig a <em>XXXService</em> függvényeit.</li>
+<li>A kontroller nem használhatja adatbáziselérésre a kontextust, csak a <em>Services</em> található <em>IXXXService</em> interfész műveleteit, közvetetten pedig a <em>XXXService</em> függvényeit.</li>
 <li>A kontroller közvetlenül nem példányosíthatja a <em>XXXService</em>-t, csak konstruktoron keresztül kaphatja <em>IXXXService</em>-ként</li>
 <li>A kontroller függvényei (azaz a műveletek) minden esetben<ul>
 <li>aszinkronok (<code>async</code>), de a nevüknek nem kell <code>Async</code>-ra végződni</li>
 <li><code>Task&lt;ActionResult&gt;</code> vagy <code>Task&lt;ActionResult&lt;T&gt;&gt;</code> visszatérési értékűek, ahol a <code>T</code> kollekció is lehet</li>
 </ul>
 </li>
-<li>A <em>XXXService</em> osztályok a különleges eseteket (<a href="https://en.wikipedia.org/wiki/Happy_path">unhappy path</a>) kivételdobással jelzik a hívó felé. A szükséges kivételtípusok már implementálva vannak a projektben, az <a href="./snippets/Exceptions">Exceptions mappából</a> másoltuk be őket.</li>
+<li>A <em>XXXService</em> osztályok a különleges eseteket (<a href="https://en.wikipedia.org/wiki/Happy_path">unhappy path</a>) kivételdobással jelzik a hívó felé. A szükséges kivételtípusok már implementálva vannak a projektben, az <em>Exceptions</em> másoltuk be őket.</li>
 <li>A <em>XXXService</em> osztályokban minden szükséges metódus <strong>váza</strong> megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor</li>
 </ul>
-<h1 id="feladat-1">Feladat 1.<a class="headerlink" href="#feladat-1" title="Permanent link">&para;</a></h1>
-<p>Készíts egy új API kontrollert <code>GenresController</code> néven! A kontroller az alábbi műveleteket tudja elvégezni:
-- <code>GET /api/genres</code>
-  - az összes műfaj lekérdezése,
-  - 200-as HTTP válaszkóddal tér vissza (<a href="https://httpstatusdogs.com/200-ok">Ok</a>), a válasz törzsben a műfajok sorosított listájával
-- <code>GET /api/genres/&lt;ID&gt;</code>
-  - a megadott ID-jú <code>Genre</code> objektum lekérdezése,
-  - ha az ID azonosítójú elem nem található, visszatérés 404-gyel (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>)
-  - egyébként 200-as HTTP válaszkóddal tér vissza (<a href="https://httpstatusdogs.com/200-ok">Ok</a>), a válasz törzsében az adott ID-jú sorosított <code>Genre</code> objektum</p>
+<h1 id="onallo-feladatok">Önálló feladatok<a class="headerlink" href="#onallo-feladatok" title="Permanent link">&para;</a></h1>
+<p>Készíts egy új API kontrollert <code>GenresController</code> néven! A kontroller az alábbi műveleteket tudja elvégezni:</p>
+<ul>
+<li><code>GET /api/genres</code><ul>
+<li>az összes műfaj lekérdezése,</li>
+<li>200-as HTTP válaszkóddal tér vissza (<a href="https://httpstatusdogs.com/200-ok">Ok</a>), a válasz törzsben a műfajok sorosított listájával</li>
+</ul>
+</li>
+<li><code>GET /api/genres/&lt;ID&gt;</code><ul>
+<li>a megadott ID-jú <code>Genre</code> objektum lekérdezése,</li>
+<li>ha az ID azonosítójú elem nem található, visszatérés 404-gyel (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>)</li>
+<li>egyébként 200-as HTTP válaszkóddal tér vissza (<a href="https://httpstatusdogs.com/200-ok">Ok</a>), a válasz törzsében az adott ID-jú sorosított <code>Genre</code> objektum</li>
+</ul>
+</li>
+</ul>
 <h1 id="altalanos-tudnivalok-megjegyzesek-tippek">Általános tudnivalók, megjegyzések, tippek<a class="headerlink" href="#altalanos-tudnivalok-megjegyzesek-tippek" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:</li>
+<li>Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:<ul>
 <li>új index a <em>Title.StartYear</em> oszlopra</li>
 <li>az új művek azonosítóját az adatbázis osztja ki  </li>
 <li>az ezen órai modell pont a fentiek miatt nem kompatibilis az előző órai adatbázissal</li>
+</ul>
+</li>
 <li>A <em>XXXService</em> osztályok a kivételes eseteket kivételdobással kezelik (pl. a megadott ID-val nem található elem <code>ObjectNotFoundException&lt;&gt;</code> dobást eredményez)</li>
 <li>Kiinduló kontroller kódot <a href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&amp;tabs=visual-studio#scaffold-a-controller">lehet generáltatni</a>. Ehhez a laborhoz az <strong>API controller with read/write actions</strong> generátor az ajánlott, az Entity Framework-ös generátorok gyakran hibára futnak és egyébként is körülbelül a generált kód ugyanannyi részét kellene átírni.</li>
 <li>Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az <em>IIS Express</em> tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.</li>
 <li>Régebbi .NET-en, vagy Open API/Swagger nélkül az F5 hatására a szerver elindul, automatikusan a <em>/weatherforecast</em> URL-re kerülünk. Mivel a szerverünknek nincsen felülete, a <code>WeatherForecastController</code>t pedig töröltük, ezért itt egy 404-es oldal fogad minket. Ez nem gond, de ha a kezdő URL-t szeretnéd átírni, akkor a projekten belül a Properties/launchSettings.json fájlban teheted meg (<code>launchUrl</code> mező átírása vagy törlése).</li>
 <li>Módosító/beszúró műveleteknél szükség van egy elemre sorosított formában, ezt kell általában ezen műveleteknél a törzsben küldeni. Érdemes ezt a sorosított formát a lekérdező művelet válaszából elcsenni.</li>
-<li>Általad írt kódrészletekről képernyőképet kell beadni. Ezek a fájlok érintettek:</li>
+<li>Általad írt kódrészletekről képernyőképet kell beadni. Ezek a fájlok érintettek:<ul>
 <li>Program.cs</li>
 <li>kontrollerek kódfájljai</li>
 <li><em>XXXService</em>-ek kódfájljai</li>
-<li>Minden feladathoz beadandók tesztkésekről készítendő képek. A képet a <em>Swagger UI</em> beépített weboldalról kell készíteni. A kép a <em>Curl</em> résztől a <em>Server response</em>-ig terjedő részt (a <em>Responses</em> részt már nem) tartalmazza (response header és response body is, ha van!). Példák:</li>
+</ul>
+</li>
+<li>Minden feladathoz beadandók tesztkérésekről készítendő képek. A képet a <em>Swagger UI</em> beépített weboldalról kell készíteni. A kép a <em>Curl</em> résztől a <em>Server response</em>-ig terjedő részt (a <em>Responses</em> részt már nem) tartalmazza (response header és response body is, ha van!). Példák:</li>
 </ul>
 <p><img alt="This is an image" src="../images/req_p%C3%A9lda.png" /></p>
 <p><img alt="This is an image" src="../images/req_p%C3%A9lda2.png" /></p>
@@ -1493,8 +1509,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 15. 09:28:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:28:14 CEST"><span class="timeago" datetime="2025-10-15T09:28:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:28:14 CEST">2025-10-15</span>
       </span>
     </span>
 

@@ -1263,7 +1263,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1277,7 +1277,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1291,7 +1291,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1305,7 +1305,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1319,7 +1319,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1418,7 +1418,8 @@ tt0000009   short   Miss Jerry  Miss Jerry  0   1894    \N  40  Romance,Short
 </code></pre></div>
 <p>A függvényt meghívva feldolgozás kezdődik meg a <code>filePath</code> elérési útvonalon található TSV fájlon. Az első sor a fejléc, ez tartalmazza, hogy hány érték található minden ezt követő sorban. A <code>\N</code> jelölésű sorok <code>null</code> értéket jelölnek. Ezt követően soronként ennyi értéket találunk a TSV fájlban. A fájlból soronként olvasva visszaadunk 1-1 értéket egy szótár formájában, amiből a dokumentáció alapján definiált kulccsal kiindexelhetjük a TSV fájlban található string értékeket.</p>
 <ol>
-<li>Vegyük fel az alábbi függvényt a <code>MovieCatalogDbContext</code> osztályba:
+<li>
+<p>Vegyük fel az alábbi függvényt a <code>MovieCatalogDbContext</code> osztályba:
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
 
@@ -1450,8 +1451,11 @@ tt0000009   short   Miss Jerry  Miss Jerry  0   1894    \N  40  Romance,Short
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">savedFinal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">SaveChangesAsync</span><span class="p">();</span>
 <span class="w">    </span><span class="n">Logger</span><span class="p">.</span><span class="n">LogInformation</span><span class="p">(</span><span class="s">$&quot;Saved {savedFinal} rows. Total:{Titles.Count()} rows&quot;</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></li>
-<li>Mivel arra készülünk, hogy a fájl és tartalma óriási is lehet, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.</li>
+</code></pre></div></p>
+</li>
+<li>
+<p>Mivel arra készülünk, hogy a fájl és tartalma óriási is lehet, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.</p>
+</li>
 <li>
 <p>Ezért kellett, hogy ne a teljes fájlt egyszerre beolvassuk, hanem gyakorlatilag soronként streameljük a fájlból a szótárakat, azokat pedig transzformáljuk Title típusú elemekre. Ha a géped nem bírja, a maxValues értéket leveheted 10 000-re.</p>
 </li>
@@ -1490,9 +1494,17 @@ tt0000009   short   Miss Jerry  Miss Jerry  0   1894    \N  40  Romance,Short
 </ul>
 <p>Természetesen szükséges új migrációt hozzáadni a projekthez és frissíteni az adatbázis sémáját. A fenti betöltés csak üres Titles tábla esetén fut le, tehát törölni kell belőle az adatokat (törölhető az adatbázis is, ekkor értelemszerűen újra létre kell hozni a betöltés előtt).</p>
 <h2 id="tippek">Tippek<a class="headerlink" href="#tippek" title="Permanent link">&para;</a></h2>
-<p>:bulb: Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között <a href="https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)">különbséget tenni</a>, mert a fájlban kisbetűsen szerepel (pl. <em>short</em>), ami az enum értékek között nagybetűsen (<em>Short</em>).</p>
-<p>:bulb: Nullozható egész szám szövegből való átalakításánál használhatjuk <a href="https://stackoverflow.com/a/52969952">az engedékenyebb átalakító függvényt</a> a <code>null</code> értékek elegánsabb kezeléséhez.</p>
-<p>:bulb: Gyorsan kiüríthetjük a táblát a <code>TRUNCATE TABLE Titles</code> <a href="https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16">utasítással</a>.</p>
+<ul>
+<li>
+<p>Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között <a href="https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)">különbséget tenni</a>, mert a fájlban kisbetűsen szerepel (pl. <em>short</em>), ami az enum értékek között nagybetűsen (<em>Short</em>).</p>
+</li>
+<li>
+<p>Nullozható egész szám szövegből való átalakításánál használhatjuk <a href="https://stackoverflow.com/a/52969952">az engedékenyebb átalakító függvényt</a> a <code>null</code> értékek elegánsabb kezeléséhez.</p>
+</li>
+<li>
+<p>Gyorsan kiüríthetjük a táblát a <code>TRUNCATE TABLE Titles</code> <a href="https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16">utasítással</a>.</p>
+</li>
+</ul>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
 <p>Ha a 3. feladattal is elkészülsz, akkor a 2. feladathoz nem kell beadni semmit.</p>
 <p>Az adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a műveket tartalmazó tábla tartalma) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a tábla oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).</p>
@@ -1508,8 +1520,8 @@ tt0000009   short   Miss Jerry  Miss Jerry  0   1894    \N  40  Romance,Short
           </path>
         </svg>
       </span>
-      <span title="2025. október 9. 17:50:14">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
+      <span title="2025. október 15. 09:27:55">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:27:55 CEST"><span class="timeago" datetime="2025-10-15T09:27:55+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:27:55 CEST">2025-10-15</span>
       </span>
     </span>
 

@@ -21,7 +21,7 @@
     
     
       
-        <title>Feladat 2. - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 2: Műfajok - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-2" class="md-skip">
+        <a href="#feladat-2-mufajok" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 2.
+              Feladat 2: Műfajok
             
           </span>
         </div>
@@ -1253,7 +1253,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1267,7 +1267,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1290,12 +1290,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 2.
+          Feladat 2: Műfajok
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
       
         
@@ -1343,7 +1343,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1357,7 +1357,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1436,25 +1436,39 @@
 
 
 
-<h1 id="feladat-2">Feladat 2.<a class="headerlink" href="#feladat-2" title="Permanent link">&para;</a></h1>
-<p>Valósítsd meg az alábbi API műveleteket:
-  - <code>PUT /api/genres/&lt;ID&gt;</code>
-    - az ID azonosítójú műfaj módosítása,
-    -   a művelet <code>Genre</code>-t vár, de csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (<code>TitleGenres</code> elemek) nem; ez volna az ún. "overposting" támadás,
-    - a műfaj nem URL-ből, hanem a kérés törzséből jön,
-    - sikeres visszatérés 204-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/204-no-content">No Content</a>),
-    - ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>),
-    - ha már van megadott nevű műfaj, visszatérés a 419-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/409-conflict">Conflict</a>).
-  - <code>POST /api/genres</code>
-    - új műfaj létrehozása,
-    - a kontrollerfüggvény <code>Genre</code>-t vár, de csak a műfaj közvetlen tulajdonságait (azaz a nevét) lehet megadni (csak azt mentjük)
-    - a műfaj nem URL-ből, hanem a kérés törzséből jön,
-    - ha már van megadott nevű műfaj, visszatérés a 419-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/409-conflict">Conflict</a>),
-    - sikeres visszatérés 201-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/201-created">Created</a>), a válasz tartalmaz egy Location header-t, aminek értéket megmutatja, hogy honnan (melyik URL-ről) kérhető le az új erőforrás. (Tipp: <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction?view=aspnetcore-6.0">CreatedAtAction függvény - ezesetben a kétparaméteres nem jó</a>)
-  - <code>DELETE /api/genres/&lt;ID&gt;</code>
-    - a megadott ID-jú genre objektum törlése,
-    - ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>)
-    - egyébként visszatérés 204-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/204-no-content">No Content</a>)</p>
+<h1 id="feladat-2-mufajok">Feladat 2: Műfajok<a class="headerlink" href="#feladat-2-mufajok" title="Permanent link">&para;</a></h1>
+<p>Valósítsd meg az alábbi API műveleteket:</p>
+<ul>
+<li>
+<p><code>PUT /api/genres/&lt;ID&gt;</code></p>
+<ul>
+<li>az ID azonosítójú műfaj módosítása,</li>
+<li>a művelet <code>Genre</code>-t vár, de csak a műfaj közvetlen tulajdonságait (azaz egyedül a nevét) lehet módosítani, a kapcsolódó entitásokat (<code>TitleGenres</code> elemek) nem; ez volna az ún. "overposting" támadás,</li>
+<li>a műfaj nem URL-ből, hanem a kérés törzséből jön,</li>
+<li>sikeres visszatérés 204-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/204-no-content">No Content</a>),</li>
+<li>ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>),</li>
+<li>ha már van megadott nevű műfaj, visszatérés a 409-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/409-conflict">Conflict</a>).</li>
+</ul>
+</li>
+<li>
+<p><code>POST /api/genres</code></p>
+<ul>
+<li>új műfaj létrehozása,</li>
+<li>a kontrollerfüggvény <code>Genre</code>-t vár, de csak a műfaj közvetlen tulajdonságait (azaz a nevét) lehet megadni (csak azt mentjük)</li>
+<li>a műfaj nem URL-ből, hanem a kérés törzséből jön,</li>
+<li>ha már van megadott nevű műfaj, visszatérés a 409-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/409-conflict">Conflict</a>),</li>
+<li>sikeres visszatérés 201-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/201-created">Created</a>), a válasz tartalmaz egy Location header-t, aminek értéket megmutatja, hogy honnan (melyik URL-ről) kérhető le az új erőforrás. (Tipp: <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction?view=aspnetcore-8.0">CreatedAtAction függvény - ezesetben a kétparaméteres nem jó</a>)</li>
+</ul>
+</li>
+<li>
+<p><code>DELETE /api/genres/&lt;ID&gt;</code></p>
+<ul>
+<li>a megadott ID-jú genre objektum törlése,</li>
+<li>ha az ID azonosítójú elem nem található, visszatérés 404-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/404-not-found">Not found</a>)</li>
+<li>egyébként visszatérés 204-es HTTP válaszkóddal (<a href="https://httpstatusdogs.com/204-no-content">No Content</a>)</li>
+</ul>
+</li>
+</ul>
 <h2 id="beadando-tesztkeresek">Beadandó tesztkérések<a class="headerlink" href="#beadando-tesztkeresek" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Beszúrás, módosítás: egy sikeres és egy tetszőleges sikertelen (szabálysértő, pl. <em>Not found</em> választ eredményező) kérés/válasz bemutatása.</li>
@@ -1472,8 +1486,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 15. 09:34:18">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:34:18 CEST"><span class="timeago" datetime="2025-10-15T09:34:18+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:34:18 CEST">2025-10-15</span>
       </span>
     </span>
 

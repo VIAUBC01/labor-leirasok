@@ -21,7 +21,7 @@
     
     
       
-        <title>RESTful API készítése: Web API - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Áttekintés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#restful-api-keszitese-web-api" class="md-skip">
+        <a href="#attekintes" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RESTful API készítése: Web API
+              Áttekintés
             
           </span>
         </div>
@@ -1262,12 +1262,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          RESTful API készítése: Web API
+          Áttekintés
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
       
         
@@ -1284,6 +1284,26 @@
       Tartalomjegyzék
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#labor-menete" class="md-nav__link">
+    Labor menete
+  </a>
+  
+    <nav class="md-nav" aria-label="Labor menete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-letrehozasa-es-letoltese" class="md-nav__link">
+    Git repository létrehozása és letöltése
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#beadando" class="md-nav__link">
@@ -1322,7 +1342,7 @@
   
     <li class="md-nav__item">
       <a href="Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1336,7 +1356,7 @@
   
     <li class="md-nav__item">
       <a href="Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1350,7 +1370,7 @@
   
     <li class="md-nav__item">
       <a href="Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1364,7 +1384,7 @@
   
     <li class="md-nav__item">
       <a href="Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1411,6 +1431,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#labor-menete" class="md-nav__link">
+    Labor menete
+  </a>
+  
+    <nav class="md-nav" aria-label="Labor menete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-letrehozasa-es-letoltese" class="md-nav__link">
+    Git repository létrehozása és letöltése
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#beadando" class="md-nav__link">
     Beadandó
   </a>
@@ -1450,18 +1490,40 @@
 
 
 
-<h1 id="restful-api-keszitese-web-api">RESTful API készítése: Web API<a class="headerlink" href="#restful-api-keszitese-web-api" title="Permanent link">&para;</a></h1>
-<p>A labor során az <a href="../ef/README.md">Entity Framework laboron</a> készített adatréteget felhasználva fogunk megvalósítani egy egyszerű, REST jellegű API-t.</p>
-<p>Az előfeltételek, felkészülés, áttekintés és általános tájékoztató megegyezik az <a href="../ef/README.md">Entity Framework labor címoldalán található információkkal</a>.</p>
+<h1 id="attekintes">Áttekintés<a class="headerlink" href="#attekintes" title="Permanent link">&para;</a></h1>
+<p>A labor során az <a href="../ef">Entity Framework laboron</a> készített adatréteget felhasználva fogunk megvalósítani egy egyszerű, REST jellegű API-t.</p>
+<p>Az előfeltételek, felkészülés, áttekintés és általános tájékoztató megegyezik az <a href="../ef">Entity Framework labor címoldalán található információkkal</a>.</p>
+<h2 id="labor-menete">Labor menete<a class="headerlink" href="#labor-menete" title="Permanent link">&para;</a></h2>
+<h3 id="git-repository-letrehozasa-es-letoltese">Git repository létrehozása és letöltése<a class="headerlink" href="#git-repository-letrehozasa-es-letoltese" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.</p>
+</li>
+<li>
+<p>Várd meg, míg elkészül a repository, majd checkout-old ki.</p>
+<div class="admonition warning">
+<p class="admonition-title">Checkout</p>
+<p>Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd <a href="../../tudnivalok/github/GitHub-credentials/">itt</a>), és próbáld újra.</p>
+</div>
+</li>
+<li>
+<p>Hozz létre egy új ágat <code>megoldas</code> néven, és ezen az ágon dolgozz. </p>
+</li>
+<li>
+<p>A <code>neptun.txt</code> fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.</p>
+</li>
+</ol>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
-<p>A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel:
-- <strong>PDF</strong> formátumban (DOCX nem elfogadott!) az egyes feladatoknál tartalmazza a következőket: 
-  - az általad írt kódrészletekről készített képernyőkép(ek)
-  - 1 vagy több ábra tesztkérésekről. Bővebben az anyagban.</p>
+<p>A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető által meghatározott módon.</p>
+<ul>
+<li>Minden feladathoz 1 képernyőkép, ami a helyes működést hivatott bizonyítani. Előfordul, hogy nem fér ki egy képernyőre, ekkor egy képszerkesztővel (pl. Paint) tedd egy képre.</li>
+<li>A Visual Studio projekt könyvtára</li>
+</ul>
 <h2 id="ertekeles">Értékelés<a class="headerlink" href="#ertekeles" title="Permanent link">&para;</a></h2>
-<p>A laborban négy feladatrész van (az A és B feladatrészek kettőnek számítanak). Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.</p>
+<p>A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.</p>
+<p>A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen <strong>önálló</strong>.</p>
 <h2 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h2>
-<p><a href="Feladat-1/">Itt kezdd</a> az első feladattal.</p>
+<p><a href="Feladat-1/">Itt kezdd</a> az első feladattal!</p>
 
     <hr>
   <div class="md-source-file">
@@ -1472,8 +1534,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 15. 09:28:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:28:14 CEST"><span class="timeago" datetime="2025-10-15T09:28:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:28:14 CEST">2025-10-15</span>
       </span>
     </span>
 

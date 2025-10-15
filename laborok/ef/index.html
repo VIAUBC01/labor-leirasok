@@ -559,8 +559,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#beadanduk" class="md-nav__link">
-    Beadandük
+  <a href="#beadando" class="md-nav__link">
+    Beadandó
   </a>
   
 </li>
@@ -1348,7 +1348,7 @@
   
     <li class="md-nav__item">
       <a href="../webapi/" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1362,7 +1362,7 @@
   
     <li class="md-nav__item">
       <a href="../webapi/Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1376,7 +1376,7 @@
   
     <li class="md-nav__item">
       <a href="../webapi/Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1390,7 +1390,7 @@
   
     <li class="md-nav__item">
       <a href="../webapi/Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1404,7 +1404,7 @@
   
     <li class="md-nav__item">
       <a href="../webapi/Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1486,8 +1486,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#beadanduk" class="md-nav__link">
-    Beadandük
+  <a href="#beadando" class="md-nav__link">
+    Beadandó
   </a>
   
 </li>
@@ -1531,49 +1531,65 @@
 
 
 <h1 id="attekintes">Áttekintés<a class="headerlink" href="#attekintes" title="Permanent link">&para;</a></h1>
-<p>A labor során egy adatréteget fogunk megvalósítani, amely a következő 2 labor (<a href="../webapi/README.md">Web API</a>, <a href="../razor/README.md">Razor</a>) alapjául szolgál majd.</p>
+<p>A labor során egy adatréteget fogunk megvalósítani, amely a következő 2 labor (<a href="../webapi">Web API</a>, <a href="../razor">Razor</a>) alapjául szolgál majd.</p>
 <h2 id="elofeltetelek-felkeszules">Előfeltételek, felkészülés<a class="headerlink" href="#elofeltetelek-felkeszules" title="Permanent link">&para;</a></h2>
-<p>A labor elvégzéséhez szükséges eszközök (az <a href="../ef/README.md">Entity Framework</a>, <a href="../webapi/README.md">Web API</a> és <a href="../razor/README.md">Razor</a> laborok igényei megegyeznek):</p>
+<p>A labor elvégzéséhez szükséges eszközök (az <a href="../ef">Entity Framework</a>, <a href="../webapi">Web API</a> és <a href="../razor">Razor</a> laborok igényei megegyeznek):</p>
 <ul>
 <li>Windows</li>
-<li>Microsoft Visual Studio 2022 (Community verzió is megfelelő)</li>
 <li>
-<p>minimálisan szükséges workload-ok: </p>
+<p>Microsoft Visual Studio 2022 (Community verzió is megfelelő)</p>
 <ul>
+<li>minimálisan szükséges workload-ok: <ul>
 <li>ASP.NET and web development</li>
 <li>.NET desktop development</li>
 <li>Data storage and processing</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p>Opcionálisak:</p>
-</li>
+<ul>
 <li><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Microsoft SQL Server</a>: Express/Developer változatok ingyenesen használhatók<ul>
-<li>az útmutatók alapján a Visual Studio mellett feltelepülő <em>LocalDB</em> változatot használjuk</li>
+<li>az útmutatók alapján a Visual Studio mellett feltelepülő <em>LocalDB</em> változatot használjuk<ul>
 <li>ettől el lehet térni, ekkor megfelelően, értelemszerűen módosítandó a kapcsolódáshoz használt <em>connection string</em></li>
 </ul>
 </li>
+</ul>
+</li>
 <li><a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a><ul>
-<li>Alternatívák:</li>
+<li>Alternatívák:<ul>
 <li>Visual Studio beépített <em>SQL Server Object Explorer</em> komponense és kapcsolódó felületei </li>
 <li>Azure Data Studio (SSMS újabb verziói feltelepítik)</li>
 </ul>
 </li>
 </ul>
-<p>A laborok elvégzéséhez használható segédanyagok és felkészülési anyagok:
-- <a href="https://www.aut.bme.hu/Course/VIAUBB04">Hivatalos jegyzetek a Háttéralkalmazások tárgy honlapján (belépés után jelennek meg)</a>
-- <a href="https://github.com/BMEVIAUBB04/gyakorlat-ef">Entity Framework Core (Háttéralkalmazások gyakorlat)</a>
-- <a href="https://github.com/BMEVIAUBB04/gyakorlat-rest-web-api">ASP.NET Core Web API/Razor (Háttéralkalmazások gyakorlat)</a></p>
-<p>Hivatalos dokumentációk, amelyek jó kiindulásként szolgálnak a részletes megértéshez vagy elakadás esetén elő kell venni:
-- EF Core:
-  - <a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet">EF Core tools reference (.NET CLI) - EF Core | Microsoft Docs</a>
-  - <a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/">Migrations Overview - EF Core | Microsoft Docs</a>
-  - <a href="https://docs.microsoft.com/en-us/ef/core/querying/">Querying Data - EF Core | Microsoft Docs</a>
-  - <a href="https://docs.microsoft.com/en-us/ef/core/saving/">Saving Data - EF Core | Microsoft Docs</a>
-- ASP.NET:
-  - <a href="https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core">Introduction to ASP.NET Core | Microsoft Docs</a>
-  - <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/">Introduction to Razor Pages in ASP.NET Core | Microsoft Docs</a>
-  - <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/">Create web APIs with ASP.NET Core | Microsoft Docs</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>A laborok elvégzéséhez használható segédanyagok és felkészülési anyagok:</p>
+<ul>
+<li><a href="https://www.aut.bme.hu/Course/VIAUBB04">Hivatalos jegyzetek a Háttéralkalmazások tárgy honlapján (belépés után jelennek meg)</a></li>
+<li><a href="https://github.com/BMEVIAUBB04/gyakorlat-ef">Entity Framework Core (Háttéralkalmazások gyakorlat)</a></li>
+<li><a href="https://github.com/BMEVIAUBB04/gyakorlat-rest-web-api">ASP.NET Core Web API/Razor (Háttéralkalmazások gyakorlat)</a></li>
+</ul>
+<p>Hivatalos dokumentációk, amelyek jó kiindulásként szolgálnak a részletes megértéshez vagy elakadás esetén elő kell venni:</p>
+<ul>
+<li>EF Core:<ul>
+<li><a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet">EF Core tools reference (.NET CLI) - EF Core | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/">Migrations Overview - EF Core | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/ef/core/querying/">Querying Data - EF Core | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/ef/core/saving/">Saving Data - EF Core | Microsoft Docs</a></li>
+</ul>
+</li>
+<li>ASP.NET:<ul>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core">Introduction to ASP.NET Core | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/">Introduction to Razor Pages in ASP.NET Core | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/">Create web APIs with ASP.NET Core | Microsoft Docs</a></li>
+</ul>
+</li>
+</ul>
 <h3 id="mas-os-en">Más OS-en:<a class="headerlink" href="#mas-os-en" title="Permanent link">&para;</a></h3>
 <ul>
 <li>A feladatok megoldhatók Linux és Mac OS operációs rendszereken is, ekkor értelemszerűen az OS-nek megfelelő eszközöket (Visual Studio for Mac, Visual Studio Code, JetBrains Rider stb.) kell használni. Ezeket a lehetőségeket részletesen nem tárgyaljuk.</li>
@@ -1598,15 +1614,17 @@
 <p>A <code>neptun.txt</code> fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.</p>
 </li>
 </ol>
-<h3 id="beadanduk">Beadandük<a class="headerlink" href="#beadanduk" title="Permanent link">&para;</a></h3>
-<p>A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető által meghatározott módon.
-- Minden feladathoz 1 (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. 
-- A Visual Studio projekt könyvtára</p>
+<h3 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h3>
+<p>A labor elvégzése után az alábbi tartalmat kérjük beadni a laborvezető által meghatározott módon.</p>
+<ul>
+<li>Minden feladathoz 1 (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. </li>
+<li>A Visual Studio projekt könyvtára</li>
+</ul>
 <h3 id="ertekeles">Értékelés<a class="headerlink" href="#ertekeles" title="Permanent link">&para;</a></h3>
 <p>A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elvégzésével kapható. Minden hiányzó, avagy hiányos feladatrész mínusz egy jegy.</p>
 <p>A feladatok megoldásának akár részleges közzétételéért vagy másolásáért vagy a gyanú felmerülése esetén az aktuális szabályzatok értelmében fegyelmi eljárást indítunk, amelynek eredményeképp a hallgató eltiltásban részesülhet! A feladatok megoldása minden esetben teljesen <strong>önálló</strong>.</p>
 <h2 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h2>
-<p>Összesen 4 feladat van. <a href="Feladat-1/">Itt kezdd</a> az első feladattal.</p>
+<p>Összesen 4 feladat van. <a href="Feladat-1/">Itt kezdd</a> az első feladattal!</p>
 
     <hr>
   <div class="md-source-file">
@@ -1617,8 +1635,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. október 9. 17:50:14">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
+      <span title="2025. október 15. 09:27:55">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:27:55 CEST"><span class="timeago" datetime="2025-10-15T09:27:55+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:27:55 CEST">2025-10-15</span>
       </span>
     </span>
 

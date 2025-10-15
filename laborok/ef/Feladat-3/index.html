@@ -1308,7 +1308,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1322,7 +1322,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1336,7 +1336,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1350,7 +1350,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1364,7 +1364,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1453,24 +1453,42 @@
 <h1 id="feladat-3-tobb-tobb-kapcsolatok">Feladat 3: Több-több kapcsolatok<a class="headerlink" href="#feladat-3-tobb-tobb-kapcsolatok" title="Permanent link">&para;</a></h1>
 <p>A művekhez műfajok tartoznak. A műfajok a <code>genres</code> kulcsú elemben találhatók vesszővel elválasztva. <strong>A műfajokat saját táblában kell tárolni, hogy kevesebb helyet fogyasszanak a diszken és ne legyen redundáns a tárolásuk.</strong> A műfajról tároljuk az azonosítóját (szám), amit az adatbázis oszt majd ki, valamint a nevét, ami kötelező, és <strong>egyedinek</strong> kell lennie, és <strong>maximum 50 karakter hosszúságú</strong> lehet. Egy film több műfajban is lehet, egy műfajhoz több film is tartozhat. Mindkét irányban navigation property-t kell definiálni a műfaj és a mű között. Egy filmhez egy műfaj csak egyszer tartozhat!</p>
 <h2 id="tippek">Tippek<a class="headerlink" href="#tippek" title="Permanent link">&para;</a></h2>
-<p>:bulb: Az adatbázisban csak 1-többes kapcsolat létezik, több-többes kapcsolatot (many-to-many relationship) kapcsolótábla bevezetésével és 1-többes kapcsolatokkal oldjuk meg. C# szinten vagy egy-az-egyben ezt a modellt képezzük le (explicit több-többes kapcsolat), vagy csak egyszerűen a két eredeti entitásba veszünk fel kollekciókat, és csak az EF szinten jelenik meg a kapcsolótábla (<a href="https://learn.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key#many-to-many">implicit több-többes kapcsolat</a>). Bár az utóbbi egyszerűbb és kényelmesebb, de korlátozottabb, nehezebben bővíthető.</p>
-<p>:bulb: Explicit esetben a <code>Title</code>-ön kívül két entitást kell definiálni:
-  - az egyik maga a műfaj (<code>Genre</code>), amiben az azonosító és a név tulajdonságok szerepelnek, 
-  - a másik a kapcsolótábla, <code>TitleGenre</code> névre hallgató entitás lehet, amiben egy egyedi azonosító van, és két külső kulcs: egy <code>TitleId</code> és egy  <code>GenreId</code>,
-  - a <code>TitleGenre</code>-ban definiáljunk a külső kulcsokhoz egy-egy navigation property-t, a <code>Title</code> és <code>Genre</code> entitásokban pedig egy-egy <code>ICollection&lt;TitleGenre&gt;</code> típusút.</p>
-<p>:bulb: Hogy ne kapj fordítási figyelmeztetést <code>null</code> értékek kezelése miatt, a kollekció típusú navigációs property-ket mindig inicializáld üres listára, míg a nem kollekció típusú navigációs property-ket explicit <code>null</code> értékre a null forgiving operátorral. Példa az utóbbira: <code>public Genre Genre { get; set; } = null!;</code></p>
-<p>:bulb: Ellenőrizd, hogy a <code>Genre</code> és <code>TitleGenre</code> létrejön-e táblaként a DB-ben! Ha nem többesszámú a neve, akkor valószínűleg kihagytad a <code>DbSet</code> definícióját a <code>MovieCatalogDbContext</code>-ből.</p>
-<p>:bulb: Fontos, hogy egy mű egy műfajban csak egyszer szerepelhet, ezért <a href="https://learn.microsoft.com/en-us/ef/core/modeling/indexes?tabs=fluent-api">unique indexet</a> kell létrehozni a <code>TitleGenre</code> entitásban a két külső kulcsra (együttesen)</p>
+<ul>
+<li>
+<p>Az adatbázisban csak 1-többes kapcsolat létezik, több-többes kapcsolatot (many-to-many relationship) kapcsolótábla bevezetésével és 1-többes kapcsolatokkal oldjuk meg. C# szinten vagy egy-az-egyben ezt a modellt képezzük le (explicit több-többes kapcsolat), vagy csak egyszerűen a két eredeti entitásba veszünk fel kollekciókat, és csak az EF szinten jelenik meg a kapcsolótábla (<a href="https://learn.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key#many-to-many">implicit több-többes kapcsolat</a>). Bár az utóbbi egyszerűbb és kényelmesebb, de korlátozottabb, nehezebben bővíthető.</p>
+</li>
+<li>
+<p>Explicit esetben a <code>Title</code>-ön kívül két entitást kell definiálni:</p>
+<ul>
+<li>az egyik maga a műfaj (<code>Genre</code>), amiben az azonosító és a név tulajdonságok szerepelnek, </li>
+<li>a másik a kapcsolótábla, <code>TitleGenre</code> névre hallgató entitás lehet, amiben egy egyedi azonosító van, és két külső kulcs: egy <code>TitleId</code> és egy  <code>GenreId</code>,</li>
+<li>a <code>TitleGenre</code>-ban definiáljunk a külső kulcsokhoz egy-egy navigation property-t, a <code>Title</code> és <code>Genre</code> entitásokban pedig egy-egy <code>ICollection&lt;TitleGenre&gt;</code> típusút.</li>
+</ul>
+</li>
+<li>
+<p>Hogy ne kapj fordítási figyelmeztetést <code>null</code> értékek kezelése miatt, a kollekció típusú navigációs property-ket mindig inicializáld üres listára, míg a nem kollekció típusú navigációs property-ket explicit <code>null</code> értékre a null forgiving operátorral. Példa az utóbbira: <code>public Genre Genre { get; set; } = null!;</code></p>
+</li>
+<li>
+<p>Ellenőrizd, hogy a <code>Genre</code> és <code>TitleGenre</code> létrejön-e táblaként a DB-ben! Ha nem többesszámú a neve, akkor valószínűleg kihagytad a <code>DbSet</code> definícióját a <code>MovieCatalogDbContext</code>-ből.</p>
+</li>
+<li>
+<p>Fontos, hogy egy mű egy műfajban csak egyszer szerepelhet, ezért <a href="https://learn.microsoft.com/en-us/ef/core/modeling/indexes?tabs=fluent-api">unique indexet</a> kell létrehozni a <code>TitleGenre</code> entitásban a két külső kulcsra (együttesen)</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="n">modelBuilder</span><span class="p">.</span><span class="n">Entity</span><span class="o">&lt;</span><span class="n">TitleGenre</span><span class="o">&gt;</span><span class="p">()</span>
 <span class="w">            </span><span class="p">.</span><span class="n">HasIndex</span><span class="p">(</span><span class="n">tg</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tg</span><span class="p">.</span><span class="n">GenreId</span><span class="p">,</span><span class="w"> </span><span class="n">tg</span><span class="p">.</span><span class="n">TitleId</span><span class="w"> </span><span class="p">})</span>
 <span class="w">            </span><span class="p">.</span><span class="n">IsUnique</span><span class="p">()</span>
 </code></pre></div>
-<p>:bulb: Betöltéskor az alábbi megoldással kevés kóddal megoldhatjuk az új táblák feltöltését
-  1. A <code>ImportFromFileAsync</code> függvény elején vegyünk fel egy <code>Dictionary&lt;string, Genre&gt;</code>-t, amibe folyamatosan gyűjtjük a <code>Genre</code> példányokat és a műfaj neve a kulcs, így név alapján gyorsan tudunk keresni benne
-  1. Elég csak az új <code>Title</code> példány kitöltésekor az új <code>TitleGenres</code> property-t kitölteni, az EF automatikusan felveszi a kapcsolódó entitásokat, ha a navigációs property-k ki vannak töltve (ráadásul kapcsolatonként elég az egyik irányt kitölteni) nem kell külön <code>Add</code> hívás. A <em>genres</em> mező szövegét <a href="https://learn.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0#system-string-split(system-char-system-stringsplitoptions)">feldaraboljuk</a> a vesszők mentén, az így keletkező <code>string[]</code> darablista minden elemét leképezzük egy új <code>TitleGenre</code> példányra, amiben megint csak elég csak a <code>Genre</code> navigációs property-t kitölteni. Itt kap szerepet az előző lépésben felvett szótár, mert kikeressük belőle, hogy az aktuális műfajszöveghez vettünk-e már fel <code>Genre</code> példányt: ha igen, akkor ezt a példányt adjuk meg a <code>Genre</code> értékének; ha még nincs ilyen példány, akkor egyrészt felvesszük a szótárba új példányként, másrészt ugyanezt az új példányt adjuk meg a <code>Genre</code> értékének is. Ez a két művelet, azaz a <code>Genre</code> property beállítása egyetlen összetett kifejezéssel is lehetséges, így a LINQ kifejezésben könnyen felhasználható (<code>ng</code> az aktuális műfaj, még szövegként):
+<ul>
+<li>Betöltéskor az alábbi megoldással kevés kóddal megoldhatjuk az új táblák feltöltését<ol>
+<li>A <code>ImportFromFileAsync</code> függvény elején vegyünk fel egy <code>Dictionary&lt;string, Genre&gt;</code>-t, amibe folyamatosan gyűjtjük a <code>Genre</code> példányokat és a műfaj neve a kulcs, így név alapján gyorsan tudunk keresni benne</li>
+<li>Elég csak az új <code>Title</code> példány kitöltésekor az új <code>TitleGenres</code> property-t kitölteni, az EF automatikusan felveszi a kapcsolódó entitásokat, ha a navigációs property-k ki vannak töltve (ráadásul kapcsolatonként elég az egyik irányt kitölteni) nem kell külön <code>Add</code> hívás. A <em>genres</em> mező szövegét <a href="https://learn.microsoft.com/en-us/dotnet/api/system.string.split?view=net-6.0#system-string-split(system-char-system-stringsplitoptions)">feldaraboljuk</a> a vesszők mentén, az így keletkező <code>string[]</code> darablista minden elemét leképezzük egy új <code>TitleGenre</code> példányra, amiben megint csak elég csak a <code>Genre</code> navigációs property-t kitölteni. Itt kap szerepet az előző lépésben felvett szótár, mert kikeressük belőle, hogy az aktuális műfajszöveghez vettünk-e már fel <code>Genre</code> példányt: ha igen, akkor ezt a példányt adjuk meg a <code>Genre</code> értékének; ha még nincs ilyen példány, akkor egyrészt felvesszük a szótárba új példányként, másrészt ugyanezt az új példányt adjuk meg a <code>Genre</code> értékének is. Ez a két művelet, azaz a <code>Genre</code> property beállítása egyetlen összetett kifejezéssel is lehetséges, így a LINQ kifejezésben könnyen felhasználható (<code>ng</code> az aktuális műfaj, még szövegként):
 <div class="highlight"><pre><span></span><code><span class="n">Genre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genres</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">ng</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">genres</span><span class="p">[</span><span class="n">ng</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Genre</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span>
-</code></pre></div>
-:bulb: Futtatás előtt érdemes most is törölni a <strong>Titles</strong> táblát, de a TRUNCATE nem használható olyan táblákon, amire idegen kulcs hivatkozás van (a <strong>Titles</strong> tábla már ilyen), helyette a <code>DELETE FROM táblanév</code> használható. Minden tábla kitörlésére/eldobására használható a <code>dotnet ef database update 0</code> parancssorból - ez kitörli minden táblánkat, majd a normál <code>dotnet ef database update</code> létrehozza őket üresen.</p>
+</code></pre></div></li>
+</ol>
+</li>
+<li>Futtatás előtt érdemes most is törölni a <strong>Titles</strong> táblát, de a TRUNCATE nem használható olyan táblákon, amire idegen kulcs hivatkozás van (a <strong>Titles</strong> tábla már ilyen), helyette a <code>DELETE FROM táblanév</code> használható. Minden tábla kitörlésére/eldobására használható a <code>dotnet ef database update 0</code> parancssorból - ez kitörli minden táblánkat, majd a normál <code>dotnet ef database update</code> létrehozza őket üresen.</li>
+</ul>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
 <p>Az adatmodell kódjáról készült képek, a betöltött adatokat reprezentáló képek (a kapcsolótábla és az új tábla tartalmai) és az adatbázis sémáját reprezentáló képek (legyenek láthatók a táblák, azok oszlopai, indexei, kulcsai pl. SQL Server Object Explorerben vagy SSMS-ben).</p>
 <p><strong>Bónusz (nehéz!)</strong>: egy jegy javítás kapható, ha <a href="https://datasets.imdbws.com/">a teljes adathalmazt tartalmazó fájl</a> betöltése megtörténik! Ekkor beadandó még rövid magyarázat a megoldás módjáról és tetszőleges módon demonstrálandó, hogy ténylegesen bekerült adatbázisba az összes adat (kimutatható minden táblának a számossága). Ezt a pull request szövegébe írd be.</p>
@@ -1486,8 +1504,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. október 9. 17:50:14">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
+      <span title="2025. október 15. 09:27:55">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:27:55 CEST"><span class="timeago" datetime="2025-10-15T09:27:55+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:27:55 CEST">2025-10-15</span>
       </span>
     </span>
 

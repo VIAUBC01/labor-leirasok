@@ -1263,7 +1263,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1277,7 +1277,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1291,7 +1291,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1305,7 +1305,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1319,7 +1319,7 @@
   
     <li class="md-nav__item">
       <a href="../../webapi/Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
     </li>
   
@@ -1381,20 +1381,26 @@
 <p>Az elkészítendő alkalmazásunk egy osztálykönyvtár lesz, amit más kódból (pl. egy REST API-t szolgáltató web API projektből vagy egy szerveroldali renderelést használó projektből) szeretnénk majd elérni. Mivel a kódunk osztálykönyvtár, önmagában nem is futtatható, hanem egy .dll fájlként csak a kódot tartalmazza, amit más, futó .NET alkalmazásból el tudunk majd érni.</p>
 <p>Először létrehozzuk az osztálykönyvtárat, amiben az adatbázist reprezántáló DbContextet, a táblákat reprezentáló entitásokat fogjuk definiálni. Itt lesznek még a szükséges migrációk is, amelyeket az adatbázisunkon lefuttatva az adatsémát a modellel szinkronba hozhatjuk. Az adatbázist code first módszertannal modellezzük, tehát először az entitásokat fogjuk definiálni, aztán létrehozzuk a migrációkat, amiket végül lefuttatunk, így jön majd létre az adatbázisban a modellünknek megfelelő séma.</p>
 <p>Az osztálykönyvtárunkban található kódot nem tudjuk "csak úgy" futtatni, szükségünk lesz tehát valamilyen projektre, ami képes a kód futtatására. Ehhez ugyanabban a solutionben fogunk létrehozni egy új konzolos alkalmazást.</p>
-<p>Emlékeztetőként:
-- Amikor az adatmodellt (C# entitásosztályokat) módosítjuk, új migrációt kell létrehozni, erre használhatjuk a <code>dotnet ef migrations add migrációnév</code> parancsot (a <em>migrációnév</em> nevű migrációnak egyedinek kell lennie, érdemes értelmes nevet adni neki, pl. 'AddTotalCostColumnToProductOrder').
-- Az adatbázist a legújabb migrációra a <code>dotnet ef update database</code> paranccsal frissíthetjük.
-- Ha egy migrációt elrontottunk vagy szeretnénk visszavonni, használjuk a <code>dotnet ef migrations remove</code> parancsot. Ez a legutolsó migrációt törli. Ezután adjuk hozzá az új migrációt.
-  - Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a <code>dotnet ef database update migrációnév</code> parancsot, ahol a <em>migrációnév</em> az <strong>utolsóelőtti</strong> migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.
-  - Ha maguk a migrációk rendben vannak, de az adatbázis adattartalmát törölni akarjuk (<em>kezdjük elölről</em>), hasznos a <code>dotnet ef database update 0</code> parancs, ami eldobja az összes migrációban érintett objektumot (pl. táblát), majd egy <code>dotnet ef database update</code> paranccsal lefuttatjuk az összes migrációt. Így egy már használható, de alaphelyzetben lévő adatbázist kapunk.
-- Mivel a parancsokat a Visual Studio-tól függetlenül futtatjuk, így minden parancsfuttatás előtt érdemes minden nem mentett fájlt elmenteni, vagy fordítani a solutiont.
-- Alternatívaként használhatjuk a <a href="https://docs.microsoft.com/en-us/ef/core/cli/powershell">powershell alapú parancsokat</a> is a Visual Studio Package Manager Console-jából (PMC). Ilyenkor általában kevesebb paramétert kell megadnunk, mert a Visual Studio / PMC állapota alapján töltődnek.</p>
+<p>Emlékeztetőként:</p>
+<ul>
+<li>Amikor az adatmodellt (C# entitásosztályokat) módosítjuk, új migrációt kell létrehozni, erre használhatjuk a <code>dotnet ef migrations add migrációnév</code> parancsot (a <em>migrációnév</em> nevű migrációnak egyedinek kell lennie, érdemes értelmes nevet adni neki, pl. 'AddTotalCostColumnToProductOrder').</li>
+<li>Az adatbázist a legújabb migrációra a <code>dotnet ef update database</code> paranccsal frissíthetjük.</li>
+<li>Ha egy migrációt elrontottunk vagy szeretnénk visszavonni, használjuk a <code>dotnet ef migrations remove</code> parancsot. Ez a legutolsó migrációt törli. Ezután adjuk hozzá az új migrációt.<ul>
+<li>Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a <code>dotnet ef database update migrációnév</code> parancsot, ahol a <em>migrációnév</em> az <strong>utolsóelőtti</strong> migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.</li>
+<li>Ha maguk a migrációk rendben vannak, de az adatbázis adattartalmát törölni akarjuk (<em>kezdjük elölről</em>), hasznos a <code>dotnet ef database update 0</code> parancs, ami eldobja az összes migrációban érintett objektumot (pl. táblát), majd egy <code>dotnet ef database update</code> paranccsal lefuttatjuk az összes migrációt. Így egy már használható, de alaphelyzetben lévő adatbázist kapunk.</li>
+</ul>
+</li>
+<li>Mivel a parancsokat a Visual Studio-tól függetlenül futtatjuk, így minden parancsfuttatás előtt érdemes minden nem mentett fájlt elmenteni, vagy fordítani a solutiont.</li>
+<li>Alternatívaként használhatjuk a <a href="https://docs.microsoft.com/en-us/ef/core/cli/powershell">powershell alapú parancsokat</a> is a Visual Studio Package Manager Console-jából (PMC). Ilyenkor általában kevesebb paramétert kell megadnunk, mert a Visual Studio / PMC állapota alapján töltődnek.</li>
+</ul>
 <p>Lássunk neki!</p>
 <h1 id="elokeszuletek">Előkészületek<a class="headerlink" href="#elokeszuletek" title="Permanent link">&para;</a></h1>
 <ol>
 <li>Telepítsük az <a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet">EF Core Global Tool</a>-t: adjuk ki az alábbi parancsot egy tetszőleges parancssorban:<ul>
-<li><code>dotnet tool install --global dotnet-ef</code></li>
+<li><code>dotnet tool install --global dotnet-ef</code><ul>
 <li>Ha bármilyen okból kifolyólag korábban már telepítve volt, az <code>install</code> parancsot <code>update</code>-re cserélve frissíthető a tool a legfrissebb stabil verzióra.</li>
+</ul>
+</li>
 <li>Ezzel használhatók lesznek a <code>dotnet ef</code> parancsok.</li>
 </ul>
 </li>
@@ -1410,7 +1416,8 @@
 <p><img alt="Előkészületek végi állapot" src="../images/elokeszuletek-vege.png" /></p>
 <h1 id="alap-infrastruktura-kialakitasa-tesztelese">Alap infrastruktúra kialakítása, tesztelése<a class="headerlink" href="#alap-infrastruktura-kialakitasa-tesztelese" title="Permanent link">&para;</a></h1>
 <ol>
-<li>Hozzunk létre egy új mappát az adatrétegben <em>Entities</em> néven, és adjuk hozzá a <code>Title</code> entitást:
+<li>
+<p>Hozzunk létre egy új mappát az adatrétegben <em>Entities</em> néven, és adjuk hozzá a <code>Title</code> entitást:
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">MovieCatalog.Data.Entities</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Title</span>
@@ -1425,9 +1432,10 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></li>
-<li>
-<p>Láthatjuk, hogy a <code>TConst</code> mező számított érték, az IMDb elnevezési konvenciója alapján <code>tt1234567</code> formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.</p>
+</code></pre></div></p>
+<ul>
+<li>Láthatjuk, hogy a <code>TConst</code> mező számított érték, az IMDb elnevezési konvenciója alapján <code>tt1234567</code> formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.</li>
+</ul>
 </li>
 <li>
 <p>Hozzunk létre egy új DbContext típust az adatrétegben <code>MovieCatalogDbContext</code> néven, az alábbi tartalommal:</p>
@@ -1464,15 +1472,21 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>A <code>Title</code> entitásunkon konfiguráltuk az <code>Id</code> és <code>PrimaryTitle</code> tulajdonságokat (adatbázistábla mezőket):
-- Az <code>Id</code> nevű mező konvenció szerint <a href="https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#primary-keys">adatbázis által generált</a>, mi most viszont kézzel szeretnénk megadni (az IMDb-ből fog érkezni).
-- A címben gyakran szeretnénk keresni, ezért indexeljük.
-  - Az EF alapértelmezetten <strong>NVARCHAR(max)</strong> típusú string mezőket <a href="https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types">hoz nekünk létre</a>.
-  - Az indexelés SQL szerveren csak bajosan alkalmazható <strong>NVARCHAR(max)</strong>, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
-- Az EF alapértelmezett konvencióként a mezők nullozhatóságát <a href="https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions">a leképzendő property típusának nullozhatósága adja</a>. A <code>string</code> típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséget külön nem kell beállítanunk.</p>
-<ol>
-<li>A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy <code>DbContext</code>et tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert <code>internal</code> láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.</li>
-</ol>
+<p>A <code>Title</code> entitásunkon konfiguráltuk az <code>Id</code> és <code>PrimaryTitle</code> tulajdonságokat (adatbázistábla mezőket):</p>
+<ul>
+<li>Az <code>Id</code> nevű mező konvenció szerint <a href="https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#primary-keys">adatbázis által generált</a>, mi most viszont kézzel szeretnénk megadni (az IMDb-ből fog érkezni).</li>
+<li>A címben gyakran szeretnénk keresni, ezért indexeljük.<ul>
+<li>Az EF alapértelmezetten <strong>NVARCHAR(max)</strong> típusú string mezőket <a href="https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types">hoz nekünk létre</a>.</li>
+<li>Az indexelés SQL szerveren csak bajosan alkalmazható <strong>NVARCHAR(max)</strong>, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.</li>
+</ul>
+</li>
+<li>
+<p>Az EF alapértelmezett konvencióként a mezők nullozhatóságát <a href="https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions">a leképzendő property típusának nullozhatósága adja</a>. A <code>string</code> típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséget külön nem kell beállítanunk.</p>
+</li>
+<li>
+<p>A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy <code>DbContext</code>et tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert <code>internal</code> láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.EntityFrameworkCore</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.EntityFrameworkCore.Design</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Logging</span><span class="p">;</span>
@@ -1564,11 +1578,13 @@
 <span class="k">await</span><span class="w"> </span><span class="n">host</span><span class="p">.</span><span class="n">RunAsync</span><span class="p">();</span>
 </code></pre></div>
 <p>A fenti indítási módszer analóg a Háttéralkalmazásokból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.</p>
-<p>:bulb: Ha meg akarjuk nézni az EF által generált SQL-t, állítsuk át a naplózási szintet a <code>ConfigureLogging</code> hívásban <code>LogLevel.Information</code>-re.</p>
+<p>Ha meg akarjuk nézni az EF által generált SQL-t, állítsuk át a naplózási szintet a <code>ConfigureLogging</code> hívásban <code>LogLevel.Information</code>-re.</p>
 <h1 id="feladat-1">Feladat 1<a class="headerlink" href="#feladat-1" title="Permanent link">&para;</a></h1>
-<p>Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
-- SQL alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS 
-- a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (<code>Logger</code> példányra <code>LogInformation</code> hívással) történő kiírással!</p>
+<p>Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):</p>
+<ul>
+<li>SQL alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS </li>
+<li>a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (<code>Logger</code> példányra <code>LogInformation</code> hívással) történő kiírással!</li>
+</ul>
 <h2 id="kovetkezo-feladat">Következő feladat<a class="headerlink" href="#kovetkezo-feladat" title="Permanent link">&para;</a></h2>
 <p>Folytasd a <a href="../Feladat-2/">következő feladattal</a>.</p>
 
@@ -1581,8 +1597,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. október 9. 17:50:14">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 9. 17:50:14 CEST"><span class="timeago" datetime="2025-10-09T17:50:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 9. 17:50:14 CEST">2025-10-09</span>
+      <span title="2025. október 15. 09:27:55">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:27:55 CEST"><span class="timeago" datetime="2025-10-15T09:27:55+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:27:55 CEST">2025-10-15</span>
       </span>
     </span>
 

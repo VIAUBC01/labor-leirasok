@@ -19,7 +19,7 @@
     
     
       
-        <title>Feladat 4. - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 4: Művek, folytatás - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-4" class="md-skip">
+        <a href="#feladat-4-muvek-folytatas" class="md-skip">
           Kihagyás
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 4.
+              Feladat 4: Művek, folytatás
             
           </span>
         </div>
@@ -1251,7 +1251,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        RESTful API készítése: Web API
+        Áttekintés
       </a>
     </li>
   
@@ -1265,7 +1265,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -1279,7 +1279,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Műfajok
       </a>
     </li>
   
@@ -1293,7 +1293,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Művek
       </a>
     </li>
   
@@ -1316,12 +1316,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 4.
+          Feladat 4: Művek, folytatás
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 4.
+        Feladat 4: Művek, folytatás
       </a>
       
         
@@ -1420,22 +1420,32 @@
 
 
 
-<h1 id="feladat-4">Feladat 4.<a class="headerlink" href="#feladat-4" title="Permanent link">&para;</a></h1>
-<p>A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (<code>Title</code>) alábbi műveleteit is:
-- <code>DELETE api/titles/&lt;ID&gt;</code>
-  - Ne felejtsd el az ID ellenőrzést!
-- <code>GET api/titles?pageSize=&lt;oldalméret&gt;</code>
-  - Adja vissza a legfrissebb filmeket (maximális <em>StartYear</em>) <code>StartYear</code> szerint rendezve 
-  - <em>oldalméret</em> darab eredményt adjon vissza, de legfeljebb százat
-  - ha nincs megadva <em>oldalméret</em>, ötvenet adjon vissza
-  - az oldalmérettel kapcsolatos fenti logikát a kontrollerbe tedd, a <code>TitleService.GetTitlesAsync</code> már a szabályoknak megfelelő paramétert kapjon</p>
+<h1 id="feladat-4-muvek-folytatas">Feladat 4: Művek, folytatás<a class="headerlink" href="#feladat-4-muvek-folytatas" title="Permanent link">&para;</a></h1>
+<p>A korábbiakkal koncepcionálisan analóg módon készítsd el a művek (<code>Title</code>) alábbi műveleteit is:</p>
+<ul>
+<li>
+<p><code>DELETE api/titles/&lt;ID&gt;</code></p>
+<ul>
+<li>Ne felejtsd el az ID ellenőrzést!</li>
+</ul>
+</li>
+<li>
+<p><code>GET api/titles?pageSize=&lt;oldalméret&gt;</code></p>
+<ul>
+<li>Adja vissza a legfrissebb filmeket (maximális <em>StartYear</em>) <code>StartYear</code> szerint rendezve </li>
+<li><em>oldalméret</em> darab eredményt adjon vissza, de legfeljebb százat</li>
+<li>ha nincs megadva <em>oldalméret</em>, ötvenet adjon vissza</li>
+<li>az oldalmérettel kapcsolatos fenti logikát a kontrollerbe tedd, a <code>TitleService.GetTitlesAsync</code> már a szabályoknak megfelelő paramétert kapjon</li>
+</ul>
+</li>
+</ul>
 <h2 id="beadando-tesztkeresek">Beadandó tesztkérések<a class="headerlink" href="#beadando-tesztkeresek" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Két törlés egymás után ugyanarra az ID-ra</li>
 <li>Két listázás különböző oldalmérettel, ami különböző szabályozás alá esik</li>
 </ul>
 <h1 id="vegeztel">Végeztél<a class="headerlink" href="#vegeztel" title="Permanent link">&para;</a></h1>
-<p>:godmode: Végeztél a feladatokkal. :godmode:</p>
+<p>Végeztél a feladatokkal.</p>
 <h1 id="bonusz-feladat">Bónusz feladat<a class="headerlink" href="#bonusz-feladat" title="Permanent link">&para;</a></h1>
 <p>Plusz egy jegyért: tedd lehetővé, hogy a művek módosításánál és beszúrásánál a műfajazonosítók tömbje is beküldhető legyen a DTO-ban és érvényre is jusson, azaz az új/módosult mű kizárólag a megadott műfajokba tartozzon. Ha módosításnál egyáltalán nem kapunk műfajtömböt (nem üres tömb), akkor ne változzon a műfaji besorolás.</p>
 <h2 id="beadando-tesztkeresek_1">Beadandó tesztkérések<a class="headerlink" href="#beadando-tesztkeresek_1" title="Permanent link">&para;</a></h2>
@@ -1454,8 +1464,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 15. 09:28:14">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 15. 09:28:14 CEST"><span class="timeago" datetime="2025-10-15T09:28:14+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 15. 09:28:14 CEST">2025-10-15</span>
       </span>
     </span>
 
