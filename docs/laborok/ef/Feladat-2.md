@@ -81,6 +81,7 @@ public async Task ImportFromFileAsync(string filePath, int? maxValues = 100_000)
 }
 
 ```
+
 - Mivel arra készülünk, hogy a fájl és tartalma óriási is lehet, ezért 100 000-es lépésközönként szúrjuk csak be az adatbázisba az elemeket.
 - Ezért kellett, hogy ne a teljes fájlt egyszerre beolvassuk, hanem gyakorlatilag soronként streameljük a fájlból a szótárakat, azokat pedig transzformáljuk Title típusú elemekre. Ha a géped nem bírja, a maxValues értéket leveheted 10 000-re.
 
@@ -125,11 +126,11 @@ Természetesen szükséges új migrációt hozzáadni a projekthez és frissíte
 
 ## Tippek
 
- :bulb: Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között [különbséget tenni](https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)), mert a fájlban kisbetűsen szerepel (pl. *short*), ami az enum értékek között nagybetűsen (*Short*).
+- Az enum értékek szövegből való átalakításánál nem szabad a kisbetű-nagybetű között [különbséget tenni](https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0#system-enum-parse-1(system-string-system-boolean)), mert a fájlban kisbetűsen szerepel (pl. *short*), ami az enum értékek között nagybetűsen (*Short*).
  
- :bulb: Nullozható egész szám szövegből való átalakításánál használhatjuk [az engedékenyebb átalakító függvényt](https://stackoverflow.com/a/52969952) a `null` értékek elegánsabb kezeléséhez.
+- Nullozható egész szám szövegből való átalakításánál használhatjuk [az engedékenyebb átalakító függvényt](https://stackoverflow.com/a/52969952) a `null` értékek elegánsabb kezeléséhez.
 
- :bulb: Gyorsan kiüríthetjük a táblát a `TRUNCATE TABLE Titles` [utasítással](https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16).
+- Gyorsan kiüríthetjük a táblát a `TRUNCATE TABLE Titles` [utasítással](https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver16).
  
 ## Beadandó
 

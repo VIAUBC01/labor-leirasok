@@ -9,11 +9,12 @@ Először létrehozzuk az osztálykönyvtárat, amiben az adatbázist reprezánt
 Az osztálykönyvtárunkban található kódot nem tudjuk "csak úgy" futtatni, szükségünk lesz tehát valamilyen projektre, ami képes a kód futtatására. Ehhez ugyanabban a solutionben fogunk létrehozni egy új konzolos alkalmazást.
 
 Emlékeztetőként:
+
 - Amikor az adatmodellt (C# entitásosztályokat) módosítjuk, új migrációt kell létrehozni, erre használhatjuk a `dotnet ef migrations add migrációnév` parancsot (a *migrációnév* nevű migrációnak egyedinek kell lennie, érdemes értelmes nevet adni neki, pl. 'AddTotalCostColumnToProductOrder').
 - Az adatbázist a legújabb migrációra a `dotnet ef update database` paranccsal frissíthetjük.
 - Ha egy migrációt elrontottunk vagy szeretnénk visszavonni, használjuk a `dotnet ef migrations remove` parancsot. Ez a legutolsó migrációt törli. Ezután adjuk hozzá az új migrációt.
-  - Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a `dotnet ef database update migrációnév` parancsot, ahol a *migrációnév* az **utolsóelőtti** migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.
-  - Ha maguk a migrációk rendben vannak, de az adatbázis adattartalmát törölni akarjuk (*kezdjük elölről*), hasznos a `dotnet ef database update 0` parancs, ami eldobja az összes migrációban érintett objektumot (pl. táblát), majd egy `dotnet ef database update` paranccsal lefuttatjuk az összes migrációt. Így egy már használható, de alaphelyzetben lévő adatbázist kapunk.
+    - Ha a migrációt már alkalmaztuk az adatbázisra, előtte mindenképp futtassuk a `dotnet ef database update migrációnév` parancsot, ahol a *migrációnév* az **utolsóelőtti** migráció, tehát eggyel korábbi, mint amit törölni szeretnénk. Ezzel az adatbázis az előző migráció hatását visszafordítja, ezután az utolsó migráció a fenti paranccsal törölhető.
+    - Ha maguk a migrációk rendben vannak, de az adatbázis adattartalmát törölni akarjuk (*kezdjük elölről*), hasznos a `dotnet ef database update 0` parancs, ami eldobja az összes migrációban érintett objektumot (pl. táblát), majd egy `dotnet ef database update` paranccsal lefuttatjuk az összes migrációt. Így egy már használható, de alaphelyzetben lévő adatbázist kapunk.
 - Mivel a parancsokat a Visual Studio-tól függetlenül futtatjuk, így minden parancsfuttatás előtt érdemes minden nem mentett fájlt elmenteni, vagy fordítani a solutiont.
 - Alternatívaként használhatjuk a [powershell alapú parancsokat](https://docs.microsoft.com/en-us/ef/core/cli/powershell) is a Visual Studio Package Manager Console-jából (PMC). Ilyenkor általában kevesebb paramétert kell megadnunk, mert a Visual Studio / PMC állapota alapján töltődnek.
 
@@ -23,7 +24,7 @@ Lássunk neki!
 
 1. Telepítsük az [EF Core Global Tool](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)-t: adjuk ki az alábbi parancsot egy tetszőleges parancssorban:
     - `dotnet tool install --global dotnet-ef`
-      - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
+        - Ha bármilyen okból kifolyólag korábban már telepítve volt, az `install` parancsot `update`-re cserélve frissíthető a tool a legfrissebb stabil verzióra.
     - Ezzel használhatók lesznek a `dotnet ef` parancsok.
 1. Hozzunk létre egy új .NET (.NET 8 verziójú, a későbbiekben is) C# osztálykönyvtárat (*Class library*) **MovieCatalog.Data** néven, MovieCatalog solutionnel egy kedvenc üres munkamappánkban!
 1. Adjunk a solutionhöz egy új .NET C# konzol projektet is **MovieCatalog.Terminal** néven!
@@ -56,7 +57,7 @@ namespace MovieCatalog.Data.Entities
     }
 }
 ```
-  - Láthatjuk, hogy a `TConst` mező számított érték, az IMDb elnevezési konvenciója alapján `tt1234567` formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.
+    - Láthatjuk, hogy a `TConst` mező számított érték, az IMDb elnevezési konvenciója alapján `tt1234567` formátumban van, de mi csak a számértéket tároljuk majd az adatbázisban.
 
 2. Hozzunk létre egy új DbContext típust az adatrétegben `MovieCatalogDbContext` néven, az alábbi tartalommal:
 
@@ -94,10 +95,11 @@ namespace MovieCatalog.Data
 ```
 
 A `Title` entitásunkon konfiguráltuk az `Id` és `PrimaryTitle` tulajdonságokat (adatbázistábla mezőket):
+
 - Az `Id` nevű mező konvenció szerint [adatbázis által generált](https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#primary-keys), mi most viszont kézzel szeretnénk megadni (az IMDb-ből fog érkezni).
 - A címben gyakran szeretnénk keresni, ezért indexeljük.
-  - Az EF alapértelmezetten **NVARCHAR(max)** típusú string mezőket [hoz nekünk létre](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types).
-  - Az indexelés SQL szerveren csak bajosan alkalmazható **NVARCHAR(max)**, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
+    - Az EF alapértelmezetten **NVARCHAR(max)** típusú string mezőket [hoz nekünk létre](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#column-data-types).
+    - Az indexelés SQL szerveren csak bajosan alkalmazható **NVARCHAR(max)**, azaz nem korlátozott hosszúságú méretű mezőkön (ugyanis azok nem a rekordban, hanem a rekordhoz hivatkozva tárolódnak). Ezért be kell állítanunk a maximális címhosszt, és vannak igen hosszú című filmek/videók.
 - Az EF alapértelmezett konvencióként a mezők nullozhatóságát [a leképzendő property típusának nullozhatósága adja](https://docs.microsoft.com/en-us/ef/core/modeling/entity-properties?tabs=data-annotations%2Cwithout-nrt#conventions). A `string` típus .NET 6-os verzió óta alapértelmezetten nem nullozhatóként van számon tartva, így az adatbázisbeli kötelezőséget külön nem kell beállítanunk.
 
 3. A migráció létrehozásához szükséges a CLI tudtára adni, hogy milyen adatbázismotorra készítse a migrációkat (más migráció készül pl. SQL Serverre mint SQLite-ra). Hozzunk létre egy Design nevű mappát a Data projektben, benne az alábbi Factory osztályt, ami egy `DbContext`et tud gyártani nekünk. A factory-t "éles" futás közben nem használja semmi, kizárólag a migrációs fájlok elkészítése miatt szükséges most nekünk. A connection stringet az éles alkalmazás nem ezt a factory-t használva fogja átadni. Láthatjuk, hogy ez az osztály nem is használható (szabályosan) más szerelvényekből, mert `internal` láthatóságú. Értelemszerűen a connection string cserélendő, ha nem LocalDB adatbázison készül az alkalmazás, de alapértelmezetten és a laborokban az teljesen megfelelő.
@@ -195,11 +197,12 @@ await host.RunAsync();
 
 A fenti indítási módszer analóg a Háttéralkalmazásokból tanult indítási móddal az ASP.NET Core kapcsán, a kivétel az indítás módjában rejlik: itt most nem egy HTTP-t kiszolgálni képes hosztot, hanem "csak" egy konzolalkalmazást indítunk.
 
-:bulb: Ha meg akarjuk nézni az EF által generált SQL-t, állítsuk át a naplózási szintet a `ConfigureLogging` hívásban `LogLevel.Information`-re.
+Ha meg akarjuk nézni az EF által generált SQL-t, állítsuk át a naplózási szintet a `ConfigureLogging` hívásban `LogLevel.Information`-re.
 
 # Feladat 1
 
 Szúrj be egy rekordot a Titles táblába a terminál alkalmazásból, melyben a cím a Neptun kódod! Készíts képernyőképet az ezt megvalósító kódrészletről, valamint igazold annak a tényét, hogy a rekord beszúrásra került az alábbi két módszerrel (mindkettővel!):
+
 - SQL alapú megoldással (pl. *SQL Server Object Explorer*ben futtatott lekérdezéssel), ÉS 
 - a konzol alkalmazásban történő újbóli lekérdezéssel, a konzolra (`Logger` példányra `LogInformation` hívással) történő kiírással!
 

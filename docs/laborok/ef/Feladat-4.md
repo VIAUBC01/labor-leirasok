@@ -164,4 +164,4 @@ Beadandó:
 
 ## Végeztél
 
-:godmode: Végeztél a feladatokkal. :godmode:
+Végeztél a feladatokkal!
