@@ -1,12 +1,13 @@
-# Előkészítés
+# Feladat 1: Előkészítés
 
-Most is az [Entity Framework laboron](../ef/README.md) készült adatmodellt fogjuk hasznosítani, hogy egy szerveroldalon renderelt webalkalmazást készítsünk ASP.NET Core-ban.
+Most is az [Entity Framework laboron](../ef) készült adatmodellt fogjuk hasznosítani, hogy egy szerveroldalon renderelt webalkalmazást készítsünk ASP.NET Core-ban.
 
 A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú keretrendszerben is van lehetőség szerveroldali renderelést végezni (többféle módon is). Ha érdekel az ASP.NET Core alapú webfejlesztés, ezt a labort Razor Pages használata helyett elvégezheted [Blazor Server](https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models) segítségével is. Mivel ezt a technológiát részletesen nem tanultuk, így csak saját felelősségre vállalkozz így a feladatra! Ha nem akarsz kockáztatni, akkor nyugodtan maradj a már tanult Razor Pages alapú megközelítésnél! Ebben az esetben egy plusz jegyet kapsz az elégségest követően, de ezzel kapcsolatos esetleges fennakadásaidra önállóan kell megoldást találnod.
 
 1. Hozz létre egy új C# nyelvű ASP.NET Core Web App (nem Web API) típusú projektet `MovieCatalog.Web` néven
+
     - Érdemes a laborgépeken kikapcsolni a *Configure for HTTPS lehetőséget*, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt. Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.
-    - .NET verzió: 6.0
+    - .NET verzió: 8.0
     - Minden extra opció legyen kikapcsolva
     - *Authentication type* is *None* legyen
     
@@ -27,35 +28,36 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
     - **Ha már korábbról van ugyanilyen névvel adatbázisunk, azt érdemes törölni, vagy más néven elnevezni a connection stringben az adatbázist, hogy ne akadjanak össze.**
 
-1. Add hozzá a projekthez a *Microsoft.EntityFrameworkCore.SqlServer* NuGet csomagot
+1. Add hozzá a projekthez a *Microsoft.EntityFrameworkCore.SqlServer* (verzió: 8.0.20) NuGet csomagot
 
-1. Add hozzá az előre elkészített [entitásmodell és adatbázis kontextus fájlokat](../webapi/snippets/Entities) a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git repot](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
+1. Add hozzá az előre elkészített entitásmodell és adatbázis kontextus fájlokat a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git branchet](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/razor-snippets.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
 
-1. Regisztráld [az adatbázis kontextust](../webapi/snippets/Entities/MovieCatalogDbContext.cs) a DI rendszerbe. (Program.cs) 
+1. Regisztráld az adatbázis kontextust `Entities/MovieCatalogDbContext.cs` a DI rendszerbe. (_Program.cs_) 
 
-1. Add hozzá a projekthez az előkészített segédosztályokat [innen](./snippets/Utils) és kivételtípusokat [innen](./snippets/Exceptions) egy új *Utils*, illetve *Exceptions* mappába. 
+1. Add hozzá a projekthez az előkészített segédosztályokat az *Utils*, illetve *Exceptions* mappába. 
 
-1. Add hozzá a projekthez az előkészített `MovieCatalogDataService` és az `IMovieCatalogDataService` típusokat [innen](./snippets/Services) egy új *Services* mappába.
+1. Add hozzá a projekthez az előkészített `MovieCatalogDataService` és az `IMovieCatalogDataService` típusokat a *Services* mappába.
 
-1. Regisztráld az `IMovieCatalogDataService`-t a DI rendszerbe [*scoped* életciklussal](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)). (Program.cs)
+1. Regisztráld az `IMovieCatalogDataService`-t a DI rendszerbe [*scoped* életciklussal](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped). (Program.cs)
 
 # Általános szabályok
 
-- `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a [Services mappában](./snippets/Services) található `IMovieCatalogDataService` interfész műveleteit (közvetetten tehát a `MovieCatalogDataService` függvényeit).
+- `PageModel` leszármazott nem használhatja adatbáziselérésre a kontextust, csak a *Services* található `IMovieCatalogDataService` interfész műveleteit (közvetetten tehát a `MovieCatalogDataService` függvényeit).
 - `PageModel` leszármazott közvetlenül nem példányosíthatja a `MovieCatalogDataService`-t, csak konstruktoron keresztül kaphatja `IMovieCatalogDataService`-ként.
 - A `MovieCatalogDataService` osztályban minden szükséges metódus **váza** megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor.
     
-# Feladat 1.
+# Önálló Feladat
 
 1. Módosítsd az oldal felső menüsorában a *Home* menüponttól balra eső első, főoldalra mutató menüpont feliratát a neptunkódodra.
 
-1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod az [itt található razor leírót](./snippets/Pages/Index.static.cshtml). Kipróbáláshoz a *Pages/Index.cshtml*-ed cseréld le a fájl tartalmára.
+1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod a letöltött *Pages* mappában található razor leírót (*Pages/Index.static.cshtml*). Kipróbáláshoz a *Pages/Index.cshtml*-ed cseréld le a fájl tartalmára.
 
 *Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
 
 1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is. Kapcsolódó `IMovieCatalogDataService` művelet a `GetGenresWithTitleCountsAsync`.
 
 1. Jobb oldalon a művek szűrt, rendezett listája látható. A filmek alábbi adatai láthatók:
+
     - címe, 
     - eredeti címe, ha nem egyezik meg a címmel,
     - megjelenés és zárás éve - ha 2015 a megjelenés éve és 2020 a zárás éve, akkor (2015 - 2020) alakban; ha viszont nincs zárás éve, akkor (2015) alakban
@@ -63,11 +65,12 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
     - műfajai
 
 Az alábbi szabályok szerint szűrd a műveket:
- - a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
- - csak film (`Movie`) típus
- - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
- - megjelenési év szerint csökkenően rendezve az első 20 darab
- - a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat
+
+- a `MovieCatalogDataService.GetTitlesAsync` függvényét kell használnod
+- csak film (`Movie`) típus
+- legfeljebb idei, tehát a jövőre tervezettek kiszűrve
+- megjelenési év szerint csökkenően rendezve az első 20 darab
+- a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat
 
 ## Végső kinézet különböző méretek esetén
 
@@ -88,11 +91,13 @@ Az alábbi szabályok szerint szűrd a műveket:
     ``` HTML
     @inject MovieCatalog.Data.IMovieCatalogDataService DataService
     ```
-- Komplex, referencia típusú (pl. `PagedResult<>`) változókat, propertyket, ha a `null` értéknek nincs értelme, akkor érdemes nem `null` értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak `Empty` statikus tagja ([például a beépített kollekcióknak általában van](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-6.0)) és használjuk azt.
+- Komplex, referencia típusú (pl. `PagedResult<>`) változókat, propertyket, ha a `null` értéknek nincs értelme, akkor érdemes nem `null` értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak `Empty` statikus tagja ([például a beépített kollekcióknak általában van](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-8.0)) és használjuk azt.
 - Megkönnyítheti a fejlesztést a [Hot Reload funkció](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022), mely lehetővé teszi, hogy a kódváltoztatásaink sokkal gyorsabban (teljes újraindítás nélkül) érvényre jussanak.
 - Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:
-  - új index a *Title.StartYear* oszlopra
-  - az új művek azonosítóját az adatbázis osztja ki  
+
+    - új index a *Title.StartYear* oszlopra
+    - az új művek azonosítóját az adatbázis osztja ki  
+
 - Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az *IIS Express* tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.
 - Előfordulhat, ha például nagy az adatbázis, és nem indexelt oszlopokra szűrünk/rendezünk, hogy timeout-ra futunk. Ilyenkor első körben próbálkozzunk más szűrési/rendezési beállításokkal.
 
@@ -117,6 +122,6 @@ Példa: ha a legtöbb elemet tartalmazó műfajban 250 elem van, a legkevesebb e
 
 - 1 + (137 - 100)/(250 - 100) = 1,2466667 => `1.247em`
 
-Figyelem! Érdemes nem túl sok tizedes értéket meghagyni, illetve mindenképp tizedespont kell (vessző nem jó). Erre használható például a `float.ToString("N3", CultureInfo.InvariantCulture)` ([ToString()](https://learn.microsoft.com/en-us/dotnet/api/system.single.tostring?view=net-6.0#system-single-tostring(system-string-system-iformatprovider))).
+Figyelem! Érdemes nem túl sok tizedes értéket meghagyni, illetve mindenképp tizedespont kell (vessző nem jó). Erre használható például a `float.ToString("N3", CultureInfo.InvariantCulture)` ([ToString()](https://learn.microsoft.com/en-us/dotnet/api/system.single.tostring?view=net-8.0#system-single-tostring(system-string-system-iformatprovider))).
 
 2. A művek típusa emberi szövegként jelenjen meg, ne felsorolt típusként, pl. *TvSeries* => *TV series*. A kipróbáláshoz ideiglenesen kommentezd ki a műtípusra vonatkozó szűrést.
