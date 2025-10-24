@@ -21,7 +21,7 @@
     
     
       
-        <title>Feladat 4. - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 4: Szűrés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-4" class="md-skip">
+        <a href="#feladat-4-szures" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 4.
+              Feladat 4: Szűrés
             
           </span>
         </div>
@@ -851,7 +851,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Szerver oldali renderelés: Razor
+        Áttekintés
       </a>
     </li>
   
@@ -865,7 +865,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -879,7 +879,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Beszúrás & módosítás
       </a>
     </li>
   
@@ -893,7 +893,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Lapozás & rendezés
       </a>
     </li>
   
@@ -916,12 +916,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 4.
+          Feladat 4: Szűrés
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 4.
+        Feladat 4: Szűrés
       </a>
       
         
@@ -940,8 +940,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#szures-specifikacio" class="md-nav__link">
-    Szűrés - specifikáció
+  <a href="#specifikacio" class="md-nav__link">
+    Specifikáció
   </a>
   
 </li>
@@ -1425,8 +1425,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#szures-specifikacio" class="md-nav__link">
-    Szűrés - specifikáció
+  <a href="#specifikacio" class="md-nav__link">
+    Specifikáció
   </a>
   
 </li>
@@ -1478,20 +1478,22 @@
 
 
 
-<h1 id="feladat-4">Feladat 4.<a class="headerlink" href="#feladat-4" title="Permanent link">&para;</a></h1>
-<h2 id="szures-specifikacio">Szűrés - specifikáció<a class="headerlink" href="#szures-specifikacio" title="Permanent link">&para;</a></h2>
+<h1 id="feladat-4-szures">Feladat 4: Szűrés<a class="headerlink" href="#feladat-4-szures" title="Permanent link">&para;</a></h1>
+<h2 id="specifikacio">Specifikáció<a class="headerlink" href="#specifikacio" title="Permanent link">&para;</a></h2>
 <p>A szűrést a kezdőoldalon (<em>Index</em>) kell megvalósítani, minden paraméter URL-ben utazzon! Alapértelmezetten ne legyen semmilyen szűrés (az első feladatban még volt).</p>
-<p>A szűréshez az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:
-- összesen egy darab szűrőmező a címeknek
-- jelölőnégyzet-lista a típusnak (<code>TitleType</code>)
-- minden számhoz, évszámhoz két-két szűrőmező (min-max értékek)
-- a műfajokat az első feladat bal oldali "műfajfelhője" helyett a műfajok is jelölőnégyzet listából legyenek választhatók, a feliratok viszont maradjanak ugyanazok (tartalmazzák a számosságokat).
-- a műfajok számosságának nem kell módosulnia a szűrés használata során</p>
+<p>A szűréshez az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:</p>
+<ul>
+<li>összesen egy darab szűrőmező a címeknek</li>
+<li>jelölőnégyzet-lista a típusnak (<code>TitleType</code>)</li>
+<li>minden számhoz, évszámhoz két-két szűrőmező (min-max értékek)</li>
+<li>a műfajokat az első feladat bal oldali "műfajfelhője" helyett a műfajok is jelölőnégyzet listából legyenek választhatók, a feliratok viszont maradjanak ugyanazok (tartalmazzák a számosságokat).</li>
+<li>a műfajok számosságának nem kell módosulnia a szűrés használata során</li>
+</ul>
 <h2 id="megvalositas-lepesei">Megvalósítás lépései<a class="headerlink" href="#megvalositas-lepesei" title="Permanent link">&para;</a></h2>
 <p>Nem kötelező így csinálni, de egy lehetséges megoldás lépései a következők.</p>
 <ol>
 <li>
-<p>Vegyél fel egy új <code>TitleFilter</code> típusú property-t az <code>IndexModel</code>-be <code>Filter</code> néven. Nem lehet <code>null</code> értékű, kezdeti értéke legyen üres példány (<code>TitleFilter.Empty</code>). A property automatikusan állítódjon be a HTTP kérés (query string) alapján (<code>BindProperty</code> attribútum) <a href="https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1">GET kérés esetén is</a> (<code>SupportsGet</code>). </p>
+<p>Vegyél fel egy új <code>TitleFilter</code> típusú property-t az <code>IndexModel</code>-be <code>Filter</code> néven. Nem lehet <code>null</code> értékű, kezdeti értéke legyen üres példány (<code>TitleFilter.Empty</code>). A property automatikusan állítódjon be a HTTP kérés (query string) alapján (<code>BindProperty</code> attribútum) <a href="https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-8.0#model-binding-for-http-get-requests-1">GET kérés esetén is</a> (<code>SupportsGet</code>). </p>
 </li>
 <li>
 <p>Módosítsd a <code>GetTitlesAsync</code> hívását, hogy az előbb felvett property alapján szűrjön.  Próbáld ki, hogy a böngésző címsorában kiegészítve a címet, tudod-e vezérelni a lapozást és a szűrést is.</p>
@@ -1503,7 +1505,7 @@
 <p>Kommentezd ki a műfajfelhő rész razor kódját.</p>
 </li>
 <li>
-<p>A szűrő űrlap egy lehetséges megvalósítását megtalálod <a href="./snippets/Pages/Index.filter.cshtml">itt</a>. Helyezd el úgy a saját oldaladba, hogy a kikommentezett rész helyén jelenjen meg. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.</p>
+<p>A szűrő űrlap egy lehetséges megvalósítását a letöltött <em>Pages</em> mappában megtalálod (<em>Index.filter.cshtml</em>). Helyezd el úgy a saját oldaladba, hogy a kikommentezett rész helyén jelenjen meg. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.</p>
 </li>
 <li>
 <p>A szűrőfelület űrlapjának <em>Genres</em> részén lévő üres <em>div</em>-et töltsd ki egy hasonló ciklussal, mint ami a <em>TitleTypes</em> részen van, de itt a műfajokat listázd. Figyelj rá, hogy a <code>Filter.TitleTypes</code> helyett a <code>Filter.Genres</code>-t használd, a feliratok viszont a műfajok nevei legyenek, és továbbra is tartalmazzák a számosságokat.</p>
@@ -1513,11 +1515,11 @@
 <p><img alt="Feladat 4." src="../images/feladat-4.png" /></p>
 <h2 id="beadando-tesztesetek">Beadandó tesztesetek<a class="headerlink" href="#beadando-tesztesetek" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Legalább két darab, különbözőképpen felparaméterezett szűrés. Szövegesen szerepeljen a jegyzőkönyvben a szűrés gomb megnyomása utáni teljes URL is.</li>
+<li>Legalább két darab, különbözőképpen felparaméterezett szűrés. Szövegesen szerepeljen a képeken a szűrés gomb megnyomása utáni teljes URL is.</li>
 </ul>
 <h2 id="kovetkezo-feladatok">Következő feladatok<a class="headerlink" href="#kovetkezo-feladatok" title="Permanent link">&para;</a></h2>
 <p>Folytathatod a <a href="../Feladat-2/">szerkesztő oldallal</a>, ha még nem csináltad korábban.</p>
-<p>:godmode: Egyébként végeztél a feladatokkal. :godmode: </p>
+<p>Egyébként végeztél a feladatokkal. </p>
 
     <hr>
   <div class="md-source-file">
@@ -1528,8 +1530,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 24. 11:06:40">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 24. 11:06:40 CEST"><span class="timeago" datetime="2025-10-24T11:06:40+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 24. 11:06:40 CEST">2025-10-24</span>
       </span>
     </span>
 

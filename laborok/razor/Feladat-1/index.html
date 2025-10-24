@@ -21,7 +21,7 @@
     
     
       
-        <title>Előkészítés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 1: Előkészítés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#elokeszites" class="md-skip">
+        <a href="#feladat-1-elokeszites" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Előkészítés
+              Feladat 1: Előkészítés
             
           </span>
         </div>
@@ -851,7 +851,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Szerver oldali renderelés: Razor
+        Áttekintés
       </a>
     </li>
   
@@ -874,7 +874,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
       
     </li>
@@ -889,7 +889,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Beszúrás & módosítás
       </a>
     </li>
   
@@ -903,7 +903,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-3/" class="md-nav__link">
-        Feladat 3.
+        Feladat 3: Lapozás & rendezés
       </a>
     </li>
   
@@ -917,7 +917,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Szűrés
       </a>
     </li>
   
@@ -1376,15 +1376,15 @@
 
 
 
-<h1 id="elokeszites">Előkészítés<a class="headerlink" href="#elokeszites" title="Permanent link">&para;</a></h1>
-<p>Most is az <a href="../ef/README.md">Entity Framework laboron</a> készült adatmodellt fogjuk hasznosítani, hogy egy szerveroldalon renderelt webalkalmazást készítsünk ASP.NET Core-ban.</p>
+<h1 id="feladat-1-elokeszites">Feladat 1: Előkészítés<a class="headerlink" href="#feladat-1-elokeszites" title="Permanent link">&para;</a></h1>
+<p>Most is az <a href="../ef">Entity Framework laboron</a> készült adatmodellt fogjuk hasznosítani, hogy egy szerveroldalon renderelt webalkalmazást készítsünk ASP.NET Core-ban.</p>
 <p>A <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/">Blazor</a> komponensalapú keretrendszerben is van lehetőség szerveroldali renderelést végezni (többféle módon is). Ha érdekel az ASP.NET Core alapú webfejlesztés, ezt a labort Razor Pages használata helyett elvégezheted <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models">Blazor Server</a> segítségével is. Mivel ezt a technológiát részletesen nem tanultuk, így csak saját felelősségre vállalkozz így a feladatra! Ha nem akarsz kockáztatni, akkor nyugodtan maradj a már tanult Razor Pages alapú megközelítésnél! Ebben az esetben egy plusz jegyet kapsz az elégségest követően, de ezzel kapcsolatos esetleges fennakadásaidra önállóan kell megoldást találnod.</p>
 <ol>
 <li>
 <p>Hozz létre egy új C# nyelvű ASP.NET Core Web App (nem Web API) típusú projektet <code>MovieCatalog.Web</code> néven</p>
 <ul>
 <li>Érdemes a laborgépeken kikapcsolni a <em>Configure for HTTPS lehetőséget</em>, mert a gépekre nem biztos, hogy tudjuk telepíteni a fejlesztéshez szükséges tanúsítványt. Saját gépeken ilyen probléma nem lesz, viszont az első indításkor el kell fogadni a tanúsítvány telepítését a kettő megjelenő ablakban.</li>
-<li>.NET verzió: 6.0</li>
+<li>.NET verzió: 8.0</li>
 <li>Minden extra opció legyen kikapcsolva</li>
 <li><em>Authentication type</em> is <em>None</em> legyen</li>
 </ul>
@@ -1409,37 +1409,37 @@
 </ul>
 </li>
 <li>
-<p>Add hozzá a projekthez a <em>Microsoft.EntityFrameworkCore.SqlServer</em> NuGet csomagot</p>
+<p>Add hozzá a projekthez a <em>Microsoft.EntityFrameworkCore.SqlServer</em> (verzió: 8.0.20) NuGet csomagot</p>
 </li>
 <li>
-<p>Add hozzá az előre elkészített <a href="../webapi/snippets/Entities">entitásmodell és adatbázis kontextus fájlokat</a> a projektedhez egy új Entities könyvtárba. Ehhez érdemes <a href="https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/master.zip">letölteni ezt a git repot</a>. A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.</p>
+<p>Add hozzá az előre elkészített entitásmodell és adatbázis kontextus fájlokat a projektedhez egy új Entities könyvtárba. Ehhez érdemes <a href="https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/razor-snippets.zip">letölteni ezt a git branchet</a>. A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.</p>
 </li>
 <li>
-<p>Regisztráld <a href="../webapi/snippets/Entities/MovieCatalogDbContext.cs">az adatbázis kontextust</a> a DI rendszerbe. (Program.cs) </p>
+<p>Regisztráld az adatbázis kontextust <code>Entities/MovieCatalogDbContext.cs</code> a DI rendszerbe. (<em>Program.cs</em>) </p>
 </li>
 <li>
-<p>Add hozzá a projekthez az előkészített segédosztályokat <a href="./snippets/Utils">innen</a> és kivételtípusokat <a href="./snippets/Exceptions">innen</a> egy új <em>Utils</em>, illetve <em>Exceptions</em> mappába. </p>
+<p>Add hozzá a projekthez az előkészített segédosztályokat az <em>Utils</em>, illetve <em>Exceptions</em> mappába. </p>
 </li>
 <li>
-<p>Add hozzá a projekthez az előkészített <code>MovieCatalogDataService</code> és az <code>IMovieCatalogDataService</code> típusokat <a href="./snippets/Services">innen</a> egy új <em>Services</em> mappába.</p>
+<p>Add hozzá a projekthez az előkészített <code>MovieCatalogDataService</code> és az <code>IMovieCatalogDataService</code> típusokat a <em>Services</em> mappába.</p>
 </li>
 <li>
-<p>Regisztráld az <code>IMovieCatalogDataService</code>-t a DI rendszerbe <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped?view=dotnet-plat-ext-6.0&amp;viewFallbackFrom=net-6.0#microsoft-extensions-dependencyinjection-servicecollectionserviceextensions-addscoped-2(microsoft-extensions-dependencyinjection-iservicecollection)"><em>scoped</em> életciklussal</a>. (Program.cs)</p>
+<p>Regisztráld az <code>IMovieCatalogDataService</code>-t a DI rendszerbe <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addscoped"><em>scoped</em> életciklussal</a>. (Program.cs)</p>
 </li>
 </ol>
 <h1 id="altalanos-szabalyok">Általános szabályok<a class="headerlink" href="#altalanos-szabalyok" title="Permanent link">&para;</a></h1>
 <ul>
-<li><code>PageModel</code> leszármazott nem használhatja adatbáziselérésre a kontextust, csak a <a href="./snippets/Services">Services mappában</a> található <code>IMovieCatalogDataService</code> interfész műveleteit (közvetetten tehát a <code>MovieCatalogDataService</code> függvényeit).</li>
+<li><code>PageModel</code> leszármazott nem használhatja adatbáziselérésre a kontextust, csak a <em>Services</em> található <code>IMovieCatalogDataService</code> interfész műveleteit (közvetetten tehát a <code>MovieCatalogDataService</code> függvényeit).</li>
 <li><code>PageModel</code> leszármazott közvetlenül nem példányosíthatja a <code>MovieCatalogDataService</code>-t, csak konstruktoron keresztül kaphatja <code>IMovieCatalogDataService</code>-ként.</li>
 <li>A <code>MovieCatalogDataService</code> osztályban minden szükséges metódus <strong>váza</strong> megtalálható, de nem minden metódus van implementálva, a hiányzókat implementálnod kell legkésőbb a kapcsolódó feladat megoldásakor.</li>
 </ul>
-<h1 id="feladat-1">Feladat 1.<a class="headerlink" href="#feladat-1" title="Permanent link">&para;</a></h1>
+<h1 id="onallo-feladat">Önálló Feladat<a class="headerlink" href="#onallo-feladat" title="Permanent link">&para;</a></h1>
 <ol>
 <li>
 <p>Módosítsd az oldal felső menüsorában a <em>Home</em> menüponttól balra eső első, főoldalra mutató menüpont feliratát a neptunkódodra.</p>
 </li>
 <li>
-<p>Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod az <a href="./snippets/Pages/Index.static.cshtml">itt található razor leírót</a>. Kipróbáláshoz a <em>Pages/Index.cshtml</em>-ed cseréld le a fájl tartalmára.</p>
+<p>Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod a letöltött <em>Pages</em> mappában található razor leírót (<em>Pages/Index.static.cshtml</em>). Kipróbáláshoz a <em>Pages/Index.cshtml</em>-ed cseréld le a fájl tartalmára.</p>
 </li>
 </ol>
 <p><em>Figyelem!</em> Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (<code>&lt;a&gt;</code>) célcíme egyelőre nem fontos.</p>
@@ -1458,12 +1458,14 @@
 </ul>
 </li>
 </ol>
-<p>Az alábbi szabályok szerint szűrd a műveket:
- - a <code>MovieCatalogDataService.GetTitlesAsync</code> függvényét kell használnod
- - csak film (<code>Movie</code>) típus
- - legfeljebb idei, tehát a jövőre tervezettek kiszűrve
- - megjelenési év szerint csökkenően rendezve az első 20 darab
- - a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat</p>
+<p>Az alábbi szabályok szerint szűrd a műveket:</p>
+<ul>
+<li>a <code>MovieCatalogDataService.GetTitlesAsync</code> függvényét kell használnod</li>
+<li>csak film (<code>Movie</code>) típus</li>
+<li>legfeljebb idei, tehát a jövőre tervezettek kiszűrve</li>
+<li>megjelenési év szerint csökkenően rendezve az első 20 darab</li>
+<li>a szűrés nem kell, hogy változtassa a műfajok felhőjében a számosságokat</li>
+</ul>
 <h2 id="vegso-kinezet-kulonbozo-meretek-eseten">Végső kinézet különböző méretek esetén<a class="headerlink" href="#vegso-kinezet-kulonbozo-meretek-eseten" title="Permanent link">&para;</a></h2>
 <p><img alt="Feladat 1." src="../images/feladat-1.png" /></p>
 <p><img alt="Feladat 1." src="../images/feladat-1b.png" /></p>
@@ -1478,12 +1480,18 @@
 <li>Ha egy page nem Razor Page (pl. a Layout oldal), használható az <code>@inject</code> direktíva objektum injektálására. Minden más esetben javasolt a normál konstruktor injektálás.
     <div class="highlight"><pre><span></span><code>@inject MovieCatalog.Data.IMovieCatalogDataService DataService
 </code></pre></div></li>
-<li>Komplex, referencia típusú (pl. <code>PagedResult&lt;&gt;</code>) változókat, propertyket, ha a <code>null</code> értéknek nincs értelme, akkor érdemes nem <code>null</code> értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak <code>Empty</code> statikus tagja (<a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-6.0">például a beépített kollekcióknak általában van</a>) és használjuk azt.</li>
+<li>Komplex, referencia típusú (pl. <code>PagedResult&lt;&gt;</code>) változókat, propertyket, ha a <code>null</code> értéknek nincs értelme, akkor érdemes nem <code>null</code> értékre inicializálni. Ha ilyenkor nem akarunk/kell konstruktorhívásokkal állandóan új üres példányt létrehozni, nézzük meg, van-e a típusnak <code>Empty</code> statikus tagja (<a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty?view=net-8.0">például a beépített kollekcióknak általában van</a>) és használjuk azt.</li>
 <li>Megkönnyítheti a fejlesztést a <a href="https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022">Hot Reload funkció</a>, mely lehetővé teszi, hogy a kódváltoztatásaink sokkal gyorsabban (teljes újraindítás nélkül) érvényre jussanak.</li>
-<li>Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:</li>
+<li>
+<p>Az adatbázis sémája szinte megegyezik az EF laboron megismerttel, kivéve:</p>
+<ul>
 <li>új index a <em>Title.StartYear</em> oszlopra</li>
 <li>az új művek azonosítóját az adatbázis osztja ki  </li>
-<li>Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az <em>IIS Express</em> tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.</li>
+</ul>
+</li>
+<li>
+<p>Sokszor körülményesebb az IIS Express-en történő debuggolás, helyette használhatod közvetlenül a Kestrel szervert is. Ehhez a zöld play gomb melletti menüben a projekt nevét viselő lehetőséget válaszd ki! Ezután indításkor az <em>IIS Express</em> tálcaikon helyett egy konzolalkalmazás indul el, ami hasznos üzeneteket is kiír a konzolra.</p>
+</li>
 <li>Előfordulhat, ha például nagy az adatbázis, és nem indexelt oszlopokra szűrünk/rendezünk, hogy timeout-ra futunk. Ilyenkor első körben próbálkozzunk más szűrési/rendezési beállításokkal.</li>
 </ul>
 <h2 id="beadando-tesztesetek">Beadandó tesztesetek<a class="headerlink" href="#beadando-tesztesetek" title="Permanent link">&para;</a></h2>
@@ -1505,7 +1513,7 @@
 <ul>
 <li>1 + (137 - 100)/(250 - 100) = 1,2466667 =&gt; <code>1.247em</code></li>
 </ul>
-<p>Figyelem! Érdemes nem túl sok tizedes értéket meghagyni, illetve mindenképp tizedespont kell (vessző nem jó). Erre használható például a <code>float.ToString("N3", CultureInfo.InvariantCulture)</code> (<a href="https://learn.microsoft.com/en-us/dotnet/api/system.single.tostring?view=net-6.0#system-single-tostring(system-string-system-iformatprovider)">ToString()</a>).</p>
+<p>Figyelem! Érdemes nem túl sok tizedes értéket meghagyni, illetve mindenképp tizedespont kell (vessző nem jó). Erre használható például a <code>float.ToString("N3", CultureInfo.InvariantCulture)</code> (<a href="https://learn.microsoft.com/en-us/dotnet/api/system.single.tostring?view=net-8.0#system-single-tostring(system-string-system-iformatprovider)">ToString()</a>).</p>
 <ol>
 <li>A művek típusa emberi szövegként jelenjen meg, ne felsorolt típusként, pl. <em>TvSeries</em> =&gt; <em>TV series</em>. A kipróbáláshoz ideiglenesen kommentezd ki a műtípusra vonatkozó szűrést.</li>
 </ol>
@@ -1519,8 +1527,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 24. 11:06:40">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 24. 11:06:40 CEST"><span class="timeago" datetime="2025-10-24T11:06:40+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 24. 11:06:40 CEST">2025-10-24</span>
       </span>
     </span>
 

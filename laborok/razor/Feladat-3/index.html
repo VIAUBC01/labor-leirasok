@@ -21,7 +21,7 @@
     
     
       
-        <title>Feladat 3. - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
+        <title>Feladat 3: Lapozás & rendezés - BMEVIAUBC01 - Szoftverfejlesztés laboratórium laborfeladatok</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feladat-3" class="md-skip">
+        <a href="#feladat-3-lapozas-rendezes" class="md-skip">
           Kihagyás
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feladat 3.
+              Feladat 3: Lapozás & rendezés
             
           </span>
         </div>
@@ -851,7 +851,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Szerver oldali renderelés: Razor
+        Áttekintés
       </a>
     </li>
   
@@ -865,7 +865,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-1/" class="md-nav__link">
-        Előkészítés
+        Feladat 1: Előkészítés
       </a>
     </li>
   
@@ -879,7 +879,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-2/" class="md-nav__link">
-        Feladat 2.
+        Feladat 2: Beszúrás & módosítás
       </a>
     </li>
   
@@ -902,12 +902,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Feladat 3.
+          Feladat 3: Lapozás & rendezés
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Feladat 3.
+        Feladat 3: Lapozás & rendezés
       </a>
       
         
@@ -926,11 +926,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lapozas-rendezes-specifikacio" class="md-nav__link">
-    Lapozás &amp; rendezés - specifikáció
+  <a href="#specifikacio" class="md-nav__link">
+    Specifikáció
   </a>
   
-    <nav class="md-nav" aria-label="Lapozás &amp; rendezés - specifikáció">
+    <nav class="md-nav" aria-label="Specifikáció">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1003,7 +1003,7 @@
   
     <li class="md-nav__item">
       <a href="../Feladat-4/" class="md-nav__link">
-        Feladat 4.
+        Feladat 4: Szűrés
       </a>
     </li>
   
@@ -1452,11 +1452,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lapozas-rendezes-specifikacio" class="md-nav__link">
-    Lapozás &amp; rendezés - specifikáció
+  <a href="#specifikacio" class="md-nav__link">
+    Specifikáció
   </a>
   
-    <nav class="md-nav" aria-label="Lapozás &amp; rendezés - specifikáció">
+    <nav class="md-nav" aria-label="Specifikáció">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1532,22 +1532,26 @@
 
 
 
-<h1 id="feladat-3">Feladat 3.<a class="headerlink" href="#feladat-3" title="Permanent link">&para;</a></h1>
-<h2 id="lapozas-rendezes-specifikacio">Lapozás &amp; rendezés - specifikáció<a class="headerlink" href="#lapozas-rendezes-specifikacio" title="Permanent link">&para;</a></h2>
+<h1 id="feladat-3-lapozas-rendezes">Feladat 3: Lapozás &amp; rendezés<a class="headerlink" href="#feladat-3-lapozas-rendezes" title="Permanent link">&para;</a></h1>
+<h2 id="specifikacio">Specifikáció<a class="headerlink" href="#specifikacio" title="Permanent link">&para;</a></h2>
 <h3 id="lapozas">Lapozás<a class="headerlink" href="#lapozas" title="Permanent link">&para;</a></h3>
-<p>A lapozást és rendezést a kezdőoldalon (<em>Index</em>) kell megvalósítani, minden paraméter URL-ben utazzon! A lapozáshoz az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:
-- Legyen látható az összes találat száma.
-- Legyen választható az aktuális oldalméret egy legördülő menüben, lehetséges értékei: 10, 20, 30, 60, 120. Az alapérték 20. Újratöltés után mindig a megfelelő elem legyen kiválasztva!
-- Bármelyik lapozási beállítás változtatásakor az oldal töltődjön újra az első oldalon, az új oldalmérettel! Ehhez a JavaScriptes <code>onchange</code> eseménykezelőt lehet például használni. Egyszerű megoldás definiálni egy űrlapot, amiben a <code>select</code> szerepel a megfelelő paraméterekkel, valamint egy <code>hidden</code> <code>input</code>ot 1-es <code>PageNumber</code> értékkel. Ezután már csak a <code>select</code> <code>onchange</code>-ben kell megfelelően elsütni a <code>form</code> <code>submit</code> eseményét.
-- Legyenek láthatók a lehetséges oldalszámok egy oldalválasztóval az alábbinak megfelelően:
-    - Az első 3 oldal mindig legyen látható (ha van).
-    - Az aktuális plusz/mínusz 1 oldal mindig legyen látható (ha van).
-    - Az utolsó 3 oldal mindig legyen látható (ha van).
-    - A további oldalakat három pont (...) jelzi, ahol kimaradás történik.
-    - A ...-on kívüli elemekre kattintva a megfelelő oldal töltődik be. Fontos, hogy a <code>PageSize</code> paraméter értéke lapozáskor megmarad!
-- Az oldalválasztóhoz javasolt (nem kötelező) a <a href="https://getbootstrap.com/docs/5.0/components/pagination/">Bootstrap Pagination</a> komponenst használni.
-- Az oldalszám technikailag az adatrétegből 0-tól indul, de a felületen/URL-ben 1-től induljon, tehát az eltolást a megfelelő helyeken alkalmazd!
-- Ha a lapozási paraméterek nincsenek az URL-ben, irányítsd át a kérést egy olyan címre, ami már tartalmazza a paramétereket, így a felhasználó mindig tudja a címből, hogy mi a lapozás/rendezés állapota.</p>
+<p>A lapozást és rendezést a kezdőoldalon (<em>Index</em>) kell megvalósítani, minden paraméter URL-ben utazzon! A lapozáshoz az oldal tetején és/vagy alján kell szerepelnie egy lapozósávnak az alábbinak megfelelően:</p>
+<ul>
+<li>Legyen látható az összes találat száma.</li>
+<li>Legyen választható az aktuális oldalméret egy legördülő menüben, lehetséges értékei: 10, 20, 30, 60, 120. Az alapérték 20. Újratöltés után mindig a megfelelő elem legyen kiválasztva!</li>
+<li>Bármelyik lapozási beállítás változtatásakor az oldal töltődjön újra az első oldalon, az új oldalmérettel! Ehhez a JavaScriptes <code>onchange</code> eseménykezelőt lehet például használni. Egyszerű megoldás definiálni egy űrlapot, amiben a <code>select</code> szerepel a megfelelő paraméterekkel, valamint egy <code>hidden</code> <code>input</code>ot 1-es <code>PageNumber</code> értékkel. Ezután már csak a <code>select</code> <code>onchange</code>-ben kell megfelelően elsütni a <code>form</code> <code>submit</code> eseményét.</li>
+<li>Legyenek láthatók a lehetséges oldalszámok egy oldalválasztóval az alábbinak megfelelően:<ul>
+<li>Az első 3 oldal mindig legyen látható (ha van).</li>
+<li>Az aktuális plusz/mínusz 1 oldal mindig legyen látható (ha van).</li>
+<li>Az utolsó 3 oldal mindig legyen látható (ha van).</li>
+<li>A további oldalakat három pont (...) jelzi, ahol kimaradás történik.</li>
+<li>A ...-on kívüli elemekre kattintva a megfelelő oldal töltődik be. Fontos, hogy a <code>PageSize</code> paraméter értéke lapozáskor megmarad!</li>
+</ul>
+</li>
+<li>Az oldalválasztóhoz javasolt (nem kötelező) a <a href="https://getbootstrap.com/docs/5.0/components/pagination/">Bootstrap Pagination</a> komponenst használni.</li>
+<li>Az oldalszám technikailag az adatrétegből 0-tól indul, de a felületen/URL-ben 1-től induljon, tehát az eltolást a megfelelő helyeken alkalmazd!</li>
+<li>Ha a lapozási paraméterek nincsenek az URL-ben, irányítsd át a kérést egy olyan címre, ami már tartalmazza a paramétereket, így a felhasználó mindig tudja a címből, hogy mi a lapozás/rendezés állapota.</li>
+</ul>
 <h3 id="rendezes">Rendezés<a class="headerlink" href="#rendezes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>A rendezéshez két legördülő tartozik, amik bármelyikének változásának hatására az oldal az új paraméterekkel újratöltődik:<ul>
@@ -1568,7 +1572,7 @@
 <li><code>TitleSort</code>, alapértelmezett értéke <code>TitleSort.ReleaseYear</code></li>
 <li><code>SortDescending</code>, alapértelmezett értéke <code>true</code></li>
 </ul>
-<p>Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) alapján (<code>BindProperty</code> attribútum) <a href="https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-6.0#model-binding-for-http-get-requests-1">GET kérés esetén is</a> (<code>SupportsGet</code>).</p>
+<p>Mindegyik property automatikusan állítódjon be a HTTP kérés (query string) alapján (<code>BindProperty</code> attribútum) <a href="https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-8.0#model-binding-for-http-get-requests-1">GET kérés esetén is</a> (<code>SupportsGet</code>).</p>
 </li>
 <li>
 <p>A <code>GetTitlesAsync</code> hívását paraméterezd fel a 4 property alapján.</p>
@@ -1581,10 +1585,10 @@ cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.<
 <p>Valósítsd meg az <code>OnGet</code> elején a specifikációnak megfelelő átirányítást, tehát ha a cím csak simán a gyökércím, akkor irányítson el a 
     <div class="highlight"><pre><span></span><code>/?PageSize=20&amp;PageNumber=1&amp; TitleSort=ReleaseYear&amp;SortDescending=True
 </code></pre></div>
-    címre. A kérés query string értékei a   <code>Request.QueryString</code> propertyből kérdezhetők     le. Az átirányítás végezhető a  <code>RedirectToPage</code> függvény <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)">hívásával</a>. Vigyázz, mert  ha az átirányítás nem jó, könnyen "végtelen  ciklus"-ba kerülhetsz. Az átirányítás miatt az <code>OnGet</code> visszatérési értéke <code>Task&lt;ActionResult&gt;</code>-ra kell változzon, emiatt minden végrehajtási ágon visszatérési értéket kell adni. A <strong>nem</strong> átirányítós ágon ilyenkor a <code>Page()</code> hívás visszatérési értéke legyen egyben az <code>OnGet</code> visszatérési értéke is.</p>
+    címre. A kérés query string értékei a   <code>Request.QueryString</code> propertyből kérdezhetők     le. Az átirányítás végezhető a  <code>RedirectToPage</code> függvény <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagebase.redirecttopage?view=aspnetcore-8.0#microsoft-aspnetcore-mvc-razorpages-pagebase-redirecttopage(system-string-system-object)">hívásával</a>. Vigyázz, mert  ha az átirányítás nem jó, könnyen "végtelen  ciklus"-ba kerülhetsz. Az átirányítás miatt az <code>OnGet</code> visszatérési értéke <code>Task&lt;ActionResult&gt;</code>-ra kell változzon, emiatt minden végrehajtási ágon visszatérési értéket kell adni. A <strong>nem</strong> átirányítós ágon ilyenkor a <code>Page()</code> hívás visszatérési értéke legyen egyben az <code>OnGet</code> visszatérési értéke is.</p>
 </li>
 <li>
-<p>Vegyél fel a 3 legördülő menühöz egy-egy a legördülő menüben szereplő opciókat leíró <code>SelectItems[]</code> típusú property-t az <code>IndexModel</code>-be (a <code>PageNumber</code> nem legördülő menüből jön!). A tömbben a specifikációnak megfelelő opciók szerepeljenek. Figyelj, hogy a példány létrehozásnál <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.-ctor?view=aspnetcore-6.0#microsoft-aspnetcore-mvc-rendering-selectlistitem-ctor(system-string-system-string-system-boolean)">a feliratot, az adatkötött property-nek beállítandó értéket és az alapértelmezetten kiválasztott elemet</a> is megfelelően töltsd ki.</p>
+<p>Vegyél fel a 3 legördülő menühöz egy-egy a legördülő menüben szereplő opciókat leíró <code>SelectItems[]</code> típusú property-t az <code>IndexModel</code>-be (a <code>PageNumber</code> nem legördülő menüből jön!). A tömbben a specifikációnak megfelelő opciók szerepeljenek. Figyelj, hogy a példány létrehozásnál <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.-ctor?view=aspnetcore-8.0#microsoft-aspnetcore-mvc-rendering-selectlistitem-ctor(system-string-system-string-system-boolean)">a feliratot, az adatkötött property-nek beállítandó értéket és az alapértelmezetten kiválasztott elemet</a> is megfelelően töltsd ki.</p>
 </li>
 <li>
 <p>Vegyél fel a látható oldalszámok felsorolására egy property-t az <code>IndexModelbe</code>. Egy lehetséges megadása az alábbi (feltételezve, hogy a <code>GetTitlesAsync</code> által visszaadott művek a <code>Titles</code> property-be kerülnek):</p>
@@ -1600,7 +1604,7 @@ cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.<
 </code></pre></div>
 </li>
 <li>
-<p>A lapozást vezérlő felületrész egy lehetséges megvalósítását megtalálod <a href="./snippets/Pages/Index.paging.cshtml">itt</a>. Ebben egy <code>&lt;nav&gt;</code> tag található, amit a listázó felület <code>&lt;div class="row"&gt;</code>-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a <code>Titles</code> property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.</p>
+<p>A lapozást vezérlő felületrész egy lehetséges megvalósítását a letöltött <em>Pages</em> mappában megtalálod (<em>Index.paging.cshtml</em>). Ebben egy <code>&lt;nav&gt;</code> tag található, amit a listázó felület <code>&lt;div class="row"&gt;</code>-ja fölé helyezhetsz el. Ha ezt használod, ellenőrizd, hogy a razor kódban található modellhivatkozások a te saját modellednek megfelelő property nevekre hivatkoznak-e, például a művek szűrt-lapozott listáját a <code>Titles</code> property tárolja-e. Ha nem, írd át a hivatkozást megfelelő névre. A kód értelmezése ilyenkor a te feladatod, némi segítség található lentebb.</p>
 </li>
 <li>
 <p>Írd át az összes elem számát megjelenítő részt, hogy tényleg az összes elem számát jelenítse meg.</p>
@@ -1639,7 +1643,7 @@ cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.<
 </code></pre></div>
 <h2 id="beadando-tesztesetek">Beadandó tesztesetek<a class="headerlink" href="#beadando-tesztesetek" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Legalább két darab, különbözőképpen beállított lapozás. Szövegesen szerepeljen a jegyzőkönyvben az átállítás utáni teljes URL is.</li>
+<li>Legalább két darab, különbözőképpen beállított lapozás. Szövegesen szerepeljen a képen az átállítás utáni teljes URL is.</li>
 </ul>
 <h2 id="kovetkezo-feladatok">Következő feladatok<a class="headerlink" href="#kovetkezo-feladatok" title="Permanent link">&para;</a></h2>
 <p>Ezekkel folytathatod:</p>
@@ -1657,8 +1661,8 @@ cím megfelelően paraméterezi-e a hívást és a kért adatok jelennek-e meg.<
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 24. 11:15:16">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 24. 11:15:16 CEST"><span class="timeago" datetime="2025-10-24T11:15:16+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 24. 11:15:16 CEST">2025-10-24</span>
       </span>
     </span>
 
