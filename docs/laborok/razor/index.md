@@ -1,6 +1,6 @@
 # Áttekintés
 
-A labor során az [Entity Framework laboron](../ef) készített adatréteget felhasználva fogunk megvalósítani egy egyszerű, REST jellegű API-t.
+A labor során az [Entity Framework laboron](../ef) készített adatréteget felhasználva fogunk megvalósítani egy egyszerű, szerveroldali renderelésű webalkalmazást Razor technológiával.
 
 Az előfeltételek, felkészülés, áttekintés és általános tájékoztató megegyezik az [Entity Framework labor címoldalán található információkkal](../ef).
 
