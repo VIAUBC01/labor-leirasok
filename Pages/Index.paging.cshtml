@@ -1,0 +1,69 @@
+<nav class="text-center mb-2">
+    <div class="m-2 border">4 results.</div>
+    @if (Model.Titles.Results.Count > 0)
+    {
+        <ul class="pagination row g-0" style="font-size: 0.8em">
+            @{
+                var last = 0;
+            }
+            @foreach (var i in new[] { 1, 2, 3 })
+            {
+                if (last != i - 1)
+                {
+                    <li class="page-item col g-0">
+                        <i class="page-link text-muted">...</i>
+                    </li>
+                }
+                last = i;
+                <li class="page-item col @(i == Model.PageNumber ? "active font-weight-bold" : "")">
+                    <a class="page-link" asp-all-route-data="Request.Query.ToDictionary(v => v.Key, v => v.Value.ToString())"
+                asp-route-PageNumber="@i">
+                        @i
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+    <div class="row">
+        <div class="col">
+            <form method="get">
+                <label for="sPageSize">Page size</label>
+                <select id="sPageSize" class="form-control" onchange="$(this).parent().submit()">
+                </select>
+                @foreach (var (key, value) in Request.Query
+                .Where(q => q.Key != nameof(Model.PageSize) && q.Key != nameof(Model.PageNumber)))
+                {
+                    <input type="hidden" name="@key" value="@value" />
+                }
+                <input type="hidden" asp-for="PageNumber" value="1" />
+            </form>
+        </div>
+        <div class="col">
+            <form method="get">
+                <label for="sTitleSort">Ordered by</label>
+                <select id="sTitleSort" class="form-control" onchange="$(this).parent().submit()">
+                </select>
+                @foreach (var (key, value) in Request.Query
+                .Where(q => q.Key != nameof(Model.TitleSort) && q.Key != nameof(Model.PageNumber)))
+                {
+                    <input type="hidden" name="@key" value="@value" />
+                }
+                <input type="hidden" asp-for="PageNumber" value="1" />
+            </form>
+        </div>
+        <div class="col">
+            <form method="get">
+                <label for="sTitleSort">Order direction</label>
+                <select id="sSortDescending" class="form-control" onchange="$(this).parent().submit()">
+                </select>
+                @foreach (var (key, value) in Request.Query
+                .Where(q => q.Key != nameof(Model.SortDescending) && q.Key !=
+                nameof(Model.PageNumber)))
+                {
+                    <input type="hidden" name="@key" value="@value" />
+                }
+                <input type="hidden" asp-for="PageNumber" value="1" />
+            </form>
+        </div>
+    </div>
+</nav>

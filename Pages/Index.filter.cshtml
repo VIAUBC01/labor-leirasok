@@ -1,0 +1,73 @@
+﻿<form method="get" class="row mt-3">
+    <div class="col-12 mb-3 pb-3 border-bottom text-center">
+        <label asp-for="Filter.Genres" class="fw-bold">Genres</label>
+        <div>
+        </div>
+    </div>
+    <div class="col-12 mb-3 pb-3 border-bottom text-center">
+        <label asp-for="Filter.TitleContains" class="fw-bold">Title</label>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <input asp-for="Filter.TitleContains" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-3 pb-3 border-bottom text-center">
+        <label asp-for="Filter.TitleTypes" class="fw-bold">Type</label>
+        <div>
+            @foreach (var tn in Enum.GetNames(typeof(TitleType)))
+            {
+                <div class="form-check form-check-inline">
+                    <input @(Model.Filter.TitleTypes?.Any(t => t.ToString() == tn) ?? false ? "checked" : string.Empty)
+                    id="Filter.TitleTypes[@tn]" type="checkbox" name="Filter.TitleTypes" value="@tn"
+                    class="form-check-input" />
+                    <label class="form-check-label" for="Filter.TitleTypes[@tn]">@tn</label>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-12 mb-3 pb-3 border-bottom">
+        <label asp-for="Filter.StartYearMin" class="fw-bold">Year of release</label>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <input asp-for="Filter.StartYearMin" class="form-control" min="1900" max="2100" />
+            </div>
+            <div class="col-auto text-center">-</div>
+            <div class="col-auto">
+                <input asp-for="Filter.StartYearMax" class="form-control" min="1900" max="2100" />
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-3 pb-3 border-bottom">
+        <label asp-for="Filter.EndYearMin" class="fw-bold">Year of finale (serials only)</label>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <input asp-for="Filter.EndYearMin" class="form-control" min="1900" max="2100" />
+            </div>
+            <div class="col-auto text-center">-</div>
+            <div class="col-auto">
+                <input asp-for="Filter.EndYearMax" class="form-control" min="1900" max="2100" />
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-3 pb-3 border-bottom">
+        <label asp-for="Filter.EndYearMin" class="fw-bold">Runtime (minutes)</label>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <input asp-for="Filter.RuntimeMinutesMin" class="form-control" min="1" max="9999" />
+            </div>
+            <div class="col-auto text-center">-</div>
+            <div class="col-auto">
+                <input asp-for="Filter.RuntimeMinutesMax" class="form-control" min="1" max="999" />
+            </div>
+        </div>
+    </div>
+    @foreach (var (key, value) in Request.Query
+                                 .Where(kv => !kv.Key.StartsWith("Filter.")))
+    {
+        <input type="hidden" name="@key" value="@value" />
+    }
+    <div class=" row">
+        <button type="submit" class="btn btn-primary fw-bold">Filter titles</button>
+    </div>
+</form>
