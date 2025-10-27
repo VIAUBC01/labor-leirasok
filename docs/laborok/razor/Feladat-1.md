@@ -32,7 +32,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 1. Add hozzá az előre elkészített entitásmodell és adatbázis kontextus fájlokat a projektedhez egy új Entities könyvtárba. Ehhez érdemes [letölteni ezt a git branchet](https://github.com/VIAUBC01/labor-leirasok/archive/refs/heads/razor-snippets.zip). A DACPAC adatbázis sémája megfelel az EF modellnek, és mivel nem módosítunk rajta, így EF migrációval ezen mérés keretében nem kell foglalkozni.
 
-*Figyelem!* A *Pages* mappában található fájlok kódrészleteket tartalmaznak, ezek tartalmát használd fel és ne csak felülírd a projektbeli *Pages* mappát!
+    :warning: *Figyelem!* A *Pages* mappában található fájlok kódrészleteket tartalmaznak, ezek tartalmát használd fel és ne csak felülírd a projektbeli *Pages* mappát! **Egyelőre nem kell átmásolni!**
 
 1. Regisztráld az adatbázis kontextust `Entities/MovieCatalogDbContext.cs` a DI rendszerbe. (_Program.cs_) 
 
@@ -54,7 +54,7 @@ A [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/) komponensalapú
 
 1. Módosítsd a főoldal szerkezetét az alábbi részfeladatoknak megfelelően. A kinézet kialakításához felhasználhatod a letöltött *Pages* mappában található razor leírót (*Pages/Index.static.cshtml*). Kipróbáláshoz a *Pages/Index.cshtml*-ed cseréld le a fájl tartalmára.
 
-*Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
+    :warning: *Figyelem!* Ez a fájl nem használ semmilyen modelladatot, csak statikus random generált értékeket. Le kell cserélned a ciklusokat és a statikus szövegeket, hogy modelladatot/adatbázisadatot használjanak. A linkek (`<a>`) célcíme egyelőre nem fontos.
 
 1. A kezdőoldalon, bal oldalon jelenjenek meg az adatbázisban tárolt műfajok ABC szerinti sorrendben egy szófelhőben, minden műfaj önálló felirat. A felirat tartalmazza, hogy hány mű tartozik az adott műfajba. Mivel minden műfajt le kell kérdezni, a rendezés itt mehet memóriában is. Kapcsolódó `IMovieCatalogDataService` művelet a `GetGenresWithTitleCountsAsync`.
 
