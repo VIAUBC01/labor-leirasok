@@ -1757,7 +1757,7 @@
 </blockquote>
 <h2 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h2>
 <h3 id="altalanos-szabalyok">Általános szabályok<a class="headerlink" href="#altalanos-szabalyok" title="Permanent link">&para;</a></h3>
-<p>:warning: A következő típusú Azure erőforrások nevének <strong>kötelezően</strong> tartalmaznia kell a mérést végző neptun kódját: </p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> A következő típusú Azure erőforrások nevének <strong>kötelezően</strong> tartalmaznia kell a mérést végző neptun kódját: </p>
 <ul>
 <li>Azure SQL Server</li>
 <li>Azure App Service</li>
@@ -1772,15 +1772,15 @@
 - Az összes előbb említett erőforrást egy füst alatt a <strong>Web app + Database</strong> varázslóval/sablonnal hozzuk létre.
 - Az adatbázis séma inicializáláshoz egy futtatható állományt (<a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles">EF Core migration bundle</a>) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.</p>
 <h4 id="tippek-es-hasznos-tudnivalok">Tippek és hasznos tudnivalók<a class="headerlink" href="#tippek-es-hasznos-tudnivalok" title="Permanent link">&para;</a></h4>
-<p>:bulb: Az Azure portálra történő első belépéskor érdemes <a href="https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region">beállítani a portál nyelvét</a>. Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.</p>
-<p>:bulb: ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app#6-stream-diagnostic-logs">diagnosztikai naplók lekérdezéséről szóló részt</a>. A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.</p>
-<p>:bulb: Régióként ajánlott a nyugat- vagy észak-európait használni (West Europe, North Europe). Az elején válaszd ki az egyiket és azt használd végig.</p>
-<p>:bulb: Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a <code>Create</code> gombot megnyomni, különben nem indul el a létrehozási folyamat!</p>
-<p>:bulb: Érdemes folyamatosan ellenőrizni, hogy van-e olyan bedandó képernyőkép, amit épp el tudsz készíteni.</p>
-<p>:bulb: Az SSH terminált érdemes egy külön böngészőfülön megnyitni. Ezen a fülön ne navigálj el a terminál oldaláról.</p>
-<p>:bulb: Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene <a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle">futtatni</a>.</p>
-<p>:warning: Alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!</p>
-<p>:warning: Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Az Azure portálra történő első belépéskor érdemes <a href="https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region">beállítani a portál nyelvét</a>. Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app#6-stream-diagnostic-logs">diagnosztikai naplók lekérdezéséről szóló részt</a>. A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Régióként ajánlott a nyugat- vagy észak-európait használni (West Europe, North Europe). Az elején válaszd ki az egyiket és azt használd végig.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Azure erőforrások létrehozásakor az űrlap utolsó oldalának alján ne felejtsük el a <code>Create</code> gombot megnyomni, különben nem indul el a létrehozási folyamat!</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Érdemes folyamatosan ellenőrizni, hogy van-e olyan bedandó képernyőkép, amit épp el tudsz készíteni.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Az SSH terminált érdemes egy külön böngészőfülön megnyitni. Ezen a fülön ne navigálj el a terminál oldaláról.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Éles környezetben általában a connection string-ben olyan felhasználót adunk meg, akinek nincs is joga a migrációs műveletek elvégzésére. Ilyenkor viszont külön a migrációt egy erőteljesebb jogú felhasználót tartalmazó connection string-gel kellene <a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#efbundle">futtatni</a>.</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> Alapesetben publikus git repoban dolgozol. Ne pusholj bele semmilyen szenzitív adatot, jelszót!</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.</p>
 <h3 id="elteresek">Eltérések<a class="headerlink" href="#elteresek" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Az első lépés előtt említett klónozást nem kell elvégezni, nincs rá szükség.</li>
@@ -1797,11 +1797,11 @@
 <h3 id="feladat-2">Feladat 2<a class="headerlink" href="#feladat-2" title="Permanent link">&para;</a></h3>
 <p>Az első feladatban megismert módszerekkel telepítsd az ASP.NET Core Razor Pages mérésen készített <em>MovieCatalog.Web</em> projektedet Azure-ba. A feladathoz tartozó erőforrások egy új erőforráscsoportba (resource group) kerüljenek.</p>
 <p>Ehhez a feladathoz már nincs részletes leírás, csak néhány extra tippet adunk:</p>
-<p>:bulb: Ne kövesd szolgaian az első feladat elnevezéseit, mert névütközések lesznek. Találj ki saját neveket, de ahol kell, ott legyen benne a neptun kódod</p>
-<p>:bulb: A Runtime stack-et a MovieCatalog projekt .NET verziójához igazítsd (megtalálod a projekt fájlban)</p>
-<p>:bulb: Redis Cache-t nem kell létrehozni</p>
-<p>:bulb: EF Migration bundle-t nem kell csinálni, az ehhez szükséges EF eszközt sem kell feltenni a GitHub Actions YAML-ben.</p>
-<p>:bulb: Az adatbázis feltöltéséhez használd a <a href="data/imdbtitles_sample_azure.dacpac">mellékelt Azure SQL-lel kompatibilis DACPAC</a> csomagot. Ehhez:   </p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Ne kövesd szolgaian az első feladat elnevezéseit, mert névütközések lesznek. Találj ki saját neveket, de ahol kell, ott legyen benne a neptun kódod</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> A Runtime stack-et a MovieCatalog projekt .NET verziójához igazítsd (megtalálod a projekt fájlban)</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Redis Cache-t nem kell létrehozni</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> EF Migration bundle-t nem kell csinálni, az ehhez szükséges EF eszközt sem kell feltenni a GitHub Actions YAML-ben.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Az adatbázis feltöltéséhez használd a <a href="data/imdbtitles_sample_azure.dacpac">mellékelt Azure SQL-lel kompatibilis DACPAC</a> csomagot. Ehhez:   </p>
 <ol>
 <li>töltsd fel a csomagot a projekted repojába, például a projekt fájl mellé.</li>
 <li>módosítsd a GitHub Actions YAML fájlt (.github alkönyvtárban), hogy a kimeneti könyvtárba másolja a csomagot. A másolásra egy módja az alábbi lépés beszúrása a feltöltési lépés elé. Ellenőrizd, hogy az elérési út megfelelő-e: a repo gyökeréhez képest kell az elérési útvonalat megadni.
@@ -1815,7 +1815,7 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 </ol>
 <h3 id="vegeztel">Végeztél<a class="headerlink" href="#vegeztel" title="Permanent link">&para;</a></h3>
 <p>:godmode: Végeztél a feladatokkal. :godmode:</p>
-<p>:warning: A beadás után érdemes törölni minden Azure erőforrást.</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> A beadás után érdemes törölni minden Azure erőforrást.</p>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
 <h3 id="altalanos-elvek">Általános elvek<a class="headerlink" href="#altalanos-elvek" title="Permanent link">&para;</a></h3>
 <p>Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak <em>jpg</em> vagy <em>png</em> formátumban. </p>
@@ -1868,13 +1868,13 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 <td><code>f1_svcconn</code></td>
 </tr>
 <tr>
-<td>:cloud: Az App Service <em>Log stream</em> oldala egy elem módosítása után</td>
+<td><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> Az App Service <em>Log stream</em> oldala egy elem módosítása után</td>
 <td>Böngésző</td>
 <td><code>f1_log</code></td>
 </tr>
 </tbody>
 </table>
-<p>:bulb: Service Connector-ok validálása az App Service <a href="https://learn.microsoft.com/en-us/azure/service-connector/quickstart-portal-container-apps">Service Connector lapján</a>: jelölj ki minden kapcsolatot és felül nyomd meg a <em>Validate</em> gombot. Várd meg, amíg az ellenőrzés lefut.</p>
+<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Service Connector-ok validálása az App Service <a href="https://learn.microsoft.com/en-us/azure/service-connector/quickstart-portal-container-apps">Service Connector lapján</a>: jelölj ki minden kapcsolatot és felül nyomd meg a <em>Validate</em> gombot. Várd meg, amíg az ellenőrzés lefut.</p>
 <p>A lekérdezett naplóüzenetek tartalmával kapcsolatban nincs elvárás, nem kell pl. a létrehozás kérésnek látszania.</p>
 <h4 id="kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol">Képernyőképek a böngészőben futó webalkalmazás <strong>főoldaláról</strong><a class="headerlink" href="#kepernyokepek-a-bongeszoben-futo-webalkalmazas-fooldalarol" title="Permanent link">&para;</a></h4>
 <table>
@@ -1890,12 +1890,12 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 <td><code>f1_v1</code></td>
 </tr>
 <tr>
-<td>:cloud: új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen</td>
+<td><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> új elem/teendő felvétele után. Az új elem/teendő leírása a neptun kódod legyen</td>
 <td><code>f1_v2</code></td>
 </tr>
 </tbody>
 </table>
-<p>:cloud:: az így jelölt képek nem szükségesek az elégséges szint eléréséhez. Összesen 5+1 kép kell az elégégeshez.</p>
+<p><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" />: az így jelölt képek nem szükségesek az elégséges szint eléréséhez. Összesen 5+1 kép kell az elégégeshez.</p>
 <h3 id="beadando-feladat-2">Beadandó - Feladat 2<a class="headerlink" href="#beadando-feladat-2" title="Permanent link">&para;</a></h3>
 <h4 id="kepernyokepek-az-alabbi-lepesekrol_1">Képernyőképek az alábbi lépésekről<a class="headerlink" href="#kepernyokepek-az-alabbi-lepesekrol_1" title="Permanent link">&para;</a></h4>
 <table>
@@ -1923,7 +1923,7 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 <td><code>f2_dbmigr</code></td>
 </tr>
 <tr>
-<td>:cloud: Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva</td>
+<td><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" /> Az App Service-en belül a Service Connector aloldalon minden kapcsolat le van validálva</td>
 <td>Böngésző</td>
 <td><code>f2_svcconn</code></td>
 </tr>
@@ -1944,14 +1944,14 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 </tr>
 </tbody>
 </table>
-<p>:cloud:: az így jelölt képek nem szükségesek a jeles szint eléréséhez.</p>
+<p><img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" />: az így jelölt képek nem szükségesek a jeles szint eléréséhez.</p>
 <h2 id="ertekelesi-iranyelvek">Értékelési irányelvek<a class="headerlink" href="#ertekelesi-iranyelvek" title="Permanent link">&para;</a></h2>
 <ul>
-<li>ha <strong>nem</strong> csak jelölt (:cloud:) képek hiányoznak az első feladatból :arrow_right: 1</li>
-<li>ha csak jelölt (:cloud:) kép hiányzik az első feladatból:arrow_right: 2</li>
-<li>ha minden elkészül az első feladatból :arrow_right: 3</li>
-<li>ha csak jelölt (:cloud:) kép hiányzik a második feladatból:arrow_right: 4</li>
-<li>ha minden elkészül az első és a második feladatból is :arrow_right: 5</li>
+<li>ha <strong>nem</strong> csak jelölt (<img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" />) képek hiányoznak az első feladatból <img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> 1</li>
+<li>ha csak jelölt (<img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" />) kép hiányzik az első feladatból<img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> 2</li>
+<li>ha minden elkészül az első feladatból <img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> 3</li>
+<li>ha csak jelölt (<img alt="☁️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2601.png" title=":cloud:" />) kép hiányzik a második feladatból<img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> 4</li>
+<li>ha minden elkészül az első és a második feladatból is <img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/27a1.png" title=":arrow_right:" /> 5</li>
 </ul>
 
     <hr>
