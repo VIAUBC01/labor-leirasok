@@ -1810,8 +1810,12 @@
 <li><strong>Review + create</strong> lépésnél kattints a <em>Download a template for automation</em> linkre</li>
 <li>Itt nyomd meg a <em>Deploy</em> gombot</li>
 <li>Az új nézetben az <em>Edit Template</em> gombot, amiután szerkeszthetővé válik a json</li>
+<li>töröld ki a <code>tags</code> értéket tartalmazó sort:
+    <div class="highlight"><pre><span></span><code><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vnet-mtpsrpsr/subnet-vbbsuxu&quot;</span><span class="p">,</span>
+<span class="c1">// &quot;tags&quot;: {}, &lt;-ezt töröld</span>
+<span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</code></pre></div></li>
 <li>Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: <em>"vnet-mtpsrpsr/subnet-vbbsuxu"</em>), keress arra, hogy <em>'subnet'</em></li>
-<li>töröld ki az a sort utána, ami így néz ki: <code>"tags": {},</code> (vesszőstül, mindenestül)</li>
 <li>Nyomd meg a <em>Save</em> gombot, ami után visszanavigál a deployment nézetre.</li>
 <li>Itt állítsd vissza a resource groupot arra, amit létrehoztál</li>
 <li>Adj megfelelő jelszót az <em>Sql Server Admin Pwd</em> mezőbe (figyelj, hogy jó legyen, nem validálja itt, de elszáll a deploy, ha nem megfelelő, példa egy jóra: <em>m8$Tl34zmhsdhOdu</em> jó)</li>
@@ -1821,7 +1825,7 @@
 </li>
 <li>4-es pont: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is</li>
 <li>A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!</li>
-<li>Az 5-ös lépésnél ha <em>A connection was successfully established with the server, but then an error occurred during the login process</em> hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a hálózati beállításait.</li>
+<li>Az 5-ös lépésnél ha <em>A connection was successfully established with the server, but then an error occurred during the login process</em> hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a key vault hálózati beállításait.</li>
 <li>A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.</li>
 <li>A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.</li>
 <li>A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.</li>
@@ -1994,8 +1998,8 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
           </path>
         </svg>
       </span>
-      <span title="2025. október 31. 13:24:50">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 31. 13:24:50 CET"><span class="timeago" datetime="2025-10-31T13:24:50+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 31. 13:24:50 CET">2025-10-31</span>
+      <span title="2025. október 31. 16:02:35">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 31. 16:02:35 CET"><span class="timeago" datetime="2025-10-31T16:02:35+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 31. 16:02:35 CET">2025-10-31</span>
       </span>
     </span>
 
