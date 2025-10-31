@@ -83,7 +83,7 @@ A jelentősebb eltérések:
     - Nyomd meg a *Save* gombot, ami után visszanavigál a deployment nézetre.
     - Itt állítsd vissza a resource groupot arra, amit létrehoztál
     - Adj megfelelő jelszót az *Sql Server Admin Pwd* mezőbe (figyelj, hogy jó legyen, nem validálja itt, de elszáll a deploy, ha nem megfelelő, példa egy jóra: *m8$Tl34zmhsdhOdu* jó)
-    - *Next* gomnyomásra kattintás után validálja a beállíátsokat
+    - *Next* gomnyomásra kattintás után validálja a beállításokat
     - Ha minden rendben, *Create* gombot nyomd meg (elnavigálás után megkérdezi, hogy elmented-e a json változtatásokat, ezt nem kell)
 - 4-es pont: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is
 - A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
