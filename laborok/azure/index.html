@@ -481,19 +481,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#azure-webhoszting" class="md-nav__link">
-    Azure webhoszting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#elokeszuletek" class="md-nav__link">
     Előkészületek
   </a>
   
     <nav class="md-nav" aria-label="Előkészületek">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-letrehozasa-es-letoltese" class="md-nav__link">
+    Git repository létrehozása és letöltése
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#azure-elofizetes-beuzemelese" class="md-nav__link">
@@ -1557,19 +1557,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#azure-webhoszting" class="md-nav__link">
-    Azure webhoszting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#elokeszuletek" class="md-nav__link">
     Előkészületek
   </a>
   
     <nav class="md-nav" aria-label="Előkészületek">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-letrehozasa-es-letoltese" class="md-nav__link">
+    Git repository létrehozása és letöltése
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#azure-elofizetes-beuzemelese" class="md-nav__link">
@@ -1745,10 +1745,28 @@
 
 
 <h1 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">&para;</a></h1>
-<h2 id="azure-webhoszting">Azure webhoszting<a class="headerlink" href="#azure-webhoszting" title="Permanent link">&para;</a></h2>
 <p>A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni <a href="https://azure.microsoft.com/en-us/products/azure-sql/">Azure SQL</a>, illetve <a href="https://azure.microsoft.com/en-us/products/app-service/">Azure App Service</a> szolgáltatásokra építve.</p>
 <h2 id="elokeszuletek">Előkészületek<a class="headerlink" href="#elokeszuletek" title="Permanent link">&para;</a></h2>
 <p>A mérés Windows és Linux rendszeren is teljesíthető. A méréshez böngészőn kívül nem szükséges semmilyen egyéb eszköz.</p>
+<h3 id="git-repository-letrehozasa-es-letoltese">Git repository létrehozása és letöltése<a class="headerlink" href="#git-repository-letrehozasa-es-letoltese" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.</p>
+</li>
+<li>
+<p>Várd meg, míg elkészül a repository, majd checkout-old ki.</p>
+<div class="admonition warning">
+<p class="admonition-title">Checkout</p>
+<p>Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd <a href="../../tudnivalok/github/GitHub-credentials/">itt</a>), és próbáld újra.</p>
+</div>
+</li>
+<li>
+<p>Hozz létre egy új ágat <code>megoldas</code> néven, és ezen az ágon dolgozz. </p>
+</li>
+<li>
+<p>A <code>neptun.txt</code> fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.</p>
+</li>
+</ol>
 <h3 id="azure-elofizetes-beuzemelese">Azure előfizetés beüzemelése<a class="headerlink" href="#azure-elofizetes-beuzemelese" title="Permanent link">&para;</a></h3>
 <p>A mérés hallgatói Azure előfizetéssel teljesítendő, <a href="https://azure.microsoft.com/en-us/free/students/">itt aktiváld</a>.</p>
 <p>Bővebb leírás a <a href="https://www.aut.bme.hu/Course/felho">Felhő alapú szoftverfejlesztés tárgy honlapjáról</a></p>
@@ -1765,12 +1783,13 @@
 <h3 id="feladat-1">Feladat 1<a class="headerlink" href="#feladat-1" title="Permanent link">&para;</a></h3>
 <p>Végzed el a következő hivatalos Microsoft oktatóanyagot: <a href="https://learn.microsoft.com/hu-hu/azure/app-service/tutorial-dotnetcore-sqldb-app">magyarul (gépi fordítású)</a> vagy <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app">angolul</a>. Az angol az ajánlott, mivel az az eredeti, a magyar gépi fordítás sem rossz, követhető, de néhány helyen rosszul ragoz vagy furán fogalmaz. Mielőtt nekiállnál, mindenképp olvasd el az eltérések részt, a tippeket és a beadandók leírását is!</p>
 <p>A feladat hasonló a <a href="https://github.com/BMEVIAUBB04/gyakorlat-azure">Háttéralkalmazások tárgy Azure-os gyakorlatához</a>, de jóval komolyabb, komplexebb annál. </p>
-<p>A jelentősebb eltérések:
-- Minden létrejövő erőforrás alapból csak egymást éri el (privát elérés), így mi sem tudunk az internet felől csatlakozni ezekhez vagy belépni ezekbe (kivéve Azure portál meghatározott funkcióin keresztül). Ez egy biztonsági ökölszabály (<em>secure-by-default</em>), így ne kapcsold be az internet felőli elérés(eke)t. A privát elérés alapja egy virtuális hálózat. Ebbe a hálózatba kerülnek be az Azure erőforrásaink. Platformszolgáltatásaink lesznek, ezek esetén az ajánlott integrációs módszer a <a href="https://www.fugue.co/blog/cloud-network-security-101-azure-private-link-private-endpoints">privát hálózati végpontok</a> alkalmazása. Kifelé a virtuális hálózat zárt, a publikus DNS névfeloldás sem működik, ezért jön létre privát DNS, így továbbra is hálózati névvel tudunk hivatkozni az egyes szolgáltatásokra, pl. adatbázis szerver.
-- Az alkalmazás <a href="https://azure.microsoft.com/en-us/products/cache">Azure Redis Cache</a>-t használ gyorsítótárként
-- Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé <a href="https://learn.microsoft.com/en-us/azure/service-connector/overview">Service Connector</a> reprezentálja a kapcsolatot.
-- Az összes előbb említett erőforrást egy füst alatt a <strong>Web app + Database</strong> varázslóval/sablonnal hozzuk létre.
-- Az adatbázis séma inicializáláshoz egy futtatható állományt (<a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles">EF Core migration bundle</a>) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.</p>
+<p>A jelentősebb eltérések:</p>
+<ul>
+<li>Minden létrejövő erőforrás alapból csak egymást éri el (privát elérés), így mi sem tudunk az internet felől csatlakozni ezekhez vagy belépni ezekbe (kivéve Azure portál meghatározott funkcióin keresztül). Ez egy biztonsági ökölszabály (<em>secure-by-default</em>), így ne kapcsold be az internet felőli elérés(eke)t. A privát elérés alapja egy virtuális hálózat. Ebbe a hálózatba kerülnek be az Azure erőforrásaink. Platformszolgáltatásaink lesznek, ezek esetén az ajánlott integrációs módszer a <a href="https://www.fugue.co/blog/cloud-network-security-101-azure-private-link-private-endpoints">privát hálózati végpontok</a> alkalmazása. Kifelé a virtuális hálózat zárt, a publikus DNS névfeloldás sem működik, ezért jön létre privát DNS, így továbbra is hálózati névvel tudunk hivatkozni az egyes szolgáltatásokra, pl. adatbázis szerver.</li>
+<li>Az alkalmazás <a href="https://azure.microsoft.com/en-us/products/cache">Azure Redis Cache</a>-t használ gyorsítótárként</li>
+<li>Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé <a href="https://learn.microsoft.com/en-us/azure/service-connector/overview">Service Connector</a> reprezentálja a kapcsolatot.</li>
+<li>Az adatbázis séma inicializáláshoz egy futtatható állományt (<a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles">EF Core migration bundle</a>) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.</li>
+</ul>
 <h4 id="tippek-es-hasznos-tudnivalok">Tippek és hasznos tudnivalók<a class="headerlink" href="#tippek-es-hasznos-tudnivalok" title="Permanent link">&para;</a></h4>
 <p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Az Azure portálra történő első belépéskor érdemes <a href="https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences#language--region">beállítani a portál nyelvét</a>. Ajánlott, hogy a nyelv egyezzen meg az oktatóanyag nyelvével, míg a formátum mindig legyen magyar. Jelen leírásban a portál angol nyelvű menüpontjaira hivatkozunk.</p>
 <p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> ha az Azure-ban futó webalkalmazással gond van, érdemes előrevenni a <a href="https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app#6-stream-diagnostic-logs">diagnosztikai naplók lekérdezéséről szóló részt</a>. A diagnosztikai naplókat már az App Service létrehozása után be lehet kapcsolni.</p>
@@ -1783,13 +1802,26 @@
 <p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> Ha kitörölsz egy (elrontott) Azure erőforrást, annak neve nem mindig szabadul fel azonnal, ilyenkor nem hozhatsz létre azonnal ugyanolyan névvel másik erőforrást.</p>
 <h3 id="elteresek">Eltérések<a class="headerlink" href="#elteresek" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Az első lépés előtt említett klónozást nem kell elvégezni, nincs rá szükség.</li>
-<li>Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.</li>
+<li>Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több (tíz)perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.</li>
 <li>Az 2.1 lépés előtt értelmes elvégezni a <strong>Microsoft.Sql</strong> resource provider regisztrációját. Minden Azure műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (<strong>Microsoft.Sql</strong> azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva) és az első lépés varázslója hibát adhat (<em>SQLAzure is not available for your selection of subscription and location</em>). <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1">Segédlet</a> egy resource provider regisztrálásához.</li>
 <li>Az 2.2 lépésben az app nevében (Name) az XYZ rész a neptun kódod legyen. A logikai SQL Server neve (Server name), az adatbázis neve (Database name), a cache neve (Cache name) szintén az <em>123</em> rész helyett a neptun kódod legyen.</li>
 <li>A 2.2.5-es allépésben lehet, hogy nem az SQLAzure van kiválasztva, ilyenkor válasszuk ki mi.</li>
-<li>4.4-4.5: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is</li>
+<li><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> A 2.4.7-es lépésnél (Review + create) sajnos jelenleg hibára fut a deploy egy hibás JSON miatt.. A hiba oka, hogy egy <code>tags</code> értéket rak a JSON-be a template, de ilyen változója nem lehet. Workaround, amíg nem javítják: <ul>
+<li><strong>Review + create</strong> lépésnél kattints a <em>Download a template for automation</em> linkre</li>
+<li>Itt nyomd meg a <em>Deploy</em> gombot</li>
+<li>Az új nézetben az <em>Edit Template</em> gombot, amiután szerkeszthetővé válik a json</li>
+<li>Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: <em>"vnet-mtpsrpsr/subnet-vbbsuxu"</em>), keress arra, hogy <em>'subnet'</em></li>
+<li>töröld ki az a sort utána, ami így néz ki: <code>"tags": {},</code> (vesszőstül, mindenestül)</li>
+<li>Nyomd meg a <em>Save</em> gombot, ami után visszanavigál a deployment nézetre.</li>
+<li>Itt állítsd vissza a resource groupot arra, amit létrehoztál</li>
+<li>Adj megfelelő jelszót az <em>Sql Server Admin Pwd</em> mezőbe (figyelj, hogy jó legyen, nem validálja itt, de elszáll a deploy, ha nem megfelelő, példa egy jóra: <em>m8$Tl34zmhsdhOdu</em> jó)</li>
+<li><em>Next</em> gomnyomásra kattintás után validálja a beállításokat</li>
+<li>Ha minden rendben, <em>Create</em> gombot nyomd meg (elnavigálás után megkérdezi, hogy elmented-e a json változtatásokat, ezt nem kell)</li>
+</ul>
+</li>
+<li>4-es pont: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is</li>
 <li>A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!</li>
+<li>Az 5-ös lépésnél ha <em>A connection was successfully established with the server, but then an error occurred during the login process</em> hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a hálózati beállításait.</li>
 <li>A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.</li>
 <li>A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.</li>
 <li>A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.</li>
@@ -1814,11 +1846,11 @@
 connection string-re, ami környezeti változóként rendelkezésre áll. Mindezen műveletekre egy példát ad a <a href="data/sqlpackage-appservice.sh">mellékelt parancsfájl</a>. A legtöbb esetben elég csak a fájl tartalmát lefuttatni az SSH terminálon.</li>
 </ol>
 <h3 id="vegeztel">Végeztél<a class="headerlink" href="#vegeztel" title="Permanent link">&para;</a></h3>
-<p>:godmode: Végeztél a feladatokkal. :godmode:</p>
+<p>Végeztél a feladatokkal.</p>
 <p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> A beadás után érdemes törölni minden Azure erőforrást.</p>
 <h2 id="beadando">Beadandó<a class="headerlink" href="#beadando" title="Permanent link">&para;</a></h2>
 <h3 id="altalanos-elvek">Általános elvek<a class="headerlink" href="#altalanos-elvek" title="Permanent link">&para;</a></h3>
-<p>Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak <em>jpg</em> vagy <em>png</em> formátumban. </p>
+<p>Beadandó a git repoba rakott képernyőképek <em>png</em> formátumban.</p>
 <p>Képernyőképekkel kapcsolatos elvárások:</p>
 <ul>
 <li>a böngészőablak teljes méretű (maximalizált) legyen </li>
@@ -1830,7 +1862,6 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 <li>ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)</li>
 <li>bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is</li>
 </ul>
-<p>A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.</p>
 <h3 id="beadando-feladat-1">Beadandó - Feladat 1<a class="headerlink" href="#beadando-feladat-1" title="Permanent link">&para;</a></h3>
 <h4 id="kepernyokepek-az-alabbi-lepesekrol">Képernyőképek az alábbi lépésekről<a class="headerlink" href="#kepernyokepek-az-alabbi-lepesekrol" title="Permanent link">&para;</a></h4>
 <table>
@@ -1963,8 +1994,8 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. október 31. 13:24:50">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. október 31. 13:24:50 CET"><span class="timeago" datetime="2025-10-31T13:24:50+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. október 31. 13:24:50 CET">2025-10-31</span>
       </span>
     </span>
 
