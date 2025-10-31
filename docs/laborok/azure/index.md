@@ -1,12 +1,23 @@
 # Azure
 
-## Azure webhoszting
-
 A labor során .NET Core alapú, adatbázist használó webalkalmazásokat kell Azure-ba telepíteni [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql/), illetve [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) szolgáltatásokra építve.
 
 ## Előkészületek
 
 A mérés Windows és Linux rendszeren is teljesíthető. A méréshez böngészőn kívül nem szükséges semmilyen egyéb eszköz.
+
+### Git repository létrehozása és letöltése
+
+1. Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.
+
+1. Várd meg, míg elkészül a repository, majd checkout-old ki.
+
+    !!! warning "Checkout"
+        Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd [itt](../../tudnivalok/github/GitHub-credentials.md)), és próbáld újra.
+
+1. Hozz létre egy új ágat `megoldas` néven, és ezen az ágon dolgozz. 
+
+1. A `neptun.txt` fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.
 
 ### Azure előfizetés beüzemelése
 
@@ -31,10 +42,10 @@ Végzed el a következő hivatalos Microsoft oktatóanyagot: [magyarul (gépi fo
 A feladat hasonló a [Háttéralkalmazások tárgy Azure-os gyakorlatához](https://github.com/BMEVIAUBB04/gyakorlat-azure), de jóval komolyabb, komplexebb annál. 
 
 A jelentősebb eltérések:
+
 - Minden létrejövő erőforrás alapból csak egymást éri el (privát elérés), így mi sem tudunk az internet felől csatlakozni ezekhez vagy belépni ezekbe (kivéve Azure portál meghatározott funkcióin keresztül). Ez egy biztonsági ökölszabály (_secure-by-default_), így ne kapcsold be az internet felőli elérés(eke)t. A privát elérés alapja egy virtuális hálózat. Ebbe a hálózatba kerülnek be az Azure erőforrásaink. Platformszolgáltatásaink lesznek, ezek esetén az ajánlott integrációs módszer a [privát hálózati végpontok](https://www.fugue.co/blog/cloud-network-security-101-azure-private-link-private-endpoints) alkalmazása. Kifelé a virtuális hálózat zárt, a publikus DNS névfeloldás sem működik, ezért jön létre privát DNS, így továbbra is hálózati névvel tudunk hivatkozni az egyes szolgáltatásokra, pl. adatbázis szerver.
 - Az alkalmazás [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache)-t használ gyorsítótárként
 - Az Azure Web App felől az Azure SQL adatbázis, valamint a Redis cache felé [Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/overview) reprezentálja a kapcsolatot.
-- Az összes előbb említett erőforrást egy füst alatt a **Web app + Database** varázslóval/sablonnal hozzuk létre.
 - Az adatbázis séma inicializáláshoz egy futtatható állományt ([EF Core migration bundle](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles)) hozunk létre, amit az alkalmazás egyéb fájljaival együtt publikálunk és így azokkal együtt fel is kerül a futtatókörnyezetbe. A futtatható fájlt külön kell futtatnunk a Web App futtatókörnyezetébe belépve. Ez nem egy szép megoldás, de mivel az adatbázist csak a többi erőforrásból érjük el, nincs túl sok választásunk.
 
 #### Tippek és hasznos tudnivalók
@@ -59,13 +70,24 @@ A jelentősebb eltérések:
 
 ### Eltérések
 
-- Az első lépés előtt említett klónozást nem kell elvégezni, nincs rá szükség.
-- Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.
+- Kezdheted a 2-es lépéssel és utána csinálhatod az 1-est nyugodtan, mivel egymástól függetlenek. A 2-es lépés végén több (tíz)perces várakozásra is szükség lehet, így az alatt lesz időd megcsinálni az 1-est.
 - Az 2.1 lépés előtt értelmes elvégezni a **Microsoft.Sql** resource provider regisztrációját. Minden Azure műveletet valamelyik ARM resource provider hajtja végre. A legtöbb szükséges resource provider eleve be van kapcsolva vagy a varázsló be tudja kapcsolni, amikor szükséges. Az Azure SQL (**Microsoft.Sql** azonosítójú) provider alapból általában nincs bekapcsolva (regisztrálva) és az első lépés varázslója hibát adhat (_SQLAzure is not available for your selection of subscription and location_). [Segédlet](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) egy resource provider regisztrálásához.
 - Az 2.2 lépésben az app nevében (Name) az XYZ rész a neptun kódod legyen. A logikai SQL Server neve (Server name), az adatbázis neve (Database name), a cache neve (Cache name) szintén az _123_ rész helyett a neptun kódod legyen.
 - A 2.2.5-es allépésben lehet, hogy nem az SQLAzure van kiválasztva, ilyenkor válasszuk ki mi.
-- 4.4-4.5: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is
+- :warning: A 2.4.7-es lépésnél (Review + create) sajnos jelenleg hibára fut a deploy egy hibás JSON miatt.. A hiba oka, hogy egy `tags` értéket rak a JSON-be a template, de ilyen változója nem lehet. Workaround, amíg nem javítják: 
+    - **Review + create** lépésnél kattints a *Download a template for automation* linkre
+    - Itt nyomd meg a *Deploy* gombot
+    - Az új nézetben az *Edit Template* gombot, amiután szerkeszthetővé válik a json
+    - Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: *"vnet-mtpsrpsr/subnet-vbbsuxu"*), keress arra, hogy *'subnet'*
+    - töröld ki az a sort utána, ami így néz ki: `"tags": {},` (vesszőstül, mindenestül)
+    - Nyomd meg a *Save* gombot, ami után visszanavigál a deployment nézetre.
+    - Itt állítsd vissza a resource groupot arra, amit létrehoztál
+    - Adj megfelelő jelszót az *Sql Server Admin Pwd* mezőbe (figyelj, hogy jó legyen, nem validálja itt, de elszáll a deploy, ha nem megfelelő, példa egy jóra: *m8$Tl34zmhsdhOdu* jó)
+    - *Next* gomnyomásra kattintás után validálja a beállításokat
+    - Ha minden rendben, *Create* gombot nyomd meg (elnavigálás után megkérdezi, hogy elmented-e a json változtatásokat, ezt nem kell)
+- 4-es pont: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is
 - A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
+- Az 5-ös lépésnél ha *A connection was successfully established with the server, but then an error occurred during the login process* hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a hálózati beállításait.
 - A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.
 - A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.
 - A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
@@ -99,7 +121,7 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 
 ### Végeztél
 
-:godmode: Végeztél a feladatokkal. :godmode:
+Végeztél a feladatokkal.
 
 :warning: A beadás után érdemes törölni minden Azure erőforrást.
 
@@ -107,7 +129,7 @@ connection string-re, ami környezeti változóként rendelkezésre áll. Mindez
 
 ### Általános elvek
 
-Beadandó egy összecsomagolt állomány, melyben képernyőképek vannak *jpg* vagy *png* formátumban. 
+Beadandó a git repoba rakott képernyőképek *png* formátumban.
 
 Képernyőképekkel kapcsolatos elvárások:
 
@@ -119,8 +141,6 @@ SSH terminálparancsok kimenetéről készült képernyőképeknél:
 
 - ha a parancs kimenete olyan hosszú, hogy nem férne rá egy képernyőre, akkor görgessetek föl, hogy a parancs a képernyő tetején legyen és így csináljátok a képernyőképet. (Ha így sem fér rá, nem baj, ilyenkor már nem kell a teljes kimenetnek látszani)
 - bár elsődleges a kimenet, látszódjon a futtatott parancs és alatta a kimenet is
-
-A maximális feltöltési méret 15 MB. Ha a túl nagy képek miatt a feltöltendő tömörített fájl ennél nagyobb lenne, át lehet méretezni (nem levágni!) a képeket, de a szövegeknek olvashatónak kell maradni.
 
 ### Beadandó - Feladat 1
 
