@@ -78,7 +78,7 @@ A jelentősebb eltérések:
     - **Review + create** lépésnél kattints a *Download a template for automation* linkre
     - Itt nyomd meg a *Deploy* gombot
     - Az új nézetben az *Edit Template* gombot, amiután szerkeszthetővé válik a json
-    - Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: *"vnet-mtpsrpsr/subnet-vbbsuxu"*), keress arran, hogy *'subnet'*
+    - Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: *"vnet-mtpsrpsr/subnet-vbbsuxu"*), keress arra, hogy *'subnet'*
     - töröld ki az a sort utána, ami így néz ki: `"tags": {},` (vesszőstül, mindenestül)
     - Nyomd meg a *Save* gombot, ami után visszanavigál a deployment nézetre.
     - Itt állítsd vissza a resource groupot arra, amit létrehoztál
