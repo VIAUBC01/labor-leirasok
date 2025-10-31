@@ -129,7 +129,7 @@ Végeztél a feladatokkal.
 
 ### Általános elvek
 
-Beadandó a git repoba rakott képernyőkegyépek *png* formátumban.
+Beadandó a git repoba rakott képernyőképek *png* formátumban.
 
 Képernyőképekkel kapcsolatos elvárások:
 
