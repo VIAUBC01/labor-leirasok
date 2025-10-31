@@ -78,8 +78,13 @@ A jelentősebb eltérések:
     - **Review + create** lépésnél kattints a *Download a template for automation* linkre
     - Itt nyomd meg a *Deploy* gombot
     - Az új nézetben az *Edit Template* gombot, amiután szerkeszthetővé válik a json
+    - töröld ki a `tags` értéket tartalmazó sort:
+        ```json
+        "name": "vnet-mtpsrpsr/subnet-vbbsuxu",
+        // "tags": {}, <-ezt töröld
+        "properties": {
+        ```
     - Keresd meg a subenetet (egyedi neve van, de ehhez hasonló: *"vnet-mtpsrpsr/subnet-vbbsuxu"*), keress arra, hogy *'subnet'*
-    - töröld ki az a sort utána, ami így néz ki: `"tags": {},` (vesszőstül, mindenestül)
     - Nyomd meg a *Save* gombot, ami után visszanavigál a deployment nézetre.
     - Itt állítsd vissza a resource groupot arra, amit létrehoztál
     - Adj megfelelő jelszót az *Sql Server Admin Pwd* mezőbe (figyelj, hogy jó legyen, nem validálja itt, de elszáll a deploy, ha nem megfelelő, példa egy jóra: *m8$Tl34zmhsdhOdu* jó)
@@ -87,7 +92,7 @@ A jelentősebb eltérések:
     - Ha minden rendben, *Create* gombot nyomd meg (elnavigálás után megkérdezi, hogy elmented-e a json változtatásokat, ezt nem kell)
 - 4-es pont: co-pilot nélkül teszteltük, saját felelősségre kipróbálhatod vele is
 - A 4.5-ös lépésben a YAML fájlt nagyon nagy körültekintéssel szerkesszük. Egyetlen hiányzó vagy extra szóköz is hibás YAML fájlt eredményezhet!
-- Az 5-ös lépésnél ha *A connection was successfully established with the server, but then an error occurred during the login process* hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a hálózati beállításait.
+- Az 5-ös lépésnél ha *A connection was successfully established with the server, but then an error occurred during the login process* hibát kapunk, akkor a key vaulthoz nem fér hozzá, javítsd ki a key vault hálózati beállításait.
 - A 7.1.2-es allépést követően is mentsünk (Save) a felső sávban lévő gombbal.
 - A 7.2-es lépésben a napló nézetben az üzenetek több (2,3,5!) perces késéssel jelennek meg, különösen a bekapcsolást követően. A lefuttatott SQL parancsoknak meg kellene jelenni (ha nem gyorsítótár szolgálja ki a kérést) idővel.
 - A 8. lépést (erőforrások törlése) majd csak akkor hajtsd végre, ha a lentebbi feladatot is megoldottad és mindent begyűjtöttél a beadandókhoz.
