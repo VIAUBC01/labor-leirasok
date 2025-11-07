@@ -26,7 +26,7 @@ Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeSc
 $ tsc --init
 ```
 
-A generált `tsconfig.json` fájl tartamazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: 
+A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: 
 
 ```json
 {
@@ -56,7 +56,7 @@ Adjuk hozzá az `express` csomagot a projektünkhöz!
 $ npm install express -s
 ```
 
-Mivel TypeScript nyelven dolgozunk, adjuk hozzá a `@types/express` csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt `express` könytárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. 
+Mivel TypeScript nyelven dolgozunk, adjuk hozzá a `@types/express` csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt `express` könyvtárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. 
 
 ```cmd 
 $ npm install @types/express -s
@@ -81,6 +81,8 @@ Ennek eredménye egy `main.js` fájl lesz a `build` mappában. Ezt az egyszerű 
 $ node .\build\main.js
 ```
 
+*Linuxon és macOS-en a backslash helyett forward slash-t kell használni: node ./build/main.js*
+
 Ha mindent jól csináltunk, a konzolon megjelenik a "hello world!" szöveg.
 
 A `node` projektekben lehetőség van szkriptek definiálására. Írjuk be a következő részeket a `package.json` fájlba:
@@ -90,12 +92,12 @@ A `node` projektekben lehetőség van szkriptek definiálására. Írjuk be a k�
 "scripts": {
     "build" : "tsc",
     "start" : "node ./build/main.js",
-    "build-and-start": "tsc & node ./build/main.js"
+    "build-and-start": "tsc && node ./build/main.js"
 },
 /*...*/
 ```
 
-Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az `npm run` parancsot, ha pedig egy konkrét szkriptet szreetnénk futtatni, adjuk ki az `npm run <szkript neve>` parancsot. 
+Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az `npm run` parancsot, ha pedig egy konkrét szkriptet szeretnénk futtatni, adjuk ki az `npm run <szkript neve>` parancsot. 
 
 A fenti szkriptek szerepe a következő: 
 * `build`: lefordítja a TypeScript kódunkat (kiadja a `tsc` parancsot)
@@ -184,7 +186,7 @@ Egészítse ki a `Database` osztály függvényeit loggolással (`console.log(..
 * Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. 
 * Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. 
 
-### Egyedi tweet azanosítók
+### Egyedi tweet azonosítók
 
 Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi [GUID](https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3)okat fogunk generálni egy `uuid` nevű `npm package` segítségével:
 
@@ -222,7 +224,7 @@ Ezután futtatva az alkalmazást meg kell jelenjen a konzolon a log üzenet az �
 
 ## Web-API
 
-Az API programozásához az `express` csomag mellett szükség lesz annak egy pluginjára is ([`body-parser`](http://expressjs.com/en/resources/middleware/body-parser.html)), amely a HTTP válaszok JSON tartalmának a parse-olását teszi lehetővé: 
+Az API programozásához az `express` csomag mellett szükség lesz annak egy pluginjára is ([`body-parser`](http://expressjs.com/en/resources/middleware/body-parser.html)), amely a bejövő HTTP kérések törzsét JSON objektummá alakítja:
 
 ```cmd
 $ npm install body-parser -s
@@ -315,6 +317,6 @@ Ismerkedjünk meg a felületével! Az alábbi ábrán látható, hogyan tudunk e
 
 A jegyzőkönyvben készüljön képernyőkép minden végpont teszteléséről Postman segítéségével!
 
-Ha elkészült a szerver, [folytassuk a kliens alkalmazással](feladat2.md)!
+Ha elkészült a szerver, [folytassuk a kliens alkalmazással](Feladat-2.md)!
 
 

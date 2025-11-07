@@ -5,7 +5,7 @@ A webalkalmazás a `client` könyvtárban lesz és nagyon kevés fájlból fog �
 * `src/main.ts`
 * `tsconfig.json` (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a `tsc --init` paranccsal generálni
 
-A `tsconfig.json` fájlban itt használjuk a következő beállításokat:
+A `tsconfig.json` fájlban használjuk a következő beállításokat, amelyeknek a `compilerOptions` szekció alatt kell szerepelniük:
 
 ```json
 { 
@@ -38,7 +38,7 @@ Hozzunk létre egy minimális html fájlt, amelyben a majd lefordított `main.js
 </html>
 ```
 
-Ne felejtsük el, hogy a használhatoz a `main.ts`-t mindig le kell fordítani (ha változik) a `tsc` paranccsal, különben nem áll elő a `main.js` fáj.
+Ne felejtsük el, hogy a használathoz a `main.ts`-t mindig le kell fordítani (ha változik) a `tsc` paranccsal, különben nem áll elő a `main.js` fáj.
 
 Webszervernek egy egyszerű `npm`-es programot használunk: `http-server`, mert ez parancssorból gyorsan elindítható, hogy egy könyvtár tartalmát kiszolgálja és proxy funkciója is van. 
 
@@ -70,7 +70,7 @@ A böngészőben, az oldalunkon meg szeretnénk jeleníteni egy gombot, aminek a
 
 Milyen lépésekben tudjuk ezt a funkcionalitást implementálni? 
 1. Elhelyezünk egy gombot a HTML kódban. 
-1. Feliratkozunk a bomb megnyomására egy JavaScript függvénnyel. 
+1. Feliratkozunk a gomb megnyomására egy JavaScript függvénnyel. 
 1. A JavaScript függvény elküld egy AJAX kérést és lekérdezi a tweeteket. Mivel ezek JSON formátumban érkeznek, ezért ezekhez közvetlenül JavaScript objektumokként férhetünk hozzá. (Ha például XML formátumban küldenénk vissza a tweeteket, akkor gondoskodni kellene ezek beolvasásáról.)
 1. A HTML kódban megjelenítünk egy táblázatot, amelynek kitöröljük a meglévő sorait, majd minden egyes tweethez létrehozunk egy új sort, amiben beállítjuk a cellákat. A HTML struktúrát a `document` globális objektum által nyújtott APIval tudjuk módosítani. 
 
@@ -133,6 +133,6 @@ function refreshTweets() {
 
 **Készítsen képernyőképet a futó böngészőről, amint a weboldal megjelenít legalább egy tweetet a táblázatban. Ezt is tegye bele a jegyzőkönyvbe!**
 
-[Folytassa az önálló feladatokkal!](feladat3.md)
+[Folytassa az önálló feladatokkal!](Feladat-3.md)
 
 

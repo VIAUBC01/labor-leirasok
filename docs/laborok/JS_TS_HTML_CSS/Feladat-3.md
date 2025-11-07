@@ -2,7 +2,7 @@
 
 ## Új tweet elküldése
 
-Egészítse ki az webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. 
+Egészítse ki a webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. 
 
 Segítség a megvalósításhoz: 
 * A gomb megnyomására egy JavaScript függvényt kell meghívni, amely egy HTTP POST kérést küld el. A POST kérésnek a törzse megfelelő formátumban (ahogyan azt az API várja) kell tartalmazza a tweet objektumot Erre ugyanazt a `fetch` függvényt használhatjuk, mint a GET esetén, csak máshogyan kell paraméterezni. 
@@ -10,7 +10,7 @@ Segítség a megvalósításhoz:
 ```ts
 fetch('/tweets', {
     method:'post',
-    body: JSON.stringify(tweet), // tweet tartalmazza az elküldendő adatatot
+    body: JSON.stringify(tweet), // tweet tartalmazza az elküldendő adatot
     headers: {
         'Content-Type': 'application/json' // ez közli a szerverrel, hogy JSON formátumú a HTTP POST törzse
     }
