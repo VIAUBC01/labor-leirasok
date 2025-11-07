@@ -685,8 +685,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#egyedi-tweet-azanositok" class="md-nav__link">
-    Egyedi tweet azanosítók
+  <a href="#egyedi-tweet-azonositok" class="md-nav__link">
+    Egyedi tweet azonosítók
   </a>
   
 </li>
@@ -1516,8 +1516,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#egyedi-tweet-azanositok" class="md-nav__link">
-    Egyedi tweet azanosítók
+  <a href="#egyedi-tweet-azonositok" class="md-nav__link">
+    Egyedi tweet azonosítók
   </a>
   
 </li>
@@ -1588,7 +1588,7 @@
 <p>Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeScript projektet is, amellyel azt konfiguráljuk, hogy ha a könyvtárban kiadjuk a <code>tsc</code> (TypeScript Compiler) parancsot, akkor mely fájlokat és hogyan fordítsuk le. </p>
 <div class="highlight"><pre><span></span><code>$ tsc --init
 </code></pre></div>
-<p>A generált <code>tsconfig.json</code> fájl tartamazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: </p>
+<p>A generált <code>tsconfig.json</code> fájl tartalmazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: </p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es6&quot;</span><span class="p">,</span><span class="w">                          </span>
@@ -1609,7 +1609,7 @@
 <p>Adjuk hozzá az <code>express</code> csomagot a projektünkhöz!</p>
 <div class="highlight"><pre><span></span><code>$ npm install express -s
 </code></pre></div>
-<p>Mivel TypeScript nyelven dolgozunk, adjuk hozzá a <code>@types/express</code> csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt <code>express</code> könytárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. </p>
+<p>Mivel TypeScript nyelven dolgozunk, adjuk hozzá a <code>@types/express</code> csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt <code>express</code> könyvtárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. </p>
 <div class="highlight"><pre><span></span><code>$ npm install @types/express -s
 </code></pre></div>
 <p>Hozzunk létre egy <code>app</code> könyvtárat, abban pedig egy <code>main.ts</code> fájlt, amiben helyezzük el a következő kódot:</p>
@@ -1622,17 +1622,18 @@
 <p>Ennek eredménye egy <code>main.js</code> fájl lesz a <code>build</code> mappában. Ezt az egyszerű js fájlt a <code>node</code> segítségével futtathatjuk:</p>
 <div class="highlight"><pre><span></span><code>$ node .\build\main.js
 </code></pre></div>
+<p><em>Linuxon és macOS-en a backslash helyett forward slash-t kell használni: node ./build/main.js</em></p>
 <p>Ha mindent jól csináltunk, a konzolon megjelenik a "hello world!" szöveg.</p>
 <p>A <code>node</code> projektekben lehetőség van szkriptek definiálására. Írjuk be a következő részeket a <code>package.json</code> fájlba:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/*...*/</span>
 <span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node ./build/main.js&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;build-and-start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc &amp; node ./build/main.js&quot;</span>
+<span class="w">    </span><span class="nt">&quot;build-and-start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc &amp;&amp; node ./build/main.js&quot;</span>
 <span class="p">},</span>
 <span class="cm">/*...*/</span>
 </code></pre></div>
-<p>Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az <code>npm run</code> parancsot, ha pedig egy konkrét szkriptet szreetnénk futtatni, adjuk ki az <code>npm run &lt;szkript neve&gt;</code> parancsot. </p>
+<p>Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az <code>npm run</code> parancsot, ha pedig egy konkrét szkriptet szeretnénk futtatni, adjuk ki az <code>npm run &lt;szkript neve&gt;</code> parancsot. </p>
 <p>A fenti szkriptek szerepe a következő: 
 * <code>build</code>: lefordítja a TypeScript kódunkat (kiadja a <code>tsc</code> parancsot)
 * <code>start</code>: elindítja a már lefordított alkalmazást
@@ -1705,7 +1706,7 @@
 * Új tweet esetén írjuk ki a tweet szövegét, beküldőjét, azonosítóját, tagjeit. 
 * Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. 
 * Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. </p>
-<h3 id="egyedi-tweet-azanositok">Egyedi tweet azanosítók<a class="headerlink" href="#egyedi-tweet-azanositok" title="Permanent link">&para;</a></h3>
+<h3 id="egyedi-tweet-azonositok">Egyedi tweet azonosítók<a class="headerlink" href="#egyedi-tweet-azonositok" title="Permanent link">&para;</a></h3>
 <p>Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi <a href="https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3">GUID</a>okat fogunk generálni egy <code>uuid</code> nevű <code>npm package</code> segítségével:</p>
 <div class="highlight"><pre><span></span><code>$ npm install uuid -s
 $ npm install @types/uuid -s
@@ -1730,7 +1731,7 @@ $ npm install @types/uuid -s
 </code></pre></div>
 <p>Ezután futtatva az alkalmazást meg kell jelenjen a konzolon a log üzenet az új tweetről. <strong>Tegyünk erről egy képet a jegyzőkönyvbe!</strong></p>
 <h2 id="web-api">Web-API<a class="headerlink" href="#web-api" title="Permanent link">&para;</a></h2>
-<p>Az API programozásához az <code>express</code> csomag mellett szükség lesz annak egy pluginjára is (<a href="http://expressjs.com/en/resources/middleware/body-parser.html"><code>body-parser</code></a>), amely a HTTP válaszok JSON tartalmának a parse-olását teszi lehetővé: </p>
+<p>Az API programozásához az <code>express</code> csomag mellett szükség lesz annak egy pluginjára is (<a href="http://expressjs.com/en/resources/middleware/body-parser.html"><code>body-parser</code></a>), amely a bejövő HTTP kérések törzsét JSON objektummá alakítja:</p>
 <div class="highlight"><pre><span></span><code>$ npm install body-parser -s
 $ npm install @types/body-parser -s
 </code></pre></div>
@@ -1806,7 +1807,7 @@ $ npm install @types/body-parser -s
 <p>Ismerkedjünk meg a felületével! Az alábbi ábrán látható, hogyan tudunk elküldeni egy POST üzenetet. Meg kell adnunk az URL-t, az üzenet törzsét (<em>body</em>) a megfelelő formátumban. (Figyelem, JSON formátumban kötelező a property neveket idézőjelek közé tenni.) A <em>Send</em> gombra kattintva elküldhető az üzenet és alul látható a válasz.</p>
 <p><img alt="Postman" src="../postman-post.png" /></p>
 <p>A jegyzőkönyvben készüljön képernyőkép minden végpont teszteléséről Postman segítéségével!</p>
-<p>Ha elkészült a szerver, <a href="feladat2.md">folytassuk a kliens alkalmazással</a>!</p>
+<p>Ha elkészült a szerver, <a href="../Feladat-2/">folytassuk a kliens alkalmazással</a>!</p>
 
     <hr>
   <div class="md-source-file">
@@ -1817,8 +1818,8 @@ $ npm install @types/body-parser -s
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. november 7. 14:53:48">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
       </span>
     </span>
 

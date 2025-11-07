@@ -1452,12 +1452,12 @@
 
 <h1 id="tovabbi-feladatok">További feladatok<a class="headerlink" href="#tovabbi-feladatok" title="Permanent link">&para;</a></h1>
 <h2 id="uj-tweet-elkuldese">Új tweet elküldése<a class="headerlink" href="#uj-tweet-elkuldese" title="Permanent link">&para;</a></h2>
-<p>Egészítse ki az webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. </p>
+<p>Egészítse ki a webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. </p>
 <p>Segítség a megvalósításhoz: 
 * A gomb megnyomására egy JavaScript függvényt kell meghívni, amely egy HTTP POST kérést küld el. A POST kérésnek a törzse megfelelő formátumban (ahogyan azt az API várja) kell tartalmazza a tweet objektumot Erre ugyanazt a <code>fetch</code> függvényt használhatjuk, mint a GET esetén, csak máshogyan kell paraméterezni. </p>
 <div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/tweets&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="s1">&#39;post&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">JSON.stringify</span><span class="p">(</span><span class="nx">tweet</span><span class="p">),</span><span class="w"> </span><span class="c1">// tweet tartalmazza az elküldendő adatatot</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">JSON.stringify</span><span class="p">(</span><span class="nx">tweet</span><span class="p">),</span><span class="w"> </span><span class="c1">// tweet tartalmazza az elküldendő adatot</span>
 <span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="c1">// ez közli a szerverrel, hogy JSON formátumú a HTTP POST törzse</span>
 <span class="w">    </span><span class="p">}</span>
@@ -1496,8 +1496,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. november 7. 14:53:48">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
       </span>
     </span>
 

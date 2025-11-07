@@ -1453,7 +1453,7 @@
 * <code>index.html</code>
 * <code>src/main.ts</code>
 * <code>tsconfig.json</code> (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a <code>tsc --init</code> paranccsal generálni</p>
-<p>A <code>tsconfig.json</code> fájlban itt használjuk a következő beállításokat:</p>
+<p>A <code>tsconfig.json</code> fájlban használjuk a következő beállításokat, amelyeknek a <code>compilerOptions</code> szekció alatt kell szerepelniük:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span>
 <span class="w">    </span><span class="cm">/*...*/</span>
 <span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es6&quot;</span><span class="p">,</span>
@@ -1477,7 +1477,7 @@
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Ne felejtsük el, hogy a használhatoz a <code>main.ts</code>-t mindig le kell fordítani (ha változik) a <code>tsc</code> paranccsal, különben nem áll elő a <code>main.js</code> fáj.</p>
+<p>Ne felejtsük el, hogy a használathoz a <code>main.ts</code>-t mindig le kell fordítani (ha változik) a <code>tsc</code> paranccsal, különben nem áll elő a <code>main.js</code> fáj.</p>
 <p>Webszervernek egy egyszerű <code>npm</code>-es programot használunk: <code>http-server</code>, mert ez parancssorból gyorsan elindítható, hogy egy könyvtár tartalmát kiszolgálja és proxy funkciója is van. </p>
 <div class="highlight"><pre><span></span><code>$ npm install http-server -g
 </code></pre></div>
@@ -1494,7 +1494,7 @@
 <p>A böngészőben, az oldalunkon meg szeretnénk jeleníteni egy gombot, aminek a hatására lekérdezzük a tweeteket és megjelenítjük azokat egy táblázatban. Ehhez a böngésző a backendnek a proxyn keresztül a <code>/tweets</code> végpontjára fog küldeni egy HTTP kérést a háttérben, JavaScript kódból. Ezt nevezzük AJAX hívásnak. HTTP kérés elküldésére a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><em>fetch API</em></a>t használjuk.</p>
 <p>Milyen lépésekben tudjuk ezt a funkcionalitást implementálni? 
 1. Elhelyezünk egy gombot a HTML kódban. 
-1. Feliratkozunk a bomb megnyomására egy JavaScript függvénnyel. 
+1. Feliratkozunk a gomb megnyomására egy JavaScript függvénnyel. 
 1. A JavaScript függvény elküld egy AJAX kérést és lekérdezi a tweeteket. Mivel ezek JSON formátumban érkeznek, ezért ezekhez közvetlenül JavaScript objektumokként férhetünk hozzá. (Ha például XML formátumban küldenénk vissza a tweeteket, akkor gondoskodni kellene ezek beolvasásáról.)
 1. A HTML kódban megjelenítünk egy táblázatot, amelynek kitöröljük a meglévő sorait, majd minden egyes tweethez létrehozunk egy új sort, amiben beállítjuk a cellákat. A HTML struktúrát a <code>document</code> globális objektum által nyújtott APIval tudjuk módosítani. </p>
 <h3 id="feliratkozas">Feliratkozás<a class="headerlink" href="#feliratkozas" title="Permanent link">&para;</a></h3>
@@ -1545,7 +1545,7 @@
 * Milyen HTML elemekre van szükség, hogy egy <code>table</code>-ben sorokat és cellákat hozzunk létre? 
 * Milyen formátumban jeleníti meg a táblázat egy tweet tagjeit? </p>
 <p><strong>Készítsen képernyőképet a futó böngészőről, amint a weboldal megjelenít legalább egy tweetet a táblázatban. Ezt is tegye bele a jegyzőkönyvbe!</strong></p>
-<p><a href="feladat3.md">Folytassa az önálló feladatokkal!</a></p>
+<p><a href="../Feladat-3/">Folytassa az önálló feladatokkal!</a></p>
 
     <hr>
   <div class="md-source-file">
@@ -1556,8 +1556,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 2. 18:50:15">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 2. 18:50:15 CEST"><span class="timeago" datetime="2025-09-02T18:50:15+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 2. 18:50:15 CEST">2025-09-02</span>
+      <span title="2025. november 7. 14:53:48">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
       </span>
     </span>
 
