@@ -43,6 +43,7 @@ A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító
 ```
 
 Amin változtattunk:
+
 * `outDir`: ebbe a könyvtárba fogja generálni a TypeScript fordító (`tsc`) a JavaScript fájlokat. 
 * `strict`: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító
 
@@ -99,7 +100,8 @@ A `node` projektekben lehetőség van szkriptek definiálására. Írjuk be a k�
 
 Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az `npm run` parancsot, ha pedig egy konkrét szkriptet szeretnénk futtatni, adjuk ki az `npm run <szkript neve>` parancsot. 
 
-A fenti szkriptek szerepe a következő: 
+A fenti szkriptek szerepe a következő:
+
 * `build`: lefordítja a TypeScript kódunkat (kiadja a `tsc` parancsot)
 * `start`: elindítja a már lefordított alkalmazást
 * `build-and-start`: lefordítja a kódot, majd elindítja a lefordított `main.js`-t. 
@@ -113,7 +115,8 @@ $ npm run build-and-start
 ## Twitter szerver logikájának megvalósítása
 
 A következő komponenseket fogjuk megvalósítani:
-* Típusok, amely leírják az egyes üzeneteket. Az üzeneteket a továbbiakban *tweet*eknek fogjuk nevezni.
+
+* Típusok, amely leírják az egyes üzeneteket. Az üzeneteket a továbbiakban **tweet**-eknek fogjuk nevezni.
 * Egy adatbázis osztály, amely képes eltárolni a tweeteket, újat beszúrni, visszaadni a létező tweetek listáját. 
 * Egy `express` alapú API, amely biztosítja a végpontokat a tweetek lekérdezéséhez és visszaadásához. 
 
@@ -181,7 +184,8 @@ Láthatjuk, hogy a tweeteket egyszerűen a memóriában fogjuk tárolni, tehát 
 1. Mi a különbség a `type` és az osztály (`class`) között?
 1. Magyarázza el, hogy az `app/database.ts` fájlban a `getTweetById` függvényben, a `return` utasítás utáni rész pontosan mit jelent, mi lesz a visszatérési érték!
 
-Egészítse ki a `Database` osztály függvényeit loggolással (`console.log(...)`), amelyben a meghívott művelet neve mellett a következő információk kerüljenek kiírásra: 
+Egészítse ki a `Database` osztály függvényeit loggolással (`console.log(...)`), amelyben a meghívott művelet neve mellett a következő információk kerüljenek kiírásra:
+
 * Új tweet esetén írjuk ki a tweet szövegét, beküldőjét, azonosítóját, tagjeit. 
 * Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. 
 * Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. 
@@ -291,7 +295,8 @@ export class TwitterApi {
 }
 ```
 
-**A jegyzőkönyvben válaszoljon a következő kérdésekre:** 
+**A jegyzőkönyvben válaszoljon a következő kérdésekre:**
+
 * Milyen  végpontokat definiál a fenti kód. Egy táblázatban szerepeljen a végpont URL-je, a HTTP metódus, azt hogy várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a leírásban. 
 * Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint? 
 

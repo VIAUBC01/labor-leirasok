@@ -4,7 +4,8 @@
 
 Egészítse ki a webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. 
 
-Segítség a megvalósításhoz: 
+Segítség a megvalósításhoz:
+
 * A gomb megnyomására egy JavaScript függvényt kell meghívni, amely egy HTTP POST kérést küld el. A POST kérésnek a törzse megfelelő formátumban (ahogyan azt az API várja) kell tartalmazza a tweet objektumot Erre ugyanazt a `fetch` függvényt használhatjuk, mint a GET esetén, csak máshogyan kell paraméterezni. 
 
 ```ts
@@ -22,6 +23,7 @@ fetch('/tweets', {
 ## Tweet törlése
 
 Legyen lehetőség tweetek törlésére:
+
 1. Egészítse ki a backendet olyan végponttal, amely egy adott azonosítójú tweetet kitöröl az adatbázisból. Figyelem, legyen hibakezelés, ha nem létező azonosítót küldünk. A törlést mindenképpen HTTP DELETE függvénnyel valósítsa meg. (Segítség: a törléshez a tweet azonosítója kell, ezt érdemes az URLbe beleírni.) 
 2. Készítsen a HTML oldalra felületet, amin keresztül meghívható a törlés függvény.  A HTML táblázatot egészítsünk ki egy újabb oszloppal. Minden egyes sorban jelenítsünk meg egy 'Törlés' gombot. Még a gomb létrehozásakor feliratkozhatunk annak `click` eseményére, pl: 
     ```ts
@@ -37,6 +39,7 @@ Legyen lehetőség tweetek törlésére:
 ## Bootstrap téma
 
 A felület kinézete nagyon fapados, használjuk a [Bootstrap CSS könyvtár](https://getbootstrap.com/)at, hogy szebben nézzen ki:
+
 * Érdemes a [Bootstrap CDN](https://www.bootstrapcdn.com/)ről hivatkozni a CSS fájlt, így azt nem kell külön letölteni. Például ezt lehet beilleszteni a HTML `head` elemének a belsejébe: 
     ```html 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"

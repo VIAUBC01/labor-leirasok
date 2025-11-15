@@ -5,10 +5,11 @@ Ennek a labornak a célja a Preact könyvtár használatának gyakorlása.
 Az alkalmazás a múlt laboron elkészített Twitter szervert fogja használni, amivel rövid szöveges üzeneteket (tweeteket) tudunk elküldeni, lekérdezni. 
 
 Mit kell tudni ehhez a laborhoz?
+
 * JavaScript és TypeScript alapok.
 * A Preact könyvtár működése és a React alapfogalmainak ismerete.
 
-A twitter szerver, amely a REST API-t biztosítja a `server` alkönyvtárban található. A [`server.md`](server.md) fájl leírja, hogyan tudjuk a szervert futtatni. Készítsük elő a szervert, majd indítsuk el, mielőtt elkezdjük a kliens fejlesztését. 
+A twitter szerver, amely a REST API-t biztosítja, a `server` alkönyvtárban található. A [`server.md`](server.md) fájl leírja, hogyan tudjuk a szervert futtatni. Készítsük elő a szervert, majd indítsuk el, mielőtt elkezdjük a kliens fejlesztését. 
 
 ## Beadandó
 1. A kliens forráskódja, a `node_modules` mappa nélkül!!!
@@ -26,6 +27,7 @@ A twitter szerver, amely a REST API-t biztosítja a `server` alkönyvtárban tal
 * Proxy beállítással a `/api` útvonalú kérések a backend felé továbbítódnak
 
 További megfontolások:
+
 1. Preact komponensek kezelik a felhasználói felületet
 2. HTTP kérések a backend felé a `fetch` API-val
 3. Adatmegjelenítés és kötés JSX szintaxissal

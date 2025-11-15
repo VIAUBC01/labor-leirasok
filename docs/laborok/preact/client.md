@@ -6,7 +6,7 @@ Nyissunk meg egy tetszőleges mappát (pl. a szerver projekt mellett) a projektn
 
 > `npm init preact`
 
-A parancs kiadása után több kérdésre kell válaszolnunk. Projektkönvytárnak (`Project directory`) válasszunk egy hangzatos nevet (pl. `twitter`), a projekt nyelvének (`Project language`) pedig a `TypeScript`-et. A többi kérdésre nyomjunk ENTER-t, tehát automatikusan nemmel válaszoljunk.
+A parancs kiadása után több kérdésre kell válaszolnunk. Projektkönyvtárnak (`Project directory`) válasszunk egy hangzatos nevet (pl. `twitter`), a projekt nyelvének (`Project language`) pedig a `TypeScript`-et. A többi kérdésre nyomjunk ENTER-t, tehát automatikusan nemmel válaszoljunk.
 
 A parancs lefutása után navigáljunk az újonnan létrehozott mappába a Terminal-ban:
 
@@ -36,7 +36,7 @@ VITE v6.3.5  ready in 555 ms
   ➜  press h + enter to show help
 ```
 
-Opcionálisan a `package.json` fájlban (`"start": "vite"` --> `"dev": "vite"`) átírhatjuk, hogy ne az `npm run dev`, hanem az `npm start` parancs kiadásával fusson az alkalmazásunk. Ez jobban követi az ipari standardeket, de végső soron bármelyiket használhatjuk.
+Opcionálisan a `package.json` fájlban (`"dev": "vite"` --> `"start": "vite"`) átírhatjuk, hogy ne az `npm run dev`, hanem az `npm start` parancs kiadásával fusson az alkalmazásunk. Ez jobban követi az ipari standardeket, de végső soron bármelyiket használhatjuk.
 
 **A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:**
 
@@ -69,7 +69,8 @@ Vizsgáljuk meg a létrejött projekt tartalmát (csak a releváns mappák és f
 ???+ tip "Formázás"
     A kódot formázni az `Alt+Shift+F` billentyűkombinációval tudjuk.
 
-**A jegyzőkönyvben válaszoljuk meg a következő kérdéseket**: 
+**A jegyzőkönyvben válaszoljuk meg a következő kérdéseket**:
+
 * Mi az a komponens Preact környezetben?
 * Hogyan tudunk egy komponenshez személyre szabott formázást beállítani? 
 
@@ -119,6 +120,10 @@ export class ApiService {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
+        if (response.status === 204) {
+            return undefined as T;
+        }
+
         return response.json() as Promise<T>;
     }
 
@@ -151,10 +156,10 @@ export const apiService = new ApiService();
 
 Ahhoz, hogy a beérkező kérések továbbítódjanak a backend felé (amennyiben a kliens nem tudja kiszolgálni azokat), proxyzást kell beállítanunk, vagyis a `localhost:3000` felé kell továbbítanunk a `/api` útvonalú kéréseket. Ezek azok a kérések, amiket az előzőleg létrehozott service osztály kezel. Módosítsuk a `vite.config.ts` fájl tartalmát az alábbi módon:
 
+```typescript
 import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 
-```typescript
 export default defineConfig({
     plugins: [preact()],
     server: {
@@ -249,6 +254,7 @@ export function App() {
 **Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!**
 
 **A jegyzőkönyvben válaszoljuk meg a következő kérdéseket**: 
+
 * Mi a useState szerepe egy komponensben?
 * Mi a useEffect szerepe egy komponensben?
 
@@ -269,7 +275,7 @@ export function NewTweet() {
     const send = async () => {
         if (!text || !userName) return;
 
-        apiService.createTweet({
+        await apiService.createTweet({
             text,
             userName,
             tags: tagsStr ? tagsStr.split(',') : undefined
@@ -347,7 +353,7 @@ export function Header() {
 }
 ```
 
-A végén ne felejtsük el a végén átírni a `NewTweet.tsx` komponens kódját, hogy az újonnan bevezetett routing-ot használja az automatikus visszairányításnál!
+A végén ne felejtsük el átírni a `NewTweet.tsx` komponens kódját, hogy az újonnan bevezetett routing-ot használja az automatikus visszairányításnál!
 
  **Készítsen képernyőképet működés közben az új tweet hozzáadásának felületéről, valamint a tweetek listájában látható új tweetről és illessze be ezeket a jegyzőkönyvbe!**
 
@@ -365,5 +371,5 @@ A Bootstrap keretrendszer segítségével adjon hozzá néhány stílust az olda
 
 Egészítse ki az oldalt úgy, hogy a tweetek listájában minden tweet mellett megjelenjen egy törlés gomb is, amely megnyomására kitöröljük az adott tweetet. 
 
-**Az idevágó kódrészleteket és egy képernyőképet illesszen be a jegyzőkönybe!**
+**Az idevágó kódrészleteket és egy képernyőképet illesszen be a jegyzőkönyvbe!**
 

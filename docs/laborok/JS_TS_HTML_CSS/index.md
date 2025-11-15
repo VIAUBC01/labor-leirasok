@@ -2,6 +2,7 @@
 Ennek a labornak a célja a három alapvető webes technológia, a HTML, CSS és JavaScript (TypeScript) nyelvek gyakorlása egy összetett példán keresztül. A feladat egy Twitterhez hasonló, rövid üzenetek publikálására és lekérdezésére alkalmas webalkalmazás és egy azt kiszolgáló szerver elkészítése lesz.
 
 A megvalósítandó alkalmazás két részből áll:
+
 1. A backend a [NodeJS](https://nodejs.org/en/) JavaScript motoron futtatott [ExpressJS keretrendszer](https://expressjs.com/)t használó alkalmazás, amit TypeScript nyelven kell elkészíteni. 
 2. A frontend egy egyszerű HTML oldal és hozzátartozó JavaScript kód, amelyet szintén TypeScript nyelven fogunk megírni. Ebben a példában még nem használunk semmilyen frontend keretrendszert.
 

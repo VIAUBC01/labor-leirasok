@@ -1,6 +1,7 @@
 # Twitter webalkalmazás
 
 A webalkalmazás a `client` könyvtárban lesz és nagyon kevés fájlból fog állni, ezeket hozzuk is létre: 
+
 * `index.html`
 * `src/main.ts`
 * `tsconfig.json` (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a `tsc --init` paranccsal generálni
@@ -68,7 +69,8 @@ Mivel a `main.js`-t betölti a HTML oldalunk és abban a konzolra kiírunk egy s
 
 A böngészőben, az oldalunkon meg szeretnénk jeleníteni egy gombot, aminek a hatására lekérdezzük a tweeteket és megjelenítjük azokat egy táblázatban. Ehhez a böngésző a backendnek a proxyn keresztül a `/tweets` végpontjára fog küldeni egy HTTP kérést a háttérben, JavaScript kódból. Ezt nevezzük AJAX hívásnak. HTTP kérés elküldésére a [*fetch API*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)t használjuk.
 
-Milyen lépésekben tudjuk ezt a funkcionalitást implementálni? 
+Milyen lépésekben tudjuk ezt a funkcionalitást implementálni?
+
 1. Elhelyezünk egy gombot a HTML kódban. 
 1. Feliratkozunk a gomb megnyomására egy JavaScript függvénnyel. 
 1. A JavaScript függvény elküld egy AJAX kérést és lekérdezi a tweeteket. Mivel ezek JSON formátumban érkeznek, ezért ezekhez közvetlenül JavaScript objektumokként férhetünk hozzá. (Ha például XML formátumban küldenénk vissza a tweeteket, akkor gondoskodni kellene ezek beolvasásáról.)
@@ -125,6 +127,7 @@ function refreshTweets() {
 ```
 
 **A jegyzőkönyvben válaszolja meg a következő kérdéseket**: 
+
 * Mire való a `document.getElementById` függvény? 
 * Mire való az `appendChild` függvény? 
 * Mit csinál a fenti kódban a `createTd` függvény?
