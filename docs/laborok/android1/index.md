@@ -5,7 +5,7 @@
 Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon részletezett API hívások segítségével töltse be.
 Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API végpont példákat.
 
-* https://restcountries.com/v3.1/all
+* https://restcountries.com/v3.1/all?fields=name
 * https://restcountries.com/v3.1/name/Hungary
 * stb.
 
@@ -15,10 +15,36 @@ Az alkalmazás elkészítése során törekedjen a strukturált felépítésre, 
 ## Értékelés
 Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a labor. Az Alapok részen kívül megoldott minden további részfeladat hiánytalan megvalósítása plusz egy jegyet jelent. A feladatok részben egymásra épülnek, ezért az ebből következő hiányok – feladat kihagyás esetén – szükség szerint áthidalhatók pl. dummy adatok vagy nem perzisztált adatok használatával.
 
-## Feltöltés
-* A megoldást (teljes projekt) egy ZIP file formájában kell feltölteni a Moodle portálra a jelzett határidőig.
-* A ZIP-ből az \app\build\intermediates mappából minden kerüljön törlésre, kivéve az \app\build\intermediates\apk\ mappa, az abban lévő APK fájl mindenképpen maradjon benne. 
-* A feltöltött ZIP file-ba kerüljön egy egyszerű, név-neptun-kóddal ellátott PDF dokumentáció, melyben szerepeljenek az egyes részfeladatok nevei, mint alfejezetek, és ezekbe kerüljön 1-2 képernyőkép az elkészült funkcióról. Szükség szerint a dokumentáció tartalmazhat szöveges kiegészítéseket, rövid magyarázatokat.
+## Előkészületek
+
+A feladatok megoldása során ne felejtsd el követni a [feladat beadás folyamatát](../../tudnivalok/github/GitHub.md).
+
+### Git repository létrehozása és letöltése
+
+1. Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.
+
+1. Várd meg, míg elkészül a repository, majd checkout-old ki.
+
+    !!! warning "Checkout"
+        Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd [itt](../../tudnivalok/github/GitHub-credentials.md)), és próbáld újra.
+
+1. Hozz létre egy új ágat `megoldas` néven, és ezen az ágon dolgozz.
+
+1. A `neptun.txt` fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.
+
+### Projekt létrehozása
+
+Első lépésként indítsuk el az Android Studio-t, majd:
+
+1. Hozzunk létre egy új projektet, válasszuk az *Empty Views Activity* lehetőséget.
+1. A projekt neve legyen `Vilagjaro`, a kezdő package pedig `hu.bme.aut.android.vilagjaro`.
+1. Nyelvnek válasszuk a *Kotlin*-t.
+1. A minimum API szint legyen API24: Android 7.0.
+1. A *Build configuration language* Kotlin DSL legyen.
+
+!!!danger "FILE PATH"
+	A projekt mindenképpen a repository-ban lévő MineSweeper könyvtárba kerüljön, és beadásnál legyen is felpusholva! A kód nélkül nem tudunk maximális pontot adni a laborra!
+
 
 ## Tippek
 * Törekedjen a rövid osztályokra és függvényekre, valamint az átlátható forráskódra 
@@ -36,7 +62,7 @@ Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a lab
     * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/Labor 
 * A feladat megvalósítása és beadása során önálló, egyedi munkákat várunk.
 
-## 1. Alapok
+## 1. Alapok (2 pont)
 
 * Állítson be az alkalmazásnak egyedi vagy saját készítésű ikont.
     * https://icon.kitchen
@@ -310,23 +336,42 @@ class ListActivity : AppCompatActivity(),
 }
 ```
 
+!!! example "BEADANDÓ (1 pont)"
+    Készíts három **képernyőképet**, amelyen látszik a **az alkalmazás a hozzáadó dialógusablakkal beírva egy válaszott ország, az országok listája ahol látszik az új hozzáadott ország és a Név-Neptun kiírása a Snackbar-ban** és **egy-egy kapcsolódó kódrészlet**. 
+
+	A képet a megoldásban a repository-ba f1-1.png, f1-2.png, f1-3.png néven töltsd föl.
 
 
  
-## 2. Részletes nézet és Wikipedia
+## 2. Részletes nézet és Wikipedia (1 pont)
 
 * Adott listaelem kiválasztása esetén a kiválasztott ország részletes nézete kerüljön betöltésre a második felületre, szépen elrendezve, címkékkel, mértékegységekkel. A részletes nézet tartalmazza legalább az ország nevét, fővárosát, népességét, területét.
 * Adott listaelem hosszú kiválasztása esetén pedig kiválasztott ország angol Wikipedia oldala töltsön be az alapértelmezett böngésző alkalmazásban. (a szóközt a Wikipedia automatikusan redirekteli alulvonásra) Pl. https://en.wikipedia.org/wiki/Hungary, https://en.wikipedia.org/wiki/Costa_Rica 
 
-## 3. Perzisztencia
+!!! example "BEADANDÓ (1 pont)"
+    Készíts három **képernyőképet**, amelyen látszik a **az alkalmazás az országok listájával, Magyarország a részletes nézettel és egy válaszott ország a Wikipedian** és **egy-egy kapcsolódó kódrészlet**. 
+
+	A képet a megoldásban a repository-ba f2-1.png, f2-2.png, f2-3.png néven töltsd föl.
+
+## 3. Perzisztencia (1 pont)
 
 * Az alkalmazás tegye lehetővé a listához hozzáadott országok Room alapú perzisztens elmentését, onnan való kitörlését. Ehhez bővítse ki az egyes országokhoz tartozó listaelemet egy gombbal, amivel ki lehet törölni az aktuális országot. 
 * Az alkalmazás ismételt elindítása esetén ezeknek az elmentett országoknak vissza kell töltődniük. 
 
-## 4. Térkép
+!!! example "BEADANDÓ (1 pont)"
+    Készíts három **képernyőképet**, amelyen látszik a **az alkalmazás az országok listájával, az adatbázis fájlok megjelenése az emulátoron és az adatbázis tartalma** és **egy-egy kapcsolódó kódrészlet**. 
+
+	A képet a megoldásban a repository-ba f3-1.png, f3-2.png, f3-3.png néven töltsd föl.
+
+## 4. Térkép (1 pont)
 
 Ebben a feladatban már ne használjunk Retrofit hívást. Minden a perzisztens adatbázisból kerüljön felhasználásra (kivéve az előző feladat kihagyása esetén). 
 
 * A harmadik felületen egy térkép (Google, OpenStreetMap stb.) jelenjen meg. 
 * A térképen egy választott színű jelölővel szerepeljenek a listában szereplő országok az elmentett földrajzi koordinátákkal jelölt helyükön (latlng). 
 * A jelölőre kattintva írja ki az ország nevét és fővárosát (capital). 
+
+!!! example "BEADANDÓ (1 pont)"
+    Készíts három **képernyőképet**, amelyen látszik a **a hozzáadott országok listája, a térkép nézet jelölőkkel és egy jelölő felirata** és **egy-egy kapcsolódó kódrészlet**. 
+
+	A képet a megoldásban a repository-ba f4-1.png, f4-2.png, f4-3.png néven töltsd föl.
