@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szalka Panka">
       
       
       
@@ -1423,21 +1423,25 @@
 
 
 <h1 id="twitter-szerver-alkalmazas">Twitter szerver alkalmazás<a class="headerlink" href="#twitter-szerver-alkalmazas" title="Permanent link">&para;</a></h1>
-<p>Ez az alkalmazás egy REST API-t publikáló alkalmazás, amely elindítása után a 3000-es porton figyel és várja a megfelelő HTTP kéréseket a következő végpontokon: 
-* <code>GET http://localhost:3000/api/</code>: visszaküldi a következő JSON objektumot: <code>{}name: 'Twitter server'</code>
-* <code>GET http://localhost:3000/api/tweets</code>: lekérdezi a szerveren eltárolt összes tweetet. 
-* <code>POST http://localhost:3000/api/tweets</code>: elküld egy új tweetet. Az új tweet adatai a POST kérés törzsében kell utazzanak a következő JSON formátumban: 
+<p>Ez az alkalmazás egy REST API-t publikáló alkalmazás, amely elindítása után a 3000-es porton figyel és várja a megfelelő HTTP kéréseket a következő végpontokon: </p>
+<ul>
+<li><code>GET http://localhost:3000/api/</code>: visszaküldi a következő JSON objektumot: <code>{"name": "Twitter server"}</code></li>
+<li><code>GET http://localhost:3000/api/tweets</code>: lekérdezi a szerveren eltárolt összes tweetet. </li>
+<li><code>POST http://localhost:3000/api/tweets</code>: elküld egy új tweetet. Az új tweet adatai a POST kérés törzsében kell utazzanak a következő JSON formátumban: 
     <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="c1">// a tweet szövege</span>
 <span class="w">    </span><span class="s2">&quot;userName&quot;</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="c1">// a küldő felhasználó neve</span>
 <span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="nx">?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="c1">// a tweet címkéi</span>
 <span class="p">}</span>
-</code></pre></div>
-* <code>GET http://localhost:3000/api/search</code>: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a <code>text</code> és <code>tags</code> paraméterekkel lehet megadni. A <code>tags</code> paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:
-    * <code>GET http://localhost:3000/api/search?text=alma</code>: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. 
-    * <code>GET http://localhost:3000/api/search?tags=a,b&amp;text=alma</code>: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek  tartalmazzák az 'a', vagy 'b' címkéket. 
-* <code>GET http://localhost:3000/api/tweets/&lt;ID&gt;</code>: Visszaad egy adott azonosítójú tweetet. 
-* <code>DELETE http://localhost:3000/api/tweets/&lt;IDS_LIST&gt;</code>: Kitörli az adott azonostójú tweeteket. Az ID-kat vesszővel elválasztva kell leírni</p>
+</code></pre></div></li>
+<li><code>GET http://localhost:3000/api/search</code>: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a <code>text</code> és <code>tags</code> paraméterekkel lehet megadni. A <code>tags</code> paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:<ul>
+<li><code>GET http://localhost:3000/api/search?text=alma</code>: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. </li>
+<li><code>GET http://localhost:3000/api/search?tags=a,b&amp;text=alma</code>: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek tartalmazzák az 'a', vagy 'b' címkéket. </li>
+</ul>
+</li>
+<li><code>GET http://localhost:3000/api/tweets/&lt;ID&gt;</code>: Visszaad egy adott azonosítójú tweetet. </li>
+<li><code>DELETE http://localhost:3000/api/tweets/&lt;IDS_LIST&gt;</code>: Kitörli az adott azonosítójú tweeteket. Az ID-kat vesszővel elválasztva kell leírni</li>
+</ul>
 <h2 id="az-alkalmazas-futtatasa">Az alkalmazás futtatása<a class="headerlink" href="#az-alkalmazas-futtatasa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Telepítsük a <code>package.json</code> fájl alapján a szükséges segédkönyvtárakat:
@@ -1457,8 +1461,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. július 7. 15:06:21">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. július 7. 15:06:21 CEST"><span class="timeago" datetime="2025-07-07T15:06:21+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. július 7. 15:06:21 CEST">2025-07-07</span>
+      <span title="2025. november 15. 14:47:36">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
       </span>
     </span>
 

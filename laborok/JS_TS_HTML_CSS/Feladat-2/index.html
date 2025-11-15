@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szalka Panka">
       
       
       
@@ -1449,10 +1449,12 @@
 
 
 <h1 id="twitter-webalkalmazas">Twitter webalkalmazás<a class="headerlink" href="#twitter-webalkalmazas" title="Permanent link">&para;</a></h1>
-<p>A webalkalmazás a <code>client</code> könyvtárban lesz és nagyon kevés fájlból fog állni, ezeket hozzuk is létre: 
-* <code>index.html</code>
-* <code>src/main.ts</code>
-* <code>tsconfig.json</code> (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a <code>tsc --init</code> paranccsal generálni</p>
+<p>A webalkalmazás a <code>client</code> könyvtárban lesz és nagyon kevés fájlból fog állni, ezeket hozzuk is létre: </p>
+<ul>
+<li><code>index.html</code></li>
+<li><code>src/main.ts</code></li>
+<li><code>tsconfig.json</code> (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a <code>tsc --init</code> paranccsal generálni</li>
+</ul>
 <p>A <code>tsconfig.json</code> fájlban használjuk a következő beállításokat, amelyeknek a <code>compilerOptions</code> szekció alatt kell szerepelniük:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span>
 <span class="w">    </span><span class="cm">/*...*/</span>
@@ -1492,11 +1494,13 @@
 <p><strong>A jegyzőkönyvbe illesszünk egy egy képet a böngészőben megjelenő szövegről és a konzolra kiírt szövegről.</strong></p>
 <h2 id="tweetek-lekerdezese-es-megjelenitese">Tweetek lekérdezése és megjelenítése<a class="headerlink" href="#tweetek-lekerdezese-es-megjelenitese" title="Permanent link">&para;</a></h2>
 <p>A böngészőben, az oldalunkon meg szeretnénk jeleníteni egy gombot, aminek a hatására lekérdezzük a tweeteket és megjelenítjük azokat egy táblázatban. Ehhez a böngésző a backendnek a proxyn keresztül a <code>/tweets</code> végpontjára fog küldeni egy HTTP kérést a háttérben, JavaScript kódból. Ezt nevezzük AJAX hívásnak. HTTP kérés elküldésére a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><em>fetch API</em></a>t használjuk.</p>
-<p>Milyen lépésekben tudjuk ezt a funkcionalitást implementálni? 
-1. Elhelyezünk egy gombot a HTML kódban. 
-1. Feliratkozunk a gomb megnyomására egy JavaScript függvénnyel. 
-1. A JavaScript függvény elküld egy AJAX kérést és lekérdezi a tweeteket. Mivel ezek JSON formátumban érkeznek, ezért ezekhez közvetlenül JavaScript objektumokként férhetünk hozzá. (Ha például XML formátumban küldenénk vissza a tweeteket, akkor gondoskodni kellene ezek beolvasásáról.)
-1. A HTML kódban megjelenítünk egy táblázatot, amelynek kitöröljük a meglévő sorait, majd minden egyes tweethez létrehozunk egy új sort, amiben beállítjuk a cellákat. A HTML struktúrát a <code>document</code> globális objektum által nyújtott APIval tudjuk módosítani. </p>
+<p>Milyen lépésekben tudjuk ezt a funkcionalitást implementálni?</p>
+<ol>
+<li>Elhelyezünk egy gombot a HTML kódban. </li>
+<li>Feliratkozunk a gomb megnyomására egy JavaScript függvénnyel. </li>
+<li>A JavaScript függvény elküld egy AJAX kérést és lekérdezi a tweeteket. Mivel ezek JSON formátumban érkeznek, ezért ezekhez közvetlenül JavaScript objektumokként férhetünk hozzá. (Ha például XML formátumban küldenénk vissza a tweeteket, akkor gondoskodni kellene ezek beolvasásáról.)</li>
+<li>A HTML kódban megjelenítünk egy táblázatot, amelynek kitöröljük a meglévő sorait, majd minden egyes tweethez létrehozunk egy új sort, amiben beállítjuk a cellákat. A HTML struktúrát a <code>document</code> globális objektum által nyújtott APIval tudjuk módosítani. </li>
+</ol>
 <h3 id="feliratkozas">Feliratkozás<a class="headerlink" href="#feliratkozas" title="Permanent link">&para;</a></h3>
 <p>Az <code>index.html</code> fájl <code>body</code> elemében helyezzük el a következő részt: </p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;refreshTweets()&quot;</span><span class="p">&gt;</span>Refresh<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -1538,12 +1542,14 @@
 <span class="w">        </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>A jegyzőkönyvben válaszolja meg a következő kérdéseket</strong>: 
-* Mire való a <code>document.getElementById</code> függvény? 
-* Mire való az <code>appendChild</code> függvény? 
-* Mit csinál a fenti kódban a <code>createTd</code> függvény?
-* Milyen HTML elemekre van szükség, hogy egy <code>table</code>-ben sorokat és cellákat hozzunk létre? 
-* Milyen formátumban jeleníti meg a táblázat egy tweet tagjeit? </p>
+<p><strong>A jegyzőkönyvben válaszolja meg a következő kérdéseket</strong>: </p>
+<ul>
+<li>Mire való a <code>document.getElementById</code> függvény? </li>
+<li>Mire való az <code>appendChild</code> függvény? </li>
+<li>Mit csinál a fenti kódban a <code>createTd</code> függvény?</li>
+<li>Milyen HTML elemekre van szükség, hogy egy <code>table</code>-ben sorokat és cellákat hozzunk létre? </li>
+<li>Milyen formátumban jeleníti meg a táblázat egy tweet tagjeit? </li>
+</ul>
 <p><strong>Készítsen képernyőképet a futó böngészőről, amint a weboldal megjelenít legalább egy tweetet a táblázatban. Ezt is tegye bele a jegyzőkönyvbe!</strong></p>
 <p><a href="../Feladat-3/">Folytassa az önálló feladatokkal!</a></p>
 
@@ -1556,8 +1562,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. november 7. 14:53:48">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
+      <span title="2025. november 15. 14:47:36">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
       </span>
     </span>
 

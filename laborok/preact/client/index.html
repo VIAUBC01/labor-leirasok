@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szalka Panka">
       
       
       
@@ -1526,7 +1526,7 @@
 <blockquote>
 <p><code>npm init preact</code></p>
 </blockquote>
-<p>A parancs kiadása után több kérdésre kell válaszolnunk. Projektkönvytárnak (<code>Project directory</code>) válasszunk egy hangzatos nevet (pl. <code>twitter</code>), a projekt nyelvének (<code>Project language</code>) pedig a <code>TypeScript</code>-et. A többi kérdésre nyomjunk ENTER-t, tehát automatikusan nemmel válaszoljunk.</p>
+<p>A parancs kiadása után több kérdésre kell válaszolnunk. Projektkönyvtárnak (<code>Project directory</code>) válasszunk egy hangzatos nevet (pl. <code>twitter</code>), a projekt nyelvének (<code>Project language</code>) pedig a <code>TypeScript</code>-et. A többi kérdésre nyomjunk ENTER-t, tehát automatikusan nemmel válaszoljunk.</p>
 <p>A parancs lefutása után navigáljunk az újonnan létrehozott mappába a Terminal-ban:</p>
 <blockquote>
 <p><code>cd twitter</code></p>
@@ -1551,7 +1551,7 @@
   ➜  Network: use --host to expose
   ➜  press h + enter to show help
 </code></pre></div>
-<p>Opcionálisan a <code>package.json</code> fájlban (<code>"start": "vite"</code> &rarr; <code>"dev": "vite"</code>) átírhatjuk, hogy ne az <code>npm run dev</code>, hanem az <code>npm start</code> parancs kiadásával fusson az alkalmazásunk. Ez jobban követi az ipari standardeket, de végső soron bármelyiket használhatjuk.</p>
+<p>Opcionálisan a <code>package.json</code> fájlban (<code>"dev": "vite"</code> &rarr; <code>"start": "vite"</code>) átírhatjuk, hogy ne az <code>npm run dev</code>, hanem az <code>npm start</code> parancs kiadásával fusson az alkalmazásunk. Ez jobban követi az ipari standardeket, de végső soron bármelyiket használhatjuk.</p>
 <p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket:</strong></p>
 <ul>
 <li>Mi a Vite szerepe a fejlesztési folyamatban?</li>
@@ -1580,9 +1580,11 @@
 <summary>Formázás</summary>
 <p>A kódot formázni az <code>Alt+Shift+F</code> billentyűkombinációval tudjuk.</p>
 </details>
-<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket</strong>: 
-* Mi az a komponens Preact környezetben?
-* Hogyan tudunk egy komponenshez személyre szabott formázást beállítani? </p>
+<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket</strong>:</p>
+<ul>
+<li>Mi az a komponens Preact környezetben?</li>
+<li>Hogyan tudunk egy komponenshez személyre szabott formázást beállítani? </li>
+</ul>
 <h2 id="modell-tipusok">Modell típusok<a class="headerlink" href="#modell-tipusok" title="Permanent link">&para;</a></h2>
 <p>Hozzuk létre az <code>src/models.ts</code> fájlt a következő tartalommal: </p>
 <div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Tweet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -1620,6 +1622,10 @@
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`HTTP error! status: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">204</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">T</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -1649,9 +1655,10 @@
 </code></pre></div>
 <h2 id="proxy-beallitas">Proxy beállítás<a class="headerlink" href="#proxy-beallitas" title="Permanent link">&para;</a></h2>
 <p>Ahhoz, hogy a beérkező kérések továbbítódjanak a backend felé (amennyiben a kliens nem tudja kiszolgálni azokat), proxyzást kell beállítanunk, vagyis a <code>localhost:3000</code> felé kell továbbítanunk a <code>/api</code> útvonalú kéréseket. Ezek azok a kérések, amiket az előzőleg létrehozott service osztály kezel. Módosítsuk a <code>vite.config.ts</code> fájl tartalmát az alábbi módon:</p>
-<p>import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vite&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">preact</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@preact/preset-vite&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">preact</span><span class="p">()],</span>
 <span class="w">    </span><span class="nx">server</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">proxy</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
@@ -1734,9 +1741,11 @@ import preact from '@preact/preset-vite';</p>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Készítsen képernyőképet működés közben a felületről és illessze be ezt a jegyzőkönyvbe!</strong></p>
-<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket</strong>: 
-* Mi a useState szerepe egy komponensben?
-* Mi a useEffect szerepe egy komponensben?</p>
+<p><strong>A jegyzőkönyvben válaszoljuk meg a következő kérdéseket</strong>: </p>
+<ul>
+<li>Mi a useState szerepe egy komponensben?</li>
+<li>Mi a useEffect szerepe egy komponensben?</li>
+</ul>
 <h2 id="uj-tweet-hozzaadasa">Új Tweet hozzáadása<a class="headerlink" href="#uj-tweet-hozzaadasa" title="Permanent link">&para;</a></h2>
 <p>Az előzőekhez nagyon hasonló módon egy újabb oldalt szeretnénk létrehozni, amellyel új tweeteket tudunk majd létrehozni. Hozzunk létre egy <code>src/components/NewTweet.tsx</code> komponenst:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;preact/hooks&#39;</span><span class="p">;</span>
@@ -1750,7 +1759,7 @@ import preact from '@preact/preset-vite';</p>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">send</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">text</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">userName</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">        </span><span class="nx">apiService</span><span class="p">.</span><span class="nx">createTweet</span><span class="p">({</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">apiService</span><span class="p">.</span><span class="nx">createTweet</span><span class="p">({</span>
 <span class="w">            </span><span class="nx">text</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">userName</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="kt">tagsStr</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">tagsStr</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span>
@@ -1819,7 +1828,7 @@ import preact from '@preact/preset-vite';</p>
 <span class="w">    </span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>A végén ne felejtsük el a végén átírni a <code>NewTweet.tsx</code> komponens kódját, hogy az újonnan bevezetett routing-ot használja az automatikus visszairányításnál!</p>
+<p>A végén ne felejtsük el átírni a <code>NewTweet.tsx</code> komponens kódját, hogy az újonnan bevezetett routing-ot használja az automatikus visszairányításnál!</p>
 <p><strong>Készítsen képernyőképet működés közben az új tweet hozzáadásának felületéről, valamint a tweetek listájában látható új tweetről és illessze be ezeket a jegyzőkönyvbe!</strong></p>
 <h1 id="onallo-feladatok">Önálló feladatok<a class="headerlink" href="#onallo-feladatok" title="Permanent link">&para;</a></h1>
 <h2 id="bootstrap-stilusozas">Bootstrap stílusozás<a class="headerlink" href="#bootstrap-stilusozas" title="Permanent link">&para;</a></h2>
@@ -1830,7 +1839,7 @@ import preact from '@preact/preset-vite';</p>
 <p><strong>Illesszen be a tweets és az új tweet oldalakról egy-egy képernyőképet a jegyzőkönyvbe!</strong></p>
 <h2 id="tweetek-torlese">Tweetek törlése<a class="headerlink" href="#tweetek-torlese" title="Permanent link">&para;</a></h2>
 <p>Egészítse ki az oldalt úgy, hogy a tweetek listájában minden tweet mellett megjelenjen egy törlés gomb is, amely megnyomására kitöröljük az adott tweetet. </p>
-<p><strong>Az idevágó kódrészleteket és egy képernyőképet illesszen be a jegyzőkönybe!</strong></p>
+<p><strong>Az idevágó kódrészleteket és egy képernyőképet illesszen be a jegyzőkönyvbe!</strong></p>
 
     <hr>
   <div class="md-source-file">
@@ -1841,8 +1850,8 @@ import preact from '@preact/preset-vite';</p>
           </path>
         </svg>
       </span>
-      <span title="2025. július 7. 15:06:21">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. július 7. 15:06:21 CEST"><span class="timeago" datetime="2025-07-07T15:06:21+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. július 7. 15:06:21 CEST">2025-07-07</span>
+      <span title="2025. november 15. 14:47:36">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
       </span>
     </span>
 

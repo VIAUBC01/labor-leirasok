@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szalka Panka">
       
       
       
@@ -1453,8 +1453,10 @@
 <h1 id="tovabbi-feladatok">További feladatok<a class="headerlink" href="#tovabbi-feladatok" title="Permanent link">&para;</a></h1>
 <h2 id="uj-tweet-elkuldese">Új tweet elküldése<a class="headerlink" href="#uj-tweet-elkuldese" title="Permanent link">&para;</a></h2>
 <p>Egészítse ki a webalkalmazást úgy, hogy új tweetet is lehessen küldeni. A felhasználó egy szövegdobozba beírhatja a nevét, egy másikba a szöveget, egy harmadikba pedig vesszővel elválasztva a tageket. Egy gomb megnyomására küldjük el az üzenetet. </p>
-<p>Segítség a megvalósításhoz: 
-* A gomb megnyomására egy JavaScript függvényt kell meghívni, amely egy HTTP POST kérést küld el. A POST kérésnek a törzse megfelelő formátumban (ahogyan azt az API várja) kell tartalmazza a tweet objektumot Erre ugyanazt a <code>fetch</code> függvényt használhatjuk, mint a GET esetén, csak máshogyan kell paraméterezni. </p>
+<p>Segítség a megvalósításhoz:</p>
+<ul>
+<li>A gomb megnyomására egy JavaScript függvényt kell meghívni, amely egy HTTP POST kérést küld el. A POST kérésnek a törzse megfelelő formátumban (ahogyan azt az API várja) kell tartalmazza a tweet objektumot Erre ugyanazt a <code>fetch</code> függvényt használhatjuk, mint a GET esetén, csak máshogyan kell paraméterezni. </li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/tweets&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="s1">&#39;post&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">JSON.stringify</span><span class="p">(</span><span class="nx">tweet</span><span class="p">),</span><span class="w"> </span><span class="c1">// tweet tartalmazza az elküldendő adatot</span>
@@ -1465,26 +1467,32 @@
 </code></pre></div>
 <p><strong>Készítsen képernyőképet a felületről és másolja be a jegyzőkönyvbe a TypeScript függvényt!</strong></p>
 <h2 id="tweet-torlese">Tweet törlése<a class="headerlink" href="#tweet-torlese" title="Permanent link">&para;</a></h2>
-<p>Legyen lehetőség tweetek törlésére:
-1. Egészítse ki a backendet olyan végponttal, amely egy adott azonosítójú tweetet kitöröl az adatbázisból. Figyelem, legyen hibakezelés, ha nem létező azonosítót küldünk. A törlést mindenképpen HTTP DELETE függvénnyel valósítsa meg. (Segítség: a törléshez a tweet azonosítója kell, ezt érdemes az URLbe beleírni.) 
-2. Készítsen a HTML oldalra felületet, amin keresztül meghívható a törlés függvény.  A HTML táblázatot egészítsünk ki egy újabb oszloppal. Minden egyes sorban jelenítsünk meg egy 'Törlés' gombot. Még a gomb létrehozásakor feliratkozhatunk annak <code>click</code> eseményére, pl: 
+<p>Legyen lehetőség tweetek törlésére:</p>
+<ol>
+<li>Egészítse ki a backendet olyan végponttal, amely egy adott azonosítójú tweetet kitöröl az adatbázisból. Figyelem, legyen hibakezelés, ha nem létező azonosítót küldünk. A törlést mindenképpen HTTP DELETE függvénnyel valósítsa meg. (Segítség: a törléshez a tweet azonosítója kell, ezt érdemes az URLbe beleírni.) </li>
+<li>Készítsen a HTML oldalra felületet, amin keresztül meghívható a törlés függvény.  A HTML táblázatot egészítsünk ki egy újabb oszloppal. Minden egyes sorban jelenítsünk meg egy 'Törlés' gombot. Még a gomb létrehozásakor feliratkozhatunk annak <code>click</code> eseményére, pl: 
     <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">);</span>
 <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">//törlés</span>
 <span class="p">});</span>
 </code></pre></div>
-    Törlés után frissítsük a listát automatikusan!</p>
+    Törlés után frissítsük a listát automatikusan!</li>
+</ol>
 <p><strong>Készítsünk képernyőképet a frissített felületről a jegyzőkönyvbe. Ugyanide illesszük be az új, megváltozott TypeScript kódokat!</strong></p>
 <h2 id="bootstrap-tema">Bootstrap téma<a class="headerlink" href="#bootstrap-tema" title="Permanent link">&para;</a></h2>
-<p>A felület kinézete nagyon fapados, használjuk a <a href="https://getbootstrap.com/">Bootstrap CSS könyvtár</a>at, hogy szebben nézzen ki:
-* Érdemes a <a href="https://www.bootstrapcdn.com/">Bootstrap CDN</a>ről hivatkozni a CSS fájlt, így azt nem kell külön letölteni. Például ezt lehet beilleszteni a HTML <code>head</code> elemének a belsejébe: 
+<p>A felület kinézete nagyon fapados, használjuk a <a href="https://getbootstrap.com/">Bootstrap CSS könyvtár</a>at, hogy szebben nézzen ki:</p>
+<ul>
+<li>Érdemes a <a href="https://www.bootstrapcdn.com/">Bootstrap CDN</a>ről hivatkozni a CSS fájlt, így azt nem kell külön letölteni. Például ezt lehet beilleszteni a HTML <code>head</code> elemének a belsejébe: 
     <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css&quot;</span>
         <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
-</code></pre></div>
-* Alkalmazzunk néhány egyszerű stílust:
-    * Adjunk <a href="https://getbootstrap.com/docs/4.5/layout/overview/#containers">konténer <code>div</code>ek</a>et az oldalhoz 
-    * Lássuk el a gombokat a <a href="https://getbootstrap.com/docs/4.5/components/buttons/">megfelelő css osztályok</a>kal.
-    * Használjuk a <a href="https://getbootstrap.com/docs/4.5/content/tables/">Bootstrap stílus</a>t a táblázatban!</p>
+</code></pre></div></li>
+<li>Alkalmazzunk néhány egyszerű stílust:<ul>
+<li>Adjunk <a href="https://getbootstrap.com/docs/4.5/layout/overview/#containers">konténer <code>div</code>ek</a>et az oldalhoz </li>
+<li>Lássuk el a gombokat a <a href="https://getbootstrap.com/docs/4.5/components/buttons/">megfelelő css osztályok</a>kal.</li>
+<li>Használjuk a <a href="https://getbootstrap.com/docs/4.5/content/tables/">Bootstrap stílus</a>t a táblázatban!</li>
+</ul>
+</li>
+</ul>
 <p>A kész felületről kerüljön képernyőkép a jegyzőkönyvbe!</p>
 
     <hr>
@@ -1496,8 +1504,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. november 7. 14:53:48">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
+      <span title="2025. november 15. 14:47:36">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
       </span>
     </span>
 

@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szakla Panka">
+        <meta name="author" content="Gazdi László, Hideg Attila, Imre Gábor, Sik Dávid, Szalka Panka">
       
       
       
@@ -1601,9 +1601,11 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Amin változtattunk:
-* <code>outDir</code>: ebbe a könyvtárba fogja generálni a TypeScript fordító (<code>tsc</code>) a JavaScript fájlokat. 
-* <code>strict</code>: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító</p>
+<p>Amin változtattunk:</p>
+<ul>
+<li><code>outDir</code>: ebbe a könyvtárba fogja generálni a TypeScript fordító (<code>tsc</code>) a JavaScript fájlokat. </li>
+<li><code>strict</code>: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító</li>
+</ul>
 <h2 id="rest-api-programozasa">REST API programozása<a class="headerlink" href="#rest-api-programozasa" title="Permanent link">&para;</a></h2>
 <p>A feladat során egy REST APIt szeretnénk megvalósítani. Vagyis az a cél, hogy a szerveralkalmazásunkra érkező HTTP kérésekre megfelelő választ tudjunk adni. Ehhez az <code>Express</code> nevű keretrendszert fogjuk használni. Ezt betöltve csak fel kell konfigurálnunk, azaz megadnunk, hogy milyen végpontokat (urleket) kell figyeljen és az egyes végpontokra érkező HTTP kérésekre milyen HTTP választ akarunk küldeni. </p>
 <p>Adjuk hozzá az <code>express</code> csomagot a projektünkhöz!</p>
@@ -1634,18 +1636,22 @@
 <span class="cm">/*...*/</span>
 </code></pre></div>
 <p>Ha ki szeretnénk listázni, hogy milyen szkriptek érhetők el az adott projekthez, akkor futtassuk az <code>npm run</code> parancsot, ha pedig egy konkrét szkriptet szeretnénk futtatni, adjuk ki az <code>npm run &lt;szkript neve&gt;</code> parancsot. </p>
-<p>A fenti szkriptek szerepe a következő: 
-* <code>build</code>: lefordítja a TypeScript kódunkat (kiadja a <code>tsc</code> parancsot)
-* <code>start</code>: elindítja a már lefordított alkalmazást
-* <code>build-and-start</code>: lefordítja a kódot, majd elindítja a lefordított <code>main.js</code>-t. </p>
+<p>A fenti szkriptek szerepe a következő:</p>
+<ul>
+<li><code>build</code>: lefordítja a TypeScript kódunkat (kiadja a <code>tsc</code> parancsot)</li>
+<li><code>start</code>: elindítja a már lefordított alkalmazást</li>
+<li><code>build-and-start</code>: lefordítja a kódot, majd elindítja a lefordított <code>main.js</code>-t. </li>
+</ul>
 <p>Innentől tehát, ha változik a kód, elég a következő parancsot kiadni az újrafordításhoz és futtatáshoz: </p>
 <div class="highlight"><pre><span></span><code>$ npm run build-and-start
 </code></pre></div>
 <h2 id="twitter-szerver-logikajanak-megvalositasa">Twitter szerver logikájának megvalósítása<a class="headerlink" href="#twitter-szerver-logikajanak-megvalositasa" title="Permanent link">&para;</a></h2>
-<p>A következő komponenseket fogjuk megvalósítani:
-* Típusok, amely leírják az egyes üzeneteket. Az üzeneteket a továbbiakban *tweet*eknek fogjuk nevezni.
-* Egy adatbázis osztály, amely képes eltárolni a tweeteket, újat beszúrni, visszaadni a létező tweetek listáját. 
-* Egy <code>express</code> alapú API, amely biztosítja a végpontokat a tweetek lekérdezéséhez és visszaadásához. </p>
+<p>A következő komponenseket fogjuk megvalósítani:</p>
+<ul>
+<li>Típusok, amely leírják az egyes üzeneteket. Az üzeneteket a továbbiakban <strong>tweet</strong>-eknek fogjuk nevezni.</li>
+<li>Egy adatbázis osztály, amely képes eltárolni a tweeteket, újat beszúrni, visszaadni a létező tweetek listáját. </li>
+<li>Egy <code>express</code> alapú API, amely biztosítja a végpontokat a tweetek lekérdezéséhez és visszaadásához. </li>
+</ul>
 <h3 id="modellek">Modellek<a class="headerlink" href="#modellek" title="Permanent link">&para;</a></h3>
 <p>Hozzuk létre az <code>app/models.ts</code> fájlt:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//app/models.ts</span>
@@ -1702,10 +1708,12 @@
 <li>Mi a különbség a <code>type</code> és az osztály (<code>class</code>) között?</li>
 <li>Magyarázza el, hogy az <code>app/database.ts</code> fájlban a <code>getTweetById</code> függvényben, a <code>return</code> utasítás utáni rész pontosan mit jelent, mi lesz a visszatérési érték!</li>
 </ol>
-<p>Egészítse ki a <code>Database</code> osztály függvényeit loggolással (<code>console.log(...)</code>), amelyben a meghívott művelet neve mellett a következő információk kerüljenek kiírásra: 
-* Új tweet esetén írjuk ki a tweet szövegét, beküldőjét, azonosítóját, tagjeit. 
-* Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. 
-* Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. </p>
+<p>Egészítse ki a <code>Database</code> osztály függvényeit loggolással (<code>console.log(...)</code>), amelyben a meghívott művelet neve mellett a következő információk kerüljenek kiírásra:</p>
+<ul>
+<li>Új tweet esetén írjuk ki a tweet szövegét, beküldőjét, azonosítóját, tagjeit. </li>
+<li>Tweetek lekérdezésénél írjuk ki, hány tweet található az adatbázisban. </li>
+<li>Egy tweet lekérdezésénél írjuk ki a lekérdezett tweet azonosítóját. </li>
+</ul>
 <h3 id="egyedi-tweet-azonositok">Egyedi tweet azonosítók<a class="headerlink" href="#egyedi-tweet-azonositok" title="Permanent link">&para;</a></h3>
 <p>Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi <a href="https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3">GUID</a>okat fogunk generálni egy <code>uuid</code> nevű <code>npm package</code> segítségével:</p>
 <div class="highlight"><pre><span></span><code>$ npm install uuid -s
@@ -1792,9 +1800,11 @@ $ npm install @types/body-parser -s
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>A jegyzőkönyvben válaszoljon a következő kérdésekre:</strong> 
-* Milyen  végpontokat definiál a fenti kód. Egy táblázatban szerepeljen a végpont URL-je, a HTTP metódus, azt hogy várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a leírásban. 
-* Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint? </p>
+<p><strong>A jegyzőkönyvben válaszoljon a következő kérdésekre:</strong></p>
+<ul>
+<li>Milyen  végpontokat definiál a fenti kód. Egy táblázatban szerepeljen a végpont URL-je, a HTTP metódus, azt hogy várunk-e valamilyen paramétert és hogy milyen választ küld vissza a végpont. A válaszok státuszkódja is szerepeljen a leírásban. </li>
+<li>Milyen porton fogja várni a bejövő kéréseket a szerver? Hogyan tudjuk ezt megadni a fenti kód szerint? </li>
+</ul>
 <p>Egészítsük ki a fenti függvényeket úgy, hogy egy-egy beérkező kérés esetén kikerüljön a logra, hogy milyen kérés érkezett!</p>
 <h2 id="szerver-elinditasa">Szerver elindítása<a class="headerlink" href="#szerver-elinditasa" title="Permanent link">&para;</a></h2>
 <p>Adjuk hozzá az alábbi kódrészletet a <code>main.ts</code> fájlhoz. Ezzel elindítjuk a szervert.</p>
@@ -1818,8 +1828,8 @@ $ npm install @types/body-parser -s
           </path>
         </svg>
       </span>
-      <span title="2025. november 7. 14:53:48">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 7. 14:53:48 CET"><span class="timeago" datetime="2025-11-07T14:53:48+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 7. 14:53:48 CET">2025-11-07</span>
+      <span title="2025. november 15. 14:47:36">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
       </span>
     </span>
 
