@@ -41,10 +41,10 @@ Egy hasznos tutorial:
 
 A megoldás pull requestbe az alábbiakat tartalmazza:
 - A projekt teljes forráskódját
-- **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
-  - konkrét kódrészletekről készített képernyőkép(ek)et, 
+- PDF formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
+  - konkrét kódrészletekről készített képernyőkép(ek)et
   - hozzá 1 mondatos magyarázatot
-  - 1 vagy több képernyőképet, ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb ablakban)!
+  - 1 vagy több képernyőképet, ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; NEM külön Jegyzettömb ablakban)!
 
 ## Értékelés
 
