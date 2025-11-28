@@ -39,12 +39,12 @@ Egy hasznos tutorial:
 
 ## Beadandó
 
-A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel, egy zipelt fájlban:
+A megoldás pull requestbe az alábbiakat tartalmazza:
+- A projekt teljes forráskódját
 - **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál megnevezett: 
-  - konkrét kódrészletekről készített képernyőkép(ek), 
-  - 1 mondatos magyarázat
-  - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb ablakban)!
-- A projekt forrását (src\main mappa elegendő)
+  - konkrét kódrészletekről készített képernyőkép(ek)et, 
+  - hozzá 1 mondatos magyarázatot
+  - 1 vagy több képernyőképet, ami a helyes működést hivatott bizonyítani. A helyes működést igazoló képernyőképen szerepeljen a Neptun kódod. (pl. beszúrt példaadatban, az API eredményét mutató ablakban, konzol kimeneten, a böngészőben megjelenő adatok között stb.; **NEM** külön Jegyzettömb ablakban)!
 
 ## Értékelés
 
