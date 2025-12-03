@@ -30,6 +30,7 @@ Hivatalos dokumentációk:
 ## Beadandó
 
 A labor elvégzése után az alábbi tartalmat kérjük feltölteni a megoldás pull requestbe:
+
 - A teljes forráskód
 - PDF formátumban (DOCX nem elfogadott!) az egyes feladatoknál pontosan megnevezett képernyőképek
 
