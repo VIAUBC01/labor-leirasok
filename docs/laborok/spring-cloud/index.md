@@ -29,12 +29,9 @@ Hivatalos dokumentációk:
 
 ## Beadandó
 
-A labor elvégzése után az alábbi tartalmat kérjük beadni a tanszéki portálra történő feltöltéssel, egy zipelt fájlban:
-- **PDF** formátumban (DOCX nem elfogadott!) az egyes feladatoknál pontosan megnevezett: 
-  - konkrét kódrészletekről készített képernyőkép(ek), 
-  - 1 mondatos magyarázat
-  - 1 vagy több ábra (jellemzően képernyőkép), ami a helyes működést hivatott bizonyítani.
-- A booking projekt forrása (src\main mappa elegendő)
+A labor elvégzése után az alábbi tartalmat kérjük feltölteni a megoldás pull requestbe:
+- A teljes forráskód
+- PDF formátumban (DOCX nem elfogadott!) az egyes feladatoknál pontosan megnevezett képernyőképek
 
 ## Értékelés
 
@@ -42,7 +39,7 @@ A laborban négy feladatrész van. Jeles osztályzat az összes feladatrész elv
 
 ## A meglévő kód áttekintése
 
-Klónozd ezt a repository-t, és a spring-cloud mappában lévő 7 projektet importáld az IDE-be maven projektként! A bonus, currency és flights alkalmazásokban külön projektbe van kiszervezve a REST API-t definiáló interfész, ami majd hasznos lesz nekünk később. Ezek a bonus-api, currency-api és flights-api projektek. Ez a három önálló alkalmazás egy-egy jól definiált funkcióért felel, ezért a légitársaság, amelynek az üzletmenetét támogatják, 3 külön microservice formájában fejlesztette őket. Vegyük sorra a projekteket:
+A classroom feladat kiinduló repositoryjában található 7 projektet importáld az IDE-be maven projektként!  A bonus, currency és flights alkalmazásokban külön projektbe van kiszervezve a REST API-t definiáló interfész, ami majd hasznos lesz nekünk később. Ezek a bonus-api, currency-api és flights-api projektek. Ez a három önálló alkalmazás egy-egy jól definiált funkcióért felel, ezért a légitársaság, amelynek az üzletmenetét támogatják, 3 külön microservice formájában fejlesztette őket. Vegyük sorra a projekteket:
 
 - bonus-api: 
 

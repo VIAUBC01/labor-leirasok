@@ -8,7 +8,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
 
 1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 17-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
 
-2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a 2023.0.3, ami property-be van kiszervezve):
+2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (A Spring Cloud verzió a 2025.0.0, ami property-be van kiszervezve):
 
    ```
    <dependencyManagement>
@@ -74,7 +74,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
      - A &lt;properties&gt; tagbe helyezzük el ezt a sort:
 
      ```
-             <spring-cloud.version>2023.0.3</spring-cloud.version>
+             <spring-cloud.version>2025.0.0</spring-cloud.version>
      ```
 
      - A &lt;properties&gt; tag alá helyezzük el ezeket a sorokat:
