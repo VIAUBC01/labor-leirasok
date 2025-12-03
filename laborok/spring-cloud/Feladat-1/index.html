@@ -1431,7 +1431,7 @@
 <p>Hozz létre egy új projektet, <em>config</em> néven. Ha STS-t használsz, a leggyorsabb ezt a File &gt; New &gt; Spring Starter Project menüből indítani. 17-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.</p>
 </li>
 <li>
-<p>Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (Az aktuális Spring Cloud verzió a 2023.0.3, ami property-be van kiszervezve):</p>
+<p>Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (A Spring Cloud verzió a 2025.0.0, ami property-be van kiszervezve):</p>
 </li>
 </ol>
 <p><div class="highlight"><pre><span></span><code>&lt;dependencyManagement&gt;
@@ -1492,7 +1492,7 @@ currency:
 <ul>
 <li>A &lt;properties&gt; tagbe helyezzük el ezt a sort:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>        &lt;spring-cloud.version&gt;2023.0.3&lt;/spring-cloud.version&gt;
+<div class="highlight"><pre><span></span><code>        &lt;spring-cloud.version&gt;2025.0.0&lt;/spring-cloud.version&gt;
 </code></pre></div>
 <ul>
 <li>A &lt;properties&gt; tag alá helyezzük el ezeket a sorokat:</li>
@@ -1565,8 +1565,8 @@ spring:
           </path>
         </svg>
       </span>
-      <span title="2024. augusztus 30. 18:32:52">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2024. augusztus 30. 18:32:52 CEST"><span class="timeago" datetime="2024-08-30T18:32:52+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2024. augusztus 30. 18:32:52 CEST">2024-08-30</span>
+      <span title="2025. december 3. 18:00:53">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. december 3. 18:00:53 CET"><span class="timeago" datetime="2025-12-03T18:00:53+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. december 3. 18:00:53 CET">2025-12-03</span>
       </span>
     </span>
 
