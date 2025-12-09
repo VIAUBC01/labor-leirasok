@@ -29,25 +29,27 @@ A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy 
    spring:
      cloud:
        gateway:
-         routes:
-         - id: currency
-           uri: lb://currency
-           predicates:
-           - Path=/currency/**
-           filters:
-           - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
-         - id: bonus
-           uri: lb://bonus
-           predicates:
-           - Path=/bonus/**
-           filters:
-           - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
-         - id: flights
-           uri: lb://flights
-           predicates:
-           - Path=/flights/**
-           filters:
-           - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
+         server:
+           webflux:
+             routes:
+             - id: currency
+               uri: lb://currency
+               predicates:
+               - Path=/currency/**
+               filters:
+               - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
+             - id: bonus
+               uri: lb://bonus
+               predicates:
+               - Path=/bonus/**
+               filters:
+               - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
+             - id: flights
+               uri: lb://flights
+               predicates:
+               - Path=/flights/**
+               filters:
+               - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
    ```
 
    A port természetesen más legyen, ha a 8080-at már elhasználtad más célra, és az eureka portját is módosítsd, ha nálad nem 8085. A következő sorokban routing szabályok láthatók. Sorban, három különböző id alatt írjuk le, hogy milyen szabályok vonatkoznak a currency, bonus és flights alkalmazásokra. Csak a currency példáját írjuk le részletesen, a másik kettő ezzel teljesen analóg. 
