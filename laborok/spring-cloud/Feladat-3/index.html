@@ -1459,25 +1459,27 @@ eureka:
 spring:
   cloud:
     gateway:
-      routes:
-      - id: currency
-        uri: lb://currency
-        predicates:
-        - Path=/currency/**
-        filters:
-        - RewritePath=/currency(?&lt;segment&gt;/?.*), /api$\{segment}
-      - id: bonus
-        uri: lb://bonus
-        predicates:
-        - Path=/bonus/**
-        filters:
-        - RewritePath=/bonus(?&lt;segment&gt;/?.*), /api$\{segment}
-      - id: flights
-        uri: lb://flights
-        predicates:
-        - Path=/flights/**
-        filters:
-        - RewritePath=/flights(?&lt;segment&gt;/?.*), /api$\{segment}
+      server:
+        webflux:
+          routes:
+          - id: currency
+            uri: lb://currency
+            predicates:
+            - Path=/currency/**
+            filters:
+            - RewritePath=/currency(?&lt;segment&gt;/?.*), /api$\{segment}
+          - id: bonus
+            uri: lb://bonus
+            predicates:
+            - Path=/bonus/**
+            filters:
+            - RewritePath=/bonus(?&lt;segment&gt;/?.*), /api$\{segment}
+          - id: flights
+            uri: lb://flights
+            predicates:
+            - Path=/flights/**
+            filters:
+            - RewritePath=/flights(?&lt;segment&gt;/?.*), /api$\{segment}
 </code></pre></div>
 <p>A port természetesen más legyen, ha a 8080-at már elhasználtad más célra, és az eureka portját is módosítsd, ha nálad nem 8085. A következő sorokban routing szabályok láthatók. Sorban, három különböző id alatt írjuk le, hogy milyen szabályok vonatkoznak a currency, bonus és flights alkalmazásokra. Csak a currency példáját írjuk le részletesen, a másik kettő ezzel teljesen analóg. </p>
 <ul>
@@ -1506,8 +1508,8 @@ spring:
           </path>
         </svg>
       </span>
-      <span title="2025. december 9. 09:17:12">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. december 9. 09:17:12 CET"><span class="timeago" datetime="2025-12-09T09:17:12+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. december 9. 09:17:12 CET">2025-12-09</span>
+      <span title="2025. december 9. 11:19:34">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. december 9. 11:19:34 CET"><span class="timeago" datetime="2025-12-09T11:19:34+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. december 9. 11:19:34 CET">2025-12-09</span>
       </span>
     </span>
 
