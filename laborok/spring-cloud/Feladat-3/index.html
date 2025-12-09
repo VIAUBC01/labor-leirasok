@@ -1484,7 +1484,7 @@ spring:
 <li>Az uri: után azt írjuk le, hova kell továbbítani a kérést. Itt beégethetnénk egy konkrét URI-t, pl. <a href="http://localhost:8083">http://localhost:8083</a> . Mi viszont nem ezt tesszük, hanem az <em>lb://currency</em> értékkel azt kérjük, hogy a gateway a discovery szervertől a currency alkalmazáshoz tartozó címek közül adjon vissza egyet. (Az lb a **l**oad **b**alancer rövidítése, hiszen több elérhető példány esetén így terheléselosztás valósul meg közöttük.)</li>
 <li>A predicates alatt azt írjuk le, milyen feltételek esetén alkalmazódjon ez a szabály. Mi a - Path=/currency/** kifejezéssel azt érjük el, hogy ha a gatewayhez /currency-vel kezdődő uri-re érkezik a kérés, akkor az továbbítódjon a currency szolgáltatáshoz</li>
 <li>
-<p>Az eddigiek alapján, ahhoz, ha pl. a <a href="http://localhost:8080/currency/rate/USD/HUF">http://localhost:8080/currency/rate/USD/HUF</a> címre érkezik egy kérés, az a <a href="http://localhost:8083/currency/rate/USD/HUF">http://localhost:8083/currency/rate/USD/HUF</a> címre fog továbbítódni. Tudjuk viszont, hogy a tényleges cím ez lenne: <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> . Ezt az eltérést több ponton is kezelhetjük, mi most azt a megoldást választjuk, hogy a routing szabálynál beállítunk egy path újraíró filtert is.  A RewritePath filterünk két, vesszővel elválasztott reguláris kifejezéssel pont azt éri el, hogy a <a href="http://localhot:8080/currency/rate/USD/HUF">http://localhot:8080/currency/rate/USD/HUF</a> kérés a <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> címre érkezzen be. (Feltéve, hogy ezeket a portokat konfigoltuk be.)</p>
+<p>Az eddigiek alapján, ahhoz, ha pl. a <a href="http://localhost:8080/currency/rate/USD/HUF">http://localhost:8080/currency/rate/USD/HUF</a> címre érkezik egy kérés, az a <a href="http://localhost:8083/currency/rate/USD/HUF">http://localhost:8083/currency/rate/USD/HUF</a> címre fog továbbítódni. Tudjuk viszont, hogy a tényleges cím ez lenne: <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> . Ezt az eltérést több ponton is kezelhetjük, mi most azt a megoldást választjuk, hogy a routing szabálynál beállítunk egy path újraíró filtert is.  A RewritePath filterünk két, vesszővel elválasztott reguláris kifejezéssel pont azt éri el, hogy a <a href="http://localhost:8080/currency/rate/USD/HUF">http://localhost:8080/currency/rate/USD/HUF</a> kérés a <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> címre érkezzen be. (Feltéve, hogy ezeket a portokat konfigoltuk be.)</p>
 </li>
 <li>
 <p>Indítsd el a légitársaság összes szerverét: config, discovery, gateway, flights, currency, bonus. Készíts két képernyőképet a jegyzőkönyvbe:</p>
@@ -1506,8 +1506,8 @@ spring:
           </path>
         </svg>
       </span>
-      <span title="2024. október 7. 09:27:29">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2024. október 7. 09:27:29 CEST"><span class="timeago" datetime="2024-10-07T09:27:29+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2024. október 7. 09:27:29 CEST">2024-10-07</span>
+      <span title="2025. december 9. 09:17:12">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. december 9. 09:17:12 CET"><span class="timeago" datetime="2025-12-09T09:17:12+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. december 9. 09:17:12 CET">2025-12-09</span>
       </span>
     </span>
 
