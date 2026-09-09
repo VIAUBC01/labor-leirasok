@@ -29,32 +29,34 @@ A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy 
    spring:
      cloud:
        gateway:
-         routes:
-         - id: currency
-           uri: lb://currency
-           predicates:
-           - Path=/currency/**
-           filters:
-           - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
-         - id: bonus
-           uri: lb://bonus
-           predicates:
-           - Path=/bonus/**
-           filters:
-           - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
-         - id: flights
-           uri: lb://flights
-           predicates:
-           - Path=/flights/**
-           filters:
-           - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
+         server:
+           webflux:
+             routes:
+             - id: currency
+               uri: lb://currency
+               predicates:
+               - Path=/currency/**
+               filters:
+               - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
+             - id: bonus
+               uri: lb://bonus
+               predicates:
+               - Path=/bonus/**
+               filters:
+               - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
+             - id: flights
+               uri: lb://flights
+               predicates:
+               - Path=/flights/**
+               filters:
+               - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
    ```
 
    A port természetesen más legyen, ha a 8080-at már elhasználtad más célra, és az eureka portját is módosítsd, ha nálad nem 8085. A következő sorokban routing szabályok láthatók. Sorban, három különböző id alatt írjuk le, hogy milyen szabályok vonatkoznak a currency, bonus és flights alkalmazásokra. Csak a currency példáját írjuk le részletesen, a másik kettő ezzel teljesen analóg. 
 
    - Az uri: után azt írjuk le, hova kell továbbítani a kérést. Itt beégethetnénk egy konkrét URI-t, pl. http://localhost:8083 . Mi viszont nem ezt tesszük, hanem az *lb://currency* értékkel azt kérjük, hogy a gateway a discovery szervertől a currency alkalmazáshoz tartozó címek közül adjon vissza egyet. (Az lb a **l**oad **b**alancer rövidítése, hiszen több elérhető példány esetén így terheléselosztás valósul meg közöttük.)
    - A predicates alatt azt írjuk le, milyen feltételek esetén alkalmazódjon ez a szabály. Mi a - Path=/currency/** kifejezéssel azt érjük el, hogy ha a gatewayhez /currency-vel kezdődő uri-re érkezik a kérés, akkor az továbbítódjon a currency szolgáltatáshoz
-   - Az eddigiek alapján, ahhoz, ha pl. a http://localhost:8080/currency/rate/USD/HUF címre érkezik egy kérés, az a http://localhost:8083/currency/rate/USD/HUF címre fog továbbítódni. Tudjuk viszont, hogy a tényleges cím ez lenne: http://localhost:8083/api/rate/USD/HUF . Ezt az eltérést több ponton is kezelhetjük, mi most azt a megoldást választjuk, hogy a routing szabálynál beállítunk egy path újraíró filtert is.  A RewritePath filterünk két, vesszővel elválasztott reguláris kifejezéssel pont azt éri el, hogy a http://localhot:8080/currency/rate/USD/HUF kérés a http://localhost:8083/api/rate/USD/HUF címre érkezzen be. (Feltéve, hogy ezeket a portokat konfigoltuk be.)
+   - Az eddigiek alapján, ahhoz, ha pl. a http://localhost:8080/currency/rate/USD/HUF címre érkezik egy kérés, az a http://localhost:8083/currency/rate/USD/HUF címre fog továbbítódni. Tudjuk viszont, hogy a tényleges cím ez lenne: http://localhost:8083/api/rate/USD/HUF . Ezt az eltérést több ponton is kezelhetjük, mi most azt a megoldást választjuk, hogy a routing szabálynál beállítunk egy path újraíró filtert is.  A RewritePath filterünk két, vesszővel elválasztott reguláris kifejezéssel pont azt éri el, hogy a http://localhost:8080/currency/rate/USD/HUF kérés a http://localhost:8083/api/rate/USD/HUF címre érkezzen be. (Feltéve, hogy ezeket a portokat konfigoltuk be.)
 
 5. Indítsd el a légitársaság összes szerverét: config, discovery, gateway, flights, currency, bonus. Készíts két képernyőképet a jegyzőkönyvbe:
 
