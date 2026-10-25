@@ -26,13 +26,14 @@ Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeSc
 $ tsc --init
 ```
 
-A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító beállításait. Írjuk át az alapértelmezett beállításokat az alábbiaknak megfelelően: 
+A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító beállításait. Cseréljük le a generált fájl **teljes tartalmát** az alábbira: 
 
 ```json
 {
   "compilerOptions": {
     "target": "es6",                          
     "module": "commonjs",                     
+    "rootDir": "./app",                       
     "outDir": "./build/",                     
     "strict": true,                           
     "esModuleInterop": true,                  
@@ -44,6 +45,7 @@ A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító
 
 Amin változtattunk:
 
+* `rootDir`: ebben a könyvtárban vannak a TypeScript forrásfájlok. Nélküle a `tsc` hibával (TS5011) leáll.
 * `outDir`: ebbe a könyvtárba fogja generálni a TypeScript fordító (`tsc`) a JavaScript fájlokat. 
 * `strict`: "szigorú" mód, ilyenkor több hibára hívja fel a figyelmet a fordító
 
@@ -307,6 +309,8 @@ Egészítsük ki a fenti függvényeket úgy, hogy egy-egy beérkező kérés es
 Adjuk hozzá az alábbi kódrészletet a `main.ts` fájlhoz. Ezzel elindítjuk a szervert.
 
 ```ts
+import { TwitterApi } from "./web-api";
+
 let api = new TwitterApi(db, 3000);
 api.startServer();
 ```

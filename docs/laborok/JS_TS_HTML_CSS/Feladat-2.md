@@ -6,19 +6,22 @@ A webalkalmazás a `client` könyvtárban lesz és nagyon kevés fájlból fog �
 * `src/main.ts`
 * `tsconfig.json` (mivel a ts fájlból js fájlt szeretnénk generálni) - ezt érdemes a `tsc --init` paranccsal generálni
 
-A `tsconfig.json` fájlban használjuk a következő beállításokat, amelyeknek a `compilerOptions` szekció alatt kell szerepelniük:
+A generált `tsconfig.json` fájl **teljes tartalmát** cseréljük le az alábbira:
 
 ```json
-{ 
-    /*...*/
+{
+  "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",                     
-    "sourceMap": true,                     
-    "outDir": "./build/",                        
-    "strict": true,        
-    /*...*/
+    "module": "commonjs",
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./build/",
+    "strict": true
+  }
 }
 ```
+
+A teljes csere azért fontos, mert az újabb `tsc --init` által generált fájlban olyan beállítások is vannak (pl. `moduleDetection`), amelyek miatt a böngészőben az `exports is not defined` hiba jelenne meg, és a gomb nem működne.
 
 A `main.ts`-be írjunk egy egyszerű kódot: 
 
