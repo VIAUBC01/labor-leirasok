@@ -4,9 +4,9 @@
 
 [BMEVIAUBC01 Szoftverfejlesztés laboratórium](https://portal.vik.bme.hu/kepzes/targyak/VIAUBC01) tárgy laborfeladatai.
 
-A jegyzetek MkDocs segítségével készülnek és GitHub Pages-en kerülnek publikálásra: <https://BMEVIAUBC01.github.io/labor-leirasok/>
+A jegyzetek MkDocs segítségével készülnek és GitHub Pages-en kerülnek publikálásra: <https://VIAUBC01.github.io/labor-leirasok/>
 
-Az MKDocs használatához [a hovatalos dokumentáció](https://squidfunk.github.io/mkdocs-material/creating-your-site/) segítségedre lehet.
+Az MKDocs használatához [a hivatalos dokumentáció](https://squidfunk.github.io/mkdocs-material/creating-your-site/) segítségedre lehet.
 
 ## MKDocs tesztelése (Docker-rel)
 
