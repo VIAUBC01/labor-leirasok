@@ -2774,7 +2774,9 @@
 </code></pre></div>
 <p>A fenti komponens a korábban elkészített service segítségével megjeleníti a tweet-eket egy táblázatban, illetve, ha hibába fut, akkor egy hibaüzenetet jelenít meg az oldalon. A <code>Frissítés</code> gomb megnyomásával újból lekérhetjük az aktuális tweeteket a backendtől.</p>
 <p>Frissítsük az index.tsx <code>App</code> függvényét, hogy az új komponensünk jelenjen meg az oldal betöltésekor:</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TweetsList</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/TweetsList&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="nx">TweetsList</span><span class="w"> </span><span class="o">/&gt;</span>
@@ -2878,6 +2880,9 @@
 <blockquote>
 <p><code>npm install bootstrap</code></p>
 </blockquote>
+<p>A telepítés önmagában még nem tölti be a stílusokat. Importáljuk a Bootstrap CSS fájlját az <code>index.tsx</code> elején:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;bootstrap/dist/css/bootstrap.min.css&#39;</span><span class="p">;</span>
+</code></pre></div>
 <p><strong>Illesszen be a tweets és az új tweet oldalakról egy-egy képernyőképet a jegyzőkönyvbe!</strong></p>
 <h2 id="tweetek-torlese">Tweetek törlése<a class="headerlink" href="#tweetek-torlese" title="Permanent link">&para;</a></h2>
 <p>Egészítse ki az oldalt úgy, hogy a tweetek listájában minden tweet mellett megjelenjen egy törlés gomb is, amely megnyomására kitöröljük az adott tweetet. </p>
@@ -2891,8 +2896,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. november 15. 14:47:36">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
+      <span title="2026. október 28. 16:24:13">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 28. 16:24:13 CET"><span class="timeago" datetime="2026-10-28T16:24:13+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 28. 16:24:13 CET">2026-10-28</span>
       </span>
     </span>
 

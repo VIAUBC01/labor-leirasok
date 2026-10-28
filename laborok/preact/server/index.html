@@ -2420,9 +2420,9 @@
 <span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="nx">?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="c1">// a tweet címkéi</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><code>GET http://localhost:3000/api/search</code>: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a <code>text</code> és <code>tags</code> paraméterekkel lehet megadni. A <code>tags</code> paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:<ul>
-<li><code>GET http://localhost:3000/api/search?text=alma</code>: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. </li>
-<li><code>GET http://localhost:3000/api/search?tags=a,b&amp;text=alma</code>: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek tartalmazzák az 'a', vagy 'b' címkéket. </li>
+<li><code>GET http://localhost:3000/api/tweets/search</code>: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a <code>text</code> és <code>tags</code> paraméterekkel lehet megadni. A <code>tags</code> paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:<ul>
+<li><code>GET http://localhost:3000/api/tweets/search?text=alma</code>: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. </li>
+<li><code>GET http://localhost:3000/api/tweets/search?tags=a,b&amp;text=alma</code>: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek tartalmazzák az 'a', vagy 'b' címkéket. </li>
 </ul>
 </li>
 <li><code>GET http://localhost:3000/api/tweets/&lt;ID&gt;</code>: Visszaad egy adott azonosítójú tweetet. </li>
@@ -2431,10 +2431,10 @@
 <h2 id="az-alkalmazas-futtatasa">Az alkalmazás futtatása<a class="headerlink" href="#az-alkalmazas-futtatasa" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Telepítsük a <code>package.json</code> fájl alapján a szükséges segédkönyvtárakat:
-    <div class="highlight"><pre><span></span><code>$ npm install 
+    <div class="highlight"><pre><span></span><code>npm install 
 </code></pre></div></li>
 <li>Fordítsuk le és indítsuk el az alkalmazást: 
-    <div class="highlight"><pre><span></span><code>$ npm run build-and-start
+    <div class="highlight"><pre><span></span><code>npm run build-and-start
 </code></pre></div></li>
 </ol>
   <hr>
@@ -2446,8 +2446,8 @@
           </path>
         </svg>
       </span>
-      <span title="2025. november 15. 14:47:36">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 14:47:36 CET"><span class="timeago" datetime="2025-11-15T14:47:36+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 14:47:36 CET">2025-11-15</span>
+      <span title="2026. október 28. 16:30:26">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 28. 16:30:26 CET"><span class="timeago" datetime="2026-10-28T16:30:26+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 28. 16:30:26 CET">2026-10-28</span>
       </span>
     </span>
 

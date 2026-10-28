@@ -2477,13 +2477,13 @@
 </code></pre></div>
 <p>Ne felejtsük el, hogy a használathoz a <code>main.ts</code>-t mindig le kell fordítani (ha változik) a <code>tsc</code> paranccsal, különben nem áll elő a <code>main.js</code> fáj.</p>
 <p>Webszervernek egy egyszerű <code>npm</code>-es programot használunk: <code>http-server</code>, mert ez parancssorból gyorsan elindítható, hogy egy könyvtár tartalmát kiszolgálja és proxy funkciója is van. </p>
-<div class="highlight"><pre><span></span><code>$ npm install http-server -g
+<div class="highlight"><pre><span></span><code>npm install http-server -g
 </code></pre></div>
 <p>Ha el akarjuk indítani a webszervert proxy üzemmóddal, akkor az index.html könytárában az alábbi parancsot adjuk ki (a 3000 helyére azt a portszámot írjuk, amivel  a backend alkalmazásunkat konfiguráltuk).</p>
-<div class="highlight"><pre><span></span><code>$ http-server --proxy http://localhost:3000/
+<div class="highlight"><pre><span></span><code>http-server --proxy http://localhost:3000/
 </code></pre></div>
 <p>Ha a fenti parancsnál nem található a http-server, próbálkozzunk az alábbival:</p>
-<div class="highlight"><pre><span></span><code>$ npx http-server --proxy http://localhost:3000/
+<div class="highlight"><pre><span></span><code>npx http-server --proxy http://localhost:3000/
 </code></pre></div>
 <p>Ha elindult a <code>http-server</code>, alapértelmezetten a 8080-as porton figyel (ez egyébként konfigurálható a <code>--port</code> kapcsolóval). A weboldalunkat tehát megnyithatjuk a böngészőben a <code>http://localhost:8080/index.html</code> URL-t beírva. </p>
 <p>Mivel a <code>main.js</code>-t betölti a HTML oldalunk és abban a konzolra kiírunk egy szöveget, ha megnyitjuk a developer toolbar-t a böngészőben (F12-vel), akkor a <em>Console</em> tabon látnunk kell ezt a szöveget. </p>
@@ -2557,8 +2557,8 @@
           </path>
         </svg>
       </span>
-      <span title="2026. október 26. 00:42:31">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 26. 00:42:31 CET"><span class="timeago" datetime="2026-10-26T00:42:31+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 26. 00:42:31 CET">2026-10-26</span>
+      <span title="2026. október 28. 16:30:26">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 28. 16:30:26 CET"><span class="timeago" datetime="2026-10-28T16:30:26+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 28. 16:30:26 CET">2026-10-28</span>
       </span>
     </span>
 

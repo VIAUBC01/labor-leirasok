@@ -2645,14 +2645,14 @@
 <p>Egy üres könyvtárban hozzunk létre egy <code>client</code> és egy <code>server</code> könyvtárat.</p>
 <h2 id="szerver-projektek-elokeszitese">Szerver projektek előkészítése<a class="headerlink" href="#szerver-projektek-elokeszitese" title="Permanent link">&para;</a></h2>
 <p>Lépjünk be a szerver könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy NodeJS projektet a következő parancs kiadásával: </p>
-<div class="highlight"><pre><span></span><code>$ npm init
+<div class="highlight"><pre><span></span><code>npm init
 </code></pre></div>
 <p>Ez létrehoz egy <code>package.json</code> fájlt, amiben a projektünk függőségeit (más programkönyvtárakat (= <code>npm</code> package)) leírjuk. </p>
 <p>Ellenőrizzük, hogy a TypeScript fordító telepítve van a gépünkre! Ezt érdemes a <code>-g</code> kapcsolóval telepíteni, így nem csak az adott program számára lesz elérhető, hanem globálisan az egész számítógépen. </p>
-<div class="highlight"><pre><span></span><code>$ npm install typescript -g
+<div class="highlight"><pre><span></span><code>npm install typescript -g
 </code></pre></div>
 <p>Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeScript projektet is, amellyel azt konfiguráljuk, hogy ha a könyvtárban kiadjuk a <code>tsc</code> (TypeScript Compiler) parancsot, akkor mely fájlokat és hogyan fordítsuk le. </p>
-<div class="highlight"><pre><span></span><code>$ tsc --init
+<div class="highlight"><pre><span></span><code>tsc --init
 </code></pre></div>
 <p>A generált <code>tsconfig.json</code> fájl tartalmazza a TypeScript projekt és fordító beállításait. Cseréljük le a generált fájl <strong>teljes tartalmát</strong> az alábbira: </p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2677,20 +2677,20 @@
 <h2 id="rest-api-programozasa">REST API programozása<a class="headerlink" href="#rest-api-programozasa" title="Permanent link">&para;</a></h2>
 <p>A feladat során egy REST APIt szeretnénk megvalósítani. Vagyis az a cél, hogy a szerveralkalmazásunkra érkező HTTP kérésekre megfelelő választ tudjunk adni. Ehhez az <code>Express</code> nevű keretrendszert fogjuk használni. Ezt betöltve csak fel kell konfigurálnunk, azaz megadnunk, hogy milyen végpontokat (urleket) kell figyeljen és az egyes végpontokra érkező HTTP kérésekre milyen HTTP választ akarunk küldeni. </p>
 <p>Adjuk hozzá az <code>express</code> csomagot a projektünkhöz!</p>
-<div class="highlight"><pre><span></span><code>$ npm install express -s
+<div class="highlight"><pre><span></span><code>npm install express -s
 </code></pre></div>
 <p>Mivel TypeScript nyelven dolgozunk, adjuk hozzá a <code>@types/express</code> csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt <code>express</code> könyvtárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. </p>
-<div class="highlight"><pre><span></span><code>$ npm install @types/express -s
+<div class="highlight"><pre><span></span><code>npm install @types/express -s
 </code></pre></div>
 <p>Hozzunk létre egy <code>app</code> könyvtárat, abban pedig egy <code>main.ts</code> fájlt, amiben helyezzük el a következő kódot:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello world!&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="forditas-futtatas">Fordítás, futtatás<a class="headerlink" href="#forditas-futtatas" title="Permanent link">&para;</a></h2>
 <p>A TypeScript fájlokat a <code>tsc</code> paranccsal tudjuk lefordítani. </p>
-<div class="highlight"><pre><span></span><code>$ tsc
+<div class="highlight"><pre><span></span><code>tsc
 </code></pre></div>
 <p>Ennek eredménye egy <code>main.js</code> fájl lesz a <code>build</code> mappában. Ezt az egyszerű js fájlt a <code>node</code> segítségével futtathatjuk:</p>
-<div class="highlight"><pre><span></span><code>$ node .\build\main.js
+<div class="highlight"><pre><span></span><code>node .\build\main.js
 </code></pre></div>
 <p><em>Linuxon és macOS-en a backslash helyett forward slash-t kell használni: node ./build/main.js</em></p>
 <p>Ha mindent jól csináltunk, a konzolon megjelenik a "hello world!" szöveg.</p>
@@ -2711,7 +2711,7 @@
 <li><code>build-and-start</code>: lefordítja a kódot, majd elindítja a lefordított <code>main.js</code>-t. </li>
 </ul>
 <p>Innentől tehát, ha változik a kód, elég a következő parancsot kiadni az újrafordításhoz és futtatáshoz: </p>
-<div class="highlight"><pre><span></span><code>$ npm run build-and-start
+<div class="highlight"><pre><span></span><code>npm run build-and-start
 </code></pre></div>
 <h2 id="twitter-szerver-logikajanak-megvalositasa">Twitter szerver logikájának megvalósítása<a class="headerlink" href="#twitter-szerver-logikajanak-megvalositasa" title="Permanent link">&para;</a></h2>
 <p>A következő komponenseket fogjuk megvalósítani:</p>
@@ -2784,8 +2784,8 @@
 </ul>
 <h3 id="egyedi-tweet-azonositok">Egyedi tweet azonosítók<a class="headerlink" href="#egyedi-tweet-azonositok" title="Permanent link">&para;</a></h3>
 <p>Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi <a href="https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3">GUID</a>okat fogunk generálni egy <code>uuid</code> nevű <code>npm package</code> segítségével:</p>
-<div class="highlight"><pre><span></span><code>$ npm install uuid -s
-$ npm install @types/uuid -s
+<div class="highlight"><pre><span></span><code>npm install uuid -s
+npm install @types/uuid -s
 </code></pre></div>
 <p>Alakítsuk át a <code>database.ts</code>-t a következő módon: </p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">v4</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">uuidv4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;uuid&#39;</span><span class="p">;</span>
@@ -2808,8 +2808,8 @@ $ npm install @types/uuid -s
 <p>Ezután futtatva az alkalmazást meg kell jelenjen a konzolon a log üzenet az új tweetről. <strong>Tegyünk erről egy képet a jegyzőkönyvbe!</strong></p>
 <h2 id="web-api">Web-API<a class="headerlink" href="#web-api" title="Permanent link">&para;</a></h2>
 <p>Az API programozásához az <code>express</code> csomag mellett szükség lesz annak egy pluginjára is (<a href="http://expressjs.com/en/resources/middleware/body-parser.html"><code>body-parser</code></a>), amely a bejövő HTTP kérések törzsét JSON objektummá alakítja:</p>
-<div class="highlight"><pre><span></span><code>$ npm install body-parser -s
-$ npm install @types/body-parser -s
+<div class="highlight"><pre><span></span><code>npm install body-parser -s
+npm install @types/body-parser -s
 </code></pre></div>
 <p>Hozzuk létre az <code>app/web-api.ts</code> fájlt!</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//app/web-api.ts</span>
@@ -2897,8 +2897,8 @@ $ npm install @types/body-parser -s
           </path>
         </svg>
       </span>
-      <span title="2026. október 26. 00:42:31">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 26. 00:42:31 CET"><span class="timeago" datetime="2026-10-26T00:42:31+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 26. 00:42:31 CET">2026-10-26</span>
+      <span title="2026. október 28. 16:30:26">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. október 28. 16:30:26 CET"><span class="timeago" datetime="2026-10-28T16:30:26+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. október 28. 16:30:26 CET">2026-10-28</span>
       </span>
     </span>
 
