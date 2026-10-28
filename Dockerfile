@@ -1,14 +1,13 @@
-FROM squidfunk/mkdocs-material:9.0.4
+FROM squidfunk/mkdocs-material:9.7.4
 
 # required for mkdocs-git-committers-plugin-2
 RUN apk add --no-cache --virtual .build-deps gcc libc-dev libxslt-dev && \
-    apk add --no-cache libxslt && \
-    pip install --no-cache-dir lxml>=3.5.0 && \
-    apk del .build-deps
+    apk add --no-cache libxslt
 
-RUN pip install --no-cache-dir \
-  mkdocs-git-revision-date-localized-plugin \
-  mkdocs-git-committers-plugin-2
+COPY requirements.txt /tmp/requirements.txt
+
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
+    apk del .build-deps
 
 RUN git config --global --add safe.directory /github/workspace
 
