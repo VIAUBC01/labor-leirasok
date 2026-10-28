@@ -68,8 +68,7 @@ markdown_extensions:
   - pymdownx.emoji
   
 plugins:
-  - search:
-      prebuild_index: true
+  - search
   - git-revision-date-localized:
       enable_creation_date: false
       type: timeago
@@ -77,7 +76,7 @@ plugins:
       locale: hu
   - git-committers:
       repository: VIAUBC01/labor-leirasok
-      branch: master
+      branch: main
 
 nav:
   - "Tudnivalók":
