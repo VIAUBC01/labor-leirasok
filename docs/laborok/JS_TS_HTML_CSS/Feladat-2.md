@@ -47,19 +47,19 @@ Ne felejtsük el, hogy a használathoz a `main.ts`-t mindig le kell fordítani (
 Webszervernek egy egyszerű `npm`-es programot használunk: `http-server`, mert ez parancssorból gyorsan elindítható, hogy egy könyvtár tartalmát kiszolgálja és proxy funkciója is van. 
 
 ```cmd
-$ npm install http-server -g
+npm install http-server -g
 ```
 
 Ha el akarjuk indítani a webszervert proxy üzemmóddal, akkor az index.html könytárában az alábbi parancsot adjuk ki (a 3000 helyére azt a portszámot írjuk, amivel  a backend alkalmazásunkat konfiguráltuk).
 
 ```cmd
-$ http-server --proxy http://localhost:3000/
+http-server --proxy http://localhost:3000/
 ```
 
 Ha a fenti parancsnál nem található a http-server, próbálkozzunk az alábbival:
 
 ```cmd
-$ npx http-server --proxy http://localhost:3000/
+npx http-server --proxy http://localhost:3000/
 ```
 
 Ha elindult a `http-server`, alapértelmezetten a 8080-as porton figyel (ez egyébként konfigurálható a `--port` kapcsolóval). A weboldalunkat tehát megnyithatjuk a böngészőben a `http://localhost:8080/index.html` URL-t beírva. 

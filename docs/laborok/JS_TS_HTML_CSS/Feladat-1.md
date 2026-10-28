@@ -9,7 +9,7 @@ Egy üres könyvtárban hozzunk létre egy `client` és egy `server` könyvtára
 Lépjünk be a szerver könyvtárba (mostantól végig ebben dolgozunk) és hozzunk létre egy NodeJS projektet a következő parancs kiadásával: 
 
 ```cmd
-$ npm init
+npm init
 ```
 
 Ez létrehoz egy `package.json` fájlt, amiben a projektünk függőségeit (más programkönyvtárakat (= `npm` package)) leírjuk. 
@@ -17,13 +17,13 @@ Ez létrehoz egy `package.json` fájlt, amiben a projektünk függőségeit (má
 Ellenőrizzük, hogy a TypeScript fordító telepítve van a gépünkre! Ezt érdemes a `-g` kapcsolóval telepíteni, így nem csak az adott program számára lesz elérhető, hanem globálisan az egész számítógépen. 
 
 ```cmd
-$ npm install typescript -g
+npm install typescript -g
 ```
 
 Mivel TypeScript nyelven szeretnénk programozni, ezért létrehozunk egy TypeScript projektet is, amellyel azt konfiguráljuk, hogy ha a könyvtárban kiadjuk a `tsc` (TypeScript Compiler) parancsot, akkor mely fájlokat és hogyan fordítsuk le. 
 
 ```cmd
-$ tsc --init
+tsc --init
 ```
 
 A generált `tsconfig.json` fájl tartalmazza a TypeScript projekt és fordító beállításait. Cseréljük le a generált fájl **teljes tartalmát** az alábbira: 
@@ -56,13 +56,13 @@ A feladat során egy REST APIt szeretnénk megvalósítani. Vagyis az a cél, ho
 Adjuk hozzá az `express` csomagot a projektünkhöz!
 
 ```cmd
-$ npm install express -s
+npm install express -s
 ```
 
 Mivel TypeScript nyelven dolgozunk, adjuk hozzá a `@types/express` csomagot is. Ez TypeScript nyelvű típusannotációkat tartalmaz az eredetileg JavaScript nyelven megírt `express` könyvtárhoz, így a fordító ellenőrizni tudja, hogy megfelelően használjuk-e a könyvtárat. 
 
 ```cmd 
-$ npm install @types/express -s
+npm install @types/express -s
 ```
 
 Hozzunk létre egy `app` könyvtárat, abban pedig egy `main.ts` fájlt, amiben helyezzük el a következő kódot:
@@ -75,13 +75,13 @@ console.log('hello world!');
 A TypeScript fájlokat a `tsc` paranccsal tudjuk lefordítani. 
 
 ```cmd
-$ tsc
+tsc
 ```
 
 Ennek eredménye egy `main.js` fájl lesz a `build` mappában. Ezt az egyszerű js fájlt a `node` segítségével futtathatjuk:
 
 ```cmd
-$ node .\build\main.js
+node .\build\main.js
 ```
 
 *Linuxon és macOS-en a backslash helyett forward slash-t kell használni: node ./build/main.js*
@@ -111,7 +111,7 @@ A fenti szkriptek szerepe a következő:
 Innentől tehát, ha változik a kód, elég a következő parancsot kiadni az újrafordításhoz és futtatáshoz: 
 
 ```cmd
-$ npm run build-and-start
+npm run build-and-start
 ```
 
 ## Twitter szerver logikájának megvalósítása
@@ -197,8 +197,8 @@ Egészítse ki a `Database` osztály függvényeit loggolással (`console.log(..
 Minden tweetnek lesz egy egyedi azonosítója. Ezeket képezhetjük valamilyen számláló karbantartásával (ahogyan azt a fenti kódban tettük), de ehelyett egyedi [GUID](https://hu.wikipedia.org/wiki/Glob%C3%A1lisan_egyedi_azonos%C3%ADt%C3%B3)okat fogunk generálni egy `uuid` nevű `npm package` segítségével:
 
 ```cmd
-$ npm install uuid -s
-$ npm install @types/uuid -s
+npm install uuid -s
+npm install @types/uuid -s
 ```
 
 Alakítsuk át a `database.ts`-t a következő módon: 
@@ -233,8 +233,8 @@ Ezután futtatva az alkalmazást meg kell jelenjen a konzolon a log üzenet az �
 Az API programozásához az `express` csomag mellett szükség lesz annak egy pluginjára is ([`body-parser`](http://expressjs.com/en/resources/middleware/body-parser.html)), amely a bejövő HTTP kérések törzsét JSON objektummá alakítja:
 
 ```cmd
-$ npm install body-parser -s
-$ npm install @types/body-parser -s
+npm install body-parser -s
+npm install @types/body-parser -s
 ```
 
 Hozzuk létre az `app/web-api.ts` fájlt!

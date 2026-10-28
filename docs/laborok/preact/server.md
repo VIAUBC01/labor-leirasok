@@ -22,10 +22,10 @@ Ez az alkalmazás egy REST API-t publikáló alkalmazás, amely elindítása ut�
 
 1. Telepítsük a `package.json` fájl alapján a szükséges segédkönyvtárakat:
     ```cmd
-    $ npm install 
+    npm install 
     ```
 1. Fordítsuk le és indítsuk el az alkalmazást: 
     ```cmd
-    $ npm run build-and-start
+    npm run build-and-start
     ```
 
