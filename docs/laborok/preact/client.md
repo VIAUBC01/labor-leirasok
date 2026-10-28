@@ -242,6 +242,8 @@ A fenti komponens a korábban elkészített service segítségével megjeleníti
 Frissítsük az index.tsx `App` függvényét, hogy az új komponensünk jelenjen meg az oldal betöltésekor:
 
 ```typescript
+import { TweetsList } from './components/TweetsList';
+
 export function App() {
 	return (
 	  <div>
@@ -364,6 +366,12 @@ A végén ne felejtsük el átírni a `NewTweet.tsx` komponens kódját, hogy az
 A Bootstrap keretrendszer segítségével adjon hozzá néhány stílust az oldalhoz, hogy szebben nézzen ki. Különösen ügyeljen a Header komponens formázására, itt használja a [navbar, nav-link](https://getbootstrap.com/docs/5.3/components/navbar/) stb. Bootstrap osztályokat! Ha korábban nem tette meg, előbb telepítse a bootstrap csomagot:
 
 > `npm install bootstrap`
+
+A telepítés önmagában még nem tölti be a stílusokat. Importáljuk a Bootstrap CSS fájlját az `index.tsx` elején:
+
+```typescript
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
 
 **Illesszen be a tweets és az új tweet oldalakról egy-egy képernyőképet a jegyzőkönyvbe!**
 

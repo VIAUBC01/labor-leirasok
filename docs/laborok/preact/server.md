@@ -12,9 +12,9 @@ Ez az alkalmazás egy REST API-t publikáló alkalmazás, amely elindítása ut�
         "tags"?: string[] // a tweet címkéi
     }
     ```
-* `GET http://localhost:3000/api/search`: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a `text` és `tags` paraméterekkel lehet megadni. A `tags` paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:
-    * `GET http://localhost:3000/api/search?text=alma`: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. 
-    * `GET http://localhost:3000/api/search?tags=a,b&text=alma`: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek tartalmazzák az 'a', vagy 'b' címkéket. 
+* `GET http://localhost:3000/api/tweets/search`: keres a szerveren eltárolt tweetek között. A keresés paramétereit az URLben a `text` és `tags` paraméterekkel lehet megadni. A `tags` paraméter a lehetséges értékeket ','-vel elválasztva kell leírnia. Például:
+    * `GET http://localhost:3000/api/tweets/search?text=alma`: Visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót. 
+    * `GET http://localhost:3000/api/tweets/search?tags=a,b&text=alma`: visszaadja azokat a tweeteket, amelyek szövege tartalmazza az 'alma' szót és amelyek tartalmazzák az 'a', vagy 'b' címkéket. 
 * `GET http://localhost:3000/api/tweets/<ID>`: Visszaad egy adott azonosítójú tweetet. 
 * `DELETE http://localhost:3000/api/tweets/<IDS_LIST>`: Kitörli az adott azonosítójú tweeteket. Az ID-kat vesszővel elválasztva kell leírni
 
