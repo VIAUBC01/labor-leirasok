@@ -2,7 +2,7 @@
 
 ## Projekt létrehozása
 
-Nyissunk meg egy tetszőleges mappát (pl. a szerver projekt mellett) a projektnek VS Code-ban, majd a Terminalban (`Ctrl+Ö`) adjuk ki az alábbi parancsot:
+Nyissuk meg VS Code-ban a feladat repository gyökérmappáját, ahol a `server` mappa is található (a kliens projekt így a `server` mappa mellett fog létrejönni), majd a Terminalban (`Ctrl+Ö`) adjuk ki az alábbi parancsot:
 
 > `npm init preact`
 
