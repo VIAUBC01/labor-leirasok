@@ -2618,11 +2618,11 @@
 
 <h1 id="android-1">Android 1<a class="headerlink" href="#android-1" title="Permanent link">&para;</a></h1>
 <h2 id="vilagjaro-android-alkalmazas-fejlesztese">Világjáró Android alkalmazás fejlesztése<a class="headerlink" href="#vilagjaro-android-alkalmazas-fejlesztese" title="Permanent link">&para;</a></h2>
-<p>Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a <a href="https://restcountries.com/">https://restcountries.com/</a> oldalon részletezett API hívások segítségével töltse be.
+<p>Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a <a href="https://countries.dev/docs">https://countries.dev/docs</a> oldalon részletezett API hívások segítségével töltse be.
 Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API végpont példákat.</p>
 <ul>
-<li><a href="https://restcountries.com/v3.1/all?fields=name">https://restcountries.com/v3.1/all?fields=name</a></li>
-<li><a href="https://restcountries.com/v3.1/name/Hungary">https://restcountries.com/v3.1/name/Hungary</a></li>
+<li><a href="https://countries.dev/countries?fields=name">https://countries.dev/countries?fields=name</a></li>
+<li><a href="https://countries.dev/name/Hungary">https://countries.dev/name/Hungary</a></li>
 <li>stb.</li>
 </ul>
 <p>Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy tervezhessen, és ne közben kelljen módosítani az adatmodellen pl.
@@ -2696,7 +2696,7 @@ Az alkalmazás elkészítése során törekedjen a strukturált felépítésre, 
 <li>Törekedjen a hálózati adatforgalom minimalizálására! Használja az API által biztosított szűrési lehetőséget (filter response) a szükséges adatmezőkre (előretekintve a további feladatokra is). </li>
 </ul>
 <div class="highlight"><pre><span></span><code>//Retrofit dependencies
-val retrofit_version = &quot;2.9.0&quot;
+val retrofit_version = &quot;3.0.0&quot;
 implementation(&quot;com.squareup.retrofit2:retrofit:$retrofit_version&quot;)
 implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quot;)
 
@@ -2708,17 +2708,17 @@ implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quo
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">CountryApi</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@GET</span><span class="p">(</span><span class="s">&quot;v3.1/name/{name}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@GET</span><span class="p">(</span><span class="s">&quot;name/{name}&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getCountryByName</span><span class="p">(</span><span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="n">Call</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">CountryData?&gt;</span><span class="o">?&gt;</span>
 
 <span class="p">}</span>
 </code></pre></div>
-<p>NetWorkManager.kt
+<p>NetworkManager.kt
 <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">NetworkManager</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">retrofit</span><span class="p">:</span><span class="w"> </span><span class="n">Retrofit</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">countryApi</span><span class="p">:</span><span class="w"> </span><span class="n">CountryApi</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">SERVICE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://restcountries.com/&quot;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">SERVICE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://countries.dev/&quot;</span>
 
 <span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">retrofit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Retrofit</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
@@ -2789,8 +2789,8 @@ implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quo
 <span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span><span class="w"> </span><span class="n">CountryViewHolder</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">countries</span><span class="o">[</span><span class="n">position</span><span class="o">]</span>
 
-<span class="w">        </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">tvCountryName</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">common</span>
-<span class="w">        </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">tvCountryAlpha3</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="na">cca3</span>
+<span class="w">        </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">tvCountryName</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="na">name</span>
+<span class="w">        </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">tvCountryAlpha3</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="na">alpha3Code</span>
 <span class="w">        </span><span class="n">Glide</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">root</span><span class="p">.</span><span class="na">context</span><span class="p">).</span><span class="na">load</span><span class="p">(</span><span class="n">country</span><span class="p">.</span><span class="na">flags</span><span class="p">.</span><span class="na">png</span><span class="p">).</span><span class="na">into</span><span class="p">(</span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">ivFlag</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -2808,7 +2808,19 @@ implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quo
 </code></pre></div>
 <p>dialog_new_country.xml
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="cp">&lt;!--...-&gt;</span>
+<span class="nt">&lt;LinearLayout</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+<span class="w">    </span><span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">    </span><span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">    </span><span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+<span class="w">    </span><span class="na">android:padding=</span><span class="s">&quot;24dp&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;EditText</span>
+<span class="w">        </span><span class="na">android:id=</span><span class="s">&quot;@+id/etNewCountry&quot;</span>
+<span class="w">        </span><span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">        </span><span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="w">        </span><span class="na">android:inputType=</span><span class="s">&quot;text&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div></p>
 <p>AddCountryDialogFragment.kt
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">AddCountryDialogFragment</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AppCompatDialogFragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2913,7 +2925,7 @@ implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quo
 <span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="n">Toast</span><span class="p">.</span><span class="na">makeText</span><span class="p">(</span>
 <span class="w">                        </span><span class="k">this</span><span class="nd">@ListActivity</span><span class="p">,</span>
-<span class="w">                        </span><span class="s">&quot;Error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">message</span><span class="p">(),</span>
+<span class="w">                        </span><span class="s">&quot;Error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">code</span><span class="p">(),</span>
 <span class="w">                        </span><span class="n">Toast</span><span class="p">.</span><span class="na">LENGTH_SHORT</span>
 <span class="w">                    </span><span class="p">).</span><span class="na">show</span><span class="p">()</span>
 <span class="w">                </span><span class="p">}</span>
@@ -2981,8 +2993,8 @@ implementation(&quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quo
           </path>
         </svg>
       </span>
-      <span title="2025. november 15. 19:14:45">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. november 15. 19:14:45 CET"><span class="timeago" datetime="2025-11-15T19:14:45+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. november 15. 19:14:45 CET">2025-11-15</span>
+      <span title="2026. november 2. 11:22:02">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. november 2. 11:22:02 CET"><span class="timeago" datetime="2026-11-02T11:22:02+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. november 2. 11:22:02 CET">2026-11-02</span>
       </span>
     </span>
 
