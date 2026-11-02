@@ -32,18 +32,21 @@ A feladatok megoldása során ne felejtsd el követni a [feladat beadás folyama
 
 1. A `neptun.txt` fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.
 
+1. A feladatmegoldás során folyamatosan vezesd az esetleges AI használatot az `README.md` fájlban.
+
 ### Projekt létrehozása
 
 Első lépésként indítsuk el az Android Studio-t, majd:
 
 1. Hozzunk létre egy új projektet, válasszuk az *Empty Views Activity* lehetőséget.
 1. A projekt neve legyen `Vilagjaro`, a kezdő package pedig `hu.bme.aut.android.vilagjaro`.
+1. Mentés helyének válasszuk ki a klónozott repot. 
 1. Nyelvnek válasszuk a *Kotlin*-t.
 1. A minimum API szint legyen API24: Android 7.0.
 1. A *Build configuration language* Kotlin DSL legyen.
 
 !!!danger "FILE PATH"
-	A projekt mindenképpen a repository-ban lévő MineSweeper könyvtárba kerüljön, és beadásnál legyen is felpusholva! A kód nélkül nem tudunk maximális pontot adni a laborra!
+	A projekt mindenképpen a repository-ban lévő Vilagjaro könyvtárba kerüljön, és beadásnál legyen is felpusholva! A kód nélkül nem tudunk maximális pontot adni a laborra!
 
 
 ## Tippek
@@ -55,7 +58,7 @@ Első lépésként indítsuk el az Android Studio-t, majd:
 * Perzisztencia és hálózati hívásoknál figyeljen a megfelelő szálkezelésre!.
 * Gondoljon az internetkapcsolat hiányára, a távoli kiszolgálók hibáira és ezek megfelelő lekezelésére, illetve a felhasználó megfelelő tájékoztatására.
 * A Google Térkép használatához, valamint a szükséges API kulcs elkészítéséhez az Android Studio új Google Maps Activity opciója jó példát mutat.
-* A tesztelés Nexus 5X API 31, Android 12.0 (Google APIs) x86_64 emulátoron fog történni.
+* A tesztelés Medium Phone API 37 (CinnamonBun), Android 17.0 Google Play Intel x86_64 emulátoron fog történni.
 * Érdemes az előző féléves előadáson és a laborokon tanult ismereteket és projekteket alapul venni a feladatok megoldásához.
     * https://www.aut.bme.hu/Course/VIAUBB03 
     * https://github.com/bmeaut/VIAUBB03/tree/master/Mobil/El%C5%91ad%C3%A1s%20p%C3%A9ld%C3%A1k 
