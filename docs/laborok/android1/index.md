@@ -2,11 +2,11 @@
 
 ## Világjáró Android alkalmazás fejlesztése 
 
-Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a https://restcountries.com/ oldalon részletezett API hívások segítségével töltse be.
+Készítsen Kotlin nyelven Világjáró Android alkalmazást! Az alkalmazás az adatait a https://countries.dev/docs oldalon részletezett API hívások segítségével töltse be.
 Tanulmányozza és a böngészőben próbálja ki az oldalon lévő API végpont példákat.
 
-* https://restcountries.com/v3.1/all?fields=name
-* https://restcountries.com/v3.1/name/Hungary
+* https://countries.dev/countries?fields=name
+* https://countries.dev/name/Hungary
 * stb.
 
 Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy tervezhessen, és ne közben kelljen módosítani az adatmodellen pl.
@@ -75,7 +75,7 @@ Első lépésként indítsuk el az Android Studio-t, majd:
 
 ```gradle
 //Retrofit dependencies
-val retrofit_version = "2.9.0"
+val retrofit_version = "3.0.0"
 implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
 implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
@@ -91,19 +91,19 @@ data class CountryData (
 ```kotlin
 interface CountryApi {
 
-    @GET("v3.1/name/{name}")
+    @GET("name/{name}")
     fun getCountryByName(@Path("name") name: String): Call<List<CountryData?>?>
 
 }
 ```
 
-NetWorkManager.kt
+NetworkManager.kt
 ```kotlin
 object NetworkManager {
     private val retrofit: Retrofit
     private val countryApi: CountryApi;
 
-    private const val SERVICE_URL = "https://restcountries.com/"
+    private const val SERVICE_URL = "https://countries.dev/"
 
     init {
         retrofit = Retrofit.Builder()
@@ -179,8 +179,8 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = countries[position]
 
-        holder.binding.tvCountryName.text = country.name.common
-        holder.binding.tvCountryAlpha3.text = country.cca3
+        holder.binding.tvCountryName.text = country.name
+        holder.binding.tvCountryAlpha3.text = country.alpha3Code
         Glide.with(holder.binding.root.context).load(country.flags.png).into(holder.binding.ivFlag)
     }
 
@@ -200,7 +200,19 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
 dialog_new_country.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<!--...->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etNewCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+</LinearLayout>
 ```
 
 AddCountryDialogFragment.kt
@@ -313,7 +325,7 @@ class ListActivity : AppCompatActivity(),
                 } else {
                     Toast.makeText(
                         this@ListActivity,
-                        "Error: " + response.message(),
+                        "Error: " + response.code(),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
