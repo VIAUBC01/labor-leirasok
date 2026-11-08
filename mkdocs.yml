@@ -88,7 +88,13 @@ nav:
   - "Laborok":
       - laborok/android1/index.md
       - laborok/android2/index.md
-      - laborok/azure/index.md
+      - "Azure":
+          - laborok/azure/index.md
+          - laborok/azure/Feladat-1.md
+          - laborok/azure/Feladat-2.md
+          - laborok/azure/Feladat-3.md
+          - laborok/azure/Feladat-4.md
+          - laborok/azure/Bonusz.md
       - "Entity Framework":
           - laborok/ef/index.md   
           - laborok/ef/Feladat-1.md   
