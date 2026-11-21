@@ -776,6 +776,18 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#jatek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Játék
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Játék">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#jatek-motor" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -787,13 +799,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#felulet" class="md-nav__link">
+  <a href="#jatek-felulet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Felület
+        Játék felület
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2869,6 +2886,18 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#jatek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Játék
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Játék">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#jatek-motor" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2880,13 +2909,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#felulet" class="md-nav__link">
+  <a href="#jatek-felulet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Felület
+        Játék felület
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2960,7 +2994,7 @@
 <li>5x5 játéktér elég</li>
 <li>3 akna elég</li>
 <li>nem kell teljes feltöltő logikát írni, elég ha be van égetve egy fix elrendezés</li>
-<li>a felületen elhelyezhető egy ToggleButton vagy checkbox az akció kiválasztásához:<ul>
+<li>Működjenek az alábbi funkciók:<ul>
 <li>zászló lehelyezése</li>
 <li>mező kipróbálása</li>
 </ul>
@@ -2971,38 +3005,44 @@
 </ul>
 </li>
 </ul>
-<p>Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy tervezhessen, és ne közben kelljen módosítani az adatmodellen pl.
+<p>Érdemes először végigolvasni az összes feladatot, hogy aki minden funkciót szeretne megvalósítani, már az elején úgy tervezhessen, és ne közben kelljen módosítani például az adatmodellen.
 Az alkalmazás elkészítése során törekedj a strukturált felépítésre, kódszervezésére. Készíts letisztult, ergonomikus felhasználói felületeket, figyelj a vissza gomb megfelelő működésére, továbbá a hibák kezelésére és a felhasználó számára történő releváns visszajelzésekre.</p>
 <h3 id="ertekeles">Értékelés<a class="headerlink" href="#ertekeles" title="Permanent link">&para;</a></h3>
 <p>Az Alapok rész hiánytalan megvalósítása esetén sikeres (elégséges) a labor. Az Alapok részen kívül megoldott minden további részfeladat hiánytalan megvalósítása plusz egy jegyet jelent. A feladatok részben egymásra épülnek, ezért az ebből következő hiányok – feladat kihagyás esetén – szükség szerint áthidalhatók pl. dummy adatok használatával.</p>
+<p>Minden egyes fázisról szükséges </p>
+<ul>
+<li>képernyőképet készíteni, </li>
+<li>a fejlesztési lépéseket néhány mondatban dokumentálni a <code>README.md</code> fájlban.</li>
+</ul>
+<p>Az AI használat megengedett, de ebben az esetben is szükséges a kód működését elmagyarázni, így igazolva a megértést.</p>
 <h2 id="elokeszuletek">Előkészületek<a class="headerlink" href="#elokeszuletek" title="Permanent link">&para;</a></h2>
 <p>A feladatok megoldása során ne felejtsd el követni a <a href="../../tudnivalok/github/GitHub/">feladat beadás folyamatát</a>.</p>
 <h3 id="git-repository-letrehozasa-es-letoltese">Git repository létrehozása és letöltése<a class="headerlink" href="#git-repository-letrehozasa-es-letoltese" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat.</p>
+<p>Moodle-ben keresd meg a laborhoz tartozó meghívó URL-jét és annak segítségével hozd létre a saját repository-dat!</p>
 </li>
 <li>
-<p>Várd meg, míg elkészül a repository, majd checkout-old ki.</p>
+<p>Várd meg, míg elkészül a repository, majd checkout-old ki!</p>
 <div class="admonition warning">
 <p class="admonition-title">Checkout</p>
 <p>Egyetemi laborokban, ha a checkout során nem kér a rendszer felhasználónevet és jelszót, és nem sikerül a checkout, akkor valószínűleg a gépen korábban megjegyzett felhasználónévvel próbálkozott a rendszer. Először töröld ki a mentett belépési adatokat (lásd <a href="../../tudnivalok/github/GitHub-credentials/">itt</a>), és próbáld újra.</p>
 </div>
 </li>
 <li>
-<p>Hozz létre egy új ágat <code>megoldas</code> néven, és ezen az ágon dolgozz.</p>
+<p>Hozz létre egy új ágat <code>megoldas</code> néven, és ezen az ágon dolgozz!</p>
 </li>
 <li>
-<p>A <code>neptun.txt</code> fájlba írd bele a Neptun kódodat. A fájlban semmi más ne szerepeljen, csak egyetlen sorban a Neptun kód 6 karaktere.</p>
+<p>Folyamatosan dokumentáld a haladást a <code>README.md</code> fájlban!</p>
 </li>
 </ol>
 <h3 id="projekt-letrehozasa">Projekt létrehozása<a class="headerlink" href="#projekt-letrehozasa" title="Permanent link">&para;</a></h3>
 <p>Első lépésként indítsuk el az Android Studio-t, majd:</p>
 <ol>
-<li>Hozzunk létre egy új projektet, válasszuk az <em>Empty Views Activity</em> lehetőséget.</li>
+<li>Hozzunk létre egy új projektet, válasszuk az <em>Empty Activity</em> lehetőséget.</li>
 <li>A projekt neve legyen <code>MineSweeper</code>, a kezdő package pedig <code>hu.bme.aut.klaf.minesweeper</code>.</li>
 <li>Nyelvnek válasszuk a <em>Kotlin</em>-t.</li>
-<li>A minimum API szint legyen API24: Android 7.0.</li>
+<li>A minimum API szint legyen API26: Android 8.0.</li>
 <li>A <em>Build configuration language</em> Kotlin DSL legyen.</li>
 </ol>
 <div class="admonition danger">
@@ -3025,11 +3065,14 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 <h3 id="fomenu">Főmenü<a class="headerlink" href="#fomenu" title="Permanent link">&para;</a></h3>
 <p>Az alkalmazás indulása után egy főmenü jelenjen meg két gombbal: "Új játék" és "Eredmények"</p>
 <p>Az "Új játék" gomb megnyomására egy új felületen jelenjen meg a játéktér, amin érintés esemény hatására változnak az egyes mezők. Mivel itt több elem együttes működésére van szükség, a lépéseket és mintakódokat biztosítunk.</p>
-<h3 id="jatek-motor">Játék motor<a class="headerlink" href="#jatek-motor" title="Permanent link">&para;</a></h3>
-<p>A játék állapotának nyilvántartásához szükségünk lesz egy mező osztályra és egy singleton model osztályra:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Tile</span><span class="p">(</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">type</span><span class="p">:</span><span class="w"> </span><span class="n">TileType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">minesAround</span><span class="p">:</span><span class="w"> </span><span class="kt">Byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="c1">//-1 means mine</span>
+<h3 id="jatek">Játék<a class="headerlink" href="#jatek" title="Permanent link">&para;</a></h3>
+<p>A játék állapotának nyilvántartásához szükségünk lesz egy mező osztályra az abból képzett 2 dimenziós tömbre, illetve a játéktéren elvégezhető műveletekre. A mező osztályt és a műveleteket (melyeket egy <em>interface</em>-ben sorolunk fel, helyezzük a <code>domain</code> rétegbe, hiszen ezek alkotják az alkalmazás gerincét:</p>
+<h4 id="jatek-motor">Játék motor<a class="headerlink" href="#jatek-motor" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.model</span>
+
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Tile</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">type</span><span class="p">:</span><span class="w"> </span><span class="n">TileType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">minesAround</span><span class="p">:</span><span class="w"> </span><span class="kt">Byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1">//-1 means mine</span>
 <span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">TileType</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">FIELD_TYPE_NORMAL</span><span class="p">,</span>
@@ -3038,154 +3081,326 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">MineSweeperModel</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.repository</span>
 
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">fieldMatrix</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Tile</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span>
-<span class="w">                </span><span class="n">arrayOf</span><span class="p">(</span>
-<span class="w">                    </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
-<span class="w">                    </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
-<span class="w">                    </span><span class="p">...</span>
-<span class="w">                </span><span class="p">),</span>
-<span class="w">                </span><span class="n">arrayOf</span><span class="p">(</span>
-<span class="w">                    </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span>
-<span class="w">                    </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">),</span>
-<span class="w">                    </span><span class="p">...</span>
-<span class="w">                </span><span class="p">),</span>
-<span class="w">                </span><span class="p">...</span>
-<span class="w">                </span><span class="p">)</span>
-<span class="w">            </span><span class="p">)</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.model.Tile</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.StateFlow</span>
 
-<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initGameArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nc">IMineSweeperRepository</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getField</span><span class="p">():</span><span class="w"> </span><span class="n">StateFlow</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Tile</span><span class="o">&gt;&gt;&gt;</span>
 
-<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getFieldContent</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">Tile</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">flagField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">unFlagField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">revealField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="p">}</span>
 </code></pre></div>
-<h3 id="felulet">Felület<a class="headerlink" href="#felulet" title="Permanent link">&para;</a></h3>
-<p>A képernyőn való megjelenítéshez szükségünk lesz egy saját View-ra, minek felül kell írni az alábbi függvényeit:</p>
-<ul>
-<li>onDraw: itt történik a view kirajzolása. Ezt jelenleg két részre bontottuk: a játéktér és a játékállapot kirajzolása.</li>
-<li>onMeasure: ahhoz szükséges, hogy megállapítsuk a megfelelő dimenziókat egy maximális négyzet rajzolásához.</li>
-<li>onTouchEvent: az érintés események lekezelése. Itt kell az felhasználói akció és a meglévő modell alapján változtatni a modellt. A végén az <em>invalidate()</em> hatására rajzolódik újra a view.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MineSweeperView</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+<p>A konkrét játéktér összeállítását és a műveletek megvalósítását már az adat réteg tartalmazza:</p>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.data</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">paintBg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paint</span><span class="p">()</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">paintLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paint</span><span class="p">()</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.repository.IMineSweeperRepository</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.model.Tile</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.MutableStateFlow</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.StateFlow</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.asStateFlow</span>
 
-<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context?)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">super</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context?,</span><span class="w"> </span><span class="n">attrs</span><span class="p">:</span><span class="w"> </span><span class="n">AttributeSet?)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">super</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p">)</span>
+<span class="kd">object</span><span class="w"> </span><span class="nc">MineSweeperModel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IMineSweeperRepository</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">BOARD_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">fieldMatrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableStateFlow</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Array</span><span class="p">(</span><span class="n">BOARD_SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="n">BOARD_SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Tile</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
 
 <span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">paintBg</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span>
-<span class="w">        </span><span class="n">paintBg</span><span class="p">.</span><span class="na">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paint</span><span class="p">.</span><span class="na">Style</span><span class="p">.</span><span class="na">FILL</span>
-
-<span class="w">        </span><span class="n">paintLine</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span>
-<span class="w">        </span><span class="n">paintLine</span><span class="p">.</span><span class="na">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paint</span><span class="p">.</span><span class="na">Style</span><span class="p">.</span><span class="na">STROKE</span>
-<span class="w">        </span><span class="n">paintLine</span><span class="p">.</span><span class="na">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5F</span>
+<span class="w">        </span><span class="n">initGameArea</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onDraw</span><span class="p">(</span><span class="n">canvas</span><span class="p">:</span><span class="w"> </span><span class="n">Canvas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawRect</span><span class="p">(</span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">.</span><span class="na">toFloat</span><span class="p">(),</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="na">toFloat</span><span class="p">(),</span><span class="w"> </span><span class="n">paintBg</span><span class="p">)</span>
-
-<span class="w">        </span><span class="n">drawGameArea</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
-<span class="w">        </span><span class="n">drawGameState</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
-
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initGameArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">arrayOf</span><span class="p">(</span>
+<span class="w">                </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">),</span>
+<span class="w">                </span><span class="n">TODO</span><span class="p">()</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">            </span><span class="n">arrayOf</span><span class="p">(</span>
+<span class="w">                </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Tile</span><span class="p">(</span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">                </span><span class="n">TODO</span><span class="p">()</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">            </span><span class="n">TODO</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">drawGameArea</span><span class="p">(</span><span class="n">canvas</span><span class="p">:</span><span class="w"> </span><span class="n">Canvas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">widthFloat</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">.</span><span class="na">toFloat</span><span class="p">()</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">heightFloat</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="na">toFloat</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getField</span><span class="p">():</span><span class="w"> </span><span class="n">StateFlow</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Tile</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">asStateFlow</span><span class="p">()</span>
 
-<span class="w">        </span><span class="c1">// border</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawRect</span><span class="p">(</span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">,</span><span class="w"> </span><span class="n">paintLine</span><span class="p">)</span>
-
-<span class="w">        </span><span class="c1">// four horizontal lines</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">paintLine</span><span class="p">)</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">paintLine</span><span class="p">)</span>
-<span class="w">        </span><span class="p">...</span>
-
-<span class="w">        </span><span class="c1">// four vertical lines</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">,</span><span class="w"> </span><span class="n">paintLine</span><span class="p">)</span>
-<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">,</span><span class="w"> </span><span class="n">paintLine</span><span class="p">)</span>
-<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">flagField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="p">)</span>
+<span class="w">            </span><span class="n">modifyFieldType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">drawGameState</span><span class="p">(</span><span class="n">canvas</span><span class="p">:</span><span class="w"> </span><span class="n">Canvas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">unFlagField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="p">)</span>
+<span class="w">            </span><span class="n">modifyFieldType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">revealField</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="p">)</span>
+<span class="w">            </span><span class="n">modifyFieldType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">modifyFieldType</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">current</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">clone</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">updated</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">updated</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">).</span><span class="na">copy</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<span class="w">        </span><span class="n">fieldMatrix</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">updated</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Látható, hogy a játéktér állapotát egy <code>MutableStateFlow</code>-n kereszül adjuk ki, így helyes használat esetén az állapotok változása azonnal megjelenik a UI-en.</p>
+<h4 id="jatek-felulet">Játék felület<a class="headerlink" href="#jatek-felulet" title="Permanent link">&para;</a></h4>
+<p>A képernyőn való megjelenítést egy saját <em>@Composable</em>-ben fogjuk megvalósítani:</p>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.ui.screen.game</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.Canvas</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.gestures.detectTapGestures</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.aspectRatio</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.Composable</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.collectAsState</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.getValue</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.Modifier</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.geometry.Offset</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.Color</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.StrokeCap</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.drawscope.DrawScope</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.drawscope.Stroke</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.nativeCanvas</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.input.pointer.pointerInput</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.unit.dp</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.data.MineSweeperModel</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.domain.model.Tile</span>
+
+<span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">GameArea</span><span class="p">(</span><span class="n">modifier</span><span class="p">:</span><span class="w"> </span><span class="n">Modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">fieldMatrix</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">getField</span><span class="p">().</span><span class="na">collectAsState</span><span class="p">()</span>
+
+<span class="w">    </span><span class="n">Canvas</span><span class="p">(</span>
+<span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modifier</span>
+<span class="w">            </span><span class="p">.</span><span class="na">fillMaxWidth</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">aspectRatio</span><span class="p">(</span><span class="m">1f</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">pointerInput</span><span class="p">(</span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">detectTapGestures</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">onLongPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">tX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellWidth</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
+<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">tY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellHeight</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tX</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tY</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">tX</span><span class="o">][</span><span class="n">tY</span><span class="o">]</span>
+<span class="w">                            </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                                    </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">flagField</span><span class="p">(</span>
+<span class="w">                                        </span><span class="n">tX</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">tY</span>
+<span class="w">                                    </span><span class="p">)</span>
+
+<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                                    </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">unFlagField</span><span class="p">(</span>
+<span class="w">                                        </span><span class="n">tX</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">tY</span>
+<span class="w">                                    </span><span class="p">)</span>
+
+<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                            </span><span class="p">}</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="n">onTap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                        </span><span class="n">TODO</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">widthFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">heightFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+
+
+<span class="w">        </span><span class="c1">// 1. Háttér rajzolása</span>
+<span class="w">        </span><span class="n">drawRect</span><span class="p">(</span>
+<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Black</span><span class="p">,</span>
+<span class="w">            </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 2. Játékállapot rajzolása</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">getFieldContent</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">).</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span>
-<span class="w">                        </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">((</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="n">paintLine</span>
-<span class="w">                    </span><span class="p">)</span>
-<span class="w">                    </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span>
-<span class="w">                        </span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="p">((</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">).</span><span class="na">toFloat</span><span class="p">(),</span>
-<span class="w">                        </span><span class="n">paintLine</span>
-<span class="w">                    </span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">startX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">startY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">endX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">endY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">                </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                        </span><span class="n">drawFlag</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span><span class="w"> </span><span class="n">startY</span><span class="p">,</span><span class="w"> </span><span class="n">endX</span><span class="p">,</span><span class="w"> </span><span class="n">endY</span><span class="p">)</span>
+
+<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TODO</span><span class="p">()</span>
+
+<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">                </span><span class="p">}</span>
-<span class="w">                </span><span class="p">...</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onMeasure</span><span class="p">(</span><span class="n">widthMeasureSpec</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">heightMeasureSpec</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">View</span><span class="p">.</span><span class="na">MeasureSpec</span><span class="p">.</span><span class="na">getSize</span><span class="p">(</span><span class="n">widthMeasureSpec</span><span class="p">)</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">View</span><span class="p">.</span><span class="na">MeasureSpec</span><span class="p">.</span><span class="na">getSize</span><span class="p">(</span><span class="n">heightMeasureSpec</span><span class="p">)</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">d</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
-
-<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">h</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">)</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">setMeasuredDimension</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">//3. Játéktér rajzolása</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.</span><span class="n">dp</span><span class="p">.</span><span class="na">toPx</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">lineColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">White</span>
 
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTouchEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">MotionEvent?)</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="o">?.</span><span class="na">action</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MotionEvent</span><span class="p">.</span><span class="na">ACTION_DOWN</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">tX</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">)).</span><span class="na">toInt</span><span class="p">()</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">tY</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">)).</span><span class="na">toInt</span><span class="p">()</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">getFieldContent</span><span class="p">(</span><span class="n">tX</span><span class="p">,</span><span class="w"> </span><span class="n">tY</span><span class="p">).</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="p">...</span>
-<span class="w">                    </span><span class="n">invalidate</span><span class="p">()</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">super</span><span class="p">.</span><span class="na">onTouchEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="w">        </span><span class="n">drawRect</span><span class="p">(</span>
+<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
+<span class="w">            </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+<span class="w">            </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stroke</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">            </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
+<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
+<span class="w">                </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
+<span class="w">                </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">            </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
+<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">0f</span><span class="p">),</span>
+<span class="w">                </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">),</span>
+<span class="w">                </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
+<span class="w">            </span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="n">DrawScope</span><span class="p">.</span><span class="nf">drawFlag</span><span class="p">(</span>
+<span class="w">    </span><span class="n">startX</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">startY</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endX</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endY</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Red</span><span class="p">,</span>
+<span class="w">        </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span><span class="w"> </span><span class="n">startY</span><span class="p">),</span>
+<span class="w">        </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">endX</span><span class="p">,</span><span class="w"> </span><span class="n">endY</span><span class="p">),</span>
+<span class="w">        </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.</span><span class="n">dp</span><span class="p">.</span><span class="na">toPx</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StrokeCap</span><span class="p">.</span><span class="na">Round</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Red</span><span class="p">,</span>
+<span class="w">        </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">endX</span><span class="p">,</span><span class="w"> </span><span class="n">startY</span><span class="p">),</span>
+<span class="w">        </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span><span class="w"> </span><span class="n">endY</span><span class="p">),</span>
+<span class="w">        </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.</span><span class="n">dp</span><span class="p">.</span><span class="na">toPx</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StrokeCap</span><span class="p">.</span><span class="na">Round</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="n">DrawScope</span><span class="p">.</span><span class="nf">drawField</span><span class="p">(</span>
+<span class="w">    </span><span class="n">startX</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">startY</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endX</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">endY</span><span class="p">:</span><span class="w"> </span><span class="kt">Float</span><span class="p">,</span>
+<span class="w">    </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Byte</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">TODO</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div>
+<p>Itt </p>
 <ul>
-<li>A saját view ezek után teljes package hivatkozással már használható is a felületen: </li>
+<li><em>val fieldMatrix by MineSweeperModel.getField().collectAsState()</em>: egy <code>Canvas</code>-re rajzoljuk a <code>fieldMatrix</code>-unk állapotát, amelyet a modeltől szerzünk</li>
+<li><em>.fillMaxWidth()</em>: teljes szélességre rajzolunk,</li>
+<li><em>.aspectRatio(1f)</em>:  1:1 aránnyal,</li>
+<li><em>.pointerInput(Unit)</em>: kezeljük a hosszú érintéseket, </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;hu.bme.aut.klaf.minesweeper.view.MineSweeperView</span>
-<span class="w">    </span><span class="na">android:id=</span><span class="s">&quot;@+id/mineSweeperView&quot;</span>
-<span class="w">    </span><span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
-<span class="w">    </span><span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-<span class="w">    </span><span class="err">...</span><span class="nt">/&gt;</span>
+<p>Majd pedig kirajzoljuk a </p>
+<ul>
+<li>hátteret</li>
+<li>a játékállapotot</li>
+<li>a játékteret</li>
+</ul>
+<p>A <code>GameArea</code>-t ez után ágyazzuk be egy <code>GameScreen</code>-be, és már meg is tudjuk jeleníteni:</p>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.ui.screen.game</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.Box</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.fillMaxSize</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.padding</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material.icons.Icons</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material.icons.automirrored.filled.ArrowBack</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.ExperimentalMaterial3Api</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Icon</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.IconButton</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Scaffold</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Text</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.TopAppBar</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.Composable</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.LaunchedEffect</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.Alignment</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.Modifier</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.unit.dp</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.data.MineSweeperModel</span>
+
+<span class="nd">@OptIn</span><span class="p">(</span><span class="n">ExperimentalMaterial3Api</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">GameScreen</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onBack</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">,</span>
+<span class="w">    </span><span class="n">modifier</span><span class="p">:</span><span class="w"> </span><span class="n">Modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">LaunchedEffect</span><span class="p">(</span><span class="n">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">initGameArea</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Scaffold</span><span class="p">(</span>
+<span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">topBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TopAppBar</span><span class="p">(</span>
+<span class="w">                </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Játék&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="n">navigationIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">IconButton</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">onBack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Icon</span><span class="p">(</span>
+<span class="w">                            </span><span class="n">imageVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Icons</span><span class="p">.</span><span class="na">AutoMirrored</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">ArrowBack</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Vissza&quot;</span>
+<span class="w">                        </span><span class="p">)</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">innerPadding</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">Box</span><span class="p">(</span>
+<span class="w">            </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="w">                </span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="n">innerPadding</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">            </span><span class="n">contentAlignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Alignment</span><span class="p">.</span><span class="na">Center</span>
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">GameArea</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">BEADANDÓ (2 pont)</p>
-<p>Ebben a fázisban az alkalmazásnak képesnek kell lennie az érintés eseményre reagálni. Vagyis: E mezőhöz való hozzáérésnél valamilyen változást kell látnunk a játéktéren.</p>
+<p>Ebben a fázisban az alkalmazásnak képesnek kell lennie az érintés eseményre reagálni. Vagyis: Egy mezőhöz való hozzáérésnél valamilyen változást kell látnunk a játéktéren. (Pl. zászló megjelenítése)</p>
 <p>Készíts egy <strong>képernyőképet</strong>, amelyen látszik a <strong>futó alkalmazás</strong> és <strong>egy hozzá tartozó kódrészlet</strong>. </p>
 <p>A képet a megoldásban a repository-ba f1.png néven töltsd föl.</p>
+<p>Dokumentáld a folyamatot a <code>Readme.md</code> fájlban!</p>
 </div>
 <h2 id="2-bombak-zaszlok-szamok-megjelenitese-1-pont">2. Bombák, zászlók, számok megjelenítése (1 pont)<a class="headerlink" href="#2-bombak-zaszlok-szamok-megjelenitese-1-pont" title="Permanent link">&para;</a></h2>
 <p>Ha már a játéktér megjelenik a felületen és össze van kötve a modellel, készítsd el és tedd használhatóvá a játék különbözö elemeit (grafikusan mindegyik máshogy jelenjen meg):</p>
@@ -3193,16 +3408,17 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 <li>A megérintett mező színe változzon meg, hogy egyértelmű legyen, hogy az már fel van fedve.</li>
 <li>Ha a megérintett mező alatt bomba van, az legyen egyértelműen jelezve.</li>
 <li>Ha a megérintett mező alatt szám van, az jelenjen meg.</li>
-<li>Legyen lehetőség zászlók letételére és felvételére még nem megnézett mezőn. (Ez bármilyen módszerrel történhet, egy lehetséges mód ToggleButton elhelyezése a felületen, amivel a következő akció állítható)</li>
+<li>Legyen lehetőség zászlók letételére és felvételére még nem megnézett mezőn. (Ez bármilyen módszerrel történhet, pl. rövid és hosszú érintés.)</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">BEADANDÓ (1 pont)</p>
 <p>Készíts egy <strong>képernyőképet</strong>, amelyen látszik a <strong>futó alkalmazás a feladatnak megfelelő állapotban</strong> és <strong>egy hozzá tartozó kódrészlet</strong>. </p>
 <p>A képet a megoldásban a repository-ba f2.png néven töltsd föl.</p>
+<p>Dokumentáld a folyamatot a <code>Readme.md</code> fájlban!</p>
 </div>
 <h2 id="3-jatek-vege-es-idomeres-1-pont">3. Játék vége és időmérés (1 pont)<a class="headerlink" href="#3-jatek-vege-es-idomeres-1-pont" title="Permanent link">&para;</a></h2>
 <p>A felületre helyezz el egy futó órát, ami a megoldás idejét számolja.
-Készítsd el a játék befejezésének logikáját, és a befejezést jelezze dialógusablakban:</p>
+Készítsd el a játék befejezésének logikáját immár ViewModel és MVI architektúra használatával. A játék befejezését jelezze dialógusablak:</p>
 <ul>
 <li>Ha egy bomba felfedésre kerül, a játék vereséggel véget ér.</li>
 <li>Ha a bombák kivételével az összes mező felfedésre került, a játék győzelemmel ér véget. Ekkor a dialógusablakban jelenjen meg a felhasznált idő is.</li>
@@ -3211,6 +3427,7 @@ Készítsd el a játék befejezésének logikáját, és a befejezést jelezze d
 <p class="admonition-title">BEADANDÓ (1 pont)</p>
 <p>Készíts egy <strong>képernyőképet</strong>, amelyen látszik a <strong>futó alkalmazás az órával</strong> és <strong>egy hozzá tartozó kódrészlet</strong>. </p>
 <p>A képet a megoldásban a repository-ba f3.png néven töltsd föl.</p>
+<p>Dokumentáld a folyamatot a <code>Readme.md</code> fájlban!</p>
 </div>
 <h2 id="4-perzisztencia-1-pont">4. Perzisztencia (1 pont)<a class="headerlink" href="#4-perzisztencia-1-pont" title="Permanent link">&para;</a></h2>
 <p>Ha a játék győzelemmel ér véget, kérjen be egy felhasználónevet, és ezt az idővel együtt mentse el perzisztensen.</p>
@@ -3219,6 +3436,7 @@ Készítsd el a játék befejezésének logikáját, és a befejezést jelezze d
 <p class="admonition-title">BEADANDÓ (1 pont)</p>
 <p>Készíts egy <strong>képernyőképet</strong>, amelyen látszik a <strong>futó alkalmazás a játék vége dialógussal</strong> és <strong>egy hozzá tartozó kódrészlet</strong>. </p>
 <p>A képet a megoldásban a repository-ba f4.png néven töltsd föl.</p>
+<p>Dokumentáld a folyamatot a <code>Readme.md</code> fájlban!</p>
 </div>
   <hr>
   <div class="md-source-file">
@@ -3229,8 +3447,8 @@ Készítsd el a játék befejezésének logikáját, és a befejezést jelezze d
           </path>
         </svg>
       </span>
-      <span title="2025. szeptember 8. 23:09:21">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. szeptember 8. 23:09:21 CEST"><span class="timeago" datetime="2025-09-08T23:09:21+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. szeptember 8. 23:09:21 CEST">2025-09-08</span>
+      <span title="2026. november 21. 18:27:32">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. november 21. 18:27:32 CET"><span class="timeago" datetime="2026-11-21T18:27:32+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. november 21. 18:27:32 CET">2026-11-21</span>
       </span>
     </span>
 
