@@ -2610,10 +2610,10 @@
 <p>A légitársaság nem akarja összes alkalmazását (sem pedig a discovery vagy a config servert) a belső hálózaton kívülről érkezők számára elérhetővé tenni, csak bizonyos jól definiált végpontokat. Ezért bevezetünk egy API gateway-t, amely kívülről elérhető lesz, és a kívülről érkező kéréseket a megfelelő microservice-hez továbbítja. Ehhez természetesen tudnia kell, hogy hol futnak ezek a szolgáltatások. Egy API gateway másik tipikus feladata az autorizáció kezelése, itt szoktak valamilyen kliens oldalról küldött token alapján user infokat (pl. JWT token formájában) beletenni a header-ök közé, vagy megfelelő kliens oldali token hiányában elutasítani a kérést. Így a gateway mögötti microservice-eknek már csak a user info kiolvasása a feladata. Jelenlegi példánkban az autorizációval nem foglalkozunk, kizárólag a kérések route-olására fókszálunk.</p>
 <ol>
 <li>
-<p>Hozzuk létre a gateway szerver projektjét, Ismét célszerű a File &gt; New &gt; Spring Starter Project varázslót használni. A projekt neve legyen <em>gateway</em>. A következő oldalon a lehetséges függőségek közül válasszuk ki:</p>
+<p>Hozzuk létre a gateway szerver projektjét, Ismét célszerű a File &gt; New &gt; Spring Starter Project varázslót használni. A projekt neve legyen <em>gateway</em>, a Java verzió 25. A következő oldalon a Spring Boot verzió ismét 4.1.3 legyen (ha nem választható, a pom.xml-t az 1. feladatban leírtak szerint kézzel kell javítani), a lehetséges függőségek közül pedig válasszuk ki:</p>
 </li>
 <li>
-<p>A Spring Cloud Routing csoportból a Reactive Gateway-t, fontos, hogy nem a "sima" Gateway-t. (Így egy kész gateway implementációt kapunk, amit csak fel kell konfigolnunk.)</p>
+<p>A Spring Cloud Routing csoportból a Reactive Gateway-t, fontos, hogy nem a "sima" Gateway-t. (Így egy kész, WebFlux alapú gateway implementációt kapunk, amit csak fel kell konfigolnunk. A pom.xml-ben ennek a <code>spring-cloud-starter-gateway-server-webflux</code> függőség felel meg.)</p>
 </li>
 <li>A Spring Cloud Config csoportból a Config Client-et. (Így az API gateway is a config szerverről fogja venni a saját konfigját.)</li>
 <li>
@@ -2673,7 +2673,12 @@ spring:
 <p>Az eddigiek alapján, ahhoz, ha pl. a <a href="http://localhost:8080/currency/rate/USD/HUF">http://localhost:8080/currency/rate/USD/HUF</a> címre érkezik egy kérés, az a <a href="http://localhost:8083/currency/rate/USD/HUF">http://localhost:8083/currency/rate/USD/HUF</a> címre fog továbbítódni. Tudjuk viszont, hogy a tényleges cím ez lenne: <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> . Ezt az eltérést több ponton is kezelhetjük, mi most azt a megoldást választjuk, hogy a routing szabálynál beállítunk egy path újraíró filtert is.  A RewritePath filterünk két, vesszővel elválasztott reguláris kifejezéssel pont azt éri el, hogy a <a href="http://localhost:8080/currency/rate/USD/HUF">http://localhost:8080/currency/rate/USD/HUF</a> kérés a <a href="http://localhost:8083/api/rate/USD/HUF">http://localhost:8083/api/rate/USD/HUF</a> címre érkezzen be. (Feltéve, hogy ezeket a portokat konfigoltuk be.)</p>
 </li>
 <li>
-<p>Indítsd el a légitársaság összes szerverét: config, discovery, gateway, flights, currency, bonus. Készíts két képernyőképet a jegyzőkönyvbe:</p>
+<p>Indítsd el a légitársaság összes szerverét: config, discovery, gateway, flights, currency, bonus.</p>
+<div class="admonition note">
+<p class="admonition-title">503 Service Unavailable</p>
+<p>Ha a gateway-en keresztül indított kérésre közvetlenül az indítás után 503-as (Service Unavailable) választ kapsz, várj kb. fél percet, és próbáld újra. Az Eureka kliensek (így a gateway is) csak 30 másodpercenként frissítik a regisztrált szolgáltatásokról tárolt helyi cache-üket, így a frissen elindult szolgáltatásokat a gateway csak kis késéssel látja.</p>
+</div>
+<p>Készíts két képernyőképet a jegyzőkönyvbe:</p>
 </li>
 <li>
 <p>Az elsőn látszódjon a currency.yml megnyitva az IDE-ben, és mellette egy böngészőben az átváltó API meghívásának eredménye, USD -&gt; HUF irány esetére, viszont <strong>a gateway-en keresztül meghívva!</strong></p>
@@ -2691,8 +2696,8 @@ spring:
           </path>
         </svg>
       </span>
-      <span title="2025. december 9. 11:19:34">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025. december 9. 11:19:34 CET"><span class="timeago" datetime="2025-12-09T11:19:34+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025. december 9. 11:19:34 CET">2025-12-09</span>
+      <span title="2026. november 23. 11:07:18">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. november 23. 11:07:18 CET"><span class="timeago" datetime="2026-11-23T11:07:18+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. november 23. 11:07:18 CET">2026-11-23</span>
       </span>
     </span>
 
@@ -2707,9 +2712,7 @@ spring:
         </svg>
       </span>
       <span>Szerzők</span>
-      <nav><a href="https://github.com/gazdilaci" target="_blank" rel="noopener noreferrer" class="md-author" title="@gazdilaci">
-          <img src="https://avatars.githubusercontent.com/u/23335752?v=4?size=72" alt="@gazdilaci">
-        </a></nav>      
+      <nav></nav>      
     </span>
   </div>
 
