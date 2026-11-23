@@ -212,8 +212,9 @@ package hu.bme.aut.klaf.minesweeper.ui.screen.game
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -223,7 +224,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import hu.bme.aut.klaf.minesweeper.data.MineSweeperModel
@@ -233,102 +233,105 @@ import hu.bme.aut.klaf.minesweeper.domain.model.Tile
 fun GameArea(modifier: Modifier = Modifier) {
     val fieldMatrix by MineSweeperModel.getField().collectAsState()
 
-    Canvas(
-        modifier = modifier
-            .fillMaxWidth()
-            .aspectRatio(1f)
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onLongPress = { offset ->
-                        val cellWidth = size.width / 5f
-                        val cellHeight = size.height / 5f
-                        val tX = (offset.x / cellWidth).toInt()
-                        val tY = (offset.y / cellHeight).toInt()
+    BoxWithConstraints {
+        val minSize = minOf(maxWidth, maxHeight)
+        Canvas(
+            modifier = modifier
+                .size(minSize)
+                .aspectRatio(1f)
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onLongPress = { offset ->
+                            val cellWidth = size.width / 5f
+                            val cellHeight = size.height / 5f
+                            val tX = (offset.x / cellWidth).toInt()
+                            val tY = (offset.y / cellHeight).toInt()
 
-                        if (tX in 0..4 && tY in 0..4) {
-                            val tile = fieldMatrix[tX][tY]
-                            when (tile.type) {
-                                Tile.TileType.FIELD_TYPE_NORMAL ->
-                                    MineSweeperModel.flagField(
-                                        tX,
-                                        tY
-                                    )
+                            if (tX in 0..4 && tY in 0..4) {
+                                val tile = fieldMatrix[tX][tY]
+                                when (tile.type) {
+                                    Tile.TileType.FIELD_TYPE_NORMAL ->
+                                        MineSweeperModel.flagField(
+                                            tX,
+                                            tY
+                                        )
 
-                                Tile.TileType.FIELD_TYPE_FLAGGED ->
-                                    MineSweeperModel.unFlagField(
-                                        tX,
-                                        tY
-                                    )
+                                    Tile.TileType.FIELD_TYPE_FLAGGED ->
+                                        MineSweeperModel.unFlagField(
+                                            tX,
+                                            tY
+                                        )
 
-                                Tile.TileType.FIELD_TYPE_REVEALED -> {}
+                                    Tile.TileType.FIELD_TYPE_REVEALED -> {}
+                                }
                             }
+                        },
+                        onTap = { offset ->
+                            TODO()
                         }
-                    },
-                    onTap = { offset ->
-                        TODO()
+                    )
+                }
+        ) {
+            val widthFloat = size.width
+            val heightFloat = size.height
+            val cellWidth = widthFloat / 5f
+            val cellHeight = heightFloat / 5f
+
+
+            // 1. Háttér rajzolása
+            drawRect(
+                color = Color.Black,
+                size = size
+            )
+
+            // 2. Játékállapot rajzolása
+            for (i in 0 until 5) {
+                for (j in 0 until 5) {
+                    val tile = fieldMatrix[i][j]
+                    val startX = i * cellWidth
+                    val startY = j * cellHeight
+                    val endX = (i + 1) * cellWidth
+                    val endY = (j + 1) * cellHeight
+                    when (tile.type) {
+                        Tile.TileType.FIELD_TYPE_FLAGGED ->
+                            drawFlag(startX, startY, endX, endY)
+
+                        Tile.TileType.FIELD_TYPE_REVEALED -> TODO()
+
+                        Tile.TileType.FIELD_TYPE_NORMAL -> {}
                     }
-                )
-            }
-    ) {
-        val widthFloat = size.width
-        val heightFloat = size.height
-        val cellWidth = widthFloat / 5f
-        val cellHeight = heightFloat / 5f
-
-
-        // 1. Háttér rajzolása
-        drawRect(
-            color = Color.Black,
-            size = size
-        )
-
-        // 2. Játékállapot rajzolása
-        for (i in 0 until 5) {
-            for (j in 0 until 5) {
-                val tile = fieldMatrix[i][j]
-                val startX = i * cellWidth
-                val startY = j * cellHeight
-                val endX = (i + 1) * cellWidth
-                val endY = (j + 1) * cellHeight
-                when (tile.type) {
-                    Tile.TileType.FIELD_TYPE_FLAGGED ->
-                        drawFlag(startX, startY, endX, endY)
-
-                    Tile.TileType.FIELD_TYPE_REVEALED -> TODO()
-
-                    Tile.TileType.FIELD_TYPE_NORMAL -> {}
                 }
             }
-        }
 
-        //3. Játéktér rajzolása
-        val strokeWidth = 5.dp.toPx()
-        val lineColor = Color.White
+            //3. Játéktér rajzolása
+            val strokeWidth = 5.dp.toPx()
+            val lineColor = Color.White
 
-        drawRect(
-            color = lineColor,
-            size = size,
-            style = Stroke(width = strokeWidth)
-        )
-
-        for (i in 1..4) {
-            val y = i * cellHeight
-            drawLine(
+            drawRect(
                 color = lineColor,
-                start = Offset(0f, y),
-                end = Offset(widthFloat, y),
-                strokeWidth = strokeWidth
+                size = size,
+                style = Stroke(width = strokeWidth)
             )
-        }
 
-        for (i in 1..4) {
-            val x = i * cellWidth
-            drawLine(
-                color = lineColor,
-                start = Offset(x, 0f),
-                end = Offset(x, heightFloat),
-                strokeWidth = strokeWidth
-            )
+            for (i in 1..4) {
+                val y = i * cellHeight
+                drawLine(
+                    color = lineColor,
+                    start = Offset(0f, y),
+                    end = Offset(widthFloat, y),
+                    strokeWidth = strokeWidth
+                )
+            }
+
+            for (i in 1..4) {
+                val x = i * cellWidth
+                drawLine(
+                    color = lineColor,
+                    start = Offset(x, 0f),
+                    end = Offset(x, heightFloat),
+                    strokeWidth = strokeWidth
+                )
+            }
         }
     }
 }
