@@ -6,9 +6,12 @@ Az egy gépen történő futtatáshoz mindenképp külön portot kell beállíta
 
 De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások belső konfig fájljaiban akarja konfigurálni, hanem egy központosított helyen, ezért egy konfig szervert fog bevezetni. A konfig szerver egy külön alkalmazás lesz (a neve pl. *config*), amelyeknek a bonus, currency és flights alkalmazások a kliensei lesznek, vagyis ettől fogják lekérdezni induláskor a saját konfigurációjukat. A Spring Cloud Config projekt beépítve tartalmaz támogatást a szerver és a kliens oldalhoz is, amit az alábbi módon vehetünk igénybe:
 
-1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 17-es Java-t és Mavent válassz a varázsló első oldalán, majd a második oldalon a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
+1. Hozz létre egy új projektet, *config* néven. Ha STS-t használsz, a leggyorsabb ezt a File > New > Spring Starter Project menüből indítani. 25-ös Java-t és Mavent válassz a varázsló első oldalán. A második oldalon a Spring Boot verziónál **4.1.3**-at válassz (a kiinduló projektek is ezt használják; a varázsló alapértelmezetten egy újabb verziót ajánlana fel), majd a választható függőségek közül a Spring Cloud Config csoport alatt a Config Server-t.
 
-2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (A Spring Cloud verzió a 2025.0.0, ami property-be van kiszervezve):
+    !!! warning "Verziók"
+        Ha a varázslóban nem tudod a 4.1.3-as Spring Boot verziót kiválasztani, akkor a projekt létrehozása után a pom.xml-ben írd át kézzel a parent verzióját 4.1.3-ra, a `spring-cloud.version` property értékét pedig 2025.1.5-re, a `java.version` értékét 25-re. Ugyanezt kell majd tenni a később létrehozandó discovery és gateway projekteknél is. (A Spring Cloud 2025.1.x a Spring Boot 4.0.x és 4.1.x verziókkal kompatibilis.)
+
+2. Vizsgáld meg a keletkező pom.xml-t. Látható, hogy a parent projekt ugyanúgy a spring-boot-starter-parent, ahogy azt megszoktuk. Viszont létrejött egy dependencyManagement tag, amely a spring cloud-os függőségeket húzza be. (A Spring Cloud verzió a 2025.1.5, ami property-be van kiszervezve):
 
    ```
    <dependencyManagement>
@@ -74,7 +77,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
      - A &lt;properties&gt; tagbe helyezzük el ezt a sort:
 
      ```
-             <spring-cloud.version>2025.0.0</spring-cloud.version>
+             <spring-cloud.version>2025.1.5</spring-cloud.version>
      ```
 
      - A &lt;properties&gt; tag alá helyezzük el ezeket a sorokat:
@@ -102,7 +105,7 @@ De a légitársaság a belső szolgáltatásait nem az egyes alkalmazások bels�
                </dependency>
        ```
 
-   - Hozzuk létre a application.properties fájlt az src\main\resources alatt, ezzel a tartalommal (a *name* utáni érték értelemszerűen az adott projektnek megfelelő legyen):
+   - Az src\main\resources alatti application.properties fájlba (a bonus és flights projektben már létezik üresen, ha nincs, hozzuk létre) írjuk be ezt a tartalmat (a *name* utáni érték értelemszerűen az adott projektnek megfelelő legyen):
 
      ```
      spring.application.name=bonus

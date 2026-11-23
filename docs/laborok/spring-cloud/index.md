@@ -8,8 +8,8 @@ A fő cél, hogy a Spring Cloud által adott lehetőségeket egy példán keresz
 
 A labor elvégzéséhez szükséges eszközök:
 
-- JDK 17, pl. innen: https://adoptium.net/?variant=openjdk17
-- Tetszőleges Java alapú IDE, pl. Spring Tools 4 for Eclipse: https://spring.io/tools
+- JDK 25, pl. innen: https://adoptium.net/temurin/releases/?version=25
+- Tetszőleges Java alapú IDE, pl. Spring Tools for Eclipse: https://spring.io/tools
 - HTTP kérések egyszerű összeállítását lehetővé tevő fejlesztői eszköz, pl.: [Postman](https://www.postman.com/downloads/)
 
 <hr />
@@ -20,12 +20,12 @@ A laborok elvégzéséhez használható segédanyagok és felkészülési anyago
     - https://web.microsoftstream.com/video/6e6642e0-bce5-48e5-bfcd-27d27cc22875?channelId=2c22f965-126a-4fe8-bbbd-71e5cd85a7c4
     - https://web.microsoftstream.com/video/1453a714-dcd7-4946-b53d-19fe60f67f4c?channelId=2c22f965-126a-4fe8-bbbd-71e5cd85a7c4
 
-Hivatalos dokumentációk:
+Hivatalos dokumentációk (a labor Spring Boot 4.1.3-at és Spring Cloud 2025.1.5-öt használ, ennek az 5.0.x verziójú Spring Cloud projektek felelnek meg):
 
-- Spring Cloud Config: https://docs.spring.io/spring-cloud-config/docs/3.0.5/reference/html/
-- Spring Cloud Gateway: https://docs.spring.io/spring-cloud-gateway/docs/3.0.4/reference/html/
-- Spring Cloud Netflix (Eureka): https://docs.spring.io/spring-cloud-netflix/docs/3.0.4/reference/html/
-- Spring Cloud OpenFeign: https://docs.spring.io/spring-cloud-openfeign/docs/3.0.4/reference/html/
+- Spring Cloud Config: https://docs.spring.io/spring-cloud-config/reference/5.0/
+- Spring Cloud Gateway: https://docs.spring.io/spring-cloud-gateway/reference/5.0/
+- Spring Cloud Netflix (Eureka): https://docs.spring.io/spring-cloud-netflix/reference/5.0/
+- Spring Cloud OpenFeign: https://docs.spring.io/spring-cloud-openfeign/reference/5.0/
 
 ## Beadandó
 

@@ -18,7 +18,7 @@ A fenti logika lekódolása önálló feladat, előtte viszont közösen oldjuk 
 
 - A szintén Spring által nyújtott, kicsit szebb API-t biztosító WebClient-en keresztül: https://www.baeldung.com/spring-5-webclient
 
-- Mi azt fogjuk kihasználni, hogy az API-nk definíciója már rendelkezésre áll Spring MVC annotációkkal elllátott interfész formájában. (Az *-api projektekben.) Ilyen esetben a [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/2.2.5.RELEASE/reference/html/) futási időben tudja generálni az API-t meghívó klienst, vagyis az API kliens oldali meghívása úgy fog megjelenni, mint egy egyszerű metódushívás ezen az interfészen. Az alábbi lépések szükségesek ehhez:
+- Mi azt fogjuk kihasználni, hogy az API-nk definíciója már rendelkezésre áll Spring MVC annotációkkal elllátott interfész formájában. (Az *-api projektekben.) Ilyen esetben a [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/reference/5.0/) futási időben tudja generálni az API-t meghívó klienst, vagyis az API kliens oldali meghívása úgy fog megjelenni, mint egy egyszerű metódushívás ezen az interfészen. Az alábbi lépések szükségesek ehhez:
 
   - A spring-cloud-starter-openfeign függőség már készen áll a bonus-api pom.xml-jében
 

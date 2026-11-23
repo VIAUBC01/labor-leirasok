@@ -2,7 +2,7 @@
 
 Egy microservice architektúrában célszerű egy discovery szerveren nyilvántartani, hogy melyik szolgáltatás milyen címen, vagy ha több példányban futtatjuk őket, akkor milyen cím**ek**en elérhető. Így pl. a kliensekbe nem kell beégetni a szolgáltatások címeit, és ha valamelyik szolgáltatást áthelyezik másik szerverre, a kliensek automatikusan megtalálják az új címet. Vagy ha címen elérhető egy szolgáltatás, akár terheléselosztó logikát is tehetünk a discovery mechanizmusba. Most ezt fogjuk megvalósítani, szintén Spring Cloud támogatással.
 
-1. Hozzuk létre a discovery szerver projektjét, Ismét célszerű a File > New > Spring Starter Project varázslót használni. A projekt neve legyen *discovery*. A következő oldalon a lehetséges függőségek közül válasszuk a Spring Cloud Discovery csoportból az Eureka Server-t és a Spring Cloud Config csoportból a Config Client-et. (Maga a discovery szerver is a config szerverről fogja venni a saját konfigját.)
+1. Hozzuk létre a discovery szerver projektjét, Ismét célszerű a File > New > Spring Starter Project varázslót használni. A projekt neve legyen *discovery*, a Java verzió 25. A következő oldalon a Spring Boot verzió ismét 4.1.3 legyen (ha nem választható, a pom.xml-t az 1. feladatban leírtak szerint kézzel kell javítani), a lehetséges függőségek közül pedig válasszuk a Spring Cloud Discovery csoportból az Eureka Server-t és a Spring Cloud Config csoportból a Config Client-et. (Maga a discovery szerver is a config szerverről fogja venni a saját konfigját.)
 
 2. A konfig szerver beállításához hozzuk létre az src\main\resources alá az application.properties fájlt, a szokásos tartalommal:
 
@@ -51,6 +51,9 @@ Egy microservice architektúrában célszerű egy discovery szerveren nyilvánta
      ```
 
 6. Indítsd el sorban a config, discovery, flights, currency és bonus alkalmazásokat. Készíts egy screenshotot, amelyen egy böngészőben látszik megnyitva a http://localhost:8085/ URL. Ha más portot állítottál be a discovery szervernek, akkor értelemszerűen azt a portot nyisd meg. Az elvárt eredmény, hogy a regisztrált példányok közt látszodjon a config, a flights, a currency és a bonus alkalmazás is.
+
+    !!! note "Hibaüzenet a config szerver logjában"
+        Mivel a config szerver a discovery szerver előtt indul, induláskor még nem tud beregisztrálni az Eureka-nál, ezért a logjában `Connection refused` kivételek és `was unable to refresh its cache` figyelmeztetések jelennek meg. Ez nem baj: a kliens 30 másodpercenként újrapróbálkozik, és a discovery szerver elindulása után a config is megjelenik a regisztrált példányok között.
 
 ## Következő feladat
 
