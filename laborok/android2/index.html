@@ -3170,8 +3170,9 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.Canvas</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.gestures.detectTapGestures</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.BoxWithConstraints</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.aspectRatio</span>
-<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.fillMaxWidth</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.foundation.layout.size</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.Composable</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.collectAsState</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.getValue</span>
@@ -3181,7 +3182,6 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.StrokeCap</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.drawscope.DrawScope</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.drawscope.Stroke</span>
-<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.nativeCanvas</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.input.pointer.pointerInput</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.unit.dp</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">hu.bme.aut.klaf.minesweeper.data.MineSweeperModel</span>
@@ -3191,102 +3191,105 @@ Az alkalmazás elkészítése során törekedj a strukturált felépítésre, k�
 <span class="kd">fun</span><span class="w"> </span><span class="nf">GameArea</span><span class="p">(</span><span class="n">modifier</span><span class="p">:</span><span class="w"> </span><span class="n">Modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">fieldMatrix</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">getField</span><span class="p">().</span><span class="na">collectAsState</span><span class="p">()</span>
 
-<span class="w">    </span><span class="n">Canvas</span><span class="p">(</span>
-<span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modifier</span>
-<span class="w">            </span><span class="p">.</span><span class="na">fillMaxWidth</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="na">aspectRatio</span><span class="p">(</span><span class="m">1f</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">pointerInput</span><span class="p">(</span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">detectTapGestures</span><span class="p">(</span>
-<span class="w">                    </span><span class="n">onLongPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
-<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
-<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">tX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellWidth</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
-<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">tY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellHeight</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
+<span class="w">    </span><span class="n">BoxWithConstraints</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">minSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minOf</span><span class="p">(</span><span class="n">maxWidth</span><span class="p">,</span><span class="w"> </span><span class="n">maxHeight</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Canvas</span><span class="p">(</span>
+<span class="w">            </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modifier</span>
+<span class="w">                </span><span class="p">.</span><span class="na">size</span><span class="p">(</span><span class="n">minSize</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">aspectRatio</span><span class="p">(</span><span class="m">1f</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">pointerInput</span><span class="p">(</span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">detectTapGestures</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">onLongPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">tX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellWidth</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
+<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">tY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cellHeight</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
 
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tX</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tY</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                            </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">tX</span><span class="o">][</span><span class="n">tY</span><span class="o">]</span>
-<span class="w">                            </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                                    </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">flagField</span><span class="p">(</span>
-<span class="w">                                        </span><span class="n">tX</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">tY</span>
-<span class="w">                                    </span><span class="p">)</span>
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tX</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tY</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">tX</span><span class="o">][</span><span class="n">tY</span><span class="o">]</span>
+<span class="w">                                </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                                        </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">flagField</span><span class="p">(</span>
+<span class="w">                                            </span><span class="n">tX</span><span class="p">,</span>
+<span class="w">                                            </span><span class="n">tY</span>
+<span class="w">                                        </span><span class="p">)</span>
 
-<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                                    </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">unFlagField</span><span class="p">(</span>
-<span class="w">                                        </span><span class="n">tX</span><span class="p">,</span>
-<span class="w">                                        </span><span class="n">tY</span>
-<span class="w">                                    </span><span class="p">)</span>
+<span class="w">                                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                                        </span><span class="n">MineSweeperModel</span><span class="p">.</span><span class="na">unFlagField</span><span class="p">(</span>
+<span class="w">                                            </span><span class="n">tX</span><span class="p">,</span>
+<span class="w">                                            </span><span class="n">tY</span>
+<span class="w">                                        </span><span class="p">)</span>
 
-<span class="w">                                </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                                </span><span class="p">}</span>
 <span class="w">                            </span><span class="p">}</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="n">onTap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                            </span><span class="n">TODO</span><span class="p">()</span>
 <span class="w">                        </span><span class="p">}</span>
-<span class="w">                    </span><span class="p">},</span>
-<span class="w">                    </span><span class="n">onTap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                        </span><span class="n">TODO</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">widthFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">heightFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
+
+
+<span class="w">            </span><span class="c1">// 1. Háttér rajzolása</span>
+<span class="w">            </span><span class="n">drawRect</span><span class="p">(</span>
+<span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Black</span><span class="p">,</span>
+<span class="w">                </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span>
+<span class="w">            </span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 2. Játékállapot rajzolása</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">startX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">startY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">endX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">endY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                            </span><span class="n">drawFlag</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span><span class="w"> </span><span class="n">startY</span><span class="p">,</span><span class="w"> </span><span class="n">endX</span><span class="p">,</span><span class="w"> </span><span class="n">endY</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TODO</span><span class="p">()</span>
+
+<span class="w">                        </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">)</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">widthFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">width</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">heightFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="na">height</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">widthFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cellHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heightFloat</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5f</span>
-
-
-<span class="w">        </span><span class="c1">// 1. Háttér rajzolása</span>
-<span class="w">        </span><span class="n">drawRect</span><span class="p">(</span>
-<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Black</span><span class="p">,</span>
-<span class="w">            </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span>
-<span class="w">        </span><span class="p">)</span>
-
-<span class="w">        </span><span class="c1">// 2. Játékállapot rajzolása</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldMatrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">startX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">startY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">endX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
-<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">endY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
-<span class="w">                </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="na">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_FLAGGED</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                        </span><span class="n">drawFlag</span><span class="p">(</span><span class="n">startX</span><span class="p">,</span><span class="w"> </span><span class="n">startY</span><span class="p">,</span><span class="w"> </span><span class="n">endX</span><span class="p">,</span><span class="w"> </span><span class="n">endY</span><span class="p">)</span>
-
-<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_REVEALED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TODO</span><span class="p">()</span>
-
-<span class="w">                    </span><span class="n">Tile</span><span class="p">.</span><span class="na">TileType</span><span class="p">.</span><span class="na">FIELD_TYPE_NORMAL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="c1">//3. Játéktér rajzolása</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.</span><span class="n">dp</span><span class="p">.</span><span class="na">toPx</span><span class="p">()</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">lineColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">White</span>
+<span class="w">            </span><span class="c1">//3. Játéktér rajzolása</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.</span><span class="n">dp</span><span class="p">.</span><span class="na">toPx</span><span class="p">()</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">lineColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">White</span>
 
-<span class="w">        </span><span class="n">drawRect</span><span class="p">(</span>
-<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
-<span class="w">            </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
-<span class="w">            </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stroke</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span><span class="p">)</span>
-<span class="w">        </span><span class="p">)</span>
-
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
-<span class="w">            </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">            </span><span class="n">drawRect</span><span class="p">(</span>
 <span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
-<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
-<span class="w">                </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
-<span class="w">                </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
+<span class="w">                </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+<span class="w">                </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stroke</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span><span class="p">)</span>
 <span class="w">            </span><span class="p">)</span>
-<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
-<span class="w">            </span><span class="n">drawLine</span><span class="p">(</span>
-<span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
-<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">0f</span><span class="p">),</span>
-<span class="w">                </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">),</span>
-<span class="w">                </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
-<span class="w">            </span><span class="p">)</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellHeight</span>
+<span class="w">                </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">widthFloat</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cellWidth</span>
+<span class="w">                </span><span class="n">drawLine</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineColor</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">0f</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Offset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">heightFloat</span><span class="p">),</span>
+<span class="w">                    </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strokeWidth</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -3447,8 +3450,8 @@ Készítsd el a játék befejezésének logikáját immár ViewModel és MVI arc
           </path>
         </svg>
       </span>
-      <span title="2026. november 21. 18:27:32">
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. november 21. 18:27:32 CET"><span class="timeago" datetime="2026-11-21T18:27:32+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. november 21. 18:27:32 CET">2026-11-21</span>
+      <span title="2026. november 23. 10:08:34">
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. november 23. 10:08:34 CET"><span class="timeago" datetime="2026-11-23T10:08:34+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. november 23. 10:08:34 CET">2026-11-23</span>
       </span>
     </span>
 
@@ -3465,6 +3468,8 @@ Készítsd el a játék befejezésének logikáját immár ViewModel és MVI arc
       <span>Szerzők</span>
       <nav><a href="https://github.com/gazdilaci" target="_blank" rel="noopener noreferrer" class="md-author" title="@gazdilaci">
           <img src="https://avatars.githubusercontent.com/u/23335752?v=4?size=72" alt="@gazdilaci">
+        </a><a href="https://github.com/web-flow" target="_blank" rel="noopener noreferrer" class="md-author" title="@web-flow">
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4?size=72" alt="@web-flow">
         </a></nav>      
     </span>
   </div>
